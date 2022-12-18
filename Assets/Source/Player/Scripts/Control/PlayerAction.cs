@@ -58,6 +58,5 @@ abstract public class PlayerAction : MonoBehaviour
     private void OnDown()
     {
         Actioned?.Invoke();
-        Debug.Log("Pressed " + _key);
     }
 }

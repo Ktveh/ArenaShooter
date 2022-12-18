@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         _speed = _defaultSpeed;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if ((Input.GetAxis(Vertical) != 0) && (Input.GetAxis(Horizontal) != 0) && (_isRunningKeyboard == false))
             _speed = _minSpeed;
@@ -35,16 +35,16 @@ public class PlayerMovement : MonoBehaviour
 
 
         if (Input.GetAxis(Vertical) != 0)
-            _rigidbody.AddRelativeForce(Vector3.forward * _speed * Input.GetAxis(Vertical) * Time.deltaTime, ForceMode.Acceleration);
+            _rigidbody.AddRelativeForce(Vector3.forward * _speed * Input.GetAxis(Vertical) * Time.deltaTime, ForceMode.VelocityChange);
 
         if ((Input.GetAxis(Horizontal) != 0) && (_isRunningKeyboard == false))
-            _rigidbody.AddRelativeForce(Vector3.right * _speed * Input.GetAxis(Horizontal) * Time.deltaTime, ForceMode.Acceleration);
-        
-        if(_joystick.Vertical != 0)
-            _rigidbody.AddRelativeForce(Vector3.forward * _speed * _joystick.Vertical * Time.deltaTime, ForceMode.Acceleration);
+            _rigidbody.AddRelativeForce(Vector3.right * _speed * Input.GetAxis(Horizontal) * Time.deltaTime, ForceMode.VelocityChange);
+
+        if (_joystick.Vertical != 0)
+            _rigidbody.AddRelativeForce(Vector3.forward * _speed * _joystick.Vertical * Time.deltaTime, ForceMode.VelocityChange);
 
         if ((_joystick.Horizontal != 0) && (_isRunningJoystick == false))
-            _rigidbody.AddRelativeForce(Vector3.right * _speed * _joystick.Horizontal * Time.deltaTime, ForceMode.Acceleration);
+                _rigidbody.AddRelativeForce(Vector3.right * _speed * _joystick.Horizontal * Time.deltaTime, ForceMode.VelocityChange);
     }
 
     private void OnEnable()

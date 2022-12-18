@@ -16,7 +16,6 @@ public class CameraDirection : MonoBehaviour
     {
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
-        transform.eulerAngles = new Vector3(0, 0);
     }
 
     private void LateUpdate()

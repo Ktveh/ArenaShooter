@@ -7,11 +7,12 @@ public class PlayerJumping : MonoBehaviour
     [SerializeField] private float _force;
 
     private Rigidbody _rigidbody;
-    private bool _isGround;
+    private CheckingGround _checkingGround;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _checkingGround = GetComponentInChildren<CheckingGround>();
     }
 
     private void Update()
@@ -32,17 +33,7 @@ public class PlayerJumping : MonoBehaviour
 
     private void OnDown()
     {
-        if (_isGround)
-            _rigidbody.AddRelativeForce( new Vector3(0, _force * Time.deltaTime), ForceMode.VelocityChange);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        _isGround = other != null;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        _isGround = false;
+        if (_checkingGround.IsTrue)
+            _rigidbody.AddRelativeForce(Vector3.up * _force * Time.deltaTime, ForceMode.VelocityChange);
     }
 }
