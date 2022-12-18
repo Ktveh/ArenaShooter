@@ -5,11 +5,14 @@ using UnityEngine.AI;
 
 public class ZombieMover : MonoBehaviour
 {
+    [SerializeField] private Zombie _zombie;
     [SerializeField] private ZombieTargeter _targeter;
     [SerializeField] private ZombieAnimator _animator;
     [SerializeField] private NavMeshAgent _agent;
-    [SerializeField] private float _minSpeed;
-    [SerializeField] private float _maxSpeed;
+    [SerializeField] private float _crawlSpeed;
+    [SerializeField] private float _walkSpeed;
+    [SerializeField] private float _runSpeed;
+    [Range(0,1)]
     [SerializeField] private float _spreadSpeed;
 
     private Target _target;
@@ -19,15 +22,20 @@ public class ZombieMover : MonoBehaviour
         if (_target != null)
         {
             _agent.destination = _target.transform.position;
-            if (_target is MainTarget || _target is ZombieTarget || _target is SoundTarget)
+            if (_target is MainTarget && _zombie.HasLegs)
             {
-                _agent.speed = _maxSpeed + Random.Range(-_spreadSpeed, _spreadSpeed);
+                _agent.speed = SetSpeed(_runSpeed);
                 _animator.Run();
+            }
+            else if (_zombie.HasLegs)
+            {
+                _agent.speed = SetSpeed(_walkSpeed);
+                _animator.Walk();
             }
             else
             {
-                _agent.speed = _minSpeed + Random.Range(-_spreadSpeed, _spreadSpeed);
-                _animator.Walk();
+                _agent.speed = SetSpeed(_crawlSpeed);
+                _animator.Crawl();
             }
         }
         if (!_agent.hasPath)
@@ -36,5 +44,10 @@ public class ZombieMover : MonoBehaviour
         }
         _target = _targeter.CurrentTarget;
 
+    }
+
+    private float SetSpeed(float speed)
+    {
+        return speed += speed * Random.Range(_spreadSpeed, -_spreadSpeed);
     }
 }

@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
     [SerializeField] private float _health;
     [SerializeField] private ZombieAnimator _animator;
+    [SerializeField] private ParticleSystem _deadEffect;
+    [SerializeField] private Sound _sound;
 
-    private bool _hasLegs;
+    [SerializeField] private bool _hasLegs;
+
+    public bool HasLegs => _hasLegs;
 
     private void OnTriggerStay(Collider other)
     {
@@ -22,6 +25,7 @@ public class Zombie : MonoBehaviour
     {
         if (_health > 0)
         {
+            _deadEffect.Play();
             _health -= damage;
             if (_health <= 0)
             {
@@ -30,21 +34,14 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (!_hasLegs)
-        {
-            _animator.Crawl();
-        }
-    }
-
     private void Die()
     {
-
+        Destroy(gameObject);
     }
 
     private void Attack()
     {
+        _sound.Play();
         _animator.Attack();
     }
 }

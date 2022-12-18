@@ -98,7 +98,6 @@ public class ZombieTargeter : MonoBehaviour
         {   
             if (hit.collider.gameObject.GetComponent<MainTarget>())
             {
-                Debug.DrawRay(startPosition, direction * hit.distance, Color.green);
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
                 if (_randomTarget != null)
                 {
@@ -111,7 +110,6 @@ public class ZombieTargeter : MonoBehaviour
                 _zombieTarget = hit.collider.gameObject.GetComponent<ZombieTarget>();
                 if (_zombieTarget.IsAction)
                 {
-                    Debug.DrawRay(startPosition, direction * hit.distance, Color.blue);
                     if (_randomTarget != null)
                     {
                         SettingRandomTarget(_zombieTarget.transform.position, 0, 5);
@@ -120,17 +118,8 @@ public class ZombieTargeter : MonoBehaviour
                 else
                 {
                     _zombieTarget = null;
-                    Debug.DrawRay(startPosition, direction * hit.distance, Color.red);
                 }
             }
-            else
-            {
-                Debug.DrawRay(startPosition, direction * hit.distance, Color.red);
-            }
-        }
-        else
-        {
-            Debug.DrawRay(startPosition, direction * _distanceDetected, Color.red);
         }
     }
 
