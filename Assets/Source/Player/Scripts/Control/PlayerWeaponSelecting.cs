@@ -66,15 +66,15 @@ public class PlayerWeaponSelecting : MonoBehaviour
         _buttonNextWeapon.Down -= OnDown;
     }
 
-    private void Change(Weapon.Types newing)
+    private void Change(Weapon.Types weapon)
     {
         if (_isBonusActivated)
             return;
 
-        if (_currentWeapon.Type == newing)
+        if (_currentWeapon.Type == weapon)
             return;
 
-        Weapon newWeapon = _standardWeapons[newing];
+        Weapon newWeapon = _standardWeapons[weapon];
         _currentWeapon.Hide();
         newWeapon.Show();
         _currentWeapon = newWeapon;

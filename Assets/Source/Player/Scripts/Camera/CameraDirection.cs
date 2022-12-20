@@ -14,27 +14,22 @@ public class CameraDirection : MonoBehaviour
 
     private void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void LateUpdate()
     {
-        if ((Input.GetAxisRaw(MouseX) != 0) || (Input.GetAxisRaw(MouseY) != 0))
-        {
-            float mouseX = Input.GetAxisRaw(MouseX) * _sensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxisRaw(MouseY) * _sensitivity * Time.deltaTime;
-            _directionX -= mouseY;
-            _directionY += mouseX;
-        }
-        else if ((_joystick.Horizontal != 0) || (_joystick.Vertical != 0))
-        {
-            float mouseX = _joystick.Horizontal * _sensitivity * Time.deltaTime;
-            float mouseY = _joystick.Vertical * _sensitivity * Time.deltaTime;
-            _directionX -= mouseY;
-            _directionY += mouseX;
-        }
+        CameraRotation(new Vector2(Input.GetAxisRaw(MouseX), Input.GetAxisRaw(MouseY)));
+        CameraRotation(new Vector2(_joystick.Horizontal, _joystick.Vertical));
+    }
 
+    private void CameraRotation(Vector2 direction)
+    {
+        float mouseX = direction.x * _sensitivity * Time.deltaTime;
+        float mouseY = direction.y * _sensitivity * Time.deltaTime;
+        _directionX -= mouseY;
+        _directionY += mouseX;
         _directionX = Mathf.Clamp(_directionX, -90, 90);
         transform.rotation = Quaternion.Euler(_directionX, _directionY, 0);
         _orintation.rotation = Quaternion.Euler(0, _directionY, 0);
