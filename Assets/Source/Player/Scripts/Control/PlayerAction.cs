@@ -8,7 +8,10 @@ abstract public class PlayerAction : MonoBehaviour
 
     private int _normalizedKeyMouse;
 
+    private bool _isMouse => (_key == KeyCode.Mouse0) || (_key == KeyCode.Mouse1);
+
     public event UnityAction Actioned;
+    public event UnityAction WithoutActioned;
 
     private void Start()
     {
@@ -26,15 +29,11 @@ abstract public class PlayerAction : MonoBehaviour
 
     private void Update()
     {
-        if (_key == KeyCode.Mouse0)
-        {
-            if (Input.GetMouseButton(_normalizedKeyMouse))
-                Actioned?.Invoke();
-        }
-        else if (Input.GetKeyDown(_key) || Input.GetMouseButtonDown(_normalizedKeyMouse))
-        { 
+        if (Input.GetKeyDown(_key) || (Input.GetMouseButtonDown(_normalizedKeyMouse) && _isMouse))
             Actioned?.Invoke();
-        }
+
+        if (Input.GetKeyUp(_key) || (Input.GetMouseButtonUp(_normalizedKeyMouse) && _isMouse))
+            WithoutActioned?.Invoke();
     }
 
     private void OnEnable()
@@ -43,7 +42,10 @@ abstract public class PlayerAction : MonoBehaviour
             return;
 
         foreach (var button in _buttons)
+        {
             button.Down += OnDown;
+            button.Up += OnUp;
+        }
     }
 
     private void OnDisable()
@@ -52,11 +54,19 @@ abstract public class PlayerAction : MonoBehaviour
             return;
 
         foreach (var button in _buttons)
+        {
             button.Down -= OnDown;
+            button.Up -= OnUp;
+        }
     }
 
     private void OnDown()
     {
         Actioned?.Invoke();
+    }
+
+    private void OnUp()
+    {
+        WithoutActioned?.Invoke();
     }
 }
