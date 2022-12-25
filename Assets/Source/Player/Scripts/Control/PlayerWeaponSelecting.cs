@@ -8,12 +8,14 @@ public class PlayerWeaponSelecting : MonoBehaviour
 
     private StandardWeapon[] _standardWeaponsAdding;
     private BonusWeapon[] _bonusWeaponsAdding;
-    private Dictionary<Weapon.Types, Weapon> _standardWeapons = new Dictionary<Weapon.Types, Weapon>();
-    private Dictionary<Weapon.Types, Weapon> _bonusWeapon = new Dictionary<Weapon.Types, Weapon>();
+    private Dictionary<Weapon.Types, StandardWeapon> _standardWeapons = new Dictionary<Weapon.Types, StandardWeapon>();
+    private Dictionary<Weapon.Types, BonusWeapon> _bonusWeapon = new Dictionary<Weapon.Types, BonusWeapon>();
     private Dictionary<KeyCode, Weapon.Types> _weaponsKeysCodes = new Dictionary<KeyCode, Weapon.Types>();
     private Weapon _currentWeapon;
     private int _firstNumberWeapon = 49;
     private bool _isBonusActivated;
+
+    public Weapon CurrentWeapon => _currentWeapon;
 
     private void Awake()
     {
@@ -32,7 +34,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
             _weaponsKeysCodes.Add((KeyCode)_firstNumberWeapon++, weaponType);
         }
 
-        foreach (Weapon weapon in _bonusWeaponsAdding)
+        foreach (BonusWeapon weapon in _bonusWeaponsAdding)
         {
             _bonusWeapon.Add(weapon.Type, weapon);
             weapon.gameObject.SetActive(false);
@@ -66,17 +68,20 @@ public class PlayerWeaponSelecting : MonoBehaviour
         _buttonNextWeapon.Down -= OnDown;
     }
 
-    private void Change(Weapon.Types weapon)
+    private void Change(Weapon.Types typeWeapon)
     {
         if (_isBonusActivated)
             return;
 
-        if (_currentWeapon.Type == weapon)
+        if (_currentWeapon.Type == typeWeapon)
             return;
 
-        Weapon newWeapon = _standardWeapons[weapon];
-        _currentWeapon.Hide();
-        newWeapon.Show();
+        if (_currentWeapon.IsReloading)
+            return;
+
+        _currentWeapon.gameObject.SetActive(false);
+        StandardWeapon newWeapon = _standardWeapons[typeWeapon];
+        newWeapon.gameObject.SetActive(true);
         _currentWeapon = newWeapon;
     }
 

@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _isRunningKeyboard => Input.GetKey(KeyCode.LeftShift) && (Input.GetAxis(Vertical) > 0);
 
+    public bool IsWalking => _speed > 0; 
+    public bool IsRunning => _isRunningJoystick || _isRunningKeyboard;
+
     private void Start()
     {
         _characterController = GetComponent<CharacterController>();
