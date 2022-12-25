@@ -5,12 +5,14 @@ public class CameraDirection : MonoBehaviour
     private const string MouseX = "Mouse X";
     private const string MouseY = "Mouse Y";
 
+    [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Transform _orintation;
     [SerializeField] private float _sensitivity;
 
     private float _directionX;
     private float _directionY;
+    private float _forceRecoil;
 
     private void Start()
     {
