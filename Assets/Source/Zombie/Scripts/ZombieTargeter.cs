@@ -6,7 +6,8 @@ public class ZombieTargeter : MonoBehaviour
 {
     [SerializeField] private Vector3 _offset;
     [SerializeField] private float _angleDetected;
-    [SerializeField] private float _distanceDetected;
+    [SerializeField] private float _forwardDistanceDetected;
+    [SerializeField] private float _aroundDistanceDetected;
     [SerializeField] private int _amountRaycasts;
     [SerializeField] private ZombieTarget _ownTarget;
     [SerializeField] private RandomTarget _template;
@@ -38,30 +39,26 @@ public class ZombieTargeter : MonoBehaviour
 
     private void Update()
     {
-        FoundTargets();
-        SetCurrentTarget();
-    }
-
-    private void FoundTargets()
-    {
-        float angle = 0;
         _mainTarget = null;
         _zombieTarget = null;
         _ownTarget.IsAction = false;
+        FoundTargets(_angleDetected, _forwardDistanceDetected);
+        FoundTargets(360, _aroundDistanceDetected);
+        SetCurrentTarget();
+    }
+
+    private void FoundTargets(float angleDetected, float distance)
+    {
+        float angle = 0;
 
         for (int i = 0; i < _amountRaycasts; i++)
         {
             float x = Mathf.Sin(angle);
             float z = Mathf.Cos(angle);
 
-            angle += _angleDetected * Mathf.Deg2Rad / _amountRaycasts;
+            angle += angleDetected * Mathf.Deg2Rad / _amountRaycasts;
 
-            GetRaycast(transform.TransformDirection(new Vector3(x, 0, z)));
-
-            if (x != 0)
-            {
-                GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)));
-            }
+            GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
         }
     }
 
@@ -89,15 +86,16 @@ public class ZombieTargeter : MonoBehaviour
         }
     }
 
-    private void GetRaycast(Vector3 direction)
+    private void GetRaycast(Vector3 direction, float distance)
     {
         Vector3 startPosition = transform.position + _offset;
         RaycastHit hit = new RaycastHit();
         
-        if (Physics.Raycast(startPosition, direction, out hit, _distanceDetected))
+        if (Physics.Raycast(startPosition, direction, out hit, distance))
         {   
             if (hit.collider.gameObject.GetComponent<MainTarget>())
             {
+                Debug.DrawLine(startPosition, hit.point, Color.green);
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
                 if (_randomTarget != null)
                 {
@@ -107,6 +105,7 @@ public class ZombieTargeter : MonoBehaviour
             }
             else if (hit.collider.gameObject.GetComponent<ZombieTarget>())
             {
+                Debug.DrawLine(startPosition, hit.point, Color.blue);
                 _zombieTarget = hit.collider.gameObject.GetComponent<ZombieTarget>();
                 if (_zombieTarget.IsAction)
                 {
@@ -120,6 +119,10 @@ public class ZombieTargeter : MonoBehaviour
                     _zombieTarget = null;
                 }
             }
+        }
+        else
+        {
+            Debug.DrawRay(startPosition, direction * distance, Color.red);
         }
     }
 
