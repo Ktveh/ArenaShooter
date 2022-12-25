@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Zombie : MonoBehaviour
 {
-    [SerializeField] private float _health;
+    [SerializeField] private int _health;
     [SerializeField] private ZombieAnimator _animator;
     [SerializeField] private ParticleSystem _deadEffect;
     [SerializeField] private Sound _sound;
 
-    [SerializeField] private bool _hasLegs;
+    private bool _hasLegs = true;
+
+    public event UnityAction<Zombie> Dead;
 
     public bool HasLegs => _hasLegs;
+    public int Health => _health;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<MainTarget>())
         {
@@ -21,7 +25,15 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<MainTarget>())
+        {
+            StopAttack();
+        }
+    }
+
+    public void TakeDamage(int damage)
     {
         if (_health > 0)
         {
@@ -34,14 +46,25 @@ public class Zombie : MonoBehaviour
         }
     }
 
+    public void RemoveLeg()
+    {
+        _hasLegs = false;
+    }
+
     private void Die()
     {
+        Dead?.Invoke(this);
         Destroy(gameObject);
     }
 
     private void Attack()
     {
         _sound.Play();
-        _animator.Attack();
+        _animator.StartAttack();
+    }
+
+    private void StopAttack()
+    {
+        _animator.StopAttack();
     }
 }

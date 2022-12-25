@@ -29,9 +29,14 @@ public class ZombieAnimator : MonoBehaviour
         _animator.SetBool(RunAnimation, false);
     }
 
-    public void Attack()
+    public void StartAttack()
     {
-        _animator.SetTrigger(AttackAnimation);
+        _animator.SetBool(AttackAnimation, true);
+    }
+
+    public void StopAttack()
+    {
+        _animator.SetBool(AttackAnimation, false);
     }
 
     public void Crawl()
