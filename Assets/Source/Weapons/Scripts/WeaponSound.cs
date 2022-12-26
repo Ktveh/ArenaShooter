@@ -6,7 +6,6 @@ public class WeaponSound : MonoBehaviour
 {
     [SerializeField] private Transform _containerShootingNonSilencer;
     [SerializeField] private Transform _containerShootingSilencer;
-    //[SerializeField] private Sound _playingShotSound;
     [SerializeField] private AudioSource _aiming;
     [SerializeField] private AudioSource _hidingWeapon;
     [SerializeField] private AudioSource _takingOutWeapon;
@@ -48,7 +47,6 @@ public class WeaponSound : MonoBehaviour
         }
         else
         {
-            //_playingShotSound.Play();
             AudioSource sound = _nonSilencedShots.FirstOrDefault(sound => sound.isPlaying == false);
 
             if (sound != null)

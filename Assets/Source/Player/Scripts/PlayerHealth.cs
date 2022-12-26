@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     private float _value;
 
     public event UnityAction<float> Changed;
+    public event UnityAction TookDamage;
     public event UnityAction Deaded;
 
     private void Start()
@@ -20,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     {
         _value -= damage;
         Changed?.Invoke(_value);
+        TookDamage?.Invoke();
 
         if (_value <= 0)
             Deaded?.Invoke();
