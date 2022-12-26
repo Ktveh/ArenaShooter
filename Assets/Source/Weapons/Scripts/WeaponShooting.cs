@@ -39,11 +39,6 @@ public class WeaponShooting : MonoBehaviour
         _weapon = GetComponent<Weapon>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     public void LaunchBullet(bool isScoping)
     {
         _weaponAnimator.Fire(isScoping);

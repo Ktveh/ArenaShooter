@@ -8,9 +8,13 @@ public class InterfaceHealthBar : MonoBehaviour
     
     private Slider _healthBar;
 
-    private void Start()
+    private void Awake()
     {
-        _healthBar = GetComponent<Slider>();
+        _healthBar = GetComponent<Slider>(); 
+    }
+
+    private void OnEnable()
+    {
         _playerHealth.Changed += OnChanged;
     }
 

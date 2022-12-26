@@ -12,6 +12,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(WeaponSound))]
 public class Weapon : MonoBehaviour
 {
+	[SerializeField] private Sprite _icon;
 	[SerializeField] private Types _type;
 	[SerializeField] private uint _maxAmountAmmo;
 	[SerializeField] private float _nextShotDelay;
@@ -47,6 +48,7 @@ public class Weapon : MonoBehaviour
 	//private bool _isHasHolstered = false;
 
 	public Camera WeaponCamera => _weaponCamera;
+	public Sprite Icon => _icon;
 	public Types Type => _type;
 	public uint CurrentAmountAmmo { get; private set; }
 	public uint NeedAmountAmmo => _maxAmountAmmo - CurrentAmountAmmo;
@@ -62,6 +64,9 @@ public class Weapon : MonoBehaviour
 	private bool _isScoping => _isOpeningScope && IsReloading == false && _isRunning == false;
 	private bool _isRunning => _playerMovement.IsRunning;
     private bool _isOutOfAmmo => CurrentAmountAmmo == 0;
+
+	public event UnityAction Shooted;
+	public event UnityAction Reloaded;
 
 	public enum Types
 	{
@@ -102,6 +107,8 @@ public class Weapon : MonoBehaviour
 			CurrentAmountAmmo = ammo;
 		else
 			CheckBreechBlock();
+
+		Reloaded?.Invoke();
 	}
 
     private void Update()
@@ -135,6 +142,9 @@ public class Weapon : MonoBehaviour
 		_playerWeaponReloading.Actioned += OnReload;
 
 		_weaponHolster.Hide(false);
+
+		if (_type == Weapon.Types.Shotgun)
+			_isMovingMovableHandguard = false;
 	}
 
     private void OnDisable()
@@ -159,6 +169,7 @@ public class Weapon : MonoBehaviour
 		CurrentAmountAmmo = _amountAmmoReceived;
 		IsReloadingStarted = false;
 		CheckBreechBlock();
+		Reloaded?.Invoke();
 	}
 	
 	private void OnReturned()
@@ -250,6 +261,7 @@ public class Weapon : MonoBehaviour
 		{
 			--CurrentAmountAmmo;
 			_weaponShooting.LaunchBullet(_isScoping);
+			Shooted?.Invoke();
 		}
 
 		CheckBreechBlock();

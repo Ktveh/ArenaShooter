@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(WeaponAnimator))]
 [RequireComponent(typeof(WeaponSound))]

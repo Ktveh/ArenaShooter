@@ -47,6 +47,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
         {
             _currentWeapon = _standardWeapons[Weapon.Types.Pistol];
             _currentWeapon.gameObject.SetActive(true);
+            Selected?.Invoke();
         }
     }
 
