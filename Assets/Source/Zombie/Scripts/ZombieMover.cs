@@ -43,7 +43,6 @@ public class ZombieMover : MonoBehaviour
             _animator.Stop();
         }
         _target = _targeter.CurrentTarget;
-
     }
 
     private float SetSpeed(float speed)

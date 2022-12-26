@@ -11,14 +11,6 @@ public class ZombieLimb : MonoBehaviour
     [SerializeField] private bool _isHead;
     [SerializeField] private ParticleSystem _bloodEffect;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<MainTarget>())
-        {
-            TakeDamage(5);
-        }
-    }
-
     public void TakeDamage(int damage)
     {
         if (_health > 0)

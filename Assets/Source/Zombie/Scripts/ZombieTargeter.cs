@@ -58,7 +58,12 @@ public class ZombieTargeter : MonoBehaviour
 
             angle += angleDetected * Mathf.Deg2Rad / _amountRaycasts;
 
-            GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
+            GetRaycast(transform.TransformDirection(new Vector3(x, 0, z)), distance);
+
+            if (x != 0)
+            {
+                GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
+            }
         }
     }
 
@@ -118,6 +123,10 @@ public class ZombieTargeter : MonoBehaviour
                 {
                     _zombieTarget = null;
                 }
+            }
+            else
+            {
+                Debug.DrawLine(startPosition, hit.point, Color.red);
             }
         }
         else

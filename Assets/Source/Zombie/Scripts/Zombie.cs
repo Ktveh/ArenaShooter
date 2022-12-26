@@ -6,10 +6,12 @@ using UnityEngine.Events;
 public class Zombie : MonoBehaviour
 {
     [SerializeField] private int _health;
+    [SerializeField] private int _damage;
     [SerializeField] private ZombieAnimator _animator;
     [SerializeField] private ParticleSystem _deadEffect;
     [SerializeField] private Sound _sound;
 
+    private PlayerHealth _playerHealth;
     private bool _hasLegs = true;
 
     public event UnityAction<Zombie> Dead;
@@ -19,15 +21,16 @@ public class Zombie : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<MainTarget>())
+        if (other.gameObject.GetComponent<PlayerHealth>())
         {
+            _playerHealth = other.gameObject.GetComponent<PlayerHealth>();
             Attack();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<MainTarget>())
+        if (other.gameObject.GetComponent<PlayerHealth>())
         {
             StopAttack();
         }
@@ -59,6 +62,7 @@ public class Zombie : MonoBehaviour
 
     private void Attack()
     {
+        _playerHealth.Take(_damage);
         _sound.Play();
         _animator.StartAttack();
     }
