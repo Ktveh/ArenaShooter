@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(WeaponAnimator))]
 [RequireComponent(typeof(WeaponAccessories))]
@@ -38,7 +39,6 @@ public class Weapon : MonoBehaviour
 	private PlayerWeaponReloading _playerWeaponReloading;
 	private PlayerInventory _playerInventory;
 	private Camera _weaponCamera;
-	private uint _currentAmountAmmo;
 	private uint _amountAmmoReceived;
 	private bool _isBreechBlockOpen;
 	private bool _isShooting;
@@ -48,7 +48,8 @@ public class Weapon : MonoBehaviour
 
 	public Camera WeaponCamera => _weaponCamera;
 	public Types Type => _type;
-	public uint NeedAmountAmmo => _maxAmountAmmo - _currentAmountAmmo;
+	public uint CurrentAmountAmmo { get; private set; }
+	public uint NeedAmountAmmo => _maxAmountAmmo - CurrentAmountAmmo;
 	public float ForceRecoil => _forceRecoil;
 	public float DuartionReloadingOpen => _durationReloadingOpen;
 	public float DuartionInsertShell => _durationInsertShell;
@@ -60,7 +61,7 @@ public class Weapon : MonoBehaviour
 
 	private bool _isScoping => _isOpeningScope && IsReloading == false && _isRunning == false;
 	private bool _isRunning => _playerMovement.IsRunning;
-    private bool _isOutOfAmmo => _currentAmountAmmo == 0;
+    private bool _isOutOfAmmo => CurrentAmountAmmo == 0;
 
 	public enum Types
 	{
@@ -97,8 +98,8 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-		if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, _currentAmountAmmo, out uint ammo))
-			_currentAmountAmmo = ammo;
+		if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, CurrentAmountAmmo, out uint ammo))
+			CurrentAmountAmmo = ammo;
 		else
 			CheckBreechBlock();
 	}
@@ -155,7 +156,7 @@ public class Weapon : MonoBehaviour
 
 	private void OnFinishedAnimation()
     {
-		_currentAmountAmmo = _amountAmmoReceived;
+		CurrentAmountAmmo = _amountAmmoReceived;
 		IsReloadingStarted = false;
 		CheckBreechBlock();
 	}
@@ -224,7 +225,7 @@ public class Weapon : MonoBehaviour
     {
 		if ((IsReloading == false) && (_isRunning == false))
 		{
-			if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, _currentAmountAmmo, out uint ammo))
+			if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, CurrentAmountAmmo, out uint ammo))
 			{
 				IsReloadingStarted = true;
 				_amountAmmoReceived = ammo;
@@ -247,7 +248,7 @@ public class Weapon : MonoBehaviour
 		}
 		else
 		{
-			--_currentAmountAmmo;
+			--CurrentAmountAmmo;
 			_weaponShooting.LaunchBullet(_isScoping);
 		}
 

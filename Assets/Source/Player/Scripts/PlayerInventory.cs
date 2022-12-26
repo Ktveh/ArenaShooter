@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
     private Dictionary<Weapon.Types, uint> _ammo;
+
+    public event UnityAction Changed;
 
     private void Awake()
     {
@@ -43,6 +46,8 @@ public class PlayerInventory : MonoBehaviour
                     _ammo[Weapon.Types.Grenade] += item.Amount;
                     break;
             }
+
+            Changed?.Invoke();
         }
     }
 
@@ -66,6 +71,7 @@ public class PlayerInventory : MonoBehaviour
             _ammo[type] -= ammo;
         }
 
+        Changed?.Invoke();
         return true;
     }
 

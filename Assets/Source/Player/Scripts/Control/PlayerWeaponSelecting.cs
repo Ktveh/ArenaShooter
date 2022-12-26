@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerWeaponSelecting : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerWeaponSelecting : MonoBehaviour
     private bool _isBonusActivated;
 
     public Weapon CurrentWeapon => _currentWeapon;
+
+    public event UnityAction Selected;
 
     private void Awake()
     {
@@ -83,6 +86,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
         StandardWeapon newWeapon = _standardWeapons[typeWeapon];
         newWeapon.gameObject.SetActive(true);
         _currentWeapon = newWeapon;
+        Selected?.Invoke();
     }
 
     private void OnDown()
