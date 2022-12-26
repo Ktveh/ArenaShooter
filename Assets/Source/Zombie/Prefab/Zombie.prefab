@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
+  _damage: 1
   _animator: {fileID: 6664062495062514116}
   _deadEffect: {fileID: 6664062496853334229}
   _sound: {fileID: 6664062495766473541}
@@ -92,7 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 1, z: 0}
   _angleDetected: 60
-  _forwardDistanceDetected: 30
+  _forwardDistanceDetected: 50
   _aroundDistanceDetected: 3
   _amountRaycasts: 36
   _ownTarget: {fileID: 6664062495062514118}
