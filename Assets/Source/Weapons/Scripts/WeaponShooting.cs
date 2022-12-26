@@ -1,5 +1,6 @@
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(WeaponAnimator))]
 [RequireComponent(typeof(WeaponSound))]
@@ -23,6 +24,9 @@ public class WeaponShooting : MonoBehaviour
     private WeaponParticles _weaponParticles;
     private Weapon _weapon;
     private BulletCase[] _bulletsCases;
+
+    public event UnityAction Hited;
+    public event UnityAction HitedInHead;
 
     private void Awake()
     {
@@ -77,9 +81,17 @@ public class WeaponShooting : MonoBehaviour
     private void MakeDamage(RaycastHit hit)
     {
         if (hit.collider.TryGetComponent(out Zombie zombie))
+        {
             zombie.TakeDamage(_damage);
+            Hited?.Invoke();
+        }
         else if (hit.collider.TryGetComponent(out ZombieLimb zombieLimb))
+        {
             zombieLimb.TakeDamage(_damage);
+
+            //if (isHead)
+            //    HitedInHead?.Invoke();
+        }
     }
 
     private void ShowBulletCase()
