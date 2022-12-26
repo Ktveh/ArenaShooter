@@ -10,6 +10,7 @@ public class WeaponShooting : MonoBehaviour
     [SerializeField] private Transform _containerBulletCase;
     [SerializeField] private Transform _pointSpawnBulletCase;
     [SerializeField] private float _maxDistance = 1000;
+    [SerializeField] private int _damage;
     [Header("Sniper settings")]
     [SerializeField] private int _maximumNumberTargetsHit;
     [Header("Shotgun settings")]
@@ -51,23 +52,16 @@ public class WeaponShooting : MonoBehaviour
         if (_weapon.Type != Weapon.Types.SniperRifle && _weapon.Type != Weapon.Types.Shotgun)
         {
             if (Physics.Raycast(camera.position, camera.forward, out hit, _maxDistance))
-            {
-                //Debug.Log(hit.collider.gameObject);
-            }
+                MakeDamage(hit);
         }
         else if (_weapon.Type == Weapon.Types.SniperRifle)
         {
             RaycastHit[] hits;
             hits = Physics.RaycastAll(camera.position, camera.forward, _maxDistance);
             int amount = hits.Length < _maximumNumberTargetsHit ? hits.Length : _maximumNumberTargetsHit;
-
+            
             for (int i = 0; i < amount; i++)
-            {
-                if (hits[i].collider.TryGetComponent(out Zombie zombie) == false)
-                    return;
-
-                Debug.Log(hits[i].collider.gameObject);
-            }
+                MakeDamage(hits[i]);
         }
         else if (_weapon.Type == Weapon.Types.Shotgun)
         {
@@ -75,14 +69,20 @@ public class WeaponShooting : MonoBehaviour
             {
                 Vector3 direction = Camera.main.transform.forward + new Vector3(Random.Range(_minRandomDirection, _maxRandomDirection), Random.Range(_minRandomDirection, _maxRandomDirection));
                 if (Physics.Raycast(camera.position, direction, out hit, _maxDistance))
-                {
-                    Debug.Log(hit.collider.gameObject);
-                }
+                    MakeDamage(hit);
             }
         }
     }
 
-    public void ShowBulletCase()
+    private void MakeDamage(RaycastHit hit)
+    {
+        if (hit.collider.TryGetComponent(out Zombie zombie))
+            zombie.TakeDamage(_damage);
+        else if (hit.collider.TryGetComponent(out ZombieLimb zombieLimb))
+            zombieLimb.TakeDamage(_damage);
+    }
+
+    private void ShowBulletCase()
     {
         BulletCase bulletCase = _bulletsCases.FirstOrDefault(bulletCase => bulletCase.gameObject.activeSelf == false);
 
