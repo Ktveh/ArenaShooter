@@ -6,10 +6,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(WeaponSound))]
 [RequireComponent(typeof(WeaponParticles))]
 [RequireComponent(typeof(Weapon))]
+[RequireComponent(typeof(WeaponShowingBulletCase))]
 public class WeaponShooting : MonoBehaviour
 {
-    [SerializeField] private Transform _containerBulletCase;
-    [SerializeField] private Transform _pointSpawnBulletCase;
     [SerializeField] private float _maxDistance = 1000;
     [SerializeField] private int _damage;
     [Header("Sniper settings")]
@@ -23,17 +22,14 @@ public class WeaponShooting : MonoBehaviour
     private WeaponSound _weaponSound;
     private WeaponParticles _weaponParticles;
     private Weapon _weapon;
-    private BulletCase[] _bulletsCases;
+    private WeaponShowingBulletCase _weaponShowingBulletCase;
 
     public event UnityAction Hited;
     public event UnityAction HitedInHead;
 
     private void Awake()
     {
-        _bulletsCases = _containerBulletCase.GetComponentsInChildren<BulletCase>();
-
-        foreach (BulletCase bulletCase in _bulletsCases)
-            bulletCase.gameObject.SetActive(false);
+        _weaponShowingBulletCase = GetComponent<WeaponShowingBulletCase>();
     }
 
     private void Start()
@@ -46,9 +42,9 @@ public class WeaponShooting : MonoBehaviour
 
     public void LaunchBullet(bool isScoping)
     {
+        _weaponShowingBulletCase.enabled = true;
         _weaponAnimator.Fire(isScoping);
         _weaponSound.Fire();
-        ShowBulletCase();
         _weaponParticles.enabled = true;
         Transform camera = Camera.main.transform;
         RaycastHit hit;
@@ -91,17 +87,6 @@ public class WeaponShooting : MonoBehaviour
 
             //if (isHead)
             //    HitedInHead?.Invoke();
-        }
-    }
-
-    private void ShowBulletCase()
-    {
-        BulletCase bulletCase = _bulletsCases.FirstOrDefault(bulletCase => bulletCase.gameObject.activeSelf == false);
-
-        if (bulletCase != null)
-        {
-            bulletCase.SetValuePositionRotation(_pointSpawnBulletCase);
-            bulletCase.gameObject.SetActive(true);
         }
     }
 }
