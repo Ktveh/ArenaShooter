@@ -18,6 +18,7 @@ public class BulletCase : MonoBehaviour
 	private Rigidbody _rigidbody;
 	private AudioSource[] _sounds;
 	private Transform _point;
+	private bool _isGameStarted;
 
 	private void Awake () 
 	{
@@ -25,7 +26,12 @@ public class BulletCase : MonoBehaviour
 		_rigidbody = GetComponent<Rigidbody>();
 	}
 
-	private void FixedUpdate() 
+    private void Start()
+    {
+        _isGameStarted = true;
+    }
+
+    private void FixedUpdate() 
 	{
 		transform.Rotate(Vector3.right, _speed * Time.deltaTime);
 		transform.Rotate(Vector3.down, _speed * Time.deltaTime);
@@ -37,7 +43,9 @@ public class BulletCase : MonoBehaviour
 		AddTorque();
 		StartCoroutine(RemoveCasing());
 		transform.rotation = Random.rotation;
-		StartCoroutine(PlaySound());
+
+		if(_isGameStarted)
+			StartCoroutine(PlaySound());
 	}
 
     private void OnDisable()
