@@ -26,7 +26,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Item item))
+        if(other.TryGetComponent(out Item item) && item.Type != Item.Types.Drug)
         {
             switch(item.Type)
             {
@@ -47,6 +47,7 @@ public class PlayerInventory : MonoBehaviour
                     break;
             }
 
+            item.gameObject.SetActive(false);
             Changed?.Invoke();
         }
     }
