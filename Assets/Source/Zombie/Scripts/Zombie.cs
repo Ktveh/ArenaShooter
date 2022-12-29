@@ -13,10 +13,12 @@ public class Zombie : MonoBehaviour
 
     private PlayerHealth _playerHealth;
     private bool _hasLegs = true;
+    private bool _isDead = false;
 
     public event UnityAction<Zombie> Dead;
 
     public bool HasLegs => _hasLegs;
+    public bool IsDead => _isDead;
     public int Health => _health;
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +26,10 @@ public class Zombie : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerHealth>())
         {
             _playerHealth = other.gameObject.GetComponent<PlayerHealth>();
-            Attack();
+            if (!_isDead)
+            {
+                Attack();
+            }
         }
     }
 
@@ -57,7 +62,9 @@ public class Zombie : MonoBehaviour
     private void Die()
     {
         Dead?.Invoke(this);
-        Destroy(gameObject);
+        _isDead = true;
+        _animator.Dead();
+        //Destroy(gameObject);
     }
 
     private void Attack()
