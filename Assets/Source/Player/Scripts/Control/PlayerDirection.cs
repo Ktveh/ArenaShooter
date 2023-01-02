@@ -5,7 +5,6 @@ public class PlayerDirection : MonoBehaviour
     private const string MouseX = "Mouse X";
     private const string MouseY = "Mouse Y";
 
-    [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Transform _orintation;
     [SerializeField] private float _sensitivity;

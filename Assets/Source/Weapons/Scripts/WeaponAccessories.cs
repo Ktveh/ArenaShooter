@@ -19,24 +19,21 @@ public class WeaponAccessories : MonoBehaviour
     [SerializeField] private SpriteRenderer _scope1SpriteRenderer;
     [SerializeField] private SpriteRenderer _scope2SpriteRenderer;
 
-    public bool IsEnabledScope => _isEnabledScope;
-    public bool IsEnabledScope1 => _isEnabledScope1;
-    public bool IsEnabledScope2 => _isEnabledScope2;
-    public bool IsEnabledSilencer => _isEnabledSilencer;
+    public bool IsEnabledScope => _isEnabledScope && _scopeRenderer != null;
+    public bool IsEnabledScope1 => _isEnabledScope1 && _scope1Renderer != null;
+    public bool IsEnabledScope2 => _isEnabledScope2 && _scope2Renderer != null;
+    public bool IsEnabledSilencer => _isEnabledSilencer && _silencerRenderer != null;
 
     private void Start()
     {
-        if (_scopeRenderer != null)
-        {
-            if (_isEnabledScope)
-                _scopeRenderer.enabled = true;
-            else
-                _scopeRenderer.enabled = false;
-        }
+        if (IsEnabledScope)
+            _scopeRenderer.enabled = true;
+        else
+            _scopeRenderer.enabled = false;
 
-        if (_scope1Renderer != null && _isEnabledScope1)
+        if (IsEnabledScope1)
         {
-            if (_isEnabledScope1)
+            if (IsEnabledScope1)
             {
                 _scope1Renderer.enabled = true;
                 _scope1RenderMesh.SetActive(true);
@@ -49,7 +46,7 @@ public class WeaponAccessories : MonoBehaviour
                 _scope1RenderMesh.SetActive(false);
             }
         }
-        else if (_scope2Renderer != null)
+        else if (IsEnabledScope2)
         {
             if (IsEnabledScope2)
             {
@@ -65,13 +62,10 @@ public class WeaponAccessories : MonoBehaviour
             }
         }
 
-        if (_silencerRenderer != null)
-        {
-            if ((IsEnabledSilencer))
-                _silencerRenderer.enabled = true;
-            else
-                _silencerRenderer.enabled = false;
-        }
+        if ((IsEnabledSilencer))
+            _silencerRenderer.enabled = true;
+        else
+            _silencerRenderer.enabled = false;
     }
 
     public void Aim(bool isAiming)
