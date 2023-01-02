@@ -84,6 +84,7 @@ public class WeaponShooting : MonoBehaviour
         else if (hit.collider.TryGetComponent(out ZombieLimb zombieLimb))
         {
             zombieLimb.TakeDamage(_damage);
+            Hited?.Invoke();
 
             //if (isHead)
             //    HitedInHead?.Invoke();

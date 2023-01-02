@@ -23,6 +23,8 @@ public class InterfaceHitMarker : MonoBehaviour
             weaponShooting.Hited -= OnHited;
             weaponShooting.HitedInHead -= OnHitedInHead;
         }
+
+        _playerWeaponSelecting.Selected -= OnSelected;
     }
 
     private void OnSelected()
