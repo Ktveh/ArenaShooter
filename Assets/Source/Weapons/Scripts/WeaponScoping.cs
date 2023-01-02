@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Weapon))]
 public class WeaponScoping : MonoBehaviour
 {
+	private const float _aimingPositionY = 0.587f;
+	private const float _defaultPositionY = 0.6f;
+
 	[SerializeField] private float _aimingSpeed = 15f;
 	[SerializeField] private float _defaultFieldOfView = 40f;
 	[Range(5, 40)]
@@ -32,14 +35,24 @@ public class WeaponScoping : MonoBehaviour
 				_weaponCamera.fieldOfView = Mathf.Lerp(_weaponCamera.fieldOfView, _scopeFieldOfView, _aimingSpeed * Time.deltaTime);
 
 			if (_weaponAccessories.IsEnabledScope1)
+			{
 				_weaponCamera.fieldOfView = Mathf.Lerp(_weaponCamera.fieldOfView, _scope1FieldOfView, _aimingSpeed * Time.deltaTime);
-			
+			}
+
 			if (_weaponAccessories.IsEnabledScope2)
+			{
 				_weaponCamera.fieldOfView = Mathf.Lerp(_weaponCamera.fieldOfView, _scope2FieldOfView, _aimingSpeed * Time.deltaTime);
+
+				if ((_weapon.Type == Weapon.Types.SMG) || (_weapon.Type == Weapon.Types.Rifle))
+					_weaponCamera.transform.localPosition = new Vector3(_weaponCamera.transform.localPosition.x, _aimingPositionY, _weaponCamera.transform.localPosition.z);
+			}
 		}
 		else
 		{
-			_weaponCamera.fieldOfView = Mathf.Lerp(_weaponCamera.fieldOfView, _defaultFieldOfView, _aimingSpeed * Time.deltaTime);;
+			_weaponCamera.fieldOfView = Mathf.Lerp(_weaponCamera.fieldOfView, _defaultFieldOfView, _aimingSpeed * Time.deltaTime);
+
+			if ((_weapon.Type == Weapon.Types.SMG) || (_weapon.Type == Weapon.Types.Rifle))
+				_weaponCamera.transform.localPosition = new Vector3(_weaponCamera.transform.localPosition.x, _defaultPositionY, _weaponCamera.transform.localPosition.z);
 		}
 	}
 }
