@@ -10,6 +10,7 @@ public class ZombieAnimator : MonoBehaviour
     private const string RunAnimation = "Run";
     private const string AttackAnimation = "Attack";
     private const string CrawlAnimation = "Crawl";
+    private const string DeadAnimation = "Dead";
 
     public void Run()
     {
@@ -42,5 +43,10 @@ public class ZombieAnimator : MonoBehaviour
     public void Crawl()
     {
         _animator.SetBool(CrawlAnimation, true);
+    }
+
+    public void Dead()
+    {
+        _animator.SetBool(DeadAnimation, true);
     }
 }

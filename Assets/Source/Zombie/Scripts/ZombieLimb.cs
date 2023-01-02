@@ -10,6 +10,7 @@ public class ZombieLimb : MonoBehaviour
     [SerializeField] private bool _isLeg;
     [SerializeField] private bool _isHead;
     [SerializeField] private ParticleSystem _bloodEffect;
+    [SerializeField] private ParticleSystem _limbEffect;
 
     public void TakeDamage(int damage)
     {
@@ -20,7 +21,8 @@ public class ZombieLimb : MonoBehaviour
             if (_health <= 0)
             {
                 transform.localScale = Vector3.zero;
-                Instantiate(_bloodEffect, transform.position, transform.rotation, transform);
+                _bloodEffect.Play();
+                Instantiate(_limbEffect, transform);
                 if (_isLeg)
                 {
                     _zombie.RemoveLeg();

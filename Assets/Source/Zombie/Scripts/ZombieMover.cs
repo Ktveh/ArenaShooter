@@ -22,20 +22,24 @@ public class ZombieMover : MonoBehaviour
         if (_target != null)
         {
             _agent.destination = _target.transform.position;
-            if (_target is MainTarget && _zombie.HasLegs)
+            if (_target is MainTarget && _zombie.HasLegs && !_zombie.IsDead)
             {
                 _agent.speed = SetSpeed(_runSpeed);
                 _animator.Run();
             }
-            else if (_zombie.HasLegs)
+            else if (_zombie.HasLegs && !_zombie.IsDead)
             {
                 _agent.speed = SetSpeed(_walkSpeed);
                 _animator.Walk();
             }
-            else
+            else if (!_zombie.IsDead)
             {
                 _agent.speed = SetSpeed(_crawlSpeed);
                 _animator.Crawl();
+            }
+            else if (_zombie.IsDead)
+            {
+                _agent.speed = SetSpeed(0);
             }
         }
         if (!_agent.hasPath)
