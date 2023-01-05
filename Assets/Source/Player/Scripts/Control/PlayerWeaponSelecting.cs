@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class PlayerWeaponSelecting : MonoBehaviour
 {
     [SerializeField] private Transform _containerWeapon;
-    [SerializeField] private ControlButton _buttonNextWeapon; 
+    [SerializeField] private ControlButton _buttonNextWeapon;
 
     private StandardWeapon[] _standardWeaponsAdding;
     private BonusWeapon[] _bonusWeaponsAdding;
@@ -25,7 +25,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
         _standardWeaponsAdding = _containerWeapon.GetComponentsInChildren<StandardWeapon>();
         _bonusWeaponsAdding = _containerWeapon.GetComponentsInChildren<BonusWeapon>();
 
-        if(_standardWeaponsAdding == null)
+        if (_standardWeaponsAdding == null)
             gameObject.SetActive(false);
 
         for (int i = 0; i < _standardWeaponsAdding.Length; i++)
@@ -42,7 +42,10 @@ public class PlayerWeaponSelecting : MonoBehaviour
             _bonusWeapon.Add(weapon.Type, weapon);
             weapon.gameObject.SetActive(false);
         }
+    }
 
+    private void Start()
+    {
         if (_standardWeapons.ContainsKey(Weapon.Types.Pistol))
         {
             _currentWeapon = _standardWeapons[Weapon.Types.Pistol];
@@ -54,7 +57,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
     private void OnGUI()
     {
         if (Event.current.isKey)
-            if(_weaponsKeysCodes.ContainsKey(Event.current.keyCode))
+            if (_weaponsKeysCodes.ContainsKey(Event.current.keyCode))
                 Change(_weaponsKeysCodes[Event.current.keyCode]);
     }
 
