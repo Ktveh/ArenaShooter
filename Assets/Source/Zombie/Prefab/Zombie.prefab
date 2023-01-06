@@ -94,7 +94,7 @@ MonoBehaviour:
   _angleDetected: 60
   _forwardDistanceDetected: 50
   _aroundDistanceDetected: 3
-  _amountRaycasts: 12
+  _amountRaycasts: 24
   _ownTarget: {fileID: 6664062495062514118}
   _template: {fileID: 6084071706416295635, guid: 8efa81264ef77914eb37fe92ee6dff2e, type: 3}
 --- !u!114 &6664062495062514116
