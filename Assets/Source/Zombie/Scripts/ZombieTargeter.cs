@@ -17,7 +17,10 @@ public class ZombieTargeter : MonoBehaviour
     private MainTarget _mainTarget;
     private RandomTarget _randomTarget;
     private Target _currentTarget;
+    private int _currentRaycast;
+    private bool _isAttentive;
 
+    public bool IsAttentive => _isAttentive;
     public Target CurrentTarget => _currentTarget;
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +28,7 @@ public class ZombieTargeter : MonoBehaviour
         if (other.GetComponent<SoundTarget>())
         {
             _soundTarget = other.GetComponent<SoundTarget>();
-            _randomTarget = null;
+            SettingRandomTarget(_soundTarget.transform.position, 0, 5);
         }
     }
 
@@ -39,9 +42,6 @@ public class ZombieTargeter : MonoBehaviour
 
     private void Update()
     {
-        _mainTarget = null;
-        _zombieTarget = null;
-        _ownTarget.IsAction = false;
         FoundTargets(_angleDetected, _forwardDistanceDetected);
         FoundTargets(360, _aroundDistanceDetected);
         SetCurrentTarget();
@@ -49,47 +49,24 @@ public class ZombieTargeter : MonoBehaviour
 
     private void FoundTargets(float angleDetected, float distance)
     {
-        float angle = 0;
+        _currentRaycast++;
+        if (_currentRaycast > _amountRaycasts)
+        {
+            _currentRaycast = 0;
+        }
 
-        for (int i = 0; i < _amountRaycasts; i++)
-        {
-            float x = Mathf.Sin(angle);
-            float z = Mathf.Cos(angle);
+        float angle = _currentRaycast * angleDetected * Mathf.Deg2Rad / _amountRaycasts;
 
-            angle += angleDetected * Mathf.Deg2Rad / _amountRaycasts;
+        float x = Mathf.Sin(angle);
+        float z = Mathf.Cos(angle);
 
-            GetRaycast(transform.TransformDirection(new Vector3(x, 0, z)), distance);
+        GetRaycast(transform.TransformDirection(new Vector3(x, 0, z)), distance);
 
-            if (x != 0)
-            {
-                GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
-            }
-        }
-    }
-
-    private void SetCurrentTarget()
-    {
-        if (_mainTarget != null)
+        if (x != 0)
         {
-            _currentTarget = _mainTarget;
+            GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
         }
-        else if (_zombieTarget != null)
-        {
-            _currentTarget = _zombieTarget;
-        }
-        else if (_soundTarget != null)
-        {
-            _currentTarget = _soundTarget;
-        }
-        else if (_randomTarget != null)
-        {
-            _currentTarget = _randomTarget;
-        }
-        else
-        {
-            RandomTarget();
-        }
-    }
+    }  
 
     private void GetRaycast(Vector3 direction, float distance)
     {
@@ -100,24 +77,21 @@ public class ZombieTargeter : MonoBehaviour
         {   
             if (hit.collider.gameObject.GetComponent<MainTarget>())
             {
-                Debug.DrawLine(startPosition, hit.point, Color.green);
+                //Debug.DrawLine(startPosition, hit.point, Color.green);
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
-                if (_randomTarget != null)
-                {
-                    SettingRandomTarget(_mainTarget.transform.position, 0, 5);
-                }
+                SettingRandomTarget(_mainTarget.transform.position, 0, 5);
+                _isAttentive = true;
                 _ownTarget.IsAction = true;
             }
             else if (hit.collider.gameObject.GetComponent<ZombieTarget>())
             {
-                Debug.DrawLine(startPosition, hit.point, Color.blue);
+                //Debug.DrawLine(startPosition, hit.point, Color.blue);
                 _zombieTarget = hit.collider.gameObject.GetComponent<ZombieTarget>();
+                _ownTarget.IsAction = true;
                 if (_zombieTarget.IsAction)
                 {
-                    if (_randomTarget != null)
-                    {
-                        SettingRandomTarget(_zombieTarget.transform.position, 0, 5);
-                    }
+                    SettingRandomTarget(_zombieTarget.transform.position, 0, 5);
+                    _isAttentive = true;
                 }
                 else
                 {
@@ -126,12 +100,27 @@ public class ZombieTargeter : MonoBehaviour
             }
             else
             {
-                Debug.DrawLine(startPosition, hit.point, Color.red);
+                _ownTarget.IsAction = false;
+                //Debug.DrawLine(startPosition, hit.point, Color.red);
             }
         }
         else
         {
-            Debug.DrawRay(startPosition, direction * distance, Color.red);
+            _ownTarget.IsAction = false;
+            //Debug.DrawRay(startPosition, direction * distance, Color.red);
+        }
+    }
+
+    private void SetCurrentTarget()
+    {
+        if (_randomTarget != null)
+        {
+            _currentTarget = _randomTarget;
+        }
+        else
+        {
+            _isAttentive = false;
+            RandomTarget();
         }
     }
 
