@@ -1017,7 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 5
+  _health: 20
   _limb: {fileID: 5106805154633150502}
   _isLeg: 1
   _isHead: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 10
+  _health: 15
   _limb: {fileID: 1870034368483512772}
   _isLeg: 0
   _isHead: 1
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 5
+  _health: 20
   _limb: {fileID: 8470623377775877223}
   _isLeg: 0
   _isHead: 0
@@ -1152,9 +1152,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _materials:
-  - {fileID: 2100000, guid: 9fdb5531bdf185e448dd06dfa8192f8d, type: 2}
   - {fileID: 2100000, guid: ada59ca30de302945aad86053a9a2a0c, type: 2}
-  - {fileID: 2100000, guid: d6c6743dc9b649948bffb227d7be9aab, type: 2}
+  - {fileID: 2100000, guid: 9ee6fd4b381f14141864b173b8152cf6, type: 2}
+  - {fileID: 2100000, guid: ce0d9bb31d626094d8b0c29ef7ba74a3, type: 2}
+  - {fileID: 2100000, guid: c57ec90aaa65b9c45be46503a7517a55, type: 2}
+  - {fileID: 2100000, guid: 6b646f93c1bab184ab1e6ab880666261, type: 2}
+  - {fileID: 2100000, guid: ea20f8fb1898d1847acd416f7c158416, type: 2}
+  - {fileID: 2100000, guid: fc77b3aefa6fa1147816855b697b25e3, type: 2}
   _renderer: {fileID: 1136525772467766805}
 --- !u!1 &6737657206541417616 stripped
 GameObject:
@@ -1205,7 +1209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 5
+  _health: 20
   _limb: {fileID: 5632568040114801666}
   _isLeg: 1
   _isHead: 0
@@ -1253,7 +1257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 5
+  _health: 20
   _limb: {fileID: 6089103097087218803}
   _isLeg: 0
   _isHead: 0
