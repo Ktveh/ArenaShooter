@@ -1,7 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Weapon))]
 public class WeaponAccessories : MonoBehaviour
 {
+    [SerializeField] private WeaponSaving _weaponSaving;
     [SerializeField] private Sprite _scope1Texture;
     [SerializeField] private float _scope1TextureSize = 0.01f;
     [SerializeField] private Sprite _scope2Texture;
@@ -19,18 +21,28 @@ public class WeaponAccessories : MonoBehaviour
     [SerializeField] private SpriteRenderer _scope1SpriteRenderer;
     [SerializeField] private SpriteRenderer _scope2SpriteRenderer;
 
-    public bool IsEnabledScope => _isEnabledScope && _scopeRenderer != null;
-    public bool IsEnabledScope1 => _isEnabledScope1 && _scope1Renderer != null;
-    public bool IsEnabledScope2 => _isEnabledScope2 && _scope2Renderer != null;
-    public bool IsEnabledSilencer => _isEnabledSilencer && _silencerRenderer != null;
+    private Weapon _weapon;
+
+    public bool IsEnabledScope => _scopeRenderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope);
+    public bool IsEnabledScope1 => _scope1Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope1);
+    public bool IsEnabledScope2 => _scope2Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope2);
+    public bool IsEnabledSilencer => _silencerRenderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Silencer);
+
+    public enum Type
+    {
+        Scope,
+        Scope1,
+        Scope2,
+        Silencer
+    }
+
+    private void Awake()
+    {
+        _weapon = GetComponent<StandardWeapon>();
+    }
 
     private void Start()
     {
-        if (IsEnabledScope)
-            _scopeRenderer.enabled = true;
-        else
-            _scopeRenderer.enabled = false;
-
         if (IsEnabledScope1)
         {
             if (IsEnabledScope1)
@@ -61,6 +73,11 @@ public class WeaponAccessories : MonoBehaviour
                 _scope2RenderMesh.SetActive(false);
             }
         }
+        else
+        {
+            _scopeRenderer.enabled = true;
+        }
+
 
         if ((IsEnabledSilencer))
             _silencerRenderer.enabled = true;

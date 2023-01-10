@@ -6,6 +6,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
 {
     [SerializeField] private Transform _containerWeapon;
     [SerializeField] private ControlButton _buttonNextWeapon;
+    [SerializeField] private UpgradingWeapon _upgradingWeapon;
 
     private StandardWeapon[] _standardWeaponsAdding;
     private BonusWeapon[] _bonusWeaponsAdding;
@@ -66,6 +67,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
         //eventActivatedBonus. += Change;
         //eventNonActivatedBonus. += Change;
         _buttonNextWeapon.Down += OnDown;
+        _upgradingWeapon.SelectedWeapon += Change;
     }
 
     private void OnDisable()
@@ -73,6 +75,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
         //eventActivatedBonus. -= Change;
         //eventNonActivatedBonus. -= Change;
         _buttonNextWeapon.Down -= OnDown;
+        _upgradingWeapon.SelectedWeapon -= Change;
     }
 
     private void Change(Weapon.Types typeWeapon)
