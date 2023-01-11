@@ -12,6 +12,8 @@ public class ZombieLimb : MonoBehaviour
     [SerializeField] private ParticleSystem _bloodEffect;
     [SerializeField] private ParticleSystem _limbEffect;
 
+    public bool IsHead => _isHead;
+
     public void TakeDamage(int damage)
     {
         if (_health > 0)
