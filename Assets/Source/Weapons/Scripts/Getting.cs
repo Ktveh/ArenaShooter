@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GettingPlayer : MonoBehaviour
+public class Getting : MonoBehaviour
 {
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private PlayerScopeOpening _playerScopeOpening;
@@ -9,6 +9,7 @@ public class GettingPlayer : MonoBehaviour
     [SerializeField] private PlayerWeaponReloading _playerWeaponReloading;
     [SerializeField] private PlayerInventory _playerInventory;
     [SerializeField] private Camera _weaponCamera;
+    [SerializeField] private WeaponSaving _weaponSaving;
 
     public PlayerMovement PlayerMovement => _playerMovement;
     public PlayerScopeOpening PlayerScopeOpening => _playerScopeOpening;
@@ -17,4 +18,5 @@ public class GettingPlayer : MonoBehaviour
     public PlayerWeaponReloading PlayerWeaponReloading => _playerWeaponReloading;
     public PlayerInventory PlayerInventory => _playerInventory;
     public Camera WeaponCamera => _weaponCamera;
+    public WeaponSaving WeaponSaving => _weaponSaving;
 }

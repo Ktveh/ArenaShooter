@@ -3,15 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Weapon))]
 public class WeaponAccessories : MonoBehaviour
 {
-    [SerializeField] private WeaponSaving _weaponSaving;
     [SerializeField] private Sprite _scope1Texture;
     [SerializeField] private float _scope1TextureSize = 0.01f;
     [SerializeField] private Sprite _scope2Texture;
     [SerializeField] private float _scope2TextureSize = 0.025f;
-    [SerializeField] private bool _isEnabledScope;
-    [SerializeField] private bool _isEnabledScope1;
-    [SerializeField] private bool _isEnabledScope2;
-    [SerializeField] private bool _isEnabledSilencer;
     [SerializeField] private SkinnedMeshRenderer _scopeRenderer;
     [SerializeField] private SkinnedMeshRenderer _scope1Renderer;
     [SerializeField] private SkinnedMeshRenderer _scope2Renderer;
@@ -21,9 +16,11 @@ public class WeaponAccessories : MonoBehaviour
     [SerializeField] private SpriteRenderer _scope1SpriteRenderer;
     [SerializeField] private SpriteRenderer _scope2SpriteRenderer;
 
+    private Getting _getting;
     private Weapon _weapon;
+    private WeaponSaving _weaponSaving;
 
-    public bool IsEnabledScope => _scopeRenderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope);
+    public bool IsEnabledScope => _scopeRenderer != null;
     public bool IsEnabledScope1 => _scope1Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope1);
     public bool IsEnabledScope2 => _scope2Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope2);
     public bool IsEnabledSilencer => _silencerRenderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Silencer);
@@ -38,6 +35,8 @@ public class WeaponAccessories : MonoBehaviour
 
     private void Awake()
     {
+        _getting = GetComponentInParent<Getting>();
+        _weaponSaving = _getting.WeaponSaving;
         _weapon = GetComponent<StandardWeapon>();
     }
 

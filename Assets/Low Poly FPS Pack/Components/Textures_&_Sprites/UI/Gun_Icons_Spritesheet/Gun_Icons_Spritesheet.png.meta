@@ -216,10 +216,10 @@ TextureImporter:
       name: Gun_Icons_Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 1667
-        y: 3547
-        width: 774
-        height: 245
+        x: 1662
+        y: 3522
+        width: 783
+        height: 290
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,34 +318,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gun_Icons_Spritesheet_8
-      rect:
-        serializedVersion: 2
-        x: 1850
-        y: 2886
-        width: 22
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 747ce0b8fcd0fd941938856638683a3c
-      internalID: 1606512722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Gun_Icons_Spritesheet_9
       rect:
         serializedVersion: 2
-        x: 1872
-        y: 2711
-        width: 384
-        height: 265
+        x: 1636
+        y: 2696
+        width: 783
+        height: 290
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,10 +363,10 @@ TextureImporter:
       name: Gun_Icons_Spritesheet_11
       rect:
         serializedVersion: 2
-        x: 3312
-        y: 2764
-        width: 756
-        height: 153
+        x: 3293
+        y: 2706
+        width: 783
+        height: 290
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -447,9 +426,9 @@ TextureImporter:
       name: Gun_Icons_Spritesheet_14
       rect:
         serializedVersion: 2
-        x: 1824
+        x: 1662
         y: 1871
-        width: 564
+        width: 783
         height: 290
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -532,9 +511,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 828
-        y: 1103
+        y: 1079
         width: 783
-        height: 232
+        height: 290
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
