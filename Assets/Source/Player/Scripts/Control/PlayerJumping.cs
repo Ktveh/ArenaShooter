@@ -4,7 +4,7 @@ public class PlayerJumping : MonoBehaviour
 {
     private const float GroundedRadius = 0.5f;
     private const float Gravity = -15.0f;
-    private const float GroundedOffset = 1.5f;
+    private const float GroundedOffset = 1f;
     private const float TerminalVelocity = 53.0f;
     private const float JumpTimeout = 0.1f;
     private const float FallTimeout = 0.15f;

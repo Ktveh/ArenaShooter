@@ -13,6 +13,12 @@ public class PlayerDirection : MonoBehaviour
     private float _directionY;
     private float _forceRecoil;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     private void LateUpdate()
     {
         CameraRotation(new Vector2(Input.GetAxisRaw(MouseX), Input.GetAxisRaw(MouseY)));
