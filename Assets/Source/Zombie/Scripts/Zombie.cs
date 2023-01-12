@@ -7,6 +7,7 @@ public class Zombie : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
+    [SerializeField] private float _delayAfterDead;
     [SerializeField] private ZombieAnimator _animator;
     [SerializeField] private ParticleSystem _deadEffect;
     [SerializeField] private Sound _sound;
@@ -14,12 +15,26 @@ public class Zombie : MonoBehaviour
     private PlayerHealth _playerHealth;
     private bool _hasLegs = true;
     private bool _isDead = false;
+    private bool _isHidden = false;
+    private float _ellapsedTime = 0;
 
     public event UnityAction<Zombie> Dead;
 
     public bool HasLegs => _hasLegs;
     public bool IsDead => _isDead;
     public int Health => _health;
+
+    private void Update()
+    {
+        if (_isDead && !_isHidden)
+        {
+            _ellapsedTime += Time.deltaTime;
+            if (_ellapsedTime > _delayAfterDead)
+            {
+                HideBody();
+            }
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -77,5 +92,11 @@ public class Zombie : MonoBehaviour
     private void StopAttack()
     {
         _animator.StopAttack();
+    }
+
+    private void HideBody()
+    {
+        transform.localScale = Vector3.zero;
+        _isHidden = true;
     }
 }
