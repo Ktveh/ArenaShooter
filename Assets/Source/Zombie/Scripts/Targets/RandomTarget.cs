@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RandomTarget : Target
 {
+    [SerializeField] private float _spreadPosition;
+    [SerializeField] private float _maxDuration;
+
     private float _duration;
 
     private void Update()
@@ -15,13 +18,25 @@ public class RandomTarget : Target
         }
     }
 
-    public void SetPosition(Vector3 position, float spread)
+    public void SetPosition(Vector3 position, bool spread)
     {
-        transform.position = new Vector3(position.x + Random.Range(-spread, spread), position.y, position.z + Random.Range(-spread, spread));
-    }
+        if (spread)
+        {
+            transform.position = new Vector3(position.x + Random.Range(-_spreadPosition, _spreadPosition), position.y, position.z + Random.Range(-_spreadPosition, _spreadPosition));
+        }
+        else
+        {
+            transform.position = position;
+        }
+    } 
 
     public void SetDuration(float duration)
     {
         _duration = duration;
+    }
+
+    public void SetDuration()
+    {
+        _duration = Random.Range(0, _maxDuration);
     }
 }
