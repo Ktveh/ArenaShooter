@@ -16,7 +16,6 @@ public class Zombie : MonoBehaviour
     private PlayerHealth _playerHealth;
     private bool _hasLegs = true;
     private bool _isDead = false;
-    private bool _isHidden = false;
     private float _ellapsedTime = 0;
 
     public event UnityAction<Zombie> Dead;
@@ -28,7 +27,7 @@ public class Zombie : MonoBehaviour
 
     private void Update()
     {
-        if (_isDead && !_isHidden)
+        if (_isDead)
         {
             _ellapsedTime += Time.deltaTime;
             if (_ellapsedTime > _delayAfterDead)
@@ -97,7 +96,6 @@ public class Zombie : MonoBehaviour
 
     private void HideBody()
     {
-        transform.localScale = Vector3.zero;
-        _isHidden = true;
+        gameObject.SetActive(false);
     }
 }
