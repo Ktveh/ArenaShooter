@@ -7,6 +7,7 @@ public class Zombie : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
+    [SerializeField] private int _price;
     [SerializeField] private float _delayAfterDead;
     [SerializeField] private ZombieAnimator _animator;
     [SerializeField] private ParticleSystem _deadEffect;
@@ -23,6 +24,7 @@ public class Zombie : MonoBehaviour
     public bool HasLegs => _hasLegs;
     public bool IsDead => _isDead;
     public int Health => _health;
+    public int Price => _price;
 
     private void Update()
     {
@@ -79,7 +81,6 @@ public class Zombie : MonoBehaviour
         Dead?.Invoke(this);
         _isDead = true;
         _animator.Dead();
-        //Destroy(gameObject);
     }
 
     private void Attack()
