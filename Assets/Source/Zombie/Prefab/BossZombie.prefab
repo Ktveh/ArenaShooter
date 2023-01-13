@@ -519,7 +519,7 @@ MonoBehaviour:
   - {fileID: 6664062495766473595}
   - {fileID: 6664062495766473594}
   _template: {fileID: 346195968450838808, guid: 81ecba85a0fa4e34ea09cbc11fd0d5c9, type: 3}
-  _radius: 8
+  _radius: 20
   _duration: 1
 --- !u!1001 &649819725438518145
 PrefabInstance:
