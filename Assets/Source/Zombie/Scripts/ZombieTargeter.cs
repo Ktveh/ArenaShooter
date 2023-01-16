@@ -28,7 +28,9 @@ public class ZombieTargeter : MonoBehaviour
         if (other.GetComponent<SoundTarget>())
         {
             _soundTarget = other.GetComponent<SoundTarget>();
-            SettingRandomTarget(_soundTarget.transform.position, 0, 5);
+            RandomTarget();
+            SettingRandomTarget(_soundTarget.transform.position, false);
+            _isAttentive = true;
         }
     }
 
@@ -38,6 +40,11 @@ public class ZombieTargeter : MonoBehaviour
         {
             _soundTarget = null;
         }
+    }
+
+    private void Start()
+    {
+        RandomTarget();
     }
 
     private void Update()
@@ -79,7 +86,8 @@ public class ZombieTargeter : MonoBehaviour
             {
                 //Debug.DrawLine(startPosition, hit.point, Color.green);
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
-                SettingRandomTarget(_mainTarget.transform.position, 0, 5);
+                RandomTarget();
+                SettingRandomTarget(_mainTarget.transform.position, false);
                 _isAttentive = true;
                 _ownTarget.IsAction = true;
             }
@@ -90,7 +98,8 @@ public class ZombieTargeter : MonoBehaviour
                 _ownTarget.IsAction = true;
                 if (_zombieTarget.IsAction)
                 {
-                    SettingRandomTarget(_zombieTarget.transform.position, 0, 5);
+                    RandomTarget();
+                    SettingRandomTarget(_zombieTarget.transform.position, false);
                     _isAttentive = true;
                 }
                 else
@@ -127,12 +136,12 @@ public class ZombieTargeter : MonoBehaviour
     private void RandomTarget()
     {
         _randomTarget = Instantiate(_template, transform.position, transform.rotation);
-        SettingRandomTarget(transform.position, 5, 5);
+        SettingRandomTarget(transform.position, true);
     }
 
-    private void SettingRandomTarget(Vector3 position, float spread, float duration)
+    private void SettingRandomTarget(Vector3 position, bool spread)
     {
         _randomTarget.SetPosition(position, spread);
-        _randomTarget.SetDuration(duration);
+        _randomTarget.SetDuration();
     }
 }

@@ -12,6 +12,11 @@ public class ZombieLimb : MonoBehaviour
     [SerializeField] private ParticleSystem _bloodEffect;
     [SerializeField] private ParticleSystem _limbEffect;
 
+    private int _price= 10;
+    private int _priceForHead = 50;
+
+    public int Price => _isHead ? _priceForHead : _price;
+
     public bool IsHead => _isHead;
 
     public void TakeDamage(int damage)

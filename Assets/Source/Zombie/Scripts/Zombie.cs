@@ -7,6 +7,7 @@ public class Zombie : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _damage;
+    [SerializeField] private int _price;
     [SerializeField] private float _delayAfterDead;
     [SerializeField] private ZombieAnimator _animator;
     [SerializeField] private ParticleSystem _deadEffect;
@@ -15,7 +16,6 @@ public class Zombie : MonoBehaviour
     private PlayerHealth _playerHealth;
     private bool _hasLegs = true;
     private bool _isDead = false;
-    private bool _isHidden = false;
     private float _ellapsedTime = 0;
 
     public event UnityAction<Zombie> Dead;
@@ -23,10 +23,11 @@ public class Zombie : MonoBehaviour
     public bool HasLegs => _hasLegs;
     public bool IsDead => _isDead;
     public int Health => _health;
+    public int Price => _price;
 
     private void Update()
     {
-        if (_isDead && !_isHidden)
+        if (_isDead)
         {
             _ellapsedTime += Time.deltaTime;
             if (_ellapsedTime > _delayAfterDead)
@@ -79,7 +80,6 @@ public class Zombie : MonoBehaviour
         Dead?.Invoke(this);
         _isDead = true;
         _animator.Dead();
-        //Destroy(gameObject);
     }
 
     private void Attack()
@@ -96,7 +96,6 @@ public class Zombie : MonoBehaviour
 
     private void HideBody()
     {
-        transform.localScale = Vector3.zero;
-        _isHidden = true;
+        gameObject.SetActive(false);
     }
 }

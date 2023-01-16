@@ -55,6 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 80
   _damage: 2
+  _price: 70
   _delayAfterDead: 30
   _animator: {fileID: 6664062495062514116}
   _deadEffect: {fileID: 5351325646624922108}
@@ -76,8 +77,8 @@ MonoBehaviour:
   _animator: {fileID: 6664062495062514116}
   _agent: {fileID: 6664062495062514114}
   _crawlSpeed: 1
-  _walkSpeed: 1
-  _runSpeed: 4
+  _walkSpeed: 2
+  _runSpeed: 7
   _spreadSpeed: 0.1
 --- !u!114 &6664062495062514115
 MonoBehaviour:
@@ -111,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3359996064588370259}
+  _minSpeedAnimation: 1
+  _maxSpeedAnimation: 1.3
 --- !u!114 &6664062495062514118
 MonoBehaviour:
   m_ObjectHideFlags: 0

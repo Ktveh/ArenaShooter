@@ -9,17 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 343f974271f075e41b41a4075b513b8e
   - enabled: 1
-    path: Assets/Scenes/Level Forest.unity
-    guid: 441a27d3fab27a34f8f22d110afa6ae1
-  - enabled: 1
-    path: Assets/Scenes/Level City.unity
-    guid: acd400246ff838a4681323a991522c0f
-  - enabled: 1
     path: Assets/Scenes/Level Metro.unity
     guid: 234de65683000c54d9b3d980e778cca3
   - enabled: 1
     path: Assets/Scenes/Level Warehouse.unity
     guid: 09b02fe589d40004a8a89eff6b274b70
+  - enabled: 1
+    path: Assets/Scenes/Level City.unity
+    guid: acd400246ff838a4681323a991522c0f
+  - enabled: 1
+    path: Assets/Scenes/Level Forest.unity
+    guid: 441a27d3fab27a34f8f22d110afa6ae1
   - enabled: 1
     path: Assets/Scenes/Level Port.unity
     guid: 47e1208833166b14f801d2890978e0d6
