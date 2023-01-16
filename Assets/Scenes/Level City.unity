@@ -7888,6 +7888,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2048819686, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 160657804, guid: dccc05b8d01dde54f88f9910329187c2, type: 3}
     - target: {fileID: 481776754058842775, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _upgradingWeapon
       value: 
