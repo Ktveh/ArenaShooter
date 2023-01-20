@@ -43,8 +43,6 @@ public class WeaponShooting : MonoBehaviour
 
     public void LaunchBullet(bool isScoping)
     {
-        Debug.Log("Shot");
-
         Shooted?.Invoke();
         _weaponShowingBulletCase.enabled = true;
         _weaponAnimator.Fire(isScoping);
@@ -84,8 +82,6 @@ public class WeaponShooting : MonoBehaviour
         {
             zombie.TakeDamage(_damage);
             Hited?.Invoke();
-
-            Debug.Log("Hit");
         }
         else if (hit.collider.TryGetComponent(out ZombieLimb zombieLimb))
         {
@@ -95,8 +91,6 @@ public class WeaponShooting : MonoBehaviour
                 HitedInHead?.Invoke();
             else
                 Hited?.Invoke();
-
-            Debug.Log("Hit");
         }
     }
 }

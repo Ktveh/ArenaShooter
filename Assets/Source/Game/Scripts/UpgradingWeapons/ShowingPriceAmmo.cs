@@ -20,6 +20,6 @@ public class ShowingPriceAmmo : MonoBehaviour
     private void OnSelected()
     {
         _price.text = _playerWeaponSelecting.CurrentWeapon.PriceAmmo.ToString();
-        _amountAmmo.text = _playerWeaponSelecting.CurrentWeapon.MaxAmountAmmo.ToString();
+        _amountAmmo.text = "+" + _playerWeaponSelecting.CurrentWeapon.MaxAmountAmmo.ToString();
     }
 }

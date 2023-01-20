@@ -6832,9 +6832,17 @@ PrefabInstance:
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 524818456476234468, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _menu
+      value: 
+      objectReference: {fileID: 450242554}
+    - target: {fileID: 524818456476234468, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerWallet
       value: 
       objectReference: {fileID: 499741900}
+    - target: {fileID: 524818456476234468, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _playerWeaponSelecting
+      value: 
+      objectReference: {fileID: 499741894}
     - target: {fileID: 524818456843903187, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -8863,7 +8871,7 @@ PrefabInstance:
       objectReference: {fileID: 202625866}
     - target: {fileID: 4419128073758889286, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _priceAmmo
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5071698353250378955, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _zombieCounter
@@ -8916,6 +8924,22 @@ PrefabInstance:
     - target: {fileID: 5899722651494046587, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _priceAmmo
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989799004511955743, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994036771761335189, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: m_ClearFlags
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994036771761335189, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6994036771761335189, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: m_RenderingPath
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7074419657504827429, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: m_AnchorMax.y
@@ -15372,7 +15396,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: 90
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -24437,7 +24461,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 0}
+  m_AnchoredPosition: {x: -10, y: 0}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1140301752
