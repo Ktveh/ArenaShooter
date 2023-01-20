@@ -43,6 +43,8 @@ public class PlayerJumping : MonoBehaviour
     private void OnDisable()
     {
         _buttonJumping.Down -= OnDown;
+
+        _isGrounded = false;
     }
 
     private void OnDown()

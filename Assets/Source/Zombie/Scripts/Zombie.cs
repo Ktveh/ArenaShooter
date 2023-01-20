@@ -61,7 +61,7 @@ public class Zombie : MonoBehaviour
     {
         if (_health > 0)
         {
-            _deadEffect.Play();
+            //_deadEffect.Play();
             _health -= damage;
             if (_health <= 0)
             {

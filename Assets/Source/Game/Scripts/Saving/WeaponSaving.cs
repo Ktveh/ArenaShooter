@@ -1,21 +1,38 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Game))]
 public class WeaponSaving : MonoBehaviour
 {
     private const string True = "True";
     private const string False = "False";
+    private const string Ammo = "Ammo";
 
-    [SerializeField] private UpgradingWeapon _upgradingWeapon;
+    [SerializeField] private MenuUpgradingWeapon _upgradingWeapon;
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
+    [SerializeField] private PlayerInventory _playerInventory;
+    [SerializeField] private ButtonBuyingAmmo _buttonBuyingAmmo;
+
+    private Game _game;
+
+    private void Awake()
+    {
+        _game = GetComponent<Game>();
+    }
 
     private void OnEnable()
     {
         _upgradingWeapon.SelectedAccessory += OnSelectedAccessory;
+        _playerWeaponSelecting.Selected += OnSelectedWeapon;
+        _game.LevelCompleted += OnSelectedWeapon;
+        _buttonBuyingAmmo.Buyed += OnBuyed;
     }
 
     private void OnDisable()
     {
         _upgradingWeapon.SelectedAccessory -= OnSelectedAccessory;
+        _playerWeaponSelecting.Selected -= OnSelectedWeapon;
+        _game.LevelCompleted -= OnSelectedWeapon;
+        _buttonBuyingAmmo.Buyed -= OnBuyed;
     }
 
     /// ///////////////////////////////////////////////////////////////
@@ -31,12 +48,17 @@ public class WeaponSaving : MonoBehaviour
         return PlayerPrefs.GetString(weapon.ToString() + accessory.ToString()) == True;
     }
 
-    private void OnSelectedAccessory(WeaponAccessories.Type type)
+    public int GetAmountAmmo (Weapon.Types weapon)
     {
-        Change(_playerWeaponSelecting.CurrentWeapon.Type.ToString(), type);
+        return PlayerPrefs.GetInt(weapon.ToString() + Ammo);
     }
 
-    private void Change(string weapon, WeaponAccessories.Type type)
+    private void OnSelectedAccessory(WeaponAccessories.Type type)
+    {
+        ChangeAccessory(_playerWeaponSelecting.CurrentWeapon.Type.ToString(), type);
+    }
+
+    private void ChangeAccessory(string weapon, WeaponAccessories.Type type)
     {
         if (type == WeaponAccessories.Type.Silencer)
         {
@@ -63,5 +85,18 @@ public class WeaponSaving : MonoBehaviour
                 PlayerPrefs.SetString(weapon + WeaponAccessories.Type.Scope2, True);
                 break;
         }
+    }
+
+    private void OnSelectedWeapon()
+    {
+        Weapon.Types[] typesWeapons = _playerInventory.GetTypeAmmo();
+
+        foreach (Weapon.Types weapon in typesWeapons)
+            PlayerPrefs.SetInt(weapon + Ammo, (int)_playerInventory.GetAmountAmmo(weapon) + (int)_playerWeaponSelecting.GetWeapon(weapon).CurrentAmountAmmo);
+    }
+
+    private void OnBuyed(Weapon.Types type, uint amount)
+    {
+        OnSelectedWeapon();
     }
 }

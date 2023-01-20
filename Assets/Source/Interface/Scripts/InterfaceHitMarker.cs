@@ -46,7 +46,8 @@ public class InterfaceHitMarker : MonoBehaviour
             _head.gameObject.SetActive(false);
         }
 
-        _currentCoroutine = StartCoroutine(Hide(_body));
+        if(gameObject.activeSelf)
+            _currentCoroutine = StartCoroutine(Hide(_body));
     }
     
     private void OnHitedInHead()

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerZombieKillCounter : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class PlayerZombieKillCounter : MonoBehaviour
     private Zombie[] _zombies;
 
     public int Count { get; private set; }
+
+    public event UnityAction<int> Changed;
 
     private void Awake()
     {
@@ -27,6 +30,6 @@ public class PlayerZombieKillCounter : MonoBehaviour
 
     private void OnDead(Zombie zombie)
     {
-        ++Count;
+        Changed?.Invoke(++Count);
     }
 }

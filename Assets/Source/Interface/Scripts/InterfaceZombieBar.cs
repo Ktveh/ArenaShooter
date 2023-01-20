@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
@@ -11,6 +12,8 @@ public class InterfaceZombieBar : MonoBehaviour
     private Slider _slider;
     private TMP_Text _showingAmount;
     private int _amountDead;
+
+    public event UnityAction AllZombiesDead;
 
     private void Awake()
     {
@@ -37,5 +40,8 @@ public class InterfaceZombieBar : MonoBehaviour
     {
         _slider.value = ++_amountDead;
         _showingAmount.text = _amountDead.ToString() + " / " + _slider.maxValue.ToString();
+
+        if (_slider.value == _slider.maxValue)
+            AllZombiesDead?.Invoke();
     }
 }

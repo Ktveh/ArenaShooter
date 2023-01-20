@@ -11,18 +11,16 @@ public class PlayerDirection : MonoBehaviour
 
     private float _directionX;
     private float _directionY;
-    private float _forceRecoil;
-
-    private void Awake()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-    }
 
     private void LateUpdate()
     {
         CameraRotation(new Vector2(Input.GetAxisRaw(MouseX), Input.GetAxisRaw(MouseY)));
         CameraRotation(new Vector2(_joystick.Horizontal, _joystick.Vertical));
+    }
+
+    private void OnDisable()
+    {
+        _sensitivity = 0f;
     }
 
     private void CameraRotation(Vector2 direction)

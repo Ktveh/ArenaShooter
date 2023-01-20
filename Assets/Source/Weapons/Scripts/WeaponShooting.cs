@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +8,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(WeaponShowingBulletCase))]
 public class WeaponShooting : MonoBehaviour
 {
+    [SerializeField] private LayerMask _layerMask;
     [SerializeField] private float _maxDistance = 1000;
     [SerializeField] private int _damage;
     [Header("Sniper settings")]
@@ -24,6 +24,7 @@ public class WeaponShooting : MonoBehaviour
     private Weapon _weapon;
     private WeaponShowingBulletCase _weaponShowingBulletCase;
 
+    public event UnityAction Shooted;
     public event UnityAction Hited;
     public event UnityAction HitedInHead;
 
@@ -42,6 +43,9 @@ public class WeaponShooting : MonoBehaviour
 
     public void LaunchBullet(bool isScoping)
     {
+        Debug.Log("Shot");
+
+        Shooted?.Invoke();
         _weaponShowingBulletCase.enabled = true;
         _weaponAnimator.Fire(isScoping);
         _weaponSound.Fire();
@@ -51,24 +55,24 @@ public class WeaponShooting : MonoBehaviour
 
         if (_weapon.Type != Weapon.Types.SniperRifle && _weapon.Type != Weapon.Types.Shotgun)
         {
-            if (Physics.Raycast(camera.position, camera.forward, out hit, _maxDistance))
+            if (Physics.Raycast(camera.position, camera.forward, out hit, _maxDistance, _layerMask))
                 MakeDamage(hit);
         }
         else if (_weapon.Type == Weapon.Types.SniperRifle)
         {
             RaycastHit[] hits;
-            hits = Physics.RaycastAll(camera.position, camera.forward, _maxDistance);
+            hits = Physics.RaycastAll(camera.position, camera.forward, _maxDistance, _layerMask);
             int amount = hits.Length < _maximumNumberTargetsHit ? hits.Length : _maximumNumberTargetsHit;
-            
-            for (int i = 0; i < amount; i++)
+
+            for (int i = hits.Length - 1; i > hits.Length - 1 - amount; i--)
                 MakeDamage(hits[i]);
         }
         else if (_weapon.Type == Weapon.Types.Shotgun)
         {
             for (int i = 0; i < _amountBullets; i++)
             {
-                Vector3 direction = Camera.main.transform.forward + new Vector3(Random.Range(_minRandomDirection, _maxRandomDirection), Random.Range(_minRandomDirection, _maxRandomDirection));
-                if (Physics.Raycast(camera.position, direction, out hit, _maxDistance))
+                Vector3 direction = camera.forward + new Vector3(Random.Range(_minRandomDirection, _maxRandomDirection), Random.Range(_minRandomDirection, _maxRandomDirection));
+                if (Physics.Raycast(camera.position, direction, out hit, _maxDistance, _layerMask))
                     MakeDamage(hit);
             }
         }
@@ -80,6 +84,8 @@ public class WeaponShooting : MonoBehaviour
         {
             zombie.TakeDamage(_damage);
             Hited?.Invoke();
+
+            Debug.Log("Hit");
         }
         else if (hit.collider.TryGetComponent(out ZombieLimb zombieLimb))
         {
@@ -88,7 +94,9 @@ public class WeaponShooting : MonoBehaviour
             if(zombieLimb.IsHead)
                 HitedInHead?.Invoke();
             else
-                Hited?.Invoke();   
+                Hited?.Invoke();
+
+            Debug.Log("Hit");
         }
     }
 }

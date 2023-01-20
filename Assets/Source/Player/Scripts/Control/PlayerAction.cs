@@ -53,6 +53,8 @@ abstract public class PlayerAction : MonoBehaviour
         if (_buttons == null)
             return;
 
+        WithoutActioned?.Invoke();
+
         foreach (var button in _buttons)
         {
             button.Down -= OnDown;

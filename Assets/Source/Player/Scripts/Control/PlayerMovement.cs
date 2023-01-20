@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     {
         _runButton.Down -= OnDown;
         _runButton.Up -= OnUp;
+
+        _speed = 0;
     }
 
     private void OnDown()

@@ -1,25 +1,51 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-[RequireComponent(typeof(GameEnablingCursor))]
+[RequireComponent(typeof(GameCursorControl))]
+[RequireComponent (typeof(GameDisablingPlayerControl))]
 public class Game : MonoBehaviour
 {
     [SerializeField] private YandexInitialization _yandexInitialization;
+    [SerializeField] private InterfaceZombieBar _zombieBar;
 
-    private GameEnablingCursor _gameEnablingCursor;
+    private GameCursorControl _gameCursorControl;
+    private GameDisablingPlayerControl _gameDisablingPlayerControl;
+    private Menu _menu;
+    private bool _isMobile;
+
+    public bool IsStarted { get; private set; }
+
+    public event UnityAction<bool> DeviceGeted;
+    public event UnityAction LevelCompleted;
 
     private void Awake()
     {
-        _gameEnablingCursor = GetComponent<GameEnablingCursor>();
+        /////////////////---- Editor Only --------/////////////////////////
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Debug.Log("Editor Only");
+        /////////////////////////////////////////
+
+        _gameCursorControl = GetComponent<GameCursorControl>();
+        _gameDisablingPlayerControl = GetComponent<GameDisablingPlayerControl>();
+        _menu = GetComponentInChildren<Menu>();
+    }
+
+    private void Start()
+    {
+        IsStarted = true;
     }
 
     private void OnEnable()
     {
         _yandexInitialization.Completed += OnCompleted;
+        _zombieBar.AllZombiesDead += OnAllZombiesDead;
     }
 
     private void OnDisable()
     {
         _yandexInitialization.Completed -= OnCompleted;
+        _zombieBar.AllZombiesDead -= OnAllZombiesDead;
     }
 
     private void OnCompleted()
@@ -29,7 +55,20 @@ public class Game : MonoBehaviour
 
     private void DefineControl()
     {
-        if (Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop)
-            _gameEnablingCursor.enabled = true;
+        _isMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop;
+        DeviceGeted?.Invoke(_isMobile);
+
+        if (_isMobile)
+            _gameCursorControl.Enable();
+        else
+            _gameCursorControl.Disable();
+    }
+
+    private void OnAllZombiesDead()
+    {
+        _menu.enabled = true;
+        _gameCursorControl.Enable();
+        _gameDisablingPlayerControl.enabled = true;
+        LevelCompleted?.Invoke();
     }
 }

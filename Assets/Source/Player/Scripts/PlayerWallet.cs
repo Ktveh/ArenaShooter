@@ -3,28 +3,23 @@ using UnityEngine.Events;
 
 public class PlayerWallet : MonoBehaviour
 {
-    [SerializeField] private ZombieCounter _zombieCounter;
+    [SerializeField] private Menu _menu;
+    [SerializeField] private LevelReward _levelReward;
 
-    private Zombie[] _zombies;
     private int _value;
+
+    public int Value => _value;
 
     public event UnityAction<int> ChangedValue;
 
-    private void Awake()
-    {
-        _zombies = _zombieCounter.GetComponentsInChildren<Zombie>();
-    }
-
     private void OnEnable()
     {
-        foreach (Zombie zombie in _zombies)
-            zombie.Dead += OnDead;
+        _menu.Showed += OnShowed;
     }
 
     private void OnDisable()
     {
-        foreach (Zombie zombie in _zombies)
-            zombie.Dead -= OnDead;
+        _menu.Showed -= OnShowed;
     }
 
     public void SetValue(int value)
@@ -32,10 +27,23 @@ public class PlayerWallet : MonoBehaviour
         _value = value;
     }
     
-    private void OnDead(Zombie zombie)
+    public bool TryBuy(int price)
     {
-        //_value += zombie.Reward;
-        _value += 50;
-        ChangedValue?.Invoke(_value);
+        if (_value >= price)
+        {
+            _value -= price;
+            ChangedValue?.Invoke(_value);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void OnShowed()
+    {
+        _value += _levelReward.AllReward;
+        ChangedValue.Invoke(_value);
     }
 }

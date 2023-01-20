@@ -10,6 +10,9 @@ public class InterfaceAmountAmmo : MonoBehaviour
     [SerializeField] private TMP_Text _inventoryAmountAmmo;
     [SerializeField] private Image _icon;
 
+    private string _valueInventoryAmountAmmo => " / " + _playerInventory.GetAmountAmmo(_playerWeaponSelecting.CurrentWeapon.Type).ToString();
+    private string _valueCurrentAmountAmmo => _playerWeaponSelecting.CurrentWeapon.CurrentAmountAmmo.ToString();
+
     private void OnEnable()
     {
         _playerWeaponSelecting.Selected += OnSelected;
@@ -18,7 +21,9 @@ public class InterfaceAmountAmmo : MonoBehaviour
 
     private void OnDisable()
     {
-        _playerWeaponSelecting.CurrentWeapon.Shooted -= OnShooted;
+        if(_playerWeaponSelecting.CurrentWeapon != null)
+            _playerWeaponSelecting.CurrentWeapon.Shooted -= OnShooted;
+
         _playerWeaponSelecting.Selected -= OnSelected;
         _playerInventory.Changed -= OnChanged;
     }
@@ -29,23 +34,23 @@ public class InterfaceAmountAmmo : MonoBehaviour
         _playerWeaponSelecting.CurrentWeapon.Reloaded += OnReloaded;
 
         _icon.sprite = _playerWeaponSelecting.CurrentWeapon.Icon;
-        _currentAmountAmmo.text = _playerWeaponSelecting.CurrentWeapon.CurrentAmountAmmo.ToString();
-        _inventoryAmountAmmo.text = _playerInventory.GetAmountAmmo(_playerWeaponSelecting.CurrentWeapon.Type).ToString();
+        _currentAmountAmmo.text = _valueCurrentAmountAmmo;
+        _inventoryAmountAmmo.text = _valueInventoryAmountAmmo;
     }
 
     private void OnChanged()
     {
-        _inventoryAmountAmmo.text = _playerInventory.GetAmountAmmo(_playerWeaponSelecting.CurrentWeapon.Type).ToString();
+        _inventoryAmountAmmo.text = _valueInventoryAmountAmmo;
     }
 
     private void OnShooted()
     {
-        _currentAmountAmmo.text = _playerWeaponSelecting.CurrentWeapon.CurrentAmountAmmo.ToString();
+        _currentAmountAmmo.text = _valueCurrentAmountAmmo;
     }
     
     private void OnReloaded()
     {
-        _currentAmountAmmo.text = _playerWeaponSelecting.CurrentWeapon.CurrentAmountAmmo.ToString();
-        _inventoryAmountAmmo.text = _playerInventory.GetAmountAmmo(_playerWeaponSelecting.CurrentWeapon.Type).ToString();
+        _currentAmountAmmo.text = _valueCurrentAmountAmmo;
+        _inventoryAmountAmmo.text = _valueInventoryAmountAmmo;
     }
 }

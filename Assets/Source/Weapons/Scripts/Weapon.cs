@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour
 	[SerializeField] private float _durationInsertShell;
 	[SerializeField] private float _durationReloadingClose;
 
-	private Getting _gettingPlayer;
+	private Getting _getting;
 	private WeaponAnimator _weaponAnimator;
 	private WeaponAccessories _weaponAccessories;
 	private ThrowingGrenade _throwingGrenade;
@@ -83,7 +83,7 @@ public class Weapon : MonoBehaviour
 
 	private void Awake()
 	{
-		_gettingPlayer = GetComponentInParent<Getting>();
+		_getting = GetComponentInParent<Getting>();
 		_weaponAnimator = GetComponent<WeaponAnimator>();
 		_weaponAccessories = GetComponent<WeaponAccessories>();
 		_throwingGrenade = GetComponent<ThrowingGrenade>();
@@ -92,13 +92,13 @@ public class Weapon : MonoBehaviour
 		_weaponReloading = GetComponent<WeaponReloading>();
 		_weaponBreechBlock = GetComponent<WeaponBreechBlock>();
 		_weaponSound = GetComponent<WeaponSound>();
-		_playerMovement = _gettingPlayer.PlayerMovement;
-		_playerScopeOpening = _gettingPlayer.PlayerScopeOpening;
-		_playerShooting = _gettingPlayer.PlayerShooting;
-		_playerDroppingGrenade = _gettingPlayer.PlayerDroppingGrenade;
-		_playerWeaponReloading = _gettingPlayer.PlayerWeaponReloading;
-		_playerInventory = _gettingPlayer.PlayerInventory;
-		_weaponCamera = _gettingPlayer.WeaponCamera;
+		_playerMovement = _getting.PlayerMovement;
+		_playerScopeOpening = _getting.PlayerScopeOpening;
+		_playerShooting = _getting.PlayerShooting;
+		_playerDroppingGrenade = _getting.PlayerDroppingGrenade;
+		_playerWeaponReloading = _getting.PlayerWeaponReloading;
+		_playerInventory = _getting.PlayerInventory;
+		_weaponCamera = _getting.WeaponCamera;
 	}
 
     private void Start()
@@ -143,7 +143,7 @@ public class Weapon : MonoBehaviour
 
 		_weaponHolster.Hide(false);
 
-		if (_type == Weapon.Types.Shotgun)
+		if (_type == Types.Shotgun)
 			_isMovingMovableHandguard = false;
 	}
 
@@ -157,6 +157,8 @@ public class Weapon : MonoBehaviour
 		_playerShooting.Actioned -= OnShooted;
 		_playerShooting.WithoutActioned -= OnNonShooted;
 		_playerWeaponReloading.Actioned -= OnReload;
+
+		_isOpeningScope = false;
 	}
 
 	//public void Hide()
@@ -271,8 +273,8 @@ public class Weapon : MonoBehaviour
     {
         while (_isShooting && (IsReloading == false) && (_isRunning == false))
         {
-			Shoot();
 			yield return new WaitForSeconds(_nextShotDelay);
+			Shoot();
         }
     }
 
@@ -281,7 +283,7 @@ public class Weapon : MonoBehaviour
 		_isMovingMovableHandguard = true;
 		Shoot();
 
-		while ((_isMovingMovableHandguard))
+		while (_isMovingMovableHandguard)
 		{
 			yield return new WaitForSeconds(_nextShotDelay);
 			_isMovingMovableHandguard = false;

@@ -6,7 +6,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
 {
     [SerializeField] private Transform _containerWeapon;
     [SerializeField] private ControlButton _buttonNextWeapon;
-    [SerializeField] private UpgradingWeapon _upgradingWeapon;
+    [SerializeField] private MenuUpgradingWeapon _upgradingWeapon;
 
     private StandardWeapon[] _standardWeaponsAdding;
     private BonusWeapon[] _bonusWeaponsAdding;
@@ -18,6 +18,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
     private bool _isBonusActivated;
 
     public Weapon CurrentWeapon => _currentWeapon;
+    public Weapon LastWeapon { get; private set; }
 
     public event UnityAction Selected;
 
@@ -78,6 +79,11 @@ public class PlayerWeaponSelecting : MonoBehaviour
         _upgradingWeapon.SelectedWeapon -= Change;
     }
 
+    public Weapon GetWeapon(Weapon.Types type)
+    {
+        return _standardWeapons[type];
+    }
+
     private void Change(Weapon.Types typeWeapon)
     {
         if (_isBonusActivated)
@@ -89,6 +95,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
         if (_currentWeapon.IsReloading)
             return;
 
+        LastWeapon = _currentWeapon;
         _currentWeapon.gameObject.SetActive(false);
         StandardWeapon newWeapon = _standardWeapons[typeWeapon];
         newWeapon.gameObject.SetActive(true);

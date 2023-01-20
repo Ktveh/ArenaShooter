@@ -4,6 +4,9 @@ using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
+    [SerializeField] private ButtonBuyingAmmo _buttonBuyingAmmo;
+    [SerializeField] private WeaponSaving _weaponSaving;
+
     private Dictionary<Weapon.Types, uint> _ammo;
 
     public event UnityAction Changed;
@@ -14,14 +17,24 @@ public class PlayerInventory : MonoBehaviour
         {
             _ammo = new Dictionary<Weapon.Types, uint>()
             {
-                {Weapon.Types.Pistol, 10000},
-                {Weapon.Types.SMG, 100 },
-                {Weapon.Types.Rifle, 100 },
-                {Weapon.Types.SniperRifle, 100 },
-                {Weapon.Types.Shotgun, 100 },
-                {Weapon.Types.Grenade, 100 },
+                {Weapon.Types.Pistol, 1000},
+                {Weapon.Types.SMG, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.SMG) },
+                {Weapon.Types.Rifle, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Rifle) },
+                {Weapon.Types.SniperRifle, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.SniperRifle) },
+                {Weapon.Types.Shotgun, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Shotgun) },
+                {Weapon.Types.Grenade, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Grenade) },
             };
         }
+    }
+
+    private void OnEnable()
+    {
+        _buttonBuyingAmmo.Buyed += OnBuyed;
+    }
+
+    private void OnDisable()
+    {
+        _buttonBuyingAmmo.Buyed += OnBuyed;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -79,5 +92,24 @@ public class PlayerInventory : MonoBehaviour
     public uint GetAmountAmmo(Weapon.Types type)
     {
         return _ammo[type];
+    }
+
+    public Weapon.Types[] GetTypeAmmo()
+    {
+        List<Weapon.Types> types = new List<Weapon.Types>();
+
+        foreach (Weapon.Types ammo in _ammo.Keys)
+        {
+            if(ammo != Weapon.Types.Grenade)
+                types.Add(ammo);
+        }
+
+        return types.ToArray();
+    }
+
+    private void OnBuyed(Weapon.Types type, uint amount)
+    {
+        _ammo[type] += amount;
+        Changed?.Invoke();
     }
 }

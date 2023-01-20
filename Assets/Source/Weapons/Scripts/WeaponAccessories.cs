@@ -3,6 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Weapon))]
 public class WeaponAccessories : MonoBehaviour
 {
+    [SerializeField] private Sprite _iconScope1;
+    [SerializeField] private Sprite _iconScope2;
+    [SerializeField] private Sprite _iconSilencer;
+    [SerializeField] private int _priceScope1;
+    [SerializeField] private int _priceScope2;
+    [SerializeField] private int _priceSilencer;
     [SerializeField] private Sprite _scope1Texture;
     [SerializeField] private float _scope1TextureSize = 0.01f;
     [SerializeField] private Sprite _scope2Texture;
@@ -20,7 +26,13 @@ public class WeaponAccessories : MonoBehaviour
     private Weapon _weapon;
     private WeaponSaving _weaponSaving;
 
-    public bool IsEnabledScope => _scopeRenderer != null;
+    public Sprite IconScope1 => _iconScope1;
+    public Sprite IconScope2 => _iconScope2;
+    public Sprite IconSilencer => _iconSilencer;
+    public int PriceScope1 => _priceScope1;
+    public int PriceScope2 => _priceScope2;
+    public int PriceSilencer => _priceSilencer;
+    public bool IsEnabledScope => _scopeRenderer != null && IsEnabledScope1 == false && IsEnabledScope2 == false;
     public bool IsEnabledScope1 => _scope1Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope1);
     public bool IsEnabledScope2 => _scope2Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope2);
     public bool IsEnabledSilencer => _silencerRenderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Silencer);
