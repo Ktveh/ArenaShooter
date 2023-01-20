@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 
 public class ButtonSelectingWeapon : MonoBehaviour, IPointerDownHandler
 {
-    [SerializeField] private Weapon.Types _type;
+    [SerializeField] private Weapon _weapon;
 
-    public event UnityAction<Weapon.Types> Down;
+    public event UnityAction<Weapon> Down;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Down?.Invoke(_type);
+        Down?.Invoke(_weapon);
     }
 }

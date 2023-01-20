@@ -46,7 +46,6 @@ public class LevelScore : MonoBehaviour
     private void OnShooted()
     {
         ++AmountShot;
-        Debug.Log(AmountShot);
     }
     
     private void OnHited()

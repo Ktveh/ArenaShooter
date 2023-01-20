@@ -14,11 +14,11 @@ public class Weapon : MonoBehaviour
 {
 	[SerializeField] private Sprite _icon;
 	[SerializeField] private Types _type;
+	[SerializeField] private int _priceAmmo;
 	[SerializeField] private uint _maxAmountAmmo;
 	[SerializeField] private float _nextShotDelay;
 	[SerializeField] private float _forceRecoil;
 	[SerializeField] private bool _isSingleShootMod;
-
 	[Header("Shotgun settings")]
 	[SerializeField] private float _durationReloadingOpen;
 	[SerializeField] private float _durationInsertShell;
@@ -50,7 +50,9 @@ public class Weapon : MonoBehaviour
 	public Camera WeaponCamera => _weaponCamera;
 	public Sprite Icon => _icon;
 	public Types Type => _type;
+	public int PriceAmmo => _priceAmmo;
 	public uint CurrentAmountAmmo { get; private set; }
+	public uint MaxAmountAmmo => _maxAmountAmmo;
 	public uint NeedAmountAmmo => _maxAmountAmmo - CurrentAmountAmmo;
 	public float ForceRecoil => _forceRecoil;
 	public float DuartionReloadingOpen => _durationReloadingOpen;
@@ -273,8 +275,8 @@ public class Weapon : MonoBehaviour
     {
         while (_isShooting && (IsReloading == false) && (_isRunning == false))
         {
-			yield return new WaitForSeconds(_nextShotDelay);
 			Shoot();
+			yield return new WaitForSeconds(_nextShotDelay);
         }
     }
 
