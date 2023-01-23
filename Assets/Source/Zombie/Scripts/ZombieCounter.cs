@@ -49,7 +49,7 @@ public class ZombieCounter : MonoBehaviour
     private void ChangeCount(Zombie zombie)
     {
         _zombies.Remove(zombie);
-        if (_zombies.Count == 0)
+        if (_zombies.Count <= 0)
         {
             if (PlayerPrefs.GetInt(Level.SaveKey) < _nextLevel)
             {
