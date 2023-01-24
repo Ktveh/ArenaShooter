@@ -71,7 +71,7 @@ public class Game : MonoBehaviour
 
     private void DefineControl()
     {
-        _isMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop;
+        _isMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop ? true : false;
         DeviceGeted?.Invoke(_isMobile);
 
         if (_isMobile)

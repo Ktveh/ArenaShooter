@@ -22,5 +22,8 @@ public class YandexInitialization : MonoBehaviour
 
         if(PlayerAccount.IsAuthorized)
             PlayerAuthorizated?.Invoke();
+
+        Debug.Log("YandexSDK Initialized");
+        Debug.Log("Device mobile " + (Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop ? true : false));
     }
 }
