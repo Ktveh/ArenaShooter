@@ -2,13 +2,20 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Slider))]
 public class SettingCameraSensitivity : MonoBehaviour
 {
     [SerializeField] private PlayerDirection _playerDirection;
+    [SerializeField] private PlayerSettingSaving _playerSettingSaving;
 
     private Slider _slider;
 
     public event UnityAction<float> Changed;
+
+    private void Awake()
+    {
+        Changed?.Invoke(_playerSettingSaving.CurrentCameraSensitivity);
+    }
 
     private void OnEnable()
     {
@@ -25,5 +32,6 @@ public class SettingCameraSensitivity : MonoBehaviour
     private void Change()
     {
         Changed?.Invoke(_slider.value);
+        _playerSettingSaving.Set(_slider.value);
     }
 }

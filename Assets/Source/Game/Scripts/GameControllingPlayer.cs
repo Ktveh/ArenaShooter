@@ -30,4 +30,14 @@ public class GameControllingPlayer : MonoBehaviour
         _playerShooting.enabled = true;
         _playerDroppingGrenade.enabled = true;
     }
+
+    public void DisablePlayerDirection()
+    {
+        _playerDirection.enabled = false;
+    }
+
+    public void DisablePlayerPausingGame()
+    {
+        _playerPausingGame.enabled = false;
+    }
 }

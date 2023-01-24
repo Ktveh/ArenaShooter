@@ -6,7 +6,7 @@ public class PausingGame : MonoBehaviour
     [SerializeField] private YandexAds _yandexAds;
     [SerializeField] private PlayerPausingGame _playerPausingGame;
     [SerializeField] private PauseMenu _pauseMenu;
-
+    
     private GameControllingPlayer _gameControllingPlayer;
     private GameCursorControl _gameCursorControl;
 
@@ -37,7 +37,7 @@ public class PausingGame : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    private void Play()
+    public void Play()
     {
         Time.timeScale = 1;
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30507848, g: 0.48467785, b: 0.63313365, a: 1}
+  m_IndirectSpecularColor: {r: 0.30470958, g: 0.48416197, b: 0.6325453, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6449,6 +6449,10 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 499741894}
+    - target: {fileID: 863647474, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _playerDirection
+      value: 
+      objectReference: {fileID: 2088111955}
     - target: {fileID: 901996181, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerInventory
       value: 
@@ -6585,6 +6589,10 @@ PrefabInstance:
       propertyPath: _yandexAds
       value: 
       objectReference: {fileID: 1664593328}
+    - target: {fileID: 524818458152278392, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _playerPausingGame
+      value: 
+      objectReference: {fileID: 2088111953}
     - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _zombieBar
       value: 
@@ -6653,6 +6661,10 @@ PrefabInstance:
       propertyPath: _playerZombieKillCounter
       value: 
       objectReference: {fileID: 489611891}
+    - target: {fileID: 6722944159854677863, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _zombieCounter
+      value: 
+      objectReference: {fileID: 202625866}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
 --- !u!114 &395510499 stripped
@@ -8317,6 +8329,10 @@ PrefabInstance:
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 202625866}
+    - target: {fileID: 4773312695621045341, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _settingCameraSensitivity
+      value: 
+      objectReference: {fileID: 1158642298}
     - target: {fileID: 5071698353250378955, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _zombieCounter
       value: 
@@ -24089,6 +24105,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6995276501415842269, guid: 40d0f14debdba0049b27c5ecc03a7e1a, type: 3}
   m_PrefabInstance: {fileID: 1449629341}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1158642298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 863647474, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+  m_PrefabInstance: {fileID: 395510498}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088eeea750e79ae40abbb8c17550dd5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1158780226
 PrefabInstance:
   m_ObjectHideFlags: 0

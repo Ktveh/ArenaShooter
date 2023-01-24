@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(GameCursorControl))]
 [RequireComponent (typeof(GameControllingPlayer))]
@@ -7,9 +8,10 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private YandexInitialization _yandexInitialization;
     [SerializeField] private InterfaceZombieBar _zombieBar;
+    [SerializeField] private Button _buttonPlayingGame;
 
     private GameCursorControl _gameCursorControl;
-    private GameControllingPlayer _gameDisablingPlayerControl;
+    private GameControllingPlayer _gameControllingPlayer;
     private PausingGame _pausingGame;
     private Menu _menu;
     private bool _isMobile;
@@ -30,7 +32,7 @@ public class Game : MonoBehaviour
 #endif
 
         _gameCursorControl = GetComponent<GameCursorControl>();
-        _gameDisablingPlayerControl = GetComponent<GameControllingPlayer>();
+        _gameControllingPlayer = GetComponent<GameControllingPlayer>();
         _pausingGame = GetComponent<PausingGame>();
         _menu = GetComponentInChildren<Menu>();
     }
@@ -44,12 +46,14 @@ public class Game : MonoBehaviour
     {
         _yandexInitialization.Completed += OnCompleted;
         _zombieBar.AllZombiesDead += OnAllZombiesDead;
+        _buttonPlayingGame.onClick.AddListener(Play);
     }
 
     private void OnDisable()
     {
         _yandexInitialization.Completed -= OnCompleted;
         _zombieBar.AllZombiesDead -= OnAllZombiesDead;
+        _buttonPlayingGame.onClick.RemoveListener(Play);
     }
 
     private void OnCompleted()
@@ -72,7 +76,16 @@ public class Game : MonoBehaviour
     {
         _menu.enabled = true;
         _gameCursorControl.Enable();
-        _gameDisablingPlayerControl.enabled = true;
+        _gameControllingPlayer.enabled = true;
+        _gameControllingPlayer.DisablePlayerDirection();
+        _gameControllingPlayer.DisablePlayerPausingGame();
         LevelCompleted?.Invoke();
+    }
+
+    private void Play()
+    {
+        _gameCursorControl.Disable();
+        _gameControllingPlayer.enabled = false;
+        _pausingGame.Play();
     }
 }
