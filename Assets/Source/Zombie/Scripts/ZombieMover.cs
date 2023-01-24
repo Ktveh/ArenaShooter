@@ -15,6 +15,7 @@ public class ZombieMover : MonoBehaviour
     [Range(0,1)]
     [SerializeField] private float _spreadSpeed;
 
+    private float _stopAcceleration = 10f;
     private Target _target;
 
     private void Update()
@@ -41,7 +42,8 @@ public class ZombieMover : MonoBehaviour
         }
         if (_zombie.IsDead)
         {
-            _agent.enabled = false;
+            _agent.speed = SetSpeed(0);
+            _agent.acceleration = _stopAcceleration;
         }
         if (!_agent.hasPath)
         {
