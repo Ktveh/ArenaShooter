@@ -2,14 +2,15 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(GameCursorControl))]
-[RequireComponent (typeof(GameDisablingPlayerControl))]
+[RequireComponent (typeof(GameControllingPlayer))]
 public class Game : MonoBehaviour
 {
     [SerializeField] private YandexInitialization _yandexInitialization;
     [SerializeField] private InterfaceZombieBar _zombieBar;
 
     private GameCursorControl _gameCursorControl;
-    private GameDisablingPlayerControl _gameDisablingPlayerControl;
+    private GameControllingPlayer _gameDisablingPlayerControl;
+    private PausingGame _pausingGame;
     private Menu _menu;
     private bool _isMobile;
 
@@ -29,7 +30,8 @@ public class Game : MonoBehaviour
 #endif
 
         _gameCursorControl = GetComponent<GameCursorControl>();
-        _gameDisablingPlayerControl = GetComponent<GameDisablingPlayerControl>();
+        _gameDisablingPlayerControl = GetComponent<GameControllingPlayer>();
+        _pausingGame = GetComponent<PausingGame>();
         _menu = GetComponentInChildren<Menu>();
     }
 

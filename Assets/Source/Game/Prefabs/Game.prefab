@@ -3831,7 +3831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _background: {fileID: 4096751232363619519}
-  _duration: 1
+  _delay: 1
 --- !u!1 &524818457899986773
 GameObject:
   m_ObjectHideFlags: 0

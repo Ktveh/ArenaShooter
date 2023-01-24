@@ -4,7 +4,7 @@ using UnityEngine.Events;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private GameObject _background;
-    [SerializeField] private float _duration;
+    [SerializeField] private float _delay;
 
     private MenuShowingScore _menuShowingScore;
     private MenuUpgradingWeapon _menuUpgradingWeapon;
@@ -22,7 +22,7 @@ public class Menu : MonoBehaviour
 
     private void OnEnable()
     {
-        Invoke(nameof(ShowScore), _duration);
+        Invoke(nameof(ShowScore), _delay);
     }
 
     private void ShowScore()
