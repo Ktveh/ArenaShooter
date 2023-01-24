@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerDirection: {fileID: 0}
-  _playerSettingSaving: {fileID: 0}
+  _playerSettingSaving: {fileID: 217483770904063649}
 --- !u!1 &872906733
 GameObject:
   m_ObjectHideFlags: 0
