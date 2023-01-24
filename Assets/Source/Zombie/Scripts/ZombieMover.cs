@@ -41,7 +41,7 @@ public class ZombieMover : MonoBehaviour
         }
         if (_zombie.IsDead)
         {
-            _agent.speed = SetSpeed(0);
+            _agent.enabled = false;
         }
         if (!_agent.hasPath)
         {

@@ -10,6 +10,7 @@ public class ZombieCounter : MonoBehaviour
     private List<Zombie> _zombies;
     private int _startAmount;
 
+    public int NextLevel => _nextLevel;
     public int StartAmount => _startAmount;
 
     private void Start()
@@ -26,7 +27,6 @@ public class ZombieCounter : MonoBehaviour
             }
         }
         _startAmount = _zombies.Count;
-        
     }
 
     public int Amount()
@@ -49,14 +49,12 @@ public class ZombieCounter : MonoBehaviour
     private void ChangeCount(Zombie zombie)
     {
         _zombies.Remove(zombie);
-        if (_zombies.Count == 0)
+        if (_zombies.Count <= 0)
         {
-            ChangeLevel();
+            if (PlayerPrefs.GetInt(Level.SaveKey) < _nextLevel)
+            {
+                PlayerPrefs.SetInt(Level.SaveKey, _nextLevel);
+            }
         }
-    }
-
-    private void ChangeLevel()
-    {
-        SceneManager.LoadScene(_nextLevel);
     }
 }
