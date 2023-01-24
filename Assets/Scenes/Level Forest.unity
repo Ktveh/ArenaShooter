@@ -38790,6 +38790,17 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1280167934 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3241449563985985771, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+  m_PrefabInstance: {fileID: 2086822361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a93cf3c87aa952419d8e1f42f7958d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1287380921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49692,6 +49703,10 @@ PrefabInstance:
       propertyPath: _zombieBar
       value: 
       objectReference: {fileID: 2086822380}
+    - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _playerHealth
+      value: 
+      objectReference: {fileID: 1280167934}
     - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _yandexInitialization
       value: 

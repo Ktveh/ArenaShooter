@@ -6598,6 +6598,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1766944294}
     - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _playerHealth
+      value: 
+      objectReference: {fileID: 489611892}
+    - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _yandexInitialization
       value: 
       objectReference: {fileID: 1664593329}
@@ -8376,6 +8380,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a6b36a9bae7d6c4fb66f87333c249af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &489611892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3241449563985985771, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+  m_PrefabInstance: {fileID: 489611890}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a93cf3c87aa952419d8e1f42f7958d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &490059398

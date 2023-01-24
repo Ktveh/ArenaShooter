@@ -29,7 +29,6 @@ public class PlayerDirection : MonoBehaviour
     private void OnDisable()
     {
         _settingCameraSensitivity.Changed -= OnChanged;
-        //_sensitivity = 0f;
     }
 
     private void CameraRotation(Vector2 direction)

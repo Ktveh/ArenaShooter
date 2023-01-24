@@ -4,19 +4,24 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(GameCursorControl))]
 [RequireComponent (typeof(GameControllingPlayer))]
+[RequireComponent (typeof(PausingGame))]
+[RequireComponent (typeof(ControllingAudio))]
 public class Game : MonoBehaviour
 {
     [SerializeField] private YandexInitialization _yandexInitialization;
     [SerializeField] private InterfaceZombieBar _zombieBar;
+    [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Button _buttonPlayingGame;
 
     private GameCursorControl _gameCursorControl;
     private GameControllingPlayer _gameControllingPlayer;
     private PausingGame _pausingGame;
+    private ControllingAudio _controllingAudio;
     private Menu _menu;
     private bool _isMobile;
 
     public bool IsStarted { get; private set; }
+    public bool PlayerIsDead { get; private set; }
 
     public event UnityAction<bool> DeviceGeted;
     public event UnityAction LevelCompleted;
@@ -34,6 +39,7 @@ public class Game : MonoBehaviour
         _gameCursorControl = GetComponent<GameCursorControl>();
         _gameControllingPlayer = GetComponent<GameControllingPlayer>();
         _pausingGame = GetComponent<PausingGame>();
+        _controllingAudio = GetComponent<ControllingAudio>();
         _menu = GetComponentInChildren<Menu>();
     }
 
@@ -47,6 +53,7 @@ public class Game : MonoBehaviour
         _yandexInitialization.Completed += OnCompleted;
         _zombieBar.AllZombiesDead += OnAllZombiesDead;
         _buttonPlayingGame.onClick.AddListener(Play);
+        _playerHealth.Deaded += OnDeaded;
     }
 
     private void OnDisable()
@@ -54,6 +61,7 @@ public class Game : MonoBehaviour
         _yandexInitialization.Completed -= OnCompleted;
         _zombieBar.AllZombiesDead -= OnAllZombiesDead;
         _buttonPlayingGame.onClick.RemoveListener(Play);
+        _playerHealth.Deaded -= OnDeaded;
     }
 
     private void OnCompleted()
@@ -79,6 +87,7 @@ public class Game : MonoBehaviour
         _gameControllingPlayer.enabled = true;
         _gameControllingPlayer.DisablePlayerDirection();
         _gameControllingPlayer.DisablePlayerPausingGame();
+        _controllingAudio.enabled = false;
         LevelCompleted?.Invoke();
     }
 
@@ -87,5 +96,11 @@ public class Game : MonoBehaviour
         _gameCursorControl.Disable();
         _gameControllingPlayer.enabled = false;
         _pausingGame.Play();
+    }
+
+    private void OnDeaded()
+    {
+        PlayerIsDead = true;
+        OnAllZombiesDead();
     }
 }
