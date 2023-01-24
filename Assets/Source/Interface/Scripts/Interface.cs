@@ -4,13 +4,7 @@ public class Interface : MonoBehaviour
 {
     [SerializeField] private Game _game;
     [SerializeField] private Menu _menu;
-
-    private TouchControl _touchControl;
-
-    private void Awake()
-    {
-        _touchControl = GetComponentInChildren<TouchControl>();
-    }
+    [SerializeField] private TouchControl _touchControl;
 
     private void OnEnable()
     {

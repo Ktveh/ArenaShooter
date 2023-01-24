@@ -50351,34 +50351,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2048819685, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2048819685, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2048819686, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2048819686, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 424745957, guid: dccc05b8d01dde54f88f9910329187c2, type: 3}
-    - target: {fileID: 2693512899654861192, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2693512899654861192, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2693512899654861192, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3037117282460102524, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _containerZombie
       value: 
@@ -50395,18 +50367,10 @@ PrefabInstance:
       propertyPath: _buttonBuyingAmmo
       value: 
       objectReference: {fileID: 1078947782}
-    - target: {fileID: 3511472802547573648, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -14.925335
-      objectReference: {fileID: 0}
     - target: {fileID: 3511472802547573652, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _upgradingWeapon
       value: 
       objectReference: {fileID: 1078947779}
-    - target: {fileID: 3511472802999210985, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3511472803149258914, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -50455,10 +50419,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3511472803149258915, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3630316606934300978, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _containerZombie
       value: 
@@ -50479,10 +50439,6 @@ PrefabInstance:
       propertyPath: _levelReward
       value: 
       objectReference: {fileID: 1078947783}
-    - target: {fileID: 5506110231941454162, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
-      propertyPath: _zombieCounter
-      value: 
-      objectReference: {fileID: 2095360469}
     - target: {fileID: 5759401810340898379, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _game
       value: 
