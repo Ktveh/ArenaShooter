@@ -28,7 +28,7 @@ public class ZombieLimb : MonoBehaviour
             if (_health <= 0)
             {
                 transform.localScale = Vector3.zero;
-                //_bloodEffect.Play();
+                _bloodEffect.Play();
                 Instantiate(_limbEffect, transform);
                 if (_isLeg)
                 {

@@ -17,6 +17,14 @@ public class TrapTrigger : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        foreach (var transform in _objectsForShow)
+        {
+            transform.gameObject.SetActive(false);
+        }
+    }
+
     private void Active()
     {
         _sound.Play();

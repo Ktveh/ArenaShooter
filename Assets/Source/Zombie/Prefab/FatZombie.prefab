@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 25
+  _health: 30
   _limb: {fileID: 1870034368483512772}
   _isLeg: 0
   _isHead: 1
