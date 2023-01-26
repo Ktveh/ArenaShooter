@@ -19,7 +19,7 @@ public class MenuShowingScore : MonoBehaviour
 
     public void SetValue()
     {
-        if(_game.PlayerIsDead)
+        if (_game.PlayerIsDead)
             _badTitle.gameObject.SetActive(true);
         else
             _goodTitle.gameObject.SetActive(true);
