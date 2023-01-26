@@ -11,6 +11,7 @@ public class Map : MonoBehaviour
     [SerializeField] private Image _playerIcon;
     [SerializeField] private Image _zombieIcon;
     [SerializeField] private float _scalePosition;
+    [SerializeField] private bool _isEllipse;
 
     private List<Image> _zombieIcons = new List<Image>();
     float _side;
@@ -23,8 +24,6 @@ public class Map : MonoBehaviour
 
         _map.rectTransform.sizeDelta = width > height ? new Vector2(width, width) : new Vector2(height, height);
         _side = _map.rectTransform.sizeDelta.x;
-
-        _map.rectTransform.anchoredPosition = new Vector2(-_side / 2, -_side / 2);
 
         for (int i = 0; i < _zombieCounter.StartAmount; i++)
         {
@@ -47,8 +46,6 @@ public class Map : MonoBehaviour
             _zombieIcons[i].rectTransform.anchoredPosition = ConvertCoordinates(zombies[i]);
             _zombieIcons[i].rectTransform.localEulerAngles = Vector3.zero;
         }
-
-        _playerIcon.rectTransform.anchoredPosition = new Vector2(0, 0);
     }
 
     private Vector2 GetPlayerOffset()
@@ -62,17 +59,40 @@ public class Map : MonoBehaviour
         coordinates -= new Vector3(_offset.x, 0, _offset.y);
         coordinates = Quaternion.Inverse(_playerPosition.rotation) * coordinates;
         coordinates *= _scalePosition;
-        Vector3 rectCoordinates = new Vector2(coordinates.x, coordinates.z);
-        rectCoordinates = new Vector2(SetClamp(rectCoordinates.x), SetClamp(rectCoordinates.y));
+        Vector2 rectCoordinates = new Vector2(coordinates.x, coordinates.z);
+        if (_isEllipse)
+        {
+            rectCoordinates = SetEllipseClanp(rectCoordinates);
+        }
+        else
+        {
+            rectCoordinates = new Vector2(SetRectangleClamp(rectCoordinates.x), SetRectangleClamp(rectCoordinates.y));
+        }
         return rectCoordinates;
     }
 
-    private float SetClamp(float value)
+    private float SetRectangleClamp(float value)
     {
         float halfSide = _side / 2;
         float halfWidthImage = _zombieIcon.rectTransform.sizeDelta.x / 2;
         float maxValue = halfSide - halfWidthImage;
         return Mathf.Clamp(value, -maxValue, maxValue);
+    }
+
+    private Vector2 SetEllipseClanp(Vector2 value)
+    {
+        float halfSide = _side / 2;
+        float halfWidthImage = _zombieIcon.rectTransform.sizeDelta.x / 2;
+        float distance = Vector2.Distance(Vector2.zero, value);
+        if (distance <= halfSide - halfWidthImage)
+        {
+            return value;
+        }
+        else
+        {
+            float coefficient = distance / (halfSide - halfWidthImage);
+            return new Vector2(value.x / coefficient, value.y / coefficient);
+        }
     }
 
     private void Clear()

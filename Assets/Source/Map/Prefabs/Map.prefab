@@ -61,14 +61,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.028301895, g: 0.028301895, b: 0.028301895, a: 0.392}
+  m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ef957ddb3b004127bc24457da886047, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb1e442d46e4f7a4ca691ecf4cc733e1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -96,6 +96,7 @@ MonoBehaviour:
   _playerIcon: {fileID: 7047195080788446788}
   _zombieIcon: {fileID: 2802236232743550515, guid: 27e6fb496eb10f343bdcbe796839ccbc, type: 3}
   _scalePosition: 3
+  _isEllipse: 1
 --- !u!1001 &5804228915680464453
 PrefabInstance:
   m_ObjectHideFlags: 0
