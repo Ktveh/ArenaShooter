@@ -13,7 +13,7 @@ public class ZombieCounter : MonoBehaviour
     public int NextLevel => _nextLevel;
     public int StartAmount => _startAmount;
 
-    private void Start()
+    private void Awake()
     {
         _zombies = new List<Zombie>();
         foreach(Transform child in transform)
@@ -40,7 +40,10 @@ public class ZombieCounter : MonoBehaviour
 
         foreach(Zombie zombie in _zombies)
         {
-            positions.Add(zombie.transform.position);
+            if (!zombie.IsDead)
+            {
+                positions.Add(zombie.transform.position);
+            }
         }
 
         return positions;
