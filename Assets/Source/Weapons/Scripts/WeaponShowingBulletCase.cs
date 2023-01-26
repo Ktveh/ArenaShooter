@@ -12,7 +12,10 @@ public class WeaponShowingBulletCase : MonoBehaviour
         _bulletsCases = _containerBulletCase.GetComponentsInChildren<BulletCase>();
 
         foreach (BulletCase bulletCase in _bulletsCases)
+        {
+            Debug.Log(bulletCase.gameObject);
             bulletCase.gameObject.SetActive(false);
+        }
     }
 
     private void OnEnable()

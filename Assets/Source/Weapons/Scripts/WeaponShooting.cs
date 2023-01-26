@@ -54,11 +54,15 @@ public class WeaponShooting : MonoBehaviour
 
         if (_weapon.Type != Weapon.Types.SniperRifle && _weapon.Type != Weapon.Types.Shotgun)
         {
+            _isHited = false;
+
             if (Physics.Raycast(camera.position, camera.forward, out hit, _maxDistance, _layerMask))
                 MakeDamage(hit);
         }
         else if (_weapon.Type == Weapon.Types.SniperRifle)
         {
+            _isHited = false;
+
             RaycastHit[] hits;
             hits = Physics.RaycastAll(camera.position, camera.forward, _maxDistance, _layerMask);
             int amount = hits.Length < _maximumNumberTargetsHit ? hits.Length : _maximumNumberTargetsHit;
