@@ -3,10 +3,12 @@ using UnityEngine.Events;
 
 abstract public class PlayerAction : MonoBehaviour
 {
+    [SerializeField] private Game _game;
     [SerializeField] private ControlButton[] _buttons;
     [SerializeField] private KeyCode _key;
 
     private int _normalizedKeyMouse;
+    private bool _isMobile;
 
     private bool _isMouse => (_key == KeyCode.Mouse0) || (_key == KeyCode.Mouse1);
 
@@ -29,11 +31,14 @@ abstract public class PlayerAction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(_key) || (Input.GetMouseButtonDown(_normalizedKeyMouse) && _isMouse))
-            Actioned?.Invoke();
+        if (_isMobile == false)
+        {
+            if (Input.GetKeyDown(_key) || (Input.GetMouseButtonDown(_normalizedKeyMouse) && _isMouse))
+                Actioned?.Invoke();
 
-        if (Input.GetKeyUp(_key) || (Input.GetMouseButtonUp(_normalizedKeyMouse) && _isMouse))
-            WithoutActioned?.Invoke();
+            if (Input.GetKeyUp(_key) || (Input.GetMouseButtonUp(_normalizedKeyMouse) && _isMouse))
+                WithoutActioned?.Invoke();
+        }
     }
 
     private void OnEnable()
@@ -46,6 +51,8 @@ abstract public class PlayerAction : MonoBehaviour
             button.Down += OnDown;
             button.Up += OnUp;
         }
+
+        _game.DeviceGeted += OnDeviceGeted;
     }
 
     private void OnDisable()
@@ -60,6 +67,8 @@ abstract public class PlayerAction : MonoBehaviour
             button.Down -= OnDown;
             button.Up -= OnUp;
         }
+
+        _game.DeviceGeted -= OnDeviceGeted;
     }
 
     private void OnDown()
@@ -70,5 +79,10 @@ abstract public class PlayerAction : MonoBehaviour
     private void OnUp()
     {
         WithoutActioned?.Invoke();
+    }
+
+    private void OnDeviceGeted(bool isMobile)
+    {
+        _isMobile = isMobile;
     }
 }

@@ -11,9 +11,6 @@ GameObject:
   - component: {fileID: 1358166167432884714}
   - component: {fileID: 1358166167432884713}
   - component: {fileID: 1358166167432884712}
-  - component: {fileID: 1358166167432884727}
-  - component: {fileID: 1358166167432884726}
-  - component: {fileID: 1358166167432884725}
   m_Layer: 0
   m_Name: YandexSDK
   m_TagString: Untagged
@@ -60,40 +57,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13374b811a80dc24a80c262fef889ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1358166167432884727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358166167432884724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bef25c81a60ec914f810852cf86bde78, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1358166167432884726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358166167432884724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5a24cafe132278429ef74e08ba5adc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1358166167432884725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358166167432884724}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32332b97ac11c3842859aa9f79673752, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerZombieKillCounter: {fileID: 0}

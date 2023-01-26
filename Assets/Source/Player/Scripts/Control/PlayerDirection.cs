@@ -5,6 +5,7 @@ public class PlayerDirection : MonoBehaviour
     private const string MouseX = "Mouse X";
     private const string MouseY = "Mouse Y";
 
+    [SerializeField] private Game _game;
     [SerializeField] private SettingCameraSensitivity _settingCameraSensitivity;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Transform _orintation;
@@ -12,23 +13,28 @@ public class PlayerDirection : MonoBehaviour
 
     private float _directionX;
     private float _directionY;
+    private bool _isMobile;
 
     public float Sensitivity => _sensitivity;
 
     private void LateUpdate()
     {
-        CameraRotation(new Vector2(Input.GetAxisRaw(MouseX), Input.GetAxisRaw(MouseY)));
-        CameraRotation(new Vector2(_joystick.Horizontal, _joystick.Vertical));
+        if (_isMobile)
+            CameraRotation(new Vector2(_joystick.Horizontal, _joystick.Vertical));
+        else
+            CameraRotation(new Vector2(Input.GetAxisRaw(MouseX), Input.GetAxisRaw(MouseY)));
     }
 
     private void OnEnable()
     {
         _settingCameraSensitivity.Changed += OnChanged;
+        _game.DeviceGeted += OnDeviceGeted;
     }
 
     private void OnDisable()
     {
         _settingCameraSensitivity.Changed -= OnChanged;
+        _game.DeviceGeted -= OnDeviceGeted;
     }
 
     private void CameraRotation(Vector2 direction)
@@ -45,5 +51,10 @@ public class PlayerDirection : MonoBehaviour
     private void OnChanged(float value)
     {
         _sensitivity = value;
+    }
+
+    private void OnDeviceGeted(bool isMobile)
+    {
+        _isMobile = isMobile;
     }
 }

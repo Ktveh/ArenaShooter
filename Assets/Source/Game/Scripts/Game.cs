@@ -22,6 +22,7 @@ public class Game : MonoBehaviour
 
     public bool IsStarted { get; private set; }
     public bool PlayerIsDead { get; private set; }
+    public bool IsMobile => _isMobile;
 
     public event UnityAction<bool> DeviceGeted;
     public event UnityAction LevelCompleted;

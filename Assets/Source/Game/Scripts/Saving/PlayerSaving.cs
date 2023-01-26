@@ -8,6 +8,8 @@ public class PlayerSaving : MonoBehaviour
     [SerializeField] private PlayerWallet _playerWallet;
     [SerializeField] private PlayerZombieKillCounter _playerZombieKillCounter;
 
+    public int CurrentScore => PlayerPrefs.GetInt(AmountKilledZombie);
+
     private void Awake()
     {
         _playerWallet.SetValue(PlayerPrefs.GetInt(Money));

@@ -38880,15 +38880,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2693512899654861192, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2693512899654861192, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2693512899654861192, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3037117282460102524, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _containerZombie
@@ -38914,6 +38914,26 @@ PrefabInstance:
       propertyPath: _upgradingWeapon
       value: 
       objectReference: {fileID: 461273329}
+    - target: {fileID: 3511472802547573656, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 461273333}
+    - target: {fileID: 3511472802547573657, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 461273333}
+    - target: {fileID: 3511472802547573658, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 461273333}
+    - target: {fileID: 3511472802547573659, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 461273333}
+    - target: {fileID: 3511472802547573663, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 461273333}
     - target: {fileID: 3511472803149258914, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -38970,6 +38990,10 @@ PrefabInstance:
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 1341749913}
+    - target: {fileID: 4773312695621045341, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 461273333}
     - target: {fileID: 4773312695621045341, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _settingCameraSensitivity
       value: 

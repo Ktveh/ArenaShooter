@@ -8281,6 +8281,26 @@ PrefabInstance:
       propertyPath: _upgradingWeapon
       value: 
       objectReference: {fileID: 395510499}
+    - target: {fileID: 3511472802547573656, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 2114047328}
+    - target: {fileID: 3511472802547573657, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 2114047328}
+    - target: {fileID: 3511472802547573658, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 2114047328}
+    - target: {fileID: 3511472802547573659, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 2114047328}
+    - target: {fileID: 3511472802547573663, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 2114047328}
     - target: {fileID: 3511472803149258914, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -8333,6 +8353,10 @@ PrefabInstance:
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 202625866}
+    - target: {fileID: 4773312695621045341, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 2114047328}
     - target: {fileID: 4773312695621045341, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _settingCameraSensitivity
       value: 

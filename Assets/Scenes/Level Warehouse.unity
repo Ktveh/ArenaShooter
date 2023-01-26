@@ -50371,6 +50371,26 @@ PrefabInstance:
       propertyPath: _upgradingWeapon
       value: 
       objectReference: {fileID: 1078947779}
+    - target: {fileID: 3511472802547573656, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 1078947784}
+    - target: {fileID: 3511472802547573657, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 1078947784}
+    - target: {fileID: 3511472802547573658, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 1078947784}
+    - target: {fileID: 3511472802547573659, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 1078947784}
+    - target: {fileID: 3511472802547573663, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 1078947784}
     - target: {fileID: 3511472803149258914, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -50423,6 +50443,10 @@ PrefabInstance:
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 2095360469}
+    - target: {fileID: 4773312695621045341, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 1078947784}
     - target: {fileID: 4773312695621045341, guid: 3d46a9e4eef9d3b4cb913e7a192d1a24, type: 3}
       propertyPath: _settingCameraSensitivity
       value: 
@@ -63087,7 +63111,10 @@ PrefabInstance:
       propertyPath: _playerZombieKillCounter
       value: 
       objectReference: {fileID: 902874386}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1358166167432884727, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+    - {fileID: 1358166167432884726, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+    - {fileID: 1358166167432884725, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
 --- !u!114 &1969358105 stripped
 MonoBehaviour:
