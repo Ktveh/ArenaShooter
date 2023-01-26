@@ -50,7 +50,8 @@ public class PlayerDirection : MonoBehaviour
 
     private void OnChanged(float value)
     {
-        _sensitivity = value;
+        if(value != 0)
+            _sensitivity = value;
     }
 
     private void OnDeviceGeted(bool isMobile)
