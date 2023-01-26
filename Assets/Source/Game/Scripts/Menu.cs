@@ -22,13 +22,13 @@ public class Menu : MonoBehaviour
 
     private void OnEnable()
     {
+        _background.SetActive(true);
         Invoke(nameof(ShowScore), _delay);
     }
 
     private void ShowScore()
     {
         _menuShowingScore.SetValue();
-        _background.SetActive(true);
         _menuShowingScore.gameObject.SetActive(true);
         Showed?.Invoke();
     }
