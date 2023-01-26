@@ -47,6 +47,10 @@ public class WeaponAnimator : MonoBehaviour
         if(_weapon.IsReloadingStarted)
 			if(IsRealoding == false)
 					Reloaded?.Invoke();
+
+		if (_weapon.IsScoping)
+			Aim(true);
+
 	}
 
 	public void Walk(bool isWalking)
