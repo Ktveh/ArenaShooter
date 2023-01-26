@@ -193,7 +193,6 @@ public class Weapon : MonoBehaviour
     {
 		_isOpeningScope = true;
 		_weaponAnimator.Aim(_isScoping);
-		_weaponAccessories.Aim(_isScoping);
 		_weaponSound.Aim(_isScoping);
 	}
 	
@@ -201,7 +200,6 @@ public class Weapon : MonoBehaviour
     {
 		_isOpeningScope = false;
 		_weaponAnimator.Aim(_isScoping);
-		_weaponAccessories.Aim(_isScoping);
 		_weaponSound.Aim(_isScoping);
 	}
 	
