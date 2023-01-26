@@ -95,19 +95,4 @@ public class WeaponAccessories : MonoBehaviour
         else
             _silencerRenderer.enabled = false;
     }
-
-    public void Aim(bool isAiming)
-    {
-        if (_scope1Renderer)
-        {
-            if (IsEnabledScope1)
-                _scope1SpriteRenderer.enabled = isAiming;
-        }
-
-        if (_scope2Renderer)
-        {
-            if (IsEnabledScope2)
-                _scope2SpriteRenderer.enabled = isAiming;
-        }
-    }
 }

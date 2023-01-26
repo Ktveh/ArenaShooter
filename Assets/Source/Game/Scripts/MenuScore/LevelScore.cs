@@ -9,7 +9,18 @@ public class LevelScore : MonoBehaviour
     public int AmountHited { get; private set; }
     public int AmountHitedHead { get; private set; }
     public int AmountShot { get; private set; }
-    public float HitAccuracy => ((float)AmountHited + (float)AmountHitedHead) / (float)AmountShot * 100;
+    public float HitAccuracy
+    {
+        get
+        {
+            if (AmountShot != 0)
+                return ((float)AmountHited + AmountHitedHead) / AmountShot * 100;
+            else
+                return 0;
+        }
+
+        private set { }
+    }
 
     private void OnEnable()
     {

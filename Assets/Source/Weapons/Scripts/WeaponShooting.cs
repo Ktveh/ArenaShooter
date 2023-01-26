@@ -23,6 +23,7 @@ public class WeaponShooting : MonoBehaviour
     private WeaponParticles _weaponParticles;
     private Weapon _weapon;
     private WeaponShowingBulletCase _weaponShowingBulletCase;
+    private bool _isHited;
 
     public event UnityAction Shooted;
     public event UnityAction Hited;
@@ -73,6 +74,8 @@ public class WeaponShooting : MonoBehaviour
                 if (Physics.Raycast(camera.position, direction, out hit, _maxDistance, _layerMask))
                     MakeDamage(hit);
             }
+
+            _isHited = false;
         }
     }
 
@@ -81,16 +84,26 @@ public class WeaponShooting : MonoBehaviour
         if (hit.collider.TryGetComponent(out Zombie zombie))
         {
             zombie.TakeDamage(_damage);
-            Hited?.Invoke();
+            if (_isHited == false)
+            {
+                Hited?.Invoke();
+                _isHited = true;
+            }
         }
         else if (hit.collider.TryGetComponent(out ZombieLimb zombieLimb))
         {
             zombieLimb.TakeDamage(_damage);
 
-            if(zombieLimb.IsHead)
+            if (zombieLimb.IsHead && (_isHited == false))
+            {
                 HitedInHead?.Invoke();
-            else
+                _isHited = true;
+            }
+            else if (_isHited == false)
+            {
                 Hited?.Invoke();
+                _isHited = true;
+            }
         }
     }
 }
