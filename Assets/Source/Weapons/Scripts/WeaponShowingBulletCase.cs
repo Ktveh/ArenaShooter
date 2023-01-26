@@ -3,20 +3,8 @@ using UnityEngine;
 
 public class WeaponShowingBulletCase : MonoBehaviour
 {
-    [SerializeField] private Transform _containerBulletCase;
     [SerializeField] private Transform _pointSpawnBulletCase;
-    private BulletCase[] _bulletsCases;
-
-    private void Awake()
-    {
-        _bulletsCases = _containerBulletCase.GetComponentsInChildren<BulletCase>();
-
-        foreach (BulletCase bulletCase in _bulletsCases)
-        {
-            Debug.Log(bulletCase.gameObject);
-            bulletCase.gameObject.SetActive(false);
-        }
-    }
+    [SerializeField] private BulletCase[] _bulletsCases;
 
     private void OnEnable()
     {
