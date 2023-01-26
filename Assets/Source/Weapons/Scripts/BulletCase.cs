@@ -39,6 +39,8 @@ public class BulletCase : MonoBehaviour
 
 	private void OnEnable()
 	{
+		Debug.Log("Enabled bulletCase");
+
 		AddForce();
 		AddTorque();
 		StartCoroutine(RemoveCasing());
