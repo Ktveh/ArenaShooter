@@ -7,16 +7,19 @@ using TMPro;
 
 public class SelectLevel : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _titleName;
     [SerializeField] private TextMeshProUGUI _levelName;
     [SerializeField] private Image _lockImage;
     [SerializeField] private Level[] _levels;
 
+    private string _nameOfGame = "Arena Shooter";
     private int _currentIndex;
     private bool _isLock;
     private int _scene;
 
     private void Start()
     {
+        _titleName.text = Lean.Localization.LeanLocalization.GetTranslationText(_nameOfGame);
         if (_levels.Length > 0)
         {
             ChangeLevel(_levels[0]);
@@ -54,7 +57,7 @@ public class SelectLevel : MonoBehaviour
 
     private void ChangeLevel(Level level)
     {
-        _levelName.text = level.Name;
+        _levelName.text = Lean.Localization.LeanLocalization.GetTranslationText(level.Name);
         _isLock = level.IsLock;
         _scene = level.Scene;
         _lockImage.gameObject.SetActive(_isLock);
