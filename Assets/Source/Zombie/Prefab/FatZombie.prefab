@@ -99,6 +99,7 @@ MonoBehaviour:
   _amountRaycasts: 60
   _ownTarget: {fileID: 6664062495062514118}
   _template: {fileID: 6084071706416295635, guid: 8efa81264ef77914eb37fe92ee6dff2e, type: 3}
+  _isHardMode: 1
 --- !u!114 &6664062495062514116
 MonoBehaviour:
   m_ObjectHideFlags: 0

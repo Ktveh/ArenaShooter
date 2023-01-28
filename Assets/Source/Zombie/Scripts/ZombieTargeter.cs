@@ -11,8 +11,9 @@ public class ZombieTargeter : MonoBehaviour
     [SerializeField] private int _amountRaycasts;
     [SerializeField] private ZombieTarget _ownTarget;
     [SerializeField] private RandomTarget _template;
+    [SerializeField] private bool _isHardMode;
 
-    private ZombieTarget _zombieTarget;
+    private ZombieTargeter _zombieTargeter;
     private SoundTarget _soundTarget;
     private MainTarget _mainTarget;
     private RandomTarget _randomTarget;
@@ -92,16 +93,23 @@ public class ZombieTargeter : MonoBehaviour
             else if (hit.collider.gameObject.GetComponent<ZombieTarget>() && !_isAttentive)
             {
                 Debug.DrawLine(startPosition, hit.point, Color.blue);
-                _zombieTarget = hit.collider.gameObject.GetComponent<ZombieTarget>();
+                _zombieTargeter = hit.collider.gameObject.GetComponent<ZombieTargeter>();
                 _ownTarget.IsAction = true;
-                if (_zombieTarget.IsAction)
+                if (_zombieTargeter.IsAttentive)
                 {
-                    RandomTarget(_zombieTarget.transform.position, false);
+                    if (_isHardMode)
+                    {
+                        RandomTarget(_zombieTargeter.CurrentTarget.transform.position, false);
+                    }
+                    else
+                    {
+                        RandomTarget(_zombieTargeter.transform.position, false);
+                    }
                     _isAttentive = true;
                 }
                 else
                 {
-                    _zombieTarget = null;
+                    _zombieTargeter = null;
                     _isAttentive = false;
                 }
             }
@@ -135,6 +143,5 @@ public class ZombieTargeter : MonoBehaviour
     {
         _randomTarget = Instantiate(_template, transform.position, transform.rotation);
         _randomTarget.SetPosition(position, spread);
-        _randomTarget.SetDuration();
     }
 }
