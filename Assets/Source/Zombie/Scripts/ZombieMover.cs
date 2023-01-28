@@ -22,6 +22,7 @@ public class ZombieMover : MonoBehaviour
     {
         if (_target != null)
         {
+
             _agent.destination = _target.transform.position;
 
             if (_targeter.IsAttentive && _zombie.HasLegs)
