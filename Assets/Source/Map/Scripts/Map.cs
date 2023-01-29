@@ -57,7 +57,8 @@ public class Map : MonoBehaviour
     {
         Vector3 coordinates = position;
         coordinates -= new Vector3(_offset.x, 0, _offset.y);
-        coordinates = Quaternion.Inverse(_playerPosition.rotation) * coordinates;
+        Quaternion playerRotation = Quaternion.Euler(0, _playerPosition.eulerAngles.y, 0);
+        coordinates = Quaternion.Inverse(playerRotation) * coordinates;
         coordinates *= _scalePosition;
         Vector2 rectCoordinates = new Vector2(coordinates.x, coordinates.z);
         if (_isEllipse)

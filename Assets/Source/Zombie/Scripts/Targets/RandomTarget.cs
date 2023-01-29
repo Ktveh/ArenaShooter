@@ -23,19 +23,21 @@ public class RandomTarget : Target
         if (spread)
         {
             transform.position = new Vector3(position.x + Random.Range(-_spreadPosition, _spreadPosition), position.y, position.z + Random.Range(-_spreadPosition, _spreadPosition));
+            SetDuration();
         }
         else
         {
             transform.position = position;
+            SetDuration(_maxDuration);
         }
     } 
 
-    public void SetDuration(float duration)
+    private void SetDuration(float duration)
     {
         _duration = duration;
     }
 
-    public void SetDuration()
+    private void SetDuration()
     {
         _duration = Random.Range(0, _maxDuration);
     }
