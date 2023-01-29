@@ -11,8 +11,9 @@ public class ZombieTargeter : MonoBehaviour
     [SerializeField] private int _amountRaycasts;
     [SerializeField] private ZombieTarget _ownTarget;
     [SerializeField] private RandomTarget _template;
+    [SerializeField] private bool _isHardMode;
 
-    private ZombieTarget _zombieTarget;
+    private ZombieTargeter _zombieTargeter;
     private SoundTarget _soundTarget;
     private MainTarget _mainTarget;
     private RandomTarget _randomTarget;
@@ -28,8 +29,7 @@ public class ZombieTargeter : MonoBehaviour
         if (other.GetComponent<SoundTarget>())
         {
             _soundTarget = other.GetComponent<SoundTarget>();
-            RandomTarget();
-            SettingRandomTarget(_soundTarget.transform.position, false);
+            RandomTarget(_soundTarget.transform.position, false);
             _isAttentive = true;
         }
     }
@@ -44,7 +44,7 @@ public class ZombieTargeter : MonoBehaviour
 
     private void Start()
     {
-        RandomTarget();
+        RandomTarget(transform.position, true);
     }
 
     private void Update()
@@ -84,39 +84,45 @@ public class ZombieTargeter : MonoBehaviour
         {   
             if (hit.collider.gameObject.GetComponent<MainTarget>())
             {
-                //Debug.DrawLine(startPosition, hit.point, Color.green);
+                Debug.DrawLine(startPosition, hit.point, Color.green);
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
-                RandomTarget();
-                SettingRandomTarget(_mainTarget.transform.position, false);
+                RandomTarget(_mainTarget.transform.position, false);
                 _isAttentive = true;
                 _ownTarget.IsAction = true;
             }
-            else if (hit.collider.gameObject.GetComponent<ZombieTarget>())
+            else if (hit.collider.gameObject.GetComponent<ZombieTarget>() && !_isAttentive)
             {
-                //Debug.DrawLine(startPosition, hit.point, Color.blue);
-                _zombieTarget = hit.collider.gameObject.GetComponent<ZombieTarget>();
+                Debug.DrawLine(startPosition, hit.point, Color.blue);
+                _zombieTargeter = hit.collider.gameObject.GetComponent<ZombieTargeter>();
                 _ownTarget.IsAction = true;
-                if (_zombieTarget.IsAction)
+                if (_zombieTargeter.IsAttentive)
                 {
-                    RandomTarget();
-                    SettingRandomTarget(_zombieTarget.transform.position, false);
+                    if (_isHardMode)
+                    {
+                        RandomTarget(_zombieTargeter.CurrentTarget.transform.position, false);
+                    }
+                    else
+                    {
+                        RandomTarget(_zombieTargeter.transform.position, false);
+                    }
                     _isAttentive = true;
                 }
                 else
                 {
-                    _zombieTarget = null;
+                    _zombieTargeter = null;
+                    _isAttentive = false;
                 }
             }
             else
             {
                 _ownTarget.IsAction = false;
-                //Debug.DrawLine(startPosition, hit.point, Color.red);
+                Debug.DrawLine(startPosition, hit.point, Color.red);
             }
         }
         else
         {
             _ownTarget.IsAction = false;
-            //Debug.DrawRay(startPosition, direction * distance, Color.red);
+            Debug.DrawRay(startPosition, direction * distance, Color.red);
         }
     }
 
@@ -129,19 +135,13 @@ public class ZombieTargeter : MonoBehaviour
         else
         {
             _isAttentive = false;
-            RandomTarget();
+            RandomTarget(transform.position, true);
         }
     }
 
-    private void RandomTarget()
+    private void RandomTarget(Vector3 position, bool spread)
     {
         _randomTarget = Instantiate(_template, transform.position, transform.rotation);
-        SettingRandomTarget(transform.position, true);
-    }
-
-    private void SettingRandomTarget(Vector3 position, bool spread)
-    {
         _randomTarget.SetPosition(position, spread);
-        _randomTarget.SetDuration();
     }
 }
