@@ -6,6 +6,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(WeaponParticles))]
 [RequireComponent(typeof(Weapon))]
 [RequireComponent(typeof(WeaponShowingBulletCase))]
+[RequireComponent(typeof(ShowingBulletDecals))]
 public class WeaponShooting : MonoBehaviour
 {
     [SerializeField] private LayerMask _layerMask;
@@ -23,7 +24,10 @@ public class WeaponShooting : MonoBehaviour
     private WeaponParticles _weaponParticles;
     private Weapon _weapon;
     private WeaponShowingBulletCase _weaponShowingBulletCase;
+    private ShowingBulletDecals _showingBulletDecals;
     private bool _isHited;
+
+    private float randomNumber => Random.Range(_minRandomDirection, _maxRandomDirection);
 
     public event UnityAction Shooted;
     public event UnityAction Hited;
@@ -40,6 +44,7 @@ public class WeaponShooting : MonoBehaviour
         _weaponSound = GetComponent<WeaponSound>();
         _weaponParticles = GetComponent<WeaponParticles>();
         _weapon = GetComponent<Weapon>();
+        _showingBulletDecals = GetComponent<ShowingBulletDecals>();
     }
 
     public void LaunchBullet(bool isScoping)
@@ -74,7 +79,9 @@ public class WeaponShooting : MonoBehaviour
         {
             for (int i = 0; i < _amountBullets; i++)
             {
-                Vector3 direction = camera.forward + new Vector3(Random.Range(_minRandomDirection, _maxRandomDirection), Random.Range(_minRandomDirection, _maxRandomDirection));
+                Vector3 randomDirection = new Vector3(randomNumber, randomNumber, randomNumber);
+                Vector3 direction = camera.forward + randomDirection;
+
                 if (Physics.Raycast(camera.position, direction, out hit, _maxDistance, _layerMask))
                     MakeDamage(hit);
             }
@@ -85,6 +92,8 @@ public class WeaponShooting : MonoBehaviour
 
     private void MakeDamage(RaycastHit hit)
     {
+        _showingBulletDecals.Show(hit);
+
         if (hit.collider.TryGetComponent(out Zombie zombie))
         {
             zombie.TakeDamage(_damage);
@@ -98,14 +107,13 @@ public class WeaponShooting : MonoBehaviour
         {
             zombieLimb.TakeDamage(_damage);
 
-            if (zombieLimb.IsHead && (_isHited == false))
+            if (_isHited == false)
             {
-                HitedInHead?.Invoke();
-                _isHited = true;
-            }
-            else if (_isHited == false)
-            {
-                Hited?.Invoke();
+                if (zombieLimb.IsHead)
+                    HitedInHead?.Invoke();
+                else
+                    Hited?.Invoke();
+
                 _isHited = true;
             }
         }
