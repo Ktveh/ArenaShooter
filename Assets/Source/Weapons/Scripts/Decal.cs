@@ -6,7 +6,7 @@ public class Decal : MonoBehaviour
     [SerializeField] private Transform _container;
 
     private ParticleSystem _particleSystem;
-    private float _duartion => _particleSystem.startLifetime - 0.2f;
+    private float _duartion => _particleSystem.main.startLifetimeMultiplier - 0.2f;
 
     private void OnEnable()
     {

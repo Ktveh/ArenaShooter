@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 21391968}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 28449234}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,8 @@ GameObject:
   - component: {fileID: 46337043}
   - component: {fileID: 46337045}
   - component: {fileID: 46337044}
-  m_Layer: 0
+  - component: {fileID: 904574174}
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,6 +213,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &904574174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46337042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Next level
+  FallbackText: 
 --- !u!1 &55052918
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,7 +238,8 @@ GameObject:
   - component: {fileID: 55052919}
   - component: {fileID: 55052921}
   - component: {fileID: 55052920}
-  m_Layer: 0
+  - component: {fileID: 1552222711}
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,6 +363,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1552222711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55052918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Main menu
+  FallbackText: 
 --- !u!1 &58423674
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +388,8 @@ GameObject:
   - component: {fileID: 58423675}
   - component: {fileID: 58423677}
   - component: {fileID: 58423676}
-  m_Layer: 0
+  - component: {fileID: 478473527}
+  m_Layer: 5
   m_Name: TitleBad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -482,6 +513,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &478473527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58423674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: You are dead
+  FallbackText: 
 --- !u!1 &98793273
 GameObject:
   m_ObjectHideFlags: 0
@@ -493,7 +538,7 @@ GameObject:
   - component: {fileID: 98793274}
   - component: {fileID: 98793276}
   - component: {fileID: 98793275}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,7 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 234561122}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1015,7 +1060,7 @@ GameObject:
   - component: {fileID: 522397346}
   - component: {fileID: 522397345}
   - component: {fileID: 522397344}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1193,7 @@ GameObject:
   - component: {fileID: 556845356}
   - component: {fileID: 556845358}
   - component: {fileID: 556845357}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1284,7 +1329,7 @@ GameObject:
   - component: {fileID: 642442730}
   - component: {fileID: 642442732}
   - component: {fileID: 642442731}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1420,7 +1465,8 @@ GameObject:
   - component: {fileID: 781152365}
   - component: {fileID: 781152367}
   - component: {fileID: 781152366}
-  m_Layer: 0
+  - component: {fileID: 261347102}
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1545,6 +1591,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &261347102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781152364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Camera sensitivity
+  FallbackText: "\u0427\u0443\u0432\u0441\u0442\u0432\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C
+    \u043A\u0430\u043C\u0435\u0440\u044B"
 --- !u!1 &849275201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,7 +1617,7 @@ GameObject:
   - component: {fileID: 849275202}
   - component: {fileID: 849275204}
   - component: {fileID: 849275203}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1632,7 +1693,7 @@ GameObject:
   - component: {fileID: 863647472}
   - component: {fileID: 863647473}
   - component: {fileID: 863647474}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SensitivitySetting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1740,7 +1801,7 @@ GameObject:
   - component: {fileID: 872906737}
   - component: {fileID: 872906736}
   - component: {fileID: 872906735}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NextLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1761,7 +1822,7 @@ RectTransform:
   m_Children:
   - {fileID: 46337043}
   m_Father: {fileID: 524818456476234467}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1932,7 +1993,7 @@ GameObject:
   - component: {fileID: 927953352}
   - component: {fileID: 927953351}
   - component: {fileID: 927953350}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1953,7 +2014,7 @@ RectTransform:
   m_Children:
   - {fileID: 55052919}
   m_Father: {fileID: 524818456476234467}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -2065,7 +2126,8 @@ GameObject:
   - component: {fileID: 1007107992}
   - component: {fileID: 1007107994}
   - component: {fileID: 1007107993}
-  m_Layer: 0
+  - component: {fileID: 1966183102}
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2189,6 +2251,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1966183102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007107991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Pause
+  FallbackText: "\u041F\u0430\u0443\u0437\u0430"
 --- !u!1 &1119522934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,7 +2276,7 @@ GameObject:
   - component: {fileID: 1119522935}
   - component: {fileID: 1119522937}
   - component: {fileID: 1119522936}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2337,7 +2413,7 @@ GameObject:
   - component: {fileID: 1130835102}
   - component: {fileID: 1130835101}
   - component: {fileID: 1130835103}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2426,7 +2502,7 @@ GameObject:
   - component: {fileID: 1140301751}
   - component: {fileID: 1140301753}
   - component: {fileID: 1140301752}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2502,7 +2578,7 @@ GameObject:
   - component: {fileID: 1144550102}
   - component: {fileID: 1144550104}
   - component: {fileID: 1144550103}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2578,7 +2654,8 @@ GameObject:
   - component: {fileID: 1261615904}
   - component: {fileID: 1261615906}
   - component: {fileID: 1261615905}
-  m_Layer: 0
+  - component: {fileID: 922587503}
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2702,6 +2779,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &922587503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261615903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Next
+  FallbackText: "\u0414\u0430\u043B\u044C\u0448\u0435"
 --- !u!1 &1472817267
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,7 +2806,7 @@ GameObject:
   - component: {fileID: 1472817270}
   - component: {fileID: 1472817269}
   - component: {fileID: 1472817272}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2850,7 +2941,7 @@ GameObject:
   - component: {fileID: 1651146485}
   - component: {fileID: 1651146484}
   - component: {fileID: 1651146483}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BackMainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3120,7 +3211,7 @@ GameObject:
   - component: {fileID: 1671032086}
   - component: {fileID: 1671032085}
   - component: {fileID: 1671032084}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Next
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3289,7 +3380,7 @@ GameObject:
   - component: {fileID: 1722233933}
   - component: {fileID: 1722233935}
   - component: {fileID: 1722233934}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3365,7 +3456,7 @@ GameObject:
   - component: {fileID: 1740902051}
   - component: {fileID: 1740902053}
   - component: {fileID: 1740902052}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3388,7 +3479,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.33333334, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3441,7 +3532,7 @@ GameObject:
   - component: {fileID: 1828802804}
   - component: {fileID: 1828802806}
   - component: {fileID: 1828802805}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3463,8 +3554,8 @@ RectTransform:
   m_Father: {fileID: 234561122}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.33333334, y: 0}
-  m_AnchorMax: {x: 0.33333334, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3517,7 +3608,7 @@ GameObject:
   - component: {fileID: 1839408933}
   - component: {fileID: 1839408935}
   - component: {fileID: 1839408934}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3653,7 +3744,7 @@ GameObject:
   - component: {fileID: 1881594573}
   - component: {fileID: 1881594575}
   - component: {fileID: 1881594574}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3729,7 +3820,8 @@ GameObject:
   - component: {fileID: 1890308423}
   - component: {fileID: 1890308425}
   - component: {fileID: 1890308424}
-  m_Layer: 0
+  - component: {fileID: 689760527}
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3853,6 +3945,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &689760527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890308422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Continue
+  FallbackText: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
 --- !u!1 &1940274517
 GameObject:
   m_ObjectHideFlags: 0
@@ -3864,7 +3970,8 @@ GameObject:
   - component: {fileID: 1940274518}
   - component: {fileID: 1940274520}
   - component: {fileID: 1940274519}
-  m_Layer: 0
+  - component: {fileID: 1585869403}
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3988,6 +4095,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1585869403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940274517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Retry
+  FallbackText: 
 --- !u!1 &1968685314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,7 +4118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1968685315}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bullets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4019,7 +4140,7 @@ RectTransform:
   - {fileID: 1472817268}
   - {fileID: 901996180}
   m_Father: {fileID: 524818456476234467}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -4037,7 +4158,7 @@ GameObject:
   - component: {fileID: 2085878593}
   - component: {fileID: 2085878595}
   - component: {fileID: 2085878594}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: IconWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4051,17 +4172,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2085878592}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 524818456476234467}
-  m_RootOrder: 3
+  m_Father: {fileID: 524818457663227791}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -210, y: 0}
   m_SizeDelta: {x: 783, y: 290}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2085878595
@@ -4113,7 +4234,7 @@ GameObject:
   - component: {fileID: 2096806080}
   - component: {fileID: 2096806082}
   - component: {fileID: 2096806081}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4190,7 +4311,7 @@ GameObject:
   - component: {fileID: 2099822198}
   - component: {fileID: 2099822197}
   - component: {fileID: 2099822196}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CurrentLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4211,7 +4332,7 @@ RectTransform:
   m_Children:
   - {fileID: 1940274518}
   m_Father: {fileID: 524818456476234467}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -4323,7 +4444,8 @@ GameObject:
   - component: {fileID: 2145676210}
   - component: {fileID: 2145676212}
   - component: {fileID: 2145676211}
-  m_Layer: 0
+  - component: {fileID: 563906947}
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4447,6 +4569,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &563906947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145676209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Main menu
+  FallbackText: "\u0432 \u0433\u043B\u0430\u0432\u043D\u043E\u0435 \u043C\u0435\u043D\u044E"
 --- !u!1 &152877042775608644
 GameObject:
   m_ObjectHideFlags: 0
@@ -4458,7 +4594,7 @@ GameObject:
   - component: {fileID: 1256106963657437285}
   - component: {fileID: 2544800352198427308}
   - component: {fileID: 2066537296313051728}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4597,7 +4733,7 @@ GameObject:
   - component: {fileID: 395510513}
   - component: {fileID: 395510516}
   - component: {fileID: 2129638195}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4619,7 +4755,6 @@ RectTransform:
   - {fileID: 524818457663227791}
   - {fileID: 524818457031935442}
   - {fileID: 556845356}
-  - {fileID: 2085878593}
   - {fileID: 1968685315}
   - {fileID: 872906734}
   - {fileID: 2099822195}
@@ -4741,7 +4876,7 @@ GameObject:
   - component: {fileID: 524818456843903191}
   - component: {fileID: 524818456843903190}
   - component: {fileID: 524818456843903144}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4886,7 +5021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524818457031935442}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SelectingWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4929,7 +5064,7 @@ GameObject:
   - component: {fileID: 524818457176298141}
   - component: {fileID: 524818457176298143}
   - component: {fileID: 524818457176298142}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5067,7 +5202,7 @@ GameObject:
   - component: {fileID: 524818457190562944}
   - component: {fileID: 524818457190562959}
   - component: {fileID: 524818457190562945}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pistol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5216,7 +5351,7 @@ GameObject:
   - component: {fileID: 524818457256732283}
   - component: {fileID: 524818457256732285}
   - component: {fileID: 524818457256732286}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5322,7 +5457,7 @@ GameObject:
   - component: {fileID: 524818457479690880}
   - component: {fileID: 524818457479690882}
   - component: {fileID: 524818457479690883}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scope2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5429,7 +5564,7 @@ GameObject:
   - component: {fileID: 524818457514601286}
   - component: {fileID: 524818457514601285}
   - component: {fileID: 524818457514601287}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5574,7 +5709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 524818457663227791}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Accessories
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5597,6 +5732,7 @@ RectTransform:
   - {fileID: 524818458325082622}
   - {fileID: 524818457479690895}
   - {fileID: 524818458146744616}
+  - {fileID: 2085878593}
   m_Father: {fileID: 524818456476234467}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5618,7 +5754,7 @@ GameObject:
   - component: {fileID: 524818457851159568}
   - component: {fileID: 524818457851159583}
   - component: {fileID: 968782496883862812}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5739,7 +5875,7 @@ GameObject:
   - component: {fileID: 524818457899986730}
   - component: {fileID: 524818457899986729}
   - component: {fileID: 524818457899986731}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SMG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5889,7 +6025,7 @@ GameObject:
   - component: {fileID: 524818458007973703}
   - component: {fileID: 524818458007973702}
   - component: {fileID: 524818458007973720}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SniperRifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6038,7 +6174,7 @@ GameObject:
   - component: {fileID: 524818458146744618}
   - component: {fileID: 524818458146744617}
   - component: {fileID: 524818458146744620}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Silencer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6144,6 +6280,7 @@ GameObject:
   - component: {fileID: 524818458152278395}
   - component: {fileID: 524818458152278392}
   - component: {fileID: 524818458152278375}
+  - component: {fileID: 3847826210777919780}
   - component: {fileID: 217483770904063649}
   - component: {fileID: 524818458152278396}
   - component: {fileID: 5327260020223140231}
@@ -6231,6 +6368,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerWallet: {fileID: 0}
   _playerZombieKillCounter: {fileID: 0}
+--- !u!114 &3847826210777919780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524818458152278373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae316e6253587aa428e6415ea8779127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &217483770904063649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6344,7 +6493,7 @@ GameObject:
   - component: {fileID: 524818458325082623}
   - component: {fileID: 524818458325082609}
   - component: {fileID: 524818458325082610}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Scope1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6449,7 +6598,7 @@ GameObject:
   - component: {fileID: 524818458438249441}
   - component: {fileID: 524818458438249440}
   - component: {fileID: 524818458438249455}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DeleteSave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6582,7 +6731,8 @@ GameObject:
   - component: {fileID: 8017559657864871595}
   - component: {fileID: 2860736369368179154}
   - component: {fileID: 8894753790157981265}
-  m_Layer: 0
+  - component: {fileID: 1712859405}
+  m_Layer: 5
   m_Name: TitleGood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6706,6 +6856,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1712859405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180904431872151288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Level complete
+  FallbackText: 
 --- !u!1 &1406621814166717297
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,7 +6881,7 @@ GameObject:
   - component: {fileID: 4058533139605071148}
   - component: {fileID: 1615488453747635463}
   - component: {fileID: 3337328651382563994}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6850,7 +7014,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6402641474617199328}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HitingHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6891,7 +7055,8 @@ GameObject:
   - component: {fileID: 5309588015009726775}
   - component: {fileID: 2106343358285695138}
   - component: {fileID: 8039847895463573996}
-  m_Layer: 0
+  - component: {fileID: 873700472}
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6946,7 +7111,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0422\u043E\u0447\u043D\u043E\u0441\u0442\u044C:"
+  m_text: "\u0422\u043E\u0447\u043D\u043E\u0441\u0442\u044C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
   m_sharedMaterial: {fileID: -3007258385702032604, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
@@ -7015,6 +7180,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &873700472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243365159923637001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Accuracy
+  FallbackText: "\u0422\u043E\u0447\u043D\u043E\u0441\u0442\u044C:"
 --- !u!1 &2510603708928347459
 GameObject:
   m_ObjectHideFlags: 0
@@ -7026,7 +7205,7 @@ GameObject:
   - component: {fileID: 615109483869593878}
   - component: {fileID: 1543974974235640628}
   - component: {fileID: 5464479393516580531}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7161,7 +7340,7 @@ GameObject:
   - component: {fileID: 8609687102296887191}
   - component: {fileID: 5460544932742648405}
   - component: {fileID: 5583209775687787066}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7294,7 +7473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3795025783148766365}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ZombiesDead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7333,7 +7512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3996356063055428977}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7377,7 +7556,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7048508488750529908}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Aiming
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7418,7 +7597,7 @@ GameObject:
   - component: {fileID: 8615734120148582900}
   - component: {fileID: 646757566587203033}
   - component: {fileID: 8805369232955191033}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Price
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7557,7 +7736,7 @@ GameObject:
   - component: {fileID: 6691135386861322134}
   - component: {fileID: 2024798171947545362}
   - component: {fileID: 1805069805}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7653,7 +7832,8 @@ GameObject:
   - component: {fileID: 4239015340969956406}
   - component: {fileID: 7623230164626220956}
   - component: {fileID: 7590698292386691417}
-  m_Layer: 0
+  - component: {fileID: 1821446084}
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7708,7 +7888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u044B\u0441\u0442\u0440\u0435\u043B\u043E\u0432:"
+  m_text: "\u0412\u044B\u0441\u0442\u0440\u0435\u043B\u043E\u0432"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
   m_sharedMaterial: {fileID: -3007258385702032604, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
@@ -7777,6 +7957,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1821446084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401108754185304734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Shots
+  FallbackText: "\u0412\u044B\u0441\u0442\u0440\u0435\u043B\u043E\u0432:"
 --- !u!1 &4755414014651218478
 GameObject:
   m_ObjectHideFlags: 0
@@ -7787,7 +7981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7800176702634429427}
   - component: {fileID: 9005181943940936383}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: LevelCompleting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7852,7 +8046,7 @@ GameObject:
   - component: {fileID: 1990214082418462062}
   - component: {fileID: 1255473174383607064}
   - component: {fileID: 2779709249408948308}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7942,7 +8136,7 @@ GameObject:
   - component: {fileID: 7025739515316610510}
   - component: {fileID: 7607328420065093158}
   - component: {fileID: 7336971365010149556}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8077,7 +8271,7 @@ GameObject:
   - component: {fileID: 4645690114802429580}
   - component: {fileID: 1038945028174652663}
   - component: {fileID: 2848714620807631721}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8212,7 +8406,8 @@ GameObject:
   - component: {fileID: 1055655909847228209}
   - component: {fileID: 1163420107125118173}
   - component: {fileID: 6678174482898484540}
-  m_Layer: 0
+  - component: {fileID: 499088047}
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8267,7 +8462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u0431\u0438\u0442\u043E \u0437\u043E\u043C\u0431\u0438:"
+  m_text: "\u0423\u0431\u0438\u0442\u043E \u0437\u043E\u043C\u0431\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
   m_sharedMaterial: {fileID: -3007258385702032604, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
@@ -8336,6 +8531,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &499088047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5937638775729668934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Zombies are killed
+  FallbackText: "\u0423\u0431\u0438\u0442\u043E \u0437\u043E\u043C\u0431\u0438:"
 --- !u!1 &6609805124504573750
 GameObject:
   m_ObjectHideFlags: 0
@@ -8347,7 +8556,7 @@ GameObject:
   - component: {fileID: 9033365623430875672}
   - component: {fileID: 8688460909274393194}
   - component: {fileID: 4962274187881044700}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8421,7 +8630,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4301176526440623431}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: AmountShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8461,7 +8670,8 @@ GameObject:
   - component: {fileID: 744951367903000626}
   - component: {fileID: 8341117689704186357}
   - component: {fileID: 4803400438684264048}
-  m_Layer: 0
+  - component: {fileID: 1972909862}
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8516,7 +8726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u043E\u043F\u0430\u0434\u0430\u043D\u0438\u0439 \u0432 \u0433\u043E\u043B\u043E\u0432\u0443:"
+  m_text: "\u041F\u043E\u043F\u0430\u0434\u0430\u043D\u0438\u0439 \u0432 \u0433\u043E\u043B\u043E\u0432\u0443"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
   m_sharedMaterial: {fileID: -3007258385702032604, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
@@ -8585,6 +8795,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1972909862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984030129561106565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Head shots
+  FallbackText: "\u041F\u043E\u043F\u0430\u0434\u0430\u043D\u0438\u0439 \u0432 \u0433\u043E\u043B\u043E\u0432\u0443:"
 --- !u!1 &8192814146565264247
 GameObject:
   m_ObjectHideFlags: 0
@@ -8596,7 +8820,7 @@ GameObject:
   - component: {fileID: 7353086564319533246}
   - component: {fileID: 8676238484760731263}
   - component: {fileID: 6575399133142307346}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Reward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8732,7 +8956,7 @@ GameObject:
   - component: {fileID: 5291584269575891927}
   - component: {fileID: 1211841211938872774}
   - component: {fileID: 6037219917693569338}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
   m_Icon: {fileID: 0}

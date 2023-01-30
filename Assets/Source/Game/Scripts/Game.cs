@@ -17,6 +17,7 @@ public class Game : MonoBehaviour
     private GameControllingPlayer _gameControllingPlayer;
     private PausingGame _pausingGame;
     private ControllingAudio _controllingAudio;
+    private SettingLeaderboardScore _settingLeaderboardScore;
     private Menu _menu;
     private bool _isMobile;
 
@@ -41,6 +42,7 @@ public class Game : MonoBehaviour
         _gameControllingPlayer = GetComponent<GameControllingPlayer>();
         _pausingGame = GetComponent<PausingGame>();
         _controllingAudio = GetComponent<ControllingAudio>();
+        _settingLeaderboardScore = GetComponent<SettingLeaderboardScore>();
         _menu = GetComponentInChildren<Menu>();
     }
 
@@ -89,6 +91,7 @@ public class Game : MonoBehaviour
         _gameControllingPlayer.DisablePlayerDirection();
         _gameControllingPlayer.DisablePlayerPausingGame();
         _controllingAudio.enabled = false;
+        _settingLeaderboardScore.enabled = true;
         LevelCompleted?.Invoke();
     }
 

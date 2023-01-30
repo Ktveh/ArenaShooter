@@ -77,6 +77,8 @@ public class WeaponShooting : MonoBehaviour
         }
         else if (_weapon.Type == Weapon.Types.Shotgun)
         {
+            _isHited = false;
+
             for (int i = 0; i < _amountBullets; i++)
             {
                 Vector3 randomDirection = new Vector3(randomNumber, randomNumber, randomNumber);
@@ -85,8 +87,6 @@ public class WeaponShooting : MonoBehaviour
                 if (Physics.Raycast(camera.position, direction, out hit, _maxDistance, _layerMask))
                     MakeDamage(hit);
             }
-
-            _isHited = false;
         }
     }
 
