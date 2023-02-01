@@ -2020,7 +2020,7 @@ MonoBehaviour:
   _panel: {fileID: 676025815}
   _name: {fileID: 1432616123}
   _content: {fileID: 1428564593}
-  _template: {fileID: 1069673688314379252, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
+  _template: {fileID: 3601476868695098476, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
 --- !u!1001 &733932724
 PrefabInstance:
   m_ObjectHideFlags: 0
