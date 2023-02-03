@@ -54,6 +54,27 @@ public class ZombieTargeter : MonoBehaviour
         SetCurrentTarget();
     }
 
+    public void RemoveCurrentTarget()
+    {
+        if (!_isAttentive)
+        {
+            _randomTarget = null;
+            SetCurrentTarget();
+        }
+    }
+
+    private void SetCurrentTarget()
+    {
+        if (_randomTarget != null)
+        {
+            _currentTarget = _randomTarget;
+        }
+        else
+        {
+            RandomTarget(transform.position, true);
+        }
+    }
+
     private void FoundTargets(float angleDetected, float distance)
     {
         _currentRaycast++;
@@ -123,19 +144,6 @@ public class ZombieTargeter : MonoBehaviour
         {
             _ownTarget.IsAction = false;
             Debug.DrawRay(startPosition, direction * distance, Color.red);
-        }
-    }
-
-    private void SetCurrentTarget()
-    {
-        if (_randomTarget != null)
-        {
-            _currentTarget = _randomTarget;
-        }
-        else
-        {
-            _isAttentive = false;
-            RandomTarget(transform.position, true);
         }
     }
 

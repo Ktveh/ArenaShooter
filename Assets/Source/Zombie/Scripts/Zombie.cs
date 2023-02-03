@@ -10,6 +10,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private int _price;
     [SerializeField] private float _delayAfterDead;
     [SerializeField] private ZombieAnimator _animator;
+    [SerializeField] private ZombieTargeter _targeter;
     [SerializeField] private ParticleSystem _deadEffect;
     [SerializeField] private Sound _sound;
 
@@ -61,11 +62,14 @@ public class Zombie : MonoBehaviour
     {
         if (_health > 0)
         {
-            //_deadEffect.Play();
             _health -= damage;
             if (_health <= 0)
             {
                 Die();
+            }
+            else
+            {
+                _targeter.RemoveCurrentTarget();
             }
         }
     }

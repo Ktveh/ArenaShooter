@@ -58,6 +58,7 @@ MonoBehaviour:
   _price: 200
   _delayAfterDead: 30
   _animator: {fileID: 6664062495062514116}
+  _targeter: {fileID: 6664062495062514115}
   _deadEffect: {fileID: 5351325646624922108}
   _sound: {fileID: 6664062495766473541}
 --- !u!114 &6664062495062514112
