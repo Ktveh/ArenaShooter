@@ -32,8 +32,8 @@ public class Game : MonoBehaviour
     {
 #if UNITY_EDITOR
         /////////////////---- Editor Only --------/////////////////////////
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         Debug.Log("Editor Only");
         /////////////////////////////////////////
 #endif

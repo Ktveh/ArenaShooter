@@ -7,12 +7,13 @@ public class PlayerDirection : MonoBehaviour
 
     [SerializeField] private Game _game;
     [SerializeField] private SettingCameraSensitivity _settingCameraSensitivity;
-    [SerializeField] private Joystick _joystick;
+    //[SerializeField] private UICanvasControllerInput _controllerInput;
     [SerializeField] private Transform _orintation;
     [SerializeField] private float _sensitivity;
     [SerializeField] private float _durationRecoil;
 
     private PlayerWeaponSelecting _playerWeaponSelecting;
+    private Vector2 _joystickDirection;
     private float _weaponRecoil;
     private float _directionX;
     private float _directionY;
@@ -41,8 +42,10 @@ public class PlayerDirection : MonoBehaviour
             }
         }
 
+
+
         if (_isMobile)
-            CameraRotation(new Vector2(_joystick.Horizontal, _joystick.Vertical + _weaponRecoil));
+            CameraRotation(new Vector2(_joystickDirection.x, _joystickDirection.y + _weaponRecoil));
         else
             CameraRotation(new Vector2(Input.GetAxisRaw(MouseX), Input.GetAxisRaw(MouseY) + _weaponRecoil));
     }
@@ -52,6 +55,7 @@ public class PlayerDirection : MonoBehaviour
         _settingCameraSensitivity.Changed += OnChanged;
         _game.DeviceGeted += OnDeviceGeted;
         _playerWeaponSelecting.Selected += OnSelected;
+        //_controllerInput.Looked += OnLooked;
     }
 
     private void OnDisable()
@@ -59,6 +63,12 @@ public class PlayerDirection : MonoBehaviour
         _settingCameraSensitivity.Changed -= OnChanged;
         _game.DeviceGeted -= OnDeviceGeted;
         _playerWeaponSelecting.Selected -= OnSelected;
+        //_controllerInput.Looked -= OnLooked;
+    }
+
+    private void OnLooked(Vector2 direction)
+    {
+        _joystickDirection = direction;
     }
 
     private void CameraRotation(Vector2 direction)

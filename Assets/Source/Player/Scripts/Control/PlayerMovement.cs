@@ -10,13 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private const string Horizontal = "Horizontal";
     private const string Vertical = "Vertical";
 
-    [SerializeField] private Joystick _joystick;
-    [SerializeField] private ControlButton _runButton;
+    //[SerializeField] private UICanvasControllerInput _controllerInput;
     [SerializeField] private float _defaultSpeed;
     [SerializeField] private float _runSpeed;
 
     private CharacterController _characterController;
     private PlayerJumping _playerJumping;
+    private Vector2 _joystickDirection;
     private float _speed;
     private bool _isRunningJoystick;
 
@@ -34,32 +34,35 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Move(new Vector2(Input.GetAxis(Horizontal), Input.GetAxis(Vertical)));
-        Move(new Vector2(_joystick.Horizontal, _joystick.Vertical));
+        Move(_joystickDirection);
     }
 
     private void OnEnable()
     {
-        _runButton.Down += OnDown;
-        _runButton.Up += OnUp;
+        //_controllerInput.Moved += OnMoved;
     }
 
     private void OnDisable()
     {
-        _runButton.Down -= OnDown;
-        _runButton.Up -= OnUp;
+        //_controllerInput.Moved -= OnMoved;
 
         _speed = 0;
     }
 
-    private void OnDown()
+    private void OnMoved(Vector2 direction)
     {
-        _isRunningJoystick = true && (_joystick.Vertical > 0);
+        _joystickDirection = direction;
     }
+
+    //private void OnDown()
+    //{
+    //    _isRunningJoystick = true;
+    //}
     
-    private void OnUp()
-    {
-        _isRunningJoystick = false;
-    }
+    //private void OnUp()
+    //{
+    //    _isRunningJoystick = false;
+    //}
 
     private void Move(Vector2 direction)
     {
@@ -70,7 +73,7 @@ public class PlayerMovement : MonoBehaviour
 
         float currentHorizontalSpeed = new Vector3(_characterController.velocity.x, 0, _characterController.velocity.z).magnitude;
 
-        if ((currentHorizontalSpeed < targetSpeed - SpeedOffset) || (currentHorizontalSpeed > targetSpeed + SpeedOffset))
+        if ((currentHorizontalSpeed < targetSpeed - SpeedOffset))
         {
             _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * direction.magnitude, Time.deltaTime * SpeedChangeRate);
             _speed = Mathf.Round(_speed * Multiplier) / Multiplier;
