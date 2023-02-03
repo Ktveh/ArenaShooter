@@ -1476,7 +1476,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 810331130}
   m_HandleRect: {fileID: 810331129}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2019,7 +2019,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panel: {fileID: 676025815}
   _name: {fileID: 1432616123}
-  _content: {fileID: 1428564593}
+  _content: {fileID: 1422024272}
   _template: {fileID: 3601476868695098476, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
 --- !u!1001 &733932724
 PrefabInstance:

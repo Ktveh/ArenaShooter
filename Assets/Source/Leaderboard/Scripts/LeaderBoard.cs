@@ -7,7 +7,7 @@ public class LeaderBoard : MonoBehaviour
 {
     [SerializeField] private Image _panel;
     [SerializeField] private TextMeshProUGUI _name;
-    [SerializeField] private ScrollRect _content;
+    [SerializeField] private GameObject _content;
     [SerializeField] private LeaderView _template;
 
     private const string LeaderBoardName = "LeaderBoard";
