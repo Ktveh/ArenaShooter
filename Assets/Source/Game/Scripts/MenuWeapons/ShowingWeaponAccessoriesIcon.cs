@@ -6,6 +6,9 @@ public class ShowingWeaponAccessoriesIcon : MonoBehaviour
 {
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private MenuUpgradingWeapon _menuUpgradingWeapon;
+    [SerializeField] private GameObject _scope1;
+    [SerializeField] private GameObject _scope2;
+    [SerializeField] private GameObject _silencer;
     [SerializeField] private Image _iconScope;
     [SerializeField] private Image _iconScope1;
     [SerializeField] private Image _iconScope2;
@@ -45,32 +48,35 @@ public class ShowingWeaponAccessoriesIcon : MonoBehaviour
     {
         if (weaponAccessories.IconScope1 != null)
         {
+            _scope1.gameObject.SetActive(true);
             _iconScope1.sprite = weaponAccessories.IconScope1;
             _iconScope1.gameObject.SetActive(true);
         }
         else
         {
-            _iconScope1.gameObject.SetActive(false);
+            _scope1.gameObject.SetActive(false);
         }
 
         if (weaponAccessories.IconScope2 != null)
         {
+            _scope2.gameObject.SetActive(true);
             _iconScope2.sprite = weaponAccessories.IconScope2;
             _iconScope2.gameObject.SetActive(true);
         }
         else
         {
-            _iconScope2.gameObject.SetActive(false);
+            _scope2.gameObject.SetActive(false);
         }
 
         if (weaponAccessories.IconSilencer != null)
         {
+            _silencer.gameObject.SetActive(true);
             _iconSilencer.sprite = weaponAccessories.IconSilencer;
             _iconSilencer.gameObject.SetActive(true);
         }
         else
         {
-            _iconSilencer.gameObject.SetActive(false);
+            _silencer.gameObject.SetActive(false);
         }
     }
 

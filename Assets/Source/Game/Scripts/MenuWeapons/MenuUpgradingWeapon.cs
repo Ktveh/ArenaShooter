@@ -6,10 +6,12 @@ public class MenuUpgradingWeapon : MonoBehaviour
     [SerializeField] private PlayerWallet _playerWallet;
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private Menu _menu;
+    [SerializeField] private YandexAds _andexAds;
 
     private ButtonSelectingWeapon[] _buttonsSelectingWeapons;
     private ButtonSelectingAccessory[] _buttonsSelectingAccessories;
     private Weapon _currentWeapon;
+    private bool _isUpgradingOnReward;
 
     public event UnityAction<Weapon.Types> SelectedWeapon;
     public event UnityAction<WeaponAccessories.Type> SelectedAccessory;
@@ -19,6 +21,7 @@ public class MenuUpgradingWeapon : MonoBehaviour
         _buttonsSelectingWeapons = GetComponentsInChildren<ButtonSelectingWeapon>();
         _buttonsSelectingAccessories = GetComponentsInChildren<ButtonSelectingAccessory>();
         _menu.Showed += OnShowed;
+        _andexAds.Rewarded += OnRewarded;
 
         foreach (var button in _buttonsSelectingWeapons)
             button.Down += OnSelectedWeapon;
@@ -30,6 +33,7 @@ public class MenuUpgradingWeapon : MonoBehaviour
     private void OnDisable()
     {
         _menu.Showed += OnShowed;
+        _andexAds.Rewarded += OnRewarded;
 
         foreach (var button in _buttonsSelectingWeapons)
             button.Down -= OnSelectedWeapon;
@@ -49,6 +53,13 @@ public class MenuUpgradingWeapon : MonoBehaviour
         _currentWeapon = _playerWeaponSelecting.CurrentWeapon;
     }
 
+    private void OnRewarded(WeaponAccessories.Type type)
+    {
+        _isUpgradingOnReward = true;
+        OnSelectedAccessory(type);
+        _isUpgradingOnReward = false;
+    }
+
     private void OnSelectedAccessory(WeaponAccessories.Type type)
     {
         if (_currentWeapon.TryGetComponent(out WeaponAccessories weaponAccessories))
@@ -60,30 +71,34 @@ public class MenuUpgradingWeapon : MonoBehaviour
                     break;
 
                 case WeaponAccessories.Type.Scope1:
-                    if (weaponAccessories.IsEnabledScope1 == false)
-                    {
-                        if (_playerWallet.TryBuy(weaponAccessories.PriceScope1))
-                            SelectedAccessory?.Invoke(type);
-                    }
+                    Upgrade(weaponAccessories.IsEnabledScope1, weaponAccessories.PriceScope1, type);
                     break;
 
                 case WeaponAccessories.Type.Scope2:
-                    if (weaponAccessories.IsEnabledScope2 == false)
-                    {
-                        if (_playerWallet.TryBuy(weaponAccessories.PriceScope2))
-                            SelectedAccessory?.Invoke(type);
-                    }
+                    Upgrade(weaponAccessories.IsEnabledScope2, weaponAccessories.PriceScope2, type);
                     break;
 
                 case WeaponAccessories.Type.Silencer:
-                    if (weaponAccessories.IsEnabledSilencer == false)
-                    {
-                        if (_playerWallet.TryBuy(weaponAccessories.PriceSilencer))
-                            SelectedAccessory?.Invoke(type);
-                    }
+                    Upgrade(weaponAccessories.IsEnabledSilencer, weaponAccessories.PriceSilencer, type);
                     break;
             }
 
+        }
+    }
+
+    private void Upgrade(bool isEnable, int price, WeaponAccessories.Type type)
+    {
+        if (isEnable == false)
+        {
+            if (_isUpgradingOnReward)
+            {
+                SelectedAccessory?.Invoke(type);
+            }
+            else
+            {
+                if (_playerWallet.TryBuy(price))
+                    SelectedAccessory?.Invoke(type);
+            }
         }
     }
 }

@@ -57,3 +57,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13374b811a80dc24a80c262fef889ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _soundButton: {fileID: 0}
+  _game: {fileID: 0}
+  _buttonsUpgradingOnReward:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
