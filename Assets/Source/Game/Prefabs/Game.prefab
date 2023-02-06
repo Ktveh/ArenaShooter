@@ -4943,6 +4943,7 @@ GameObject:
   - component: {fileID: 395510513}
   - component: {fileID: 395510516}
   - component: {fileID: 2129638195}
+  - component: {fileID: 1738011161}
   m_Layer: 5
   m_Name: Weapon
   m_TagString: Untagged
@@ -5007,6 +5008,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerWeaponSelecting: {fileID: 0}
   _menuUpgradingWeapon: {fileID: 524818456476234468}
+  _scope1: {fileID: 1115198042368615526}
+  _scope2: {fileID: 5537604720762422726}
+  _silencer: {fileID: 2284347843051208845}
   _iconScope: {fileID: 524818457256732283}
   _iconScope1: {fileID: 735095710945855944}
   _iconScope2: {fileID: 7066623059393835154}
@@ -5073,6 +5077,28 @@ MonoBehaviour:
   _nextLevel: {fileID: 872906735}
   _currentLevel: {fileID: 2099822196}
   _mainMenu: {fileID: 927953350}
+--- !u!114 &1738011161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524818456476234466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d49f0c0a2df2334481f7369ab702ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerWeaponSelecting: {fileID: 0}
+  _buttonsBuy:
+  - {fileID: 524818458325082610}
+  - {fileID: 524818457479690883}
+  - {fileID: 524818458146744620}
+  _buttonsReward:
+  - {fileID: 5066857360369794098}
+  - {fileID: 8553394242449702127}
+  - {fileID: 8131419905108439663}
+  _probability: 25
 --- !u!1 &524818456843903186
 GameObject:
   m_ObjectHideFlags: 0
@@ -7429,7 +7455,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -150, y: -150}
-  m_SizeDelta: {x: 300, y: 300}
+  m_SizeDelta: {x: 300, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5881877572263685797
 CanvasRenderer:
@@ -8696,7 +8722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &35798658456819065
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9017,7 +9043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7800176702634429427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9103,7 +9129,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5774956713970283652
 CanvasRenderer:
@@ -9207,7 +9233,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 25, y: 0}
-  m_SizeDelta: {x: 50, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1990214082418462062
 CanvasRenderer:
@@ -9474,7 +9500,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 200, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6660038557656379731
 CanvasRenderer:
