@@ -564,7 +564,7 @@ PrefabInstance:
     - target: {fileID: 1358166167432884712, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
       propertyPath: _buttonsUpgradingOnReward.Array.data[2]
       value: 
-      objectReference: {fileID: 848742384897815364}
+      objectReference: {fileID: 1381006544700397641}
     - target: {fileID: 1358166167432884714, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2389,7 +2389,7 @@ PrefabInstance:
       objectReference: {fileID: 558590858924419751}
     - target: {fileID: 1130835099, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1140301752, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_PreserveAspect
@@ -2460,28 +2460,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1738011161, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _probability
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738011161, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
     - target: {fileID: 1740902051, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.31034482
       objectReference: {fileID: 0}
     - target: {fileID: 1740902051, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1828802804, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.31034482
       objectReference: {fileID: 0}
     - target: {fileID: 1828802804, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1828802804, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.31034482
       objectReference: {fileID: 0}
     - target: {fileID: 1828802804, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -2593,6 +2597,10 @@ PrefabInstance:
       objectReference: {fileID: 6261318378755307614}
     - target: {fileID: 524818458146744616, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 524818458146744663, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 524818458152278373, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
@@ -2731,6 +2739,10 @@ PrefabInstance:
       propertyPath: _playerZombieKillCounter
       value: 
       objectReference: {fileID: 558590858924419771}
+    - target: {fileID: 5349321123348851873, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6443772671116967843, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
@@ -2749,9 +2761,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
---- !u!114 &848742384897815364 stripped
+--- !u!114 &985179321116425668 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8131419905108439663, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8553394242449702127, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
   m_PrefabInstance: {fileID: 8872036159713280299}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -2760,9 +2772,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3775837716ab0840b6e89116bfae8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &985179321116425668 stripped
+--- !u!114 &1381006544700397641 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8553394242449702127, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7509083614239971682, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
   m_PrefabInstance: {fileID: 8872036159713280299}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
