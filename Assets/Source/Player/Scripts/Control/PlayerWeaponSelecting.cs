@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class PlayerWeaponSelecting : MonoBehaviour
 {
     [SerializeField] private Transform _containerWeapon;
-    [SerializeField] private ControlButton _buttonNextWeapon;
+    [SerializeField] private Button _buttonNextWeapon;
     [SerializeField] private MenuUpgradingWeapon _upgradingWeapon;
 
     private StandardWeapon[] _standardWeaponsAdding;
@@ -65,17 +66,13 @@ public class PlayerWeaponSelecting : MonoBehaviour
 
     private void OnEnable()
     {
-        //eventActivatedBonus. += Change;
-        //eventNonActivatedBonus. += Change;
-        _buttonNextWeapon.Down += OnDown;
+        _buttonNextWeapon.onClick.AddListener(OnClick);
         _upgradingWeapon.SelectedWeapon += Change;
     }
 
     private void OnDisable()
     {
-        //eventActivatedBonus. -= Change;
-        //eventNonActivatedBonus. -= Change;
-        _buttonNextWeapon.Down -= OnDown;
+        _buttonNextWeapon.onClick.RemoveListener(OnClick);
         _upgradingWeapon.SelectedWeapon -= Change;
     }
 
@@ -103,7 +100,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
         Selected?.Invoke();
     }
 
-    private void OnDown()
+    private void OnClick()
     {
         for (int i = 0; i < _standardWeaponsAdding.Length; i++)
         {

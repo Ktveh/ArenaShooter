@@ -4,8 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Weapon))]
 public class WeaponScoping : MonoBehaviour
 {
-	private const float _aimingPositionY = 0.587f;
-	private const float _defaultPositionY = 0.6f;
+	private const float _aimingPositionY = -0.013f;
+	private const float _defaultPositionY = 0f;
 
 	[SerializeField] private float _aimingSpeed = 15f;
 	[SerializeField] private float _defaultFieldOfView = 40f;

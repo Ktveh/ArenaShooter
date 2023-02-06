@@ -18,10 +18,13 @@ public class InterfaceHitMarker : MonoBehaviour
 
     private void OnDisable()
     {
-        if (_playerWeaponSelecting.CurrentWeapon.TryGetComponent(out WeaponShooting weaponShooting))
+        if (_playerWeaponSelecting.CurrentWeapon != null)
         {
-            weaponShooting.Hited -= OnHited;
-            weaponShooting.HitedInHead -= OnHitedInHead;
+            if (_playerWeaponSelecting.CurrentWeapon.TryGetComponent(out WeaponShooting weaponShooting))
+            {
+                weaponShooting.Hited -= OnHited;
+                weaponShooting.HitedInHead -= OnHitedInHead;
+            }
         }
 
         _playerWeaponSelecting.Selected -= OnSelected;

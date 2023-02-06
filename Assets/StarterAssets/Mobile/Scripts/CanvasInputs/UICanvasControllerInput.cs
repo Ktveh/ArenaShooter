@@ -7,6 +7,9 @@ namespace StarterAssets
 
         [Header("Output")]
         public StarterAssetsInputs starterAssetsInputs;
+        [SerializeField] private PlayerScopeOpening _playerScopeOpening;
+        [SerializeField] private PlayerShooting _playerShooting;
+        [SerializeField] private PlayerWeaponReloading _playerWeaponReloading;
 
         public void VirtualMoveInput(Vector2 virtualMoveDirection)
         {
@@ -28,6 +31,20 @@ namespace StarterAssets
             starterAssetsInputs.SprintInput(virtualSprintState);
         }
         
+        public void OpenScope(bool virtualScopeState)
+        {
+            _playerScopeOpening.ControlScope(virtualScopeState);
+        }
+
+        public void Shoot(bool virtualShootState)
+        {
+            _playerShooting.ControlShoot(virtualShootState);
+        }
+        
+        public void Reload(bool virtualReloadState)
+        {
+            _playerWeaponReloading.ControlReload(virtualReloadState);
+        }
     }
 
 }

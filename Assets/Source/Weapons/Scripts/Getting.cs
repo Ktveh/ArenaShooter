@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Getting : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private StarterAssets.FirstPersonController _personController;
     [SerializeField] private PlayerScopeOpening _playerScopeOpening;
     [SerializeField] private PlayerShooting _playerShooting;
     [SerializeField] private PlayerDroppingGrenade _playerDroppingGrenade;
@@ -11,7 +11,7 @@ public class Getting : MonoBehaviour
     [SerializeField] private Camera _weaponCamera;
     [SerializeField] private WeaponSaving _weaponSaving;
 
-    public PlayerMovement PlayerMovement => _playerMovement;
+    public StarterAssets.FirstPersonController PersonController => _personController;
     public PlayerScopeOpening PlayerScopeOpening => _playerScopeOpening;
     public PlayerShooting PlayerShooting => _playerShooting;
     public PlayerDroppingGrenade PlayerDroppingGrenade => _playerDroppingGrenade;
@@ -20,3 +20,4 @@ public class Getting : MonoBehaviour
     public Camera WeaponCamera => _weaponCamera;
     public WeaponSaving WeaponSaving => _weaponSaving;
 }
+

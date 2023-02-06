@@ -1,26 +1,24 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
 public class SettingCameraSensitivity : MonoBehaviour
 {
-    [SerializeField] private PlayerDirection _playerDirection;
+    [SerializeField] private StarterAssets.FirstPersonController _firstPersonController;
     [SerializeField] private PlayerSettingSaving _playerSettingSaving;
 
     private Slider _slider;
 
-    public event UnityAction<float> Changed;
-
     private void Awake()
     {
-        Changed?.Invoke(_playerSettingSaving.CurrentCameraSensitivity);
+        if(_playerSettingSaving.CurrentCameraSensitivity != 0)
+            _firstPersonController.RotationSpeed = _playerSettingSaving.CurrentCameraSensitivity;
     }
 
     private void OnEnable()
     {
         _slider = GetComponent<Slider>();
-        _slider.value = _playerDirection.Sensitivity;
+        _slider.value = _firstPersonController.RotationSpeed;
         _slider.onValueChanged.AddListener(delegate { Change(); });
     }
 
@@ -31,7 +29,7 @@ public class SettingCameraSensitivity : MonoBehaviour
 
     private void Change()
     {
-        Changed?.Invoke(_slider.value);
+        _firstPersonController.RotationSpeed = _slider.value;
         _playerSettingSaving.Set(_slider.value);
     }
 }

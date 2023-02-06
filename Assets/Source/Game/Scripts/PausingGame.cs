@@ -21,7 +21,7 @@ public class PausingGame : MonoBehaviour
         _yandexAds.Shows += Stop;
         _yandexAds.Showed += Play;
         _yandexAds.Errored += Play;
-        _playerPausingGame.Actioned += OnActioned;
+        _playerPausingGame.Paused += OnPaused;
     }
 
     private void OnDisable()
@@ -29,7 +29,7 @@ public class PausingGame : MonoBehaviour
         _yandexAds.Shows -= Stop;
         _yandexAds.Showed -= Play;
         _yandexAds.Errored -= Play;
-        _playerPausingGame.Actioned -= OnActioned;
+        _playerPausingGame.Paused -= OnPaused;
     }
 
     public void Stop()
@@ -42,21 +42,21 @@ public class PausingGame : MonoBehaviour
         Time.timeScale = 1;
     }
     
-    private void OnActioned()
+    private void OnPaused()
     {
         if (_pauseMenu.gameObject.activeSelf == true)
         {
             Play();
             _pauseMenu.gameObject.SetActive(false);
             _gameCursorControl.Disable();
-            _gameControllingPlayer.enabled = false;
+            _gameControllingPlayer.enabled = true;
         }
         else
         {
             Stop();
             _pauseMenu.gameObject.SetActive(true);
             _gameCursorControl.Enable();
-            _gameControllingPlayer.enabled = true;
+            _gameControllingPlayer.enabled = false;
         }
 
     }

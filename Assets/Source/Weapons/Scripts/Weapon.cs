@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,7 +34,7 @@ public class Weapon : MonoBehaviour
 	private WeaponReloading _weaponReloading;
 	private WeaponBreechBlock _weaponBreechBlock;
 	private WeaponSound _weaponSound;
-	private PlayerMovement _playerMovement;
+	private StarterAssets.FirstPersonController _personController;
 	private PlayerScopeOpening _playerScopeOpening;
 	private PlayerShooting _playerShooting;
 	private PlayerDroppingGrenade _playerDroppingGrenade;
@@ -42,7 +43,6 @@ public class Weapon : MonoBehaviour
 	private Camera _weaponCamera;
 	private uint _amountAmmoReceived;
 	private bool _isBreechBlockOpen;
-	private bool _isShooting;
 	private bool _isOpeningScope;
 	private bool _isMovingMovableHandguard;
 	//private bool _isHasHolstered = false;
@@ -58,14 +58,14 @@ public class Weapon : MonoBehaviour
 	public float DuartionReloadingOpen => _durationReloadingOpen;
 	public float DuartionInsertShell => _durationInsertShell;
 	public float DuartionReloadingClose => _durationReloadingClose;
-	public bool IsShooting => _isShooting;
+	public bool IsShooting { get; private set; }
 	public bool IsScoping => _isScoping;
 	public bool IsReloadingStarted { get; private set; }
-    public bool IsReloading => _weaponAnimator.IsRealoding;
+	public bool IsReloading => _weaponAnimator.IsRealoding;
 
 	private bool _isScoping => _isOpeningScope && IsReloading == false && _isRunning == false;
-	private bool _isRunning => _playerMovement.IsRunning;
-    private bool _isOutOfAmmo => CurrentAmountAmmo == 0;
+	private bool _isRunning => _personController.IsRunning;
+	private bool _isOutOfAmmo => CurrentAmountAmmo == 0;
 
 	public event UnityAction Shooted;
 	public event UnityAction Reloaded;
@@ -94,7 +94,7 @@ public class Weapon : MonoBehaviour
 		_weaponReloading = GetComponent<WeaponReloading>();
 		_weaponBreechBlock = GetComponent<WeaponBreechBlock>();
 		_weaponSound = GetComponent<WeaponSound>();
-		_playerMovement = _getting.PlayerMovement;
+		_personController = _getting.PersonController;
 		_playerScopeOpening = _getting.PlayerScopeOpening;
 		_playerShooting = _getting.PlayerShooting;
 		_playerDroppingGrenade = _getting.PlayerDroppingGrenade;
@@ -103,8 +103,8 @@ public class Weapon : MonoBehaviour
 		_weaponCamera = _getting.WeaponCamera;
 	}
 
-    private void Start()
-    {
+	private void Start()
+	{
 		if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, CurrentAmountAmmo, out uint ammo))
 			CurrentAmountAmmo = ammo;
 		else
@@ -113,7 +113,7 @@ public class Weapon : MonoBehaviour
 		Reloaded?.Invoke();
 	}
 
-    private void Update()
+	private void Update()
 	{
 		//if (Input.GetKeyDown(KeyCode.E))
 		//{
@@ -128,20 +128,20 @@ public class Weapon : MonoBehaviour
 		if (_isRunning)
 			OnClosedScope();
 
-		_weaponAnimator.Walk(_playerMovement.IsWalking && _isScoping == false);
+		_weaponAnimator.Walk(_personController.IsWalking && _isScoping == false);
 		_weaponAnimator.Run(_isRunning);
 	}
 
-    private void OnEnable()
-    {
+	private void OnEnable()
+	{
 		_weaponAnimator.Reloaded += OnFinishedAnimation;
 		_weaponBreechBlock.Returned += OnReturned;
-		_playerScopeOpening.Actioned += OnOpenedScope;
-		_playerScopeOpening.WithoutActioned += OnClosedScope;
-		_playerDroppingGrenade.Actioned += OnDropedGrenade;
-		_playerShooting.Actioned += OnShooted;
-		_playerShooting.WithoutActioned += OnNonShooted;
-		_playerWeaponReloading.Actioned += OnReload;
+		_playerScopeOpening.Scoped += OnOpenedScope;
+		_playerScopeOpening.NonScoped += OnClosedScope;
+		//_playerDroppingGrenade.Actioned += OnDropedGrenade;
+		_playerShooting.Shooted += OnShooted;
+		_playerShooting.NonShooted += OnNonShooted;
+		_playerWeaponReloading.Reloaded += OnReload;
 
 		_weaponHolster.Hide(false);
 
@@ -149,40 +149,40 @@ public class Weapon : MonoBehaviour
 			_isMovingMovableHandguard = false;
 	}
 
-    private void OnDisable()
-    {
+	private void OnDisable()
+	{
 		_weaponAnimator.Reloaded -= OnFinishedAnimation;
 		_weaponBreechBlock.Returned -= OnReturned;
-		_playerScopeOpening.Actioned -= OnOpenedScope;
-		_playerScopeOpening.WithoutActioned -= OnClosedScope;
-		_playerDroppingGrenade.Actioned -= OnDropedGrenade;
-		_playerShooting.Actioned -= OnShooted;
-		_playerShooting.WithoutActioned -= OnNonShooted;
-		_playerWeaponReloading.Actioned -= OnReload;
+		_playerScopeOpening.Scoped -= OnOpenedScope;
+		_playerScopeOpening.NonScoped -= OnClosedScope;
+		//_playerDroppingGrenade.Actioned -= OnDropedGrenade;
+		_playerShooting.Shooted -= OnShooted;
+		_playerShooting.NonShooted -= OnNonShooted;
+		_playerWeaponReloading.Reloaded -= OnReload;
 
 		_isOpeningScope = false;
 	}
 
 	//public void Hide()
- //   {
+	//   {
 	//	_weaponHolster.Hide(true);
 	//}
 
 	private void OnFinishedAnimation()
-    {
+	{
 		CurrentAmountAmmo = _amountAmmoReceived;
 		IsReloadingStarted = false;
 		CheckBreechBlock();
 		Reloaded?.Invoke();
 	}
-	
+
 	private void OnReturned()
-    {
+	{
 		_isBreechBlockOpen = false;
 	}
 
 	private void CheckBreechBlock()
-    {
+	{
 		if (_isOutOfAmmo)
 			_weaponAnimator.MoveBreechBlock(true, 1);
 		else
@@ -190,26 +190,26 @@ public class Weapon : MonoBehaviour
 	}
 
 	private void OnOpenedScope()
-    {
+	{
 		_isOpeningScope = true;
 		_weaponAnimator.Aim(_isScoping);
 		_weaponSound.Aim(_isScoping);
 	}
-	
+
 	private void OnClosedScope()
-    {
+	{
 		_isOpeningScope = false;
 		_weaponAnimator.Aim(_isScoping);
 		_weaponSound.Aim(_isScoping);
 	}
-	
+
 	private void OnDropedGrenade()
-    {
+	{
 		_throwingGrenade.enabled = true;
 	}
-	
+
 	private void OnShooted()
-    {
+	{
 		if ((IsReloading == false) && (_isRunning == false))
 		{
 			if (_isSingleShootMod && _type != Weapon.Types.Shotgun)
@@ -218,24 +218,24 @@ public class Weapon : MonoBehaviour
 			}
 			else if (_isSingleShootMod && _type == Weapon.Types.Shotgun)
 			{
-				if(_isMovingMovableHandguard == false)
+				if (_isMovingMovableHandguard == false)
 					StartCoroutine(ShootShotgun());
 			}
 			else
 			{
-				_isShooting = true;
+				IsShooting = true;
 				StartCoroutine(ShootAuto());
 			}
 		}
 	}
 
 	private void OnNonShooted()
-    {
-		_isShooting = false;
+	{
+		IsShooting = false;
 	}
 
 	private void OnReload()
-    {
+	{
 		if ((IsReloading == false) && (_isRunning == false))
 		{
 			if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, CurrentAmountAmmo, out uint ammo))
@@ -254,7 +254,7 @@ public class Weapon : MonoBehaviour
 	}
 
 	private void Shoot()
-    {
+	{
 		if (_isOutOfAmmo)
 		{
 			OnReload();
@@ -270,13 +270,13 @@ public class Weapon : MonoBehaviour
 	}
 
 	private IEnumerator ShootAuto()
-    {
-        while (_isShooting && (IsReloading == false) && (_isRunning == false))
-        {
+	{
+		while (IsShooting && (IsReloading == false) && (_isRunning == false))
+		{
 			Shoot();
 			yield return new WaitForSeconds(_nextShotDelay);
-        }
-    }
+		}
+	}
 
 	private IEnumerator ShootShotgun()
 	{

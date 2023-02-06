@@ -32,8 +32,8 @@ public class Game : MonoBehaviour
     {
 #if UNITY_EDITOR
         /////////////////---- Editor Only --------/////////////////////////
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Debug.Log("Editor Only");
         /////////////////////////////////////////
 #endif
@@ -87,9 +87,8 @@ public class Game : MonoBehaviour
     {
         _menu.enabled = true;
         _gameCursorControl.Enable();
-        _gameControllingPlayer.enabled = true;
-        _gameControllingPlayer.DisablePlayerDirection();
-        _gameControllingPlayer.DisablePlayerPausingGame();
+        _gameControllingPlayer.enabled = false;
+        _gameControllingPlayer.EnableWeaponSelecting();
         _controllingAudio.enabled = false;
         _settingLeaderboardScore.enabled = true;
         LevelCompleted?.Invoke();
@@ -98,7 +97,6 @@ public class Game : MonoBehaviour
     private void Play()
     {
         _gameCursorControl.Disable();
-        _gameControllingPlayer.enabled = false;
         _pausingGame.Play();
     }
 

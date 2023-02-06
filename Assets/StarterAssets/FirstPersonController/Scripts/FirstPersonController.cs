@@ -51,6 +51,8 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
+		[SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -85,6 +87,12 @@ namespace StarterAssets
 				#endif
 			}
 		}
+
+		public bool IsWalking => _input.move != Vector2.zero;
+		public bool IsRunning => _input.sprint && IsWalking;
+
+		private Weapon _lastWeapon => _playerWeaponSelecting.LastWeapon;
+		private Weapon _currentWeapon => _playerWeaponSelecting.CurrentWeapon;
 
 		private void Awake()
 		{
@@ -122,6 +130,35 @@ namespace StarterAssets
 			CameraRotation();
 		}
 
+        private void OnEnable()
+        {
+			_playerWeaponSelecting.Selected += OnSelected;
+		}
+
+        private void OnDisable()
+		{
+			_playerWeaponSelecting.Selected -= OnSelected;
+		}
+
+		private void OnSelected()
+        {
+			WeaponShooting weaponShooting;
+
+			if (_lastWeapon != null)
+            {
+				if (_lastWeapon.TryGetComponent(out weaponShooting))
+					weaponShooting.Shooted -= OnShooted;
+            }
+
+			if (_currentWeapon.TryGetComponent(out weaponShooting))
+				weaponShooting.Shooted += OnShooted;
+		}
+
+		private void OnShooted()
+        {
+			CameraRotation(_currentWeapon.ForceRecoil);
+		}
+
 		private void GroundedCheck()
 		{
 			// set sphere position, with offset
@@ -129,15 +166,15 @@ namespace StarterAssets
 			Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 		}
 
-		private void CameraRotation()
+		private void CameraRotation(float forceRecoil = 0)
 		{
 			// if there is an input
-			if (_input.look.sqrMagnitude >= _threshold)
+			if ((_input.look.sqrMagnitude >= _threshold) || (forceRecoil != 0))
 			{
 				//Don't multiply mouse input by Time.deltaTime
 				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 				
-				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier;
+				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier - forceRecoil;
 				_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
 
 				// clamp our pitch rotation

@@ -17,11 +17,11 @@ public class WeaponFollowingCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        float movementX = -Input.GetAxis(MouseX) * SwayAmount;
-        float movementY = -Input.GetAxis(MouseY) * SwayAmount;
-        movementX = Mathf.Clamp(movementX, -MaxSwayAmount, MaxSwayAmount);
-        movementY = Mathf.Clamp(movementY, -MaxSwayAmount, MaxSwayAmount);
-        Vector3 finalSwayPosition = new Vector3(movementX, movementY, 0);
-        transform.localPosition = Vector3.Lerp(transform.localPosition, finalSwayPosition + _initialSwayPosition, Time.deltaTime * SwaySmoothValue);
+        //float movementX = -Input.GetAxis(MouseX) * SwayAmount;
+        //float movementY = -Input.GetAxis(MouseY) * SwayAmount;
+        //movementX = Mathf.Clamp(movementX, -MaxSwayAmount, MaxSwayAmount);
+        //movementY = Mathf.Clamp(movementY, -MaxSwayAmount, MaxSwayAmount);
+        //Vector3 finalSwayPosition = new Vector3(movementX, movementY, 0);
+        //transform.localPosition = Vector3.Lerp(transform.localPosition, finalSwayPosition + _initialSwayPosition, Time.deltaTime * SwaySmoothValue);
     }
 }
