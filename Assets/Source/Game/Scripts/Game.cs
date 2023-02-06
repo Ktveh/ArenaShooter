@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     [SerializeField] private YandexInitialization _yandexInitialization;
+    [SerializeField] private YandexAds _yandexAds;
     [SerializeField] private InterfaceZombieBar _zombieBar;
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Button _buttonPlayingGame;
@@ -57,6 +58,8 @@ public class Game : MonoBehaviour
         _zombieBar.AllZombiesDead += OnAllZombiesDead;
         _buttonPlayingGame.onClick.AddListener(Play);
         _playerHealth.Deaded += OnDeaded;
+        _yandexAds.Showed += OnShwoed;
+        _yandexAds.Errored += OnShwoed;
     }
 
     private void OnDisable()
@@ -65,6 +68,8 @@ public class Game : MonoBehaviour
         _zombieBar.AllZombiesDead -= OnAllZombiesDead;
         _buttonPlayingGame.onClick.RemoveListener(Play);
         _playerHealth.Deaded -= OnDeaded;
+        _yandexAds.Showed -= OnShwoed;
+        _yandexAds.Errored -= OnShwoed;
     }
 
     private void OnCompleted()
@@ -85,12 +90,6 @@ public class Game : MonoBehaviour
 
     private void OnAllZombiesDead()
     {
-        _menu.enabled = true;
-        _gameCursorControl.Enable();
-        _gameControllingPlayer.enabled = false;
-        _gameControllingPlayer.EnableWeaponSelecting();
-        _controllingAudio.enabled = false;
-        _settingLeaderboardScore.enabled = true;
         LevelCompleted?.Invoke();
     }
 
@@ -104,5 +103,15 @@ public class Game : MonoBehaviour
     {
         PlayerIsDead = true;
         OnAllZombiesDead();
+    }
+
+    private void OnShwoed()
+    {
+        _menu.enabled = true;
+        _gameCursorControl.Enable();
+        _gameControllingPlayer.enabled = false;
+        _gameControllingPlayer.EnableWeaponSelecting();
+        _controllingAudio.enabled = false;
+        _settingLeaderboardScore.enabled = true;
     }
 }

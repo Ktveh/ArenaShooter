@@ -4,8 +4,8 @@ using UnityEngine.Events;
 
 public class YandexAds : MonoBehaviour
 {
-    [SerializeField] private SoundButton _soundButton;
     [SerializeField] private Game _game;
+    [SerializeField] private SoundButton _soundButton;
     [SerializeField] private ButtonUpgradingOnReward[] _buttonsUpgradingOnReward;
 
     private WeaponAccessories.Type _type;
