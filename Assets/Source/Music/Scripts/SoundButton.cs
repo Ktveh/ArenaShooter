@@ -24,6 +24,11 @@ public class SoundButton : MonoBehaviour
         _soundButton.onClick.RemoveListener(OnButtonClick);
     }
 
+    private void Start()
+    {
+        CheckVolume();
+    }
+
     public void OnAdShow()
     {
         _isAdShow = true;
@@ -89,6 +94,14 @@ public class SoundButton : MonoBehaviour
         else
         {
             _soundButton.image.sprite = _soundOff;
+        }
+    }
+
+    private void CheckVolume()
+    {
+        if (!_isOn)
+        {
+            AudioListener.volume = 0;
         }
     }
 }
