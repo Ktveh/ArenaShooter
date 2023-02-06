@@ -2359,9 +2359,21 @@ PrefabInstance:
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 781152365, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 849275203, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863647472, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 863647472, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 863647474, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _firstPersonController
@@ -2375,6 +2387,10 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 1130835099, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1140301752, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
@@ -2447,6 +2463,30 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 1740902051, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1740902051, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828802804, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828802804, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828802804, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828802804, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1881594574, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
