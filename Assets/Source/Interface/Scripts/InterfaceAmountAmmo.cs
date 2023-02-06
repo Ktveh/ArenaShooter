@@ -10,7 +10,7 @@ public class InterfaceAmountAmmo : MonoBehaviour
     [SerializeField] private TMP_Text _inventoryAmountAmmo;
     [SerializeField] private Image _icon;
 
-    private string _valueInventoryAmountAmmo => " / " + _playerInventory.GetAmountAmmo(_playerWeaponSelecting.CurrentWeapon.Type).ToString();
+    private string _valueInventoryAmountAmmo => "/" + _playerInventory.GetAmountAmmo(_playerWeaponSelecting.CurrentWeapon.Type).ToString();
     private string _valueCurrentAmountAmmo => _playerWeaponSelecting.CurrentWeapon.CurrentAmountAmmo.ToString();
 
     private void OnEnable()

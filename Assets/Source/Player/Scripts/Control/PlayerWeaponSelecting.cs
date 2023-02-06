@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlayerWeaponSelecting : MonoBehaviour
 {
     [SerializeField] private Transform _containerWeapon;
-    [SerializeField] private Button _buttonNextWeapon;
     [SerializeField] private MenuUpgradingWeapon _upgradingWeapon;
 
     private StandardWeapon[] _standardWeaponsAdding;
@@ -66,19 +65,39 @@ public class PlayerWeaponSelecting : MonoBehaviour
 
     private void OnEnable()
     {
-        _buttonNextWeapon.onClick.AddListener(OnClick);
         _upgradingWeapon.SelectedWeapon += Change;
     }
 
     private void OnDisable()
     {
-        _buttonNextWeapon.onClick.RemoveListener(OnClick);
         _upgradingWeapon.SelectedWeapon -= Change;
     }
 
     public Weapon GetWeapon(Weapon.Types type)
     {
         return _standardWeapons[type];
+    }
+
+    public void Select(int number)
+    {
+        switch (number)
+        {
+            case 0:
+                Change(Weapon.Types.Pistol);
+                break;
+            case 1:
+                Change(Weapon.Types.SMG);
+                break;
+            case 2:
+                Change(Weapon.Types.Rifle);
+                break;
+            case 3:
+                Change(Weapon.Types.Shotgun);
+                break;
+            case 4:
+                Change(Weapon.Types.SniperRifle);
+                break;
+        }
     }
 
     private void Change(Weapon.Types typeWeapon)
@@ -98,22 +117,5 @@ public class PlayerWeaponSelecting : MonoBehaviour
         newWeapon.gameObject.SetActive(true);
         _currentWeapon = newWeapon;
         Selected?.Invoke();
-    }
-
-    private void OnClick()
-    {
-        for (int i = 0; i < _standardWeaponsAdding.Length; i++)
-        {
-            if (_currentWeapon.Type == _standardWeaponsAdding[i].Type)
-            {
-                if (i == _standardWeaponsAdding.Length - 1)
-                    i = 0;
-                else
-                    i++;
-
-                Change(_standardWeaponsAdding[i].Type);
-                return;
-            }
-        }
     }
 }

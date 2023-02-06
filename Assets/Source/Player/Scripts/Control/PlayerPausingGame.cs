@@ -24,7 +24,7 @@ public class PlayerPausingGame : MonoBehaviour
         _playerInput.Disable();
     }
 
-    private void OnPerformed()
+    public void OnPerformed()
     {
         Paused?.Invoke();
     }
