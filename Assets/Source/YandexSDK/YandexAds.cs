@@ -4,49 +4,70 @@ using UnityEngine.Events;
 
 public class YandexAds : MonoBehaviour
 {
-    public bool IsShows { get; private set; }
+    [SerializeField] private SoundButton _soundButton;
+    [SerializeField] private Game _game;
+    [SerializeField] private ButtonUpgradingOnReward[] _buttonsUpgradingOnReward;
+
+    private WeaponAccessories.Type _type;
 
     public event UnityAction Shows;
     public event UnityAction Showed;
     public event UnityAction Errored;
-    public event UnityAction Rewarded;
+    public event UnityAction<WeaponAccessories.Type> Rewarded;
 
-    private void ShowRewarded()
+    private void OnEnable()
     {
+        foreach (var button in _buttonsUpgradingOnReward)
+            button.Down += OnDown;
+
+        _game.LevelCompleted += OnLevelCompleted;
+    }
+
+    private void OnDisable()
+    {
+        foreach (var button in _buttonsUpgradingOnReward)
+            button.Down -= OnDown;
+
+        _game.LevelCompleted += OnLevelCompleted;
+    }
+
+    private void OnDown(WeaponAccessories.Type type)
+    {
+        _type = type;
         VideoAd.Show(Opene, Reward, Close, Error);
     }
 
-    private void ShowInterstitial()
+    private void OnLevelCompleted()
     {
         InterstitialAd.Show(Opene, Close, Error);
     }
 
     private void Opene()
     {
-        IsShows = true;
+        _soundButton.OnAdShow();
         Shows?.Invoke();
     }
 
     private void Reward()
     {
-        Rewarded?.Invoke();
+        Rewarded?.Invoke(_type);
     }
 
     private void Close()
     {
-        IsShows = false;
+        _soundButton.OnAdClose();
         Showed?.Invoke();
     }
 
     private void Close(bool onClose)
     {
-        IsShows = false;
+        _soundButton.OnAdClose();
         Showed?.Invoke();
     }
 
     private void Error(string onError)
     {
-        IsShows = false;
+        _soundButton.OnAdClose();
         Errored?.Invoke();
     }
 }
