@@ -71,6 +71,7 @@ public class ZombieTargeter : MonoBehaviour
         }
         else
         {
+            _isAttentive = false;
             RandomTarget(transform.position, true);
         }
     }
@@ -111,7 +112,7 @@ public class ZombieTargeter : MonoBehaviour
                 _isAttentive = true;
                 _ownTarget.IsAction = true;
             }
-            else if (hit.collider.gameObject.GetComponent<ZombieTarget>() && !_isAttentive)
+            else if (hit.collider.gameObject.GetComponent<ZombieTargeter>() && !_isAttentive)
             {
                 Debug.DrawLine(startPosition, hit.point, Color.blue);
                 _zombieTargeter = hit.collider.gameObject.GetComponent<ZombieTargeter>();
