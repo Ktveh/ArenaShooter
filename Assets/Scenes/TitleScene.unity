@@ -269,7 +269,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f65eb833b8714d9468d2aaee04c365d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 901d64fc6ad9d44799c2ad0fd4f182d2, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -299,8 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ad20edb3a485764d88f34a833e109ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundOn: {fileID: 21300000, guid: f65eb833b8714d9468d2aaee04c365d3, type: 3}
-  _soundOff: {fileID: 21300000, guid: 82f6d7d1f9fc6044e8922d8e42ea2f2f, type: 3}
+  _soundOn: {fileID: 21300000, guid: 901d64fc6ad9d44799c2ad0fd4f182d2, type: 3}
+  _soundOff: {fileID: 21300000, guid: 78757b0623f3b4309b7cc69c4769ae37, type: 3}
   _soundButton: {fileID: 46218443}
   _soundListener: {fileID: 983722081}
 --- !u!4 &79083304 stripped
@@ -2661,7 +2661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c4c59e3a1d126434bb47c509cb0fd2a6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6a96c7c65795c94abf54a62adbf5c38, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4865,7 +4865,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1100557535}
   m_HandleRect: {fileID: 1100557534}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5814,8 +5814,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -21.2006, y: -21.6996}
-  m_SizeDelta: {x: 64, y: 64}
+  m_AnchoredPosition: {x: -28.1, y: -28.5433}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2095588576
 MonoBehaviour:
@@ -5886,14 +5886,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9622642, g: 0.14701258, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b402d92692436e4f8100aff9962a658, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1c4cc3242e0544967b6eb69d898a306c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
