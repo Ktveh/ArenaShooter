@@ -20,6 +20,12 @@ public class PausingGame : MonoBehaviour
         _gameCursorControl = GetComponent<GameCursorControl>();
     }
 
+    private void Update()
+    {
+        if(_pauseMenu.gameObject.activeSelf)
+            _gameCursorControl.Enable();
+    }
+
     private void OnEnable()
     {
         _yandexAds.Shows += Stop;
@@ -51,7 +57,7 @@ public class PausingGame : MonoBehaviour
         if (_game.IsLevelCompleted)
             return;
 
-        if (_pauseMenu.gameObject.activeSelf == true)
+        if (_pauseMenu.gameObject.activeSelf)
         {
             Play();
             _pauseMenu.gameObject.SetActive(false);
