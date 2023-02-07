@@ -1,3 +1,5 @@
-public class PlayerDroppingGrenade : PlayerAction
+using UnityEngine;
+
+public class PlayerDroppingGrenade : MonoBehaviour
 {
 }

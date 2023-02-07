@@ -32,14 +32,6 @@ public class Game : MonoBehaviour
 
     private void Awake()
     {
-#if UNITY_EDITOR
-        /////////////////---- Editor Only --------/////////////////////////
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Debug.Log("Editor Only");
-        /////////////////////////////////////////
-#endif
-
         _gameCursorControl = GetComponent<GameCursorControl>();
         _gameControllingPlayer = GetComponent<GameControllingPlayer>();
         _pausingGame = GetComponent<PausingGame>();
