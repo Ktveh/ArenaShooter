@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Game))]
 public class PlayerSaving : MonoBehaviour
 {
     private const string Money = "Money";
@@ -8,23 +9,26 @@ public class PlayerSaving : MonoBehaviour
     [SerializeField] private PlayerWallet _playerWallet;
     [SerializeField] private PlayerZombieKillCounter _playerZombieKillCounter;
 
+    private Game _game;
+
     public int CurrentScore => PlayerPrefs.GetInt(AmountKilledZombie);
 
     private void Awake()
     {
+        _game = GetComponent<Game>();
         _playerWallet.SetValue(PlayerPrefs.GetInt(Money));
     }
 
     private void OnEnable()
     {
         _playerWallet.ChangedValue += OnChangedValue;
-        _playerZombieKillCounter.Changed += OnChanged;
+        _game.LevelCompleted += OnLevelCompleted;
     }
 
     private void OnDisable()
     {
         _playerWallet.ChangedValue -= OnChangedValue;
-        _playerZombieKillCounter.Changed -= OnChanged;
+        _game.LevelCompleted -= OnLevelCompleted;
     }
 
     private void OnChangedValue(int value)
@@ -32,9 +36,9 @@ public class PlayerSaving : MonoBehaviour
         PlayerPrefs.SetInt(Money, value);
     }
     
-    private void OnChanged(int value)
+    private void OnLevelCompleted()
     {
-        int amount = PlayerPrefs.GetInt(AmountKilledZombie) + value;
+        int amount = PlayerPrefs.GetInt(AmountKilledZombie) + _playerZombieKillCounter.Count;
         PlayerPrefs.SetInt(AmountKilledZombie, amount);
     }
 }

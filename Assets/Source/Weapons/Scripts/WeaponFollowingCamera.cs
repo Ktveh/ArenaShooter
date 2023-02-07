@@ -4,7 +4,7 @@ public class WeaponFollowingCamera : MonoBehaviour
 {
     private const float SwayAmount = 0.02f;
     private const float MaxSwayAmount = 0.06f;
-    private const float SwaySmoothValue = 10f;
+    private const float SwaySmoothValue = 5f;
     private const string MouseX = "Mouse X";
     private const string MouseY = "Mouse Y";
 

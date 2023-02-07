@@ -98,6 +98,7 @@ public class Game : MonoBehaviour
     private void OnAllZombiesDead()
     {
         IsLevelCompleted = true;
+        _zombieBar.AllZombiesDead -= OnAllZombiesDead;
         _controllingAudio.enabled = false;
         _gameControllingPlayer.enabled = false;
         LevelCompleted?.Invoke();
@@ -111,6 +112,9 @@ public class Game : MonoBehaviour
 
     private void OnDeaded()
     {
+        _buttonPlayingGame.onClick.RemoveListener(Play);
+        _zombieBar.AllZombiesDead -= OnAllZombiesDead;
+        _playerHealth.Deaded -= OnDeaded;
         PlayerIsDead = true;
         OnAllZombiesDead();
     }
