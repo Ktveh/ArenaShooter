@@ -5,7 +5,6 @@ using UnityEngine.Events;
 public class YandexAds : MonoBehaviour
 {
     [SerializeField] private Game _game;
-    [SerializeField] private SoundButton _soundButton;
     [SerializeField] private ButtonUpgradingOnReward[] _buttonsUpgradingOnReward;
 
     private WeaponAccessories.Type _type;
@@ -44,7 +43,6 @@ public class YandexAds : MonoBehaviour
 
     private void Opene()
     {
-        _soundButton.OnAdShow();
         Shows?.Invoke();
     }
 
@@ -55,19 +53,16 @@ public class YandexAds : MonoBehaviour
 
     private void Close()
     {
-        _soundButton.OnAdClose();
         Showed?.Invoke();
     }
 
     private void Close(bool onClose)
     {
-        _soundButton.OnAdClose();
         Showed?.Invoke();
     }
 
     private void Error(string onError)
     {
-        _soundButton.OnAdClose();
         Errored?.Invoke();
     }
 }

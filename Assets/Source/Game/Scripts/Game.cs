@@ -20,11 +20,11 @@ public class Game : MonoBehaviour
     private ControllingAudio _controllingAudio;
     private SettingLeaderboardScore _settingLeaderboardScore;
     private Menu _menu;
-    private bool _isMobile;
 
     public bool IsStarted { get; private set; }
     public bool PlayerIsDead { get; private set; }
-    public bool IsMobile => _isMobile;
+    public bool IsLevelCompleted { get; private set; }
+    public bool IsMobile { get; private set; }
 
     public event UnityAction<bool> DeviceGeted;
     public event UnityAction LevelCompleted;
@@ -79,10 +79,10 @@ public class Game : MonoBehaviour
 
     private void DefineControl()
     {
-        _isMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop ? true : false;
-        DeviceGeted?.Invoke(_isMobile);
+        IsMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop ? true : false;
+        DeviceGeted?.Invoke(IsMobile);
 
-        if (_isMobile)
+        if (IsMobile)
             _gameCursorControl.Enable();
         else
             _gameCursorControl.Disable();
@@ -90,6 +90,9 @@ public class Game : MonoBehaviour
 
     private void OnAllZombiesDead()
     {
+        IsLevelCompleted = true;
+        _gameCursorControl.Enable();
+        _gameControllingPlayer.enabled = false;
         LevelCompleted?.Invoke();
     }
 
@@ -107,11 +110,10 @@ public class Game : MonoBehaviour
 
     private void OnShwoed()
     {
+        _controllingAudio.enabled = false;
         _menu.enabled = true;
         _gameCursorControl.Enable();
-        _gameControllingPlayer.enabled = false;
         _gameControllingPlayer.EnableWeaponSelecting();
-        _controllingAudio.enabled = false;
         _settingLeaderboardScore.enabled = true;
     }
 }

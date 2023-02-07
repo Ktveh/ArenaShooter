@@ -1,17 +1,21 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Game))]
 [RequireComponent(typeof(GameControllingPlayer))]
+[RequireComponent(typeof(GameCursorControl))]
 public class PausingGame : MonoBehaviour
 {
     [SerializeField] private YandexAds _yandexAds;
     [SerializeField] private PlayerPausingGame _playerPausingGame;
     [SerializeField] private PauseMenu _pauseMenu;
-    
+
+    private Game _game;
     private GameControllingPlayer _gameControllingPlayer;
     private GameCursorControl _gameCursorControl;
 
     private void Start()
     {
+        _game = GetComponent<Game>();
         _gameControllingPlayer = GetComponent<GameControllingPlayer>();
         _gameCursorControl = GetComponent<GameCursorControl>();
     }
@@ -44,6 +48,9 @@ public class PausingGame : MonoBehaviour
     
     private void OnPaused()
     {
+        if (_game.IsLevelCompleted)
+            return;
+
         if (_pauseMenu.gameObject.activeSelf == true)
         {
             Play();

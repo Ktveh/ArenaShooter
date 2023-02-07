@@ -50,7 +50,6 @@ public class WeaponAnimator : MonoBehaviour
 
 		if (_weapon.IsScoping)
 			Aim(true);
-
 	}
 
 	public void Walk(bool isWalking)
@@ -120,8 +119,9 @@ public class WeaponAnimator : MonoBehaviour
 		if (_weapon.Type == Weapon.Types.Shotgun)
 		{
 			_isReloadingShotgun = true;
+
 			if (coroutine == null)
-                StartCoroutine(ReloadShotgun(_weapon.NeedAmountAmmo));
+                StartCoroutine(ReloadShotgun(_weapon.AmountAmmoReceived));
         }
 		else
 		{
