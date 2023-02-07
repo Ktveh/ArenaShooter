@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent (typeof(GameControllingPlayer))]
 [RequireComponent (typeof(PausingGame))]
 [RequireComponent (typeof(ControllingAudio))]
+[RequireComponent (typeof(SettingLeaderboardScore))]
 public class Game : MonoBehaviour
 {
     [SerializeField] private YandexInitialization _yandexInitialization;
@@ -52,6 +53,12 @@ public class Game : MonoBehaviour
         IsStarted = true;
     }
 
+    private void Update()
+    {
+        if (IsLevelCompleted)
+            _gameCursorControl.Enable();
+    }
+
     private void OnEnable()
     {
         _yandexInitialization.Completed += OnCompleted;
@@ -91,7 +98,7 @@ public class Game : MonoBehaviour
     private void OnAllZombiesDead()
     {
         IsLevelCompleted = true;
-        _gameCursorControl.Enable();
+        _controllingAudio.enabled = false;
         _gameControllingPlayer.enabled = false;
         LevelCompleted?.Invoke();
     }
@@ -112,7 +119,6 @@ public class Game : MonoBehaviour
     {
         _controllingAudio.enabled = false;
         _menu.enabled = true;
-        _gameCursorControl.Enable();
         _gameControllingPlayer.EnableWeaponSelecting();
         _settingLeaderboardScore.enabled = true;
     }

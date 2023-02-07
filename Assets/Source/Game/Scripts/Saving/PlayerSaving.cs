@@ -34,6 +34,7 @@ public class PlayerSaving : MonoBehaviour
     
     private void OnChanged(int value)
     {
-        PlayerPrefs.SetInt(AmountKilledZombie, value);
+        int amount = PlayerPrefs.GetInt(AmountKilledZombie) + value;
+        PlayerPrefs.SetInt(AmountKilledZombie, amount);
     }
 }
