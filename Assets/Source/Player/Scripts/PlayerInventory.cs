@@ -65,23 +65,21 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    public bool TryGetAmmo(Weapon.Types type, uint maxAmount, uint currentAmount, out uint ammo)
+    public bool TryGetAmmo(Weapon.Types type, uint needAmount, out uint ammo)
     {
         ammo = 0;
 
         if (_ammo[type] == 0)
             return false;
 
-        _ammo[type] += currentAmount;
-
-        if (_ammo[type] < maxAmount) 
+        if (_ammo[type] < needAmount) 
         {
             ammo = _ammo[type];
             _ammo[type] = 0;
         }
         else
         {
-            ammo = maxAmount;
+            ammo = needAmount;
             _ammo[type] -= ammo;
         }
 

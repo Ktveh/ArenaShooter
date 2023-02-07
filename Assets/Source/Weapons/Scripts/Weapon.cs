@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(WeaponAnimator))]
-[RequireComponent(typeof(WeaponAccessories))]
 [RequireComponent(typeof(ThrowingGrenade))]
 [RequireComponent(typeof(WeaponShooting))]
 [RequireComponent(typeof(WeaponHolster))]
@@ -27,7 +26,6 @@ public class Weapon : MonoBehaviour
 
 	private Getting _getting;
 	private WeaponAnimator _weaponAnimator;
-	private WeaponAccessories _weaponAccessories;
 	private ThrowingGrenade _throwingGrenade;
 	private WeaponShooting _weaponShooting;
 	private WeaponHolster _weaponHolster;
@@ -41,7 +39,6 @@ public class Weapon : MonoBehaviour
 	private PlayerWeaponReloading _playerWeaponReloading;
 	private PlayerInventory _playerInventory;
 	private Camera _weaponCamera;
-	private uint _amountAmmoReceived;
 	private bool _isBreechBlockOpen;
 	private bool _isOpeningScope;
 	private bool _isMovingMovableHandguard;
@@ -54,6 +51,7 @@ public class Weapon : MonoBehaviour
 	public uint CurrentAmountAmmo { get; private set; }
 	public uint MaxAmountAmmo => _maxAmountAmmo;
 	public uint NeedAmountAmmo => _maxAmountAmmo - CurrentAmountAmmo;
+	public uint AmountAmmoReceived { get; private set; }
 	public float ForceRecoil => _forceRecoil;
 	public float DuartionReloadingOpen => _durationReloadingOpen;
 	public float DuartionInsertShell => _durationInsertShell;
@@ -87,7 +85,6 @@ public class Weapon : MonoBehaviour
 	{
 		_getting = GetComponentInParent<Getting>();
 		_weaponAnimator = GetComponent<WeaponAnimator>();
-		_weaponAccessories = GetComponent<WeaponAccessories>();
 		_throwingGrenade = GetComponent<ThrowingGrenade>();
 		_weaponShooting = GetComponent<WeaponShooting>();
 		_weaponHolster = GetComponent<WeaponHolster>();
@@ -105,7 +102,7 @@ public class Weapon : MonoBehaviour
 
 	private void Start()
 	{
-		if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, CurrentAmountAmmo, out uint ammo))
+		if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, out uint ammo))
 			CurrentAmountAmmo = ammo;
 		else
 			CheckBreechBlock();
@@ -170,7 +167,7 @@ public class Weapon : MonoBehaviour
 
 	private void OnFinishedAnimation()
 	{
-		CurrentAmountAmmo = _amountAmmoReceived;
+		CurrentAmountAmmo += AmountAmmoReceived;
 		IsReloadingStarted = false;
 		CheckBreechBlock();
 		Reloaded?.Invoke();
@@ -212,11 +209,11 @@ public class Weapon : MonoBehaviour
 	{
 		if ((IsReloading == false) && (_isRunning == false))
 		{
-			if (_isSingleShootMod && _type != Weapon.Types.Shotgun)
+			if (_isSingleShootMod && _type != Types.Shotgun)
 			{
 				Shoot();
 			}
-			else if (_isSingleShootMod && _type == Weapon.Types.Shotgun)
+			else if (_isSingleShootMod && _type == Types.Shotgun)
 			{
 				if (_isMovingMovableHandguard == false)
 					StartCoroutine(ShootShotgun());
@@ -238,11 +235,11 @@ public class Weapon : MonoBehaviour
 	{
 		if ((IsReloading == false) && (_isRunning == false))
 		{
-			if (_playerInventory.TryGetAmmo(_type, _maxAmountAmmo, CurrentAmountAmmo, out uint ammo))
+			if (_playerInventory.TryGetAmmo(_type, NeedAmountAmmo, out uint ammo))
 			{
+				AmountAmmoReceived = ammo;
 				IsReloadingStarted = true;
-				_amountAmmoReceived = ammo;
-				_weaponReloading.Reload(_isOutOfAmmo, _type, _amountAmmoReceived);
+				_weaponReloading.Reload(_isOutOfAmmo);
 
 				if (_isBreechBlockOpen == false)
 				{
