@@ -17,7 +17,7 @@ public class TrapTrigger : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         foreach (var transform in _objectsForShow)
         {
