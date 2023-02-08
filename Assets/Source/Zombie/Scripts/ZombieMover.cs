@@ -16,13 +16,18 @@ public class ZombieMover : MonoBehaviour
     [SerializeField] private float _spreadSpeed;
 
     private float _stopAcceleration = 10f;
+    private bool _isMove;
     private Target _target;
+
+    private void Start()
+    {
+        _isMove = true;
+    }
 
     private void Update()
     {
         if (_target != null)
         {
-
             _agent.destination = _target.transform.position;
 
             if (_targeter.IsAttentive && _zombie.HasLegs)
@@ -41,16 +46,32 @@ public class ZombieMover : MonoBehaviour
                 _animator.Crawl();
             }
         }
+        
+        _target = _targeter.CurrentTarget;
+
         if (_zombie.IsDead)
         {
-            _agent.speed = SetSpeed(0);
-            _agent.acceleration = _stopAcceleration;
+            StopMove();
+            return;
         }
         if (!_agent.hasPath)
         {
-            _animator.Stop();
+            StopMove();
+            StartMove();
         }
-        _target = _targeter.CurrentTarget;
+    }
+
+    public void StopMove()
+    {
+        _isMove = false;
+        _agent.speed = SetSpeed(0);
+        _agent.acceleration = _stopAcceleration;
+        _animator.Stop();
+    }
+
+    public void StartMove()
+    {
+        _isMove = true;
     }
 
     private float SetSpeed(float speed)

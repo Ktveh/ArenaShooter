@@ -9,9 +9,7 @@ public class ZombieTargeter : MonoBehaviour
     [SerializeField] private float _forwardDistanceDetected;
     [SerializeField] private float _aroundDistanceDetected;
     [SerializeField] private int _amountRaycasts;
-    [SerializeField] private ZombieTarget _ownTarget;
     [SerializeField] private RandomTarget _template;
-    [SerializeField] private bool _isHardMode;
 
     private ZombieTargeter _zombieTargeter;
     private SoundTarget _soundTarget;
@@ -100,33 +98,22 @@ public class ZombieTargeter : MonoBehaviour
     private void GetRaycast(Vector3 direction, float distance)
     {
         Vector3 startPosition = transform.position + _offset;
-        RaycastHit hit = new RaycastHit();
-        
+        RaycastHit hit;
+
         if (Physics.Raycast(startPosition, direction, out hit, distance))
         {   
             if (hit.collider.gameObject.GetComponent<MainTarget>())
             {
-                Debug.DrawLine(startPosition, hit.point, Color.green);
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
                 RandomTarget(_mainTarget.transform.position, false);
                 _isAttentive = true;
-                _ownTarget.IsAction = true;
             }
             else if (hit.collider.gameObject.GetComponent<ZombieTargeter>() && !_isAttentive)
             {
-                Debug.DrawLine(startPosition, hit.point, Color.blue);
                 _zombieTargeter = hit.collider.gameObject.GetComponent<ZombieTargeter>();
-                _ownTarget.IsAction = true;
                 if (_zombieTargeter.IsAttentive)
                 {
-                    if (_isHardMode)
-                    {
-                        RandomTarget(_zombieTargeter.CurrentTarget.transform.position, false);
-                    }
-                    else
-                    {
-                        RandomTarget(_zombieTargeter.transform.position, false);
-                    }
+                    RandomTarget(_zombieTargeter.CurrentTarget.transform.position, false);
                     _isAttentive = true;
                 }
                 else
@@ -135,16 +122,6 @@ public class ZombieTargeter : MonoBehaviour
                     _isAttentive = false;
                 }
             }
-            else
-            {
-                _ownTarget.IsAction = false;
-                Debug.DrawLine(startPosition, hit.point, Color.red);
-            }
-        }
-        else
-        {
-            _ownTarget.IsAction = false;
-            Debug.DrawRay(startPosition, direction * distance, Color.red);
         }
     }
 

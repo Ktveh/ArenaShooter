@@ -54,11 +54,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _damage: 1
+  _damage: 2
+  _damageWithoutArms: 1
   _price: 50
   _delayAfterDead: 30
+  _delayBetweenAttacks: 2
   _animator: {fileID: 6664062495062514116}
   _targeter: {fileID: 6664062495062514115}
+  _mover: {fileID: 6664062495062514112}
   _deadEffect: {fileID: 5351325646624922108}
   _sound: {fileID: 6664062495766473541}
 --- !u!114 &6664062495062514112
@@ -98,9 +101,7 @@ MonoBehaviour:
   _forwardDistanceDetected: 50
   _aroundDistanceDetected: 5
   _amountRaycasts: 60
-  _ownTarget: {fileID: 6664062495062514118}
   _template: {fileID: 6084071706416295635, guid: 8efa81264ef77914eb37fe92ee6dff2e, type: 3}
-  _isHardMode: 1
 --- !u!114 &6664062495062514116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -941,7 +942,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815072257061836967}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.17
   m_Height: 0.89
@@ -962,6 +963,7 @@ MonoBehaviour:
   _zombie: {fileID: 6664062495062514170}
   _health: 9999
   _limb: {fileID: 2931416791737785635}
+  _isArm: 0
   _isLeg: 0
   _isHead: 0
   _bloodEffect: {fileID: 1462285932623320245, guid: 5f15d9a0a3d0ce2498bdaf13dc988f8a, type: 3}
@@ -1025,6 +1027,7 @@ MonoBehaviour:
   _zombie: {fileID: 6664062495062514170}
   _health: 20
   _limb: {fileID: 5106805154633150502}
+  _isArm: 0
   _isLeg: 1
   _isHead: 0
   _bloodEffect: {fileID: 185568587573624914}
@@ -1052,7 +1055,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4531161850992985049}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.12
   m_Height: 0.32950205
@@ -1073,6 +1076,7 @@ MonoBehaviour:
   _zombie: {fileID: 6664062495062514170}
   _health: 15
   _limb: {fileID: 1870034368483512772}
+  _isArm: 0
   _isLeg: 0
   _isHead: 1
   _bloodEffect: {fileID: 6700202534802886101}
@@ -1126,6 +1130,7 @@ MonoBehaviour:
   _zombie: {fileID: 6664062495062514170}
   _health: 20
   _limb: {fileID: 8470623377775877223}
+  _isArm: 1
   _isLeg: 0
   _isHead: 0
   _bloodEffect: {fileID: 6735795569254909760}
@@ -1216,6 +1221,7 @@ MonoBehaviour:
   _zombie: {fileID: 6664062495062514170}
   _health: 20
   _limb: {fileID: 5632568040114801666}
+  _isArm: 0
   _isLeg: 1
   _isHead: 0
   _bloodEffect: {fileID: 8509664785501786260}
@@ -1264,6 +1270,7 @@ MonoBehaviour:
   _zombie: {fileID: 6664062495062514170}
   _health: 20
   _limb: {fileID: 6089103097087218803}
+  _isArm: 1
   _isLeg: 0
   _isHead: 0
   _bloodEffect: {fileID: 7176066518236964340}
