@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 1, z: 0}
-  _angleDetected: 60
+  _angleDetected: 90
   _forwardDistanceDetected: 70
   _aroundDistanceDetected: 10
   _amountRaycasts: 60
@@ -990,7 +990,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815072257061836967}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.17
   m_Height: 0.89
