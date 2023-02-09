@@ -48,7 +48,7 @@ public class ZombieTargeter : MonoBehaviour
     private void Update()
     {
         FoundTargets(_angleDetected, _forwardDistanceDetected);
-        FoundTargets(360, _aroundDistanceDetected);
+        //FoundTargets(360, _aroundDistanceDetected);
         SetCurrentTarget();
     }
 
