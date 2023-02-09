@@ -6793,14 +6793,18 @@ PrefabInstance:
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 558590858924419750}
+    - target: {fileID: 747803838267579958, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
+      propertyPath: _playerHealth
+      value: 
+      objectReference: {fileID: 558590858924419750}
+    - target: {fileID: 747803838267579958, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
+      propertyPath: _playerInventory
+      value: 
+      objectReference: {fileID: 558590858924419769}
     - target: {fileID: 1135243994880852871, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
       propertyPath: _playerHealth
       value: 
       objectReference: {fileID: 558590858924419750}
-    - target: {fileID: 1203379409623789275, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1619481736095506923, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
       propertyPath: _playerInventory
       value: 
@@ -6809,28 +6813,6 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
-    - target: {fileID: 1619481736922709244, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1619481738211215281, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: m_text
-      value: '60/
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 2144110773115474597, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353681144752105043, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2601101150310171688, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: _containerZombie
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2793023313112585076, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6923,10 +6905,6 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
-    - target: {fileID: 5071698355048889166, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: _zombieCounter
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6454801078897630033, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
       propertyPath: _game
       value: 
@@ -6939,14 +6917,6 @@ PrefabInstance:
       propertyPath: _touchControl
       value: 
       objectReference: {fileID: 8872036160931844460}
-    - target: {fileID: 7797082835752252716, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7857504933498962602, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
-      propertyPath: m_PreserveAspect
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
 --- !u!114 &4430846220853615172 stripped

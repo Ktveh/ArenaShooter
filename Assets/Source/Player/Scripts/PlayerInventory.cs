@@ -10,6 +10,7 @@ public class PlayerInventory : MonoBehaviour
     private Dictionary<Weapon.Types, uint> _ammo;
 
     public event UnityAction Changed;
+    public event UnityAction<Item, uint> Taked;
 
     private void Awake()
     {
@@ -62,6 +63,7 @@ public class PlayerInventory : MonoBehaviour
 
             item.gameObject.SetActive(false);
             Changed?.Invoke();
+            Taked?.Invoke(item, item.Amount);
         }
     }
 

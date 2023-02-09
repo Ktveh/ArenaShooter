@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public event UnityAction<float> Changed;
     public event UnityAction TookDamage;
     public event UnityAction Deaded;
+    public event UnityAction<Item, uint> Taked;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
                 item.gameObject.SetActive(false);
                 _value += item.Amount;
                 Changed?.Invoke(_value);
+                Taked?.Invoke(item, item.Amount);
 
                 if (_value > DefaultValue)
                     _value = DefaultValue;
