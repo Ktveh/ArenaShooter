@@ -34,7 +34,7 @@ Transform:
   - {fileID: 7706049537809733784}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &750674573718439924
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -4877,6 +4877,14 @@ PrefabInstance:
     - target: {fileID: 964377424900784675, guid: c978fbf9efdcc1448ab441f8a4e4fc5d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006528472273679783, guid: c978fbf9efdcc1448ab441f8a4e4fc5d, type: 3}
+      propertyPath: stopAction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006528472273679783, guid: c978fbf9efdcc1448ab441f8a4e4fc5d, type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7024485369737578916, guid: c978fbf9efdcc1448ab441f8a4e4fc5d, type: 3}
       propertyPath: m_Name

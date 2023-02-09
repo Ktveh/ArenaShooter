@@ -2591,14 +2591,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1958622619238361127, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
-      propertyPath: detectLanguage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1958622619238361127, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
-      propertyPath: currentLanguage
-      value: Russian
-      objectReference: {fileID: 0}
     - target: {fileID: 3511521935736190241, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2646,10 +2638,6 @@ PrefabInstance:
     - target: {fileID: 6735370897745195430, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
       propertyPath: m_Name
       value: LeanLocalization
-      objectReference: {fileID: 0}
-    - target: {fileID: 7167187605599598246, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
-      propertyPath: data
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
@@ -28505,6 +28493,10 @@ PrefabInstance:
       propertyPath: _zombieCounter
       value: 
       objectReference: {fileID: 202625866}
+    - target: {fileID: 4883406590827095444, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5629789432314874393, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -28565,6 +28557,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8872036161127873129, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1982418682, guid: dccc05b8d01dde54f88f9910329187c2, type: 3}
     - target: {fileID: 8959711873899323896, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
