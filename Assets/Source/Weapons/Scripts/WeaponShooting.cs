@@ -53,7 +53,7 @@ public class WeaponShooting : MonoBehaviour
         _weaponShowingBulletCase.enabled = true;
         _weaponAnimator.Fire(isScoping);
         _weaponSound.Fire();
-        _weaponParticles.enabled = true;
+        _weaponParticles.Show();
         Transform camera = Camera.main.transform;
         RaycastHit hit;
 

@@ -23,20 +23,25 @@ public class WeaponParticles : MonoBehaviour
         
         foreach (var particle in _nonSilencerParticle)
             particle.gameObject.SetActive(false);
-
-        enabled = false;
     }
 
-    private void OnEnable()
+    public void Show()
     {
         if (_weaponAccessories.IsEnabledSilencer)
             _particle = _silencerParticle.FirstOrDefault(particle => particle.gameObject.activeSelf == false);
         else
             _particle = _nonSilencerParticle.FirstOrDefault(particle => particle.gameObject.activeSelf == false);
-        
-        if(_particle != null)
-            _particle.gameObject.SetActive(true);
 
-        enabled = false;
+        if (_particle != null)
+            _particle.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        foreach (var particle in _silencerParticle)
+            particle.gameObject.SetActive(false);
+
+        foreach (var particle in _nonSilencerParticle)
+            particle.gameObject.SetActive(false);
     }
 }
