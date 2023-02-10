@@ -76,6 +76,11 @@ public class ZombieTargeter : MonoBehaviour
 
     private void FoundTargets(float angleDetected, float distance)
     {
+        if (_isAttentive)
+        {
+            _angleDetected = 360;
+        }
+
         _currentRaycast++;
         if (_currentRaycast > _amountRaycasts)
         {

@@ -54,8 +54,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 120
-  _damage: 4
-  _damageWithoutArms: 2
+  _damage: 8
+  _damageWithoutArms: 4
   _price: 60
   _delayAfterDead: 30
   _delayBetweenAttacks: 1
