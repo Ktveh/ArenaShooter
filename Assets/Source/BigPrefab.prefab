@@ -5931,11 +5931,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 714260706, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 53.666664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 784288749, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 53.666664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 957334783, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5955,11 +5955,11 @@ PrefabInstance:
       objectReference: {fileID: 558590858924419751}
     - target: {fileID: 1477907927, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 53.666664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1554482098, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 53.666664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1663187150, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: _playerShooting
@@ -5983,7 +5983,7 @@ PrefabInstance:
       objectReference: {fileID: 558590858924419751}
     - target: {fileID: 1840973852, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 53.666664
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1950863748, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
