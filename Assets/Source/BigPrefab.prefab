@@ -6226,6 +6226,10 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 2139117912502480324, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2793023313112585076, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6330,6 +6334,10 @@ PrefabInstance:
       propertyPath: _touchControl
       value: 
       objectReference: {fileID: 8872036160931844460}
+    - target: {fileID: 8547168966491214162, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
 --- !u!114 &4430846220853615172 stripped

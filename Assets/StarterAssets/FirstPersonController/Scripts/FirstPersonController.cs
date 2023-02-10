@@ -73,6 +73,7 @@ namespace StarterAssets
 		private CharacterController _controller;
 		private StarterAssetsInputs _input;
 		private GameObject _mainCamera;
+		private Vector2 _lastDirection;
 
 		private const float _threshold = 0.01f;
 
@@ -168,23 +169,28 @@ namespace StarterAssets
 
 		private void CameraRotation(float forceRecoil = 0)
 		{
-			// if there is an input
-			if ((_input.look.sqrMagnitude >= _threshold) || (forceRecoil != 0))
+			if ((_input.look != _lastDirection) || (forceRecoil != 0))
 			{
-				//Don't multiply mouse input by Time.deltaTime
-				float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
-				
-				_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier - forceRecoil;
-				_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
+				// if there is an input
+				if ((_input.look.sqrMagnitude >= _threshold) || (forceRecoil != 0))
+				{
+					//Don't multiply mouse input by Time.deltaTime
+					float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
-				// clamp our pitch rotation
-				_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
+					_cinemachineTargetPitch += _input.look.y * RotationSpeed * deltaTimeMultiplier - forceRecoil;
+					_rotationVelocity = _input.look.x * RotationSpeed * deltaTimeMultiplier;
 
-				// Update Cinemachine camera target pitch
-				CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+					// clamp our pitch rotation
+					_cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
-				// rotate the player left and right
-				transform.Rotate(Vector3.up * _rotationVelocity);
+					// Update Cinemachine camera target pitch
+					CinemachineCameraTarget.transform.localRotation = Quaternion.Euler(_cinemachineTargetPitch, 0.0f, 0.0f);
+
+					// rotate the player left and right
+					transform.Rotate(Vector3.up * _rotationVelocity);
+				}
+
+				_lastDirection = _input.look;
 			}
 		}
 
