@@ -7,11 +7,13 @@ using TMPro;
 
 public class SelectLevel : MonoBehaviour
 {
+    [SerializeField] private Canvas _tutorial;
     [SerializeField] private TextMeshProUGUI _titleName;
     [SerializeField] private TextMeshProUGUI _levelName;
     [SerializeField] private Image _lockImage;
     [SerializeField] private Level[] _levels;
 
+    public static string SaveKey = "Levels";
     private string _nameOfGame = "Arena Shooter";
     private int _currentIndex;
     private bool _isLock;
@@ -27,11 +29,34 @@ public class SelectLevel : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            ChooseLevel();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        {
+            PreviousLevel();
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        {
+            NextLevel();
+        }
+    }
+
     public void ChooseLevel()
     {
         if (!_isLock)
         {
-            SceneManager.LoadScene(_scene);
+            if (PlayerPrefs.GetInt(SaveKey) > 1)
+            {
+                SceneManager.LoadScene(_scene);
+            }
+            else
+            {
+                _tutorial.gameObject.SetActive(true);
+            }
         }
     }
 
