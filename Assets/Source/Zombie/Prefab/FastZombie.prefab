@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd2c76679ca2cb4f832edf62d6e93fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 120
+  _health: 80
   _damage: 8
   _damageWithoutArms: 4
   _price: 60
@@ -1226,7 +1226,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.19
+  m_Radius: 0.1
   m_Height: 0.57430214
   m_Direction: 0
   m_Center: {x: -0.23284891, y: 0.056767307, z: 0.00000001840558}
