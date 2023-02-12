@@ -5753,6 +5753,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2632265968224570925, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+      propertyPath: handleRect
+      value: 
+      objectReference: {fileID: 2545160237600776736}
+    - target: {fileID: 2632265969620993591, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+      propertyPath: handleRect
+      value: 
+      objectReference: {fileID: 2545160237600776736}
     - target: {fileID: 6751388636123340836, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_Name
       value: UI_Canvas_StarterAssetsInputs_Joysticks
@@ -5783,6 +5791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+--- !u!224 &2545160237600776736 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6363010274105658623, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+  m_PrefabInstance: {fileID: 8872036160962965215}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8310791876684180213 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 597308369130767402, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
