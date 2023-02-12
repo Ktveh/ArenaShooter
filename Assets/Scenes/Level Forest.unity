@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 1, g: 1, b: 1, a: 0.050980393}
   m_FogMode: 3
-  m_FogDensity: 0.04
+  m_FogDensity: 0.05
   m_LinearFogStart: 0
   m_LinearFogEnd: 25
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -46331,13 +46331,17 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 87d51f07abec0584d805bbe3708a7c71, type: 3}
+    - target: {fileID: 181878289748505883, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 558590858924419771, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 16111662}
     - target: {fileID: 569482821060570841, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: far clip plane
-      value: 500
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 569482821060570841, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: near clip plane
