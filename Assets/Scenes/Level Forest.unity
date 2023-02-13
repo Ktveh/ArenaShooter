@@ -44040,6 +44040,11 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!20 &1327324563 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 569482821060570841, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+  m_PrefabInstance: {fileID: 1425497401}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1330203651
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54882,7 +54887,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1327324563}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

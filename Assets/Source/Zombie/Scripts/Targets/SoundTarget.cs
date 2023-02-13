@@ -13,7 +13,7 @@ public class SoundTarget : Target
         _duration -= Time.deltaTime;
         if (_duration <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

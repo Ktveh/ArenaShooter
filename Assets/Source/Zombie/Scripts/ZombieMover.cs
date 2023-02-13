@@ -54,9 +54,11 @@ public class ZombieMover : MonoBehaviour
             StopMove();
             return;
         }
+
         if (!_agent.hasPath)
         {
             StopMove();
+            _targeter.RemoveCurrentTarget();
             StartMove();
         }
     }
