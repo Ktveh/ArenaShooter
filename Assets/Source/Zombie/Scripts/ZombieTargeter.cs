@@ -10,6 +10,7 @@ public class ZombieTargeter : MonoBehaviour
     [SerializeField] private float _aroundDistanceDetected;
     [SerializeField] private int _amountRaycasts;
     [SerializeField] private RandomTarget _template;
+    [SerializeField] private float _durationCurrenTarget;
 
     private ZombieTargeter _zombieTargeter;
     private SoundTarget _soundTarget;
@@ -17,14 +18,15 @@ public class ZombieTargeter : MonoBehaviour
     private RandomTarget _randomTarget;
     private Target _currentTarget;
     private int _currentRaycast;
-    private bool _isAttentive;
+    private bool _isAttentive = false;
+    private float _ellapsedTime = 0;
 
     public bool IsAttentive => _isAttentive;
     public Target CurrentTarget => _currentTarget;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<SoundTarget>())
+        if (other.GetComponent<SoundTarget>() && !_isAttentive)
         {
             _soundTarget = other.GetComponent<SoundTarget>();
             RandomTarget(_soundTarget.transform.position, false);
@@ -47,16 +49,25 @@ public class ZombieTargeter : MonoBehaviour
 
     private void Update()
     {
+        _ellapsedTime += Time.deltaTime;
         FoundTargets(_angleDetected, _forwardDistanceDetected);
         SetCurrentTarget();
+        if (_ellapsedTime > _durationCurrenTarget)
+        {
+            _ellapsedTime = 0;
+            _mainTarget = null;
+            _soundTarget = null;
+            _zombieTargeter = null;
+            _isAttentive = false;
+            RemoveCurrentTarget();
+        }
     }
 
     public void RemoveCurrentTarget()
     {
         if (!_isAttentive)
         {
-            _randomTarget = null;
-            SetCurrentTarget();
+            RandomTarget(transform.position, true);
         }
     }
 
@@ -77,13 +88,13 @@ public class ZombieTargeter : MonoBehaviour
     {
         if (_isAttentive)
         {
-            _angleDetected = 360;
+            angleDetected = 360;
         }
 
         _currentRaycast++;
         if (_currentRaycast > _amountRaycasts)
         {
-            _currentRaycast = 0;
+            _currentRaycast = -_amountRaycasts;
         }
 
         float angle = _currentRaycast * angleDetected * Mathf.Deg2Rad / _amountRaycasts;
@@ -92,11 +103,6 @@ public class ZombieTargeter : MonoBehaviour
         float z = Mathf.Cos(angle);
 
         GetRaycast(transform.TransformDirection(new Vector3(x, 0, z)), distance);
-
-        if (x != 0)
-        {
-            GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
-        }
     }  
 
     private void GetRaycast(Vector3 direction, float distance)
@@ -105,7 +111,8 @@ public class ZombieTargeter : MonoBehaviour
         RaycastHit hit;
 
         if (Physics.Raycast(startPosition, direction, out hit, distance))
-        {   
+        {
+            Debug.DrawRay(startPosition, direction, Color.red);
             if (hit.collider.gameObject.GetComponent<MainTarget>())
             {
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
@@ -131,7 +138,9 @@ public class ZombieTargeter : MonoBehaviour
 
     private void RandomTarget(Vector3 position, bool spread)
     {
-        _randomTarget = Instantiate(_template, transform.position, transform.rotation);
+        _ellapsedTime = 0;
+        if (_randomTarget == null)
+            _randomTarget = Instantiate(_template, transform.position, transform.rotation);
         _randomTarget.SetPosition(position, spread);
     }
 }

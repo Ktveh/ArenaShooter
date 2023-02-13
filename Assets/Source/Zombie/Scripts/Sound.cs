@@ -9,6 +9,8 @@ public class Sound : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private float _duration;
 
+    SoundTarget _soundTarget;
+
     public void Play()
     {
         foreach (var source in _audioSources)
@@ -26,8 +28,22 @@ public class Sound : MonoBehaviour
 
     private void SetSoundTarget()
     {
-        SoundTarget soundTarget = Instantiate(_template, transform.position, transform.rotation);
-        soundTarget.SetRadius(_radius);
-        soundTarget.SetDuration(_duration);
+        if (_soundTarget == null)
+        {
+            _soundTarget = Instantiate(_template, transform.position, transform.rotation);
+            ChangeSoundTarget();
+        }
+        else
+        {
+            _soundTarget.transform.position = transform.position;
+            ChangeSoundTarget();
+            _soundTarget.gameObject.SetActive(true);
+        }
+    }
+
+    private void ChangeSoundTarget()
+    {
+        _soundTarget.SetRadius(_radius);
+        _soundTarget.SetDuration(_duration);
     }
 }
