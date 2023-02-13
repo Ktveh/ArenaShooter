@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameCursorControl : MonoBehaviour
 {
+    public bool IsDisable => (Cursor.visible == false) && (Cursor.lockState == CursorLockMode.Locked);
+
     public void Enable()
     {
         Cursor.lockState = CursorLockMode.None;

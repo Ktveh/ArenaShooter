@@ -48,7 +48,13 @@ public class Game : MonoBehaviour
     private void Update()
     {
         if (IsLevelCompleted)
-            _gameCursorControl.Enable();
+        {
+            if(_gameCursorControl.IsDisable)
+                _gameCursorControl.Enable();
+
+            if(_controllingAudio.enabled)
+                _controllingAudio.enabled = false;
+        }
     }
 
     private void OnEnable()
@@ -57,8 +63,8 @@ public class Game : MonoBehaviour
         _zombieBar.AllZombiesDead += OnAllZombiesDead;
         _buttonPlayingGame.onClick.AddListener(Play);
         _playerHealth.Deaded += OnDeaded;
-        _yandexAds.Showed += OnShwoed;
-        _yandexAds.Errored += OnShwoed;
+        _yandexAds.Showed += OnShowed;
+        _yandexAds.Errored += OnShowed;
     }
 
     private void OnDisable()
@@ -67,8 +73,8 @@ public class Game : MonoBehaviour
         _zombieBar.AllZombiesDead -= OnAllZombiesDead;
         _buttonPlayingGame.onClick.RemoveListener(Play);
         _playerHealth.Deaded -= OnDeaded;
-        _yandexAds.Showed -= OnShwoed;
-        _yandexAds.Errored -= OnShwoed;
+        _yandexAds.Showed -= OnShowed;
+        _yandexAds.Errored -= OnShowed;
     }
 
     private void OnCompleted()
@@ -111,7 +117,7 @@ public class Game : MonoBehaviour
         OnAllZombiesDead();
     }
 
-    private void OnShwoed()
+    private void OnShowed()
     {
         _controllingAudio.enabled = false;
         _menu.enabled = true;
