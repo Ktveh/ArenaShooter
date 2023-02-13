@@ -829,7 +829,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 0
-  m_Extents: {x: 0.1, y: 1, z: 0.1}
+  m_Extents: {x: 0.4, y: 1, z: 0.4}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
@@ -5955,6 +5955,22 @@ PrefabInstance:
       propertyPath: _touchControl
       value: 
       objectReference: {fileID: 8872036160931844460}
+    - target: {fileID: 7074419657015211936, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074419657015211936, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471121794982217484, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471121794982217484, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8547168966491214162, guid: cef52265c9926d9419efad7cf3cd106a, type: 3}
       propertyPath: m_Interactable
       value: 0
