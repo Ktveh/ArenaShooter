@@ -49,8 +49,7 @@ public class Game : MonoBehaviour
     {
         if (IsLevelCompleted)
         {
-            if(_gameCursorControl.IsDisable)
-                _gameCursorControl.Enable();
+            _gameCursorControl.Enable();
 
             if(_controllingAudio.enabled)
                 _controllingAudio.enabled = false;
