@@ -15,6 +15,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
     private Dictionary<Weapon.Types, BonusWeapon> _bonusWeapon = new Dictionary<Weapon.Types, BonusWeapon>();
     private Dictionary<KeyCode, Weapon.Types> _weaponsKeysCodes = new Dictionary<KeyCode, Weapon.Types>();
     private Weapon _currentWeapon;
+    private PlayerControling _playerInput;
     private int _numberWeapon;
     private bool _isBonusActivated;
 
@@ -27,6 +28,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
     {
         _standardWeaponsAdding = _containerWeapon.GetComponentsInChildren<StandardWeapon>();
         _bonusWeaponsAdding = _containerWeapon.GetComponentsInChildren<BonusWeapon>();
+        _playerInput = new PlayerControling();
         _numberWeapon = FirstNumberWeapon;
 
         if (_standardWeaponsAdding == null)
