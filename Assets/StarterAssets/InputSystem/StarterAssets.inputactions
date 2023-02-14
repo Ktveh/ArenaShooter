@@ -76,6 +76,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "SelectNextWeapon",
+                    "type": "Value",
+                    "id": "614aa24d-7863-47dd-8d0f-dc21be2ffca7",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "SelectPrevWeapon",
+                    "type": "Value",
+                    "id": "bed4a6eb-636d-4184-9503-ba86b6b50eb0",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -296,6 +314,28 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1f0b9733-50b2-4126-b419-88c825822da4",
+                    "path": "<Mouse>/scroll/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "SelectNextWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "31cefc63-1fd5-4667-a9b1-400e021b939b",
+                    "path": "<Mouse>/scroll/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "SelectPrevWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

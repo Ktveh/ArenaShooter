@@ -98,6 +98,24 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SelectNextWeapon"",
+                    ""type"": ""Value"",
+                    ""id"": ""614aa24d-7863-47dd-8d0f-dc21be2ffca7"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SelectPrevWeapon"",
+                    ""type"": ""Value"",
+                    ""id"": ""bed4a6eb-636d-4184-9503-ba86b6b50eb0"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -320,6 +338,28 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1f0b9733-50b2-4126-b419-88c825822da4"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""SelectNextWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""31cefc63-1fd5-4667-a9b1-400e021b939b"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""SelectPrevWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -384,6 +424,8 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_Scope = m_Player.FindAction("Scope", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_SelectNextWeapon = m_Player.FindAction("SelectNextWeapon", throwIfNotFound: true);
+        m_Player_SelectPrevWeapon = m_Player.FindAction("SelectPrevWeapon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -451,6 +493,8 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_Scope;
     private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_SelectNextWeapon;
+    private readonly InputAction m_Player_SelectPrevWeapon;
     public struct PlayerActions
     {
         private @PlayerControling m_Wrapper;
@@ -463,6 +507,8 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @Scope => m_Wrapper.m_Player_Scope;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @SelectNextWeapon => m_Wrapper.m_Player_SelectNextWeapon;
+        public InputAction @SelectPrevWeapon => m_Wrapper.m_Player_SelectPrevWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -496,6 +542,12 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                @SelectNextWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectNextWeapon;
+                @SelectNextWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectNextWeapon;
+                @SelectNextWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectNextWeapon;
+                @SelectPrevWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectPrevWeapon;
+                @SelectPrevWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectPrevWeapon;
+                @SelectPrevWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectPrevWeapon;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -524,6 +576,12 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @SelectNextWeapon.started += instance.OnSelectNextWeapon;
+                @SelectNextWeapon.performed += instance.OnSelectNextWeapon;
+                @SelectNextWeapon.canceled += instance.OnSelectNextWeapon;
+                @SelectPrevWeapon.started += instance.OnSelectPrevWeapon;
+                @SelectPrevWeapon.performed += instance.OnSelectPrevWeapon;
+                @SelectPrevWeapon.canceled += instance.OnSelectPrevWeapon;
             }
         }
     }
@@ -574,5 +632,7 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnScope(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnSelectNextWeapon(InputAction.CallbackContext context);
+        void OnSelectPrevWeapon(InputAction.CallbackContext context);
     }
 }

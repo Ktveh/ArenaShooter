@@ -10,6 +10,7 @@ namespace StarterAssets
         [SerializeField] private PlayerScopeOpening _playerScopeOpening;
         [SerializeField] private PlayerShooting _playerShooting;
         [SerializeField] private PlayerWeaponReloading _playerWeaponReloading;
+        [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
 
         public void VirtualMoveInput(Vector2 virtualMoveDirection)
         {

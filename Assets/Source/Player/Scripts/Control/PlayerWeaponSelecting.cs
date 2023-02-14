@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
 public class PlayerWeaponSelecting : MonoBehaviour
 {
+    private const int FirstNumberWeapon = 49;
+
     [SerializeField] private Transform _containerWeapon;
     [SerializeField] private MenuUpgradingWeapon _upgradingWeapon;
 
@@ -14,7 +15,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
     private Dictionary<Weapon.Types, BonusWeapon> _bonusWeapon = new Dictionary<Weapon.Types, BonusWeapon>();
     private Dictionary<KeyCode, Weapon.Types> _weaponsKeysCodes = new Dictionary<KeyCode, Weapon.Types>();
     private Weapon _currentWeapon;
-    private int _firstNumberWeapon = 49;
+    private int _numberWeapon;
     private bool _isBonusActivated;
 
     public Weapon CurrentWeapon => _currentWeapon;
@@ -26,6 +27,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
     {
         _standardWeaponsAdding = _containerWeapon.GetComponentsInChildren<StandardWeapon>();
         _bonusWeaponsAdding = _containerWeapon.GetComponentsInChildren<BonusWeapon>();
+        _numberWeapon = FirstNumberWeapon;
 
         if (_standardWeaponsAdding == null)
             gameObject.SetActive(false);
@@ -36,7 +38,7 @@ public class PlayerWeaponSelecting : MonoBehaviour
 
             _standardWeapons.Add(weaponType, _standardWeaponsAdding[i]);
             _standardWeapons[weaponType].gameObject.SetActive(false);
-            _weaponsKeysCodes.Add((KeyCode)_firstNumberWeapon++, weaponType);
+            _weaponsKeysCodes.Add((KeyCode)_numberWeapon++, weaponType);
         }
 
         foreach (BonusWeapon weapon in _bonusWeaponsAdding)
@@ -66,11 +68,17 @@ public class PlayerWeaponSelecting : MonoBehaviour
     private void OnEnable()
     {
         _upgradingWeapon.SelectedWeapon += Change;
+        _playerInput.Enable();
+        _playerInput.Player.SelectNextWeapon.performed += ctx => OnSelectedNextWeapon();
+        _playerInput.Player.SelectPrevWeapon.performed += ctx => OnSelectedPrevWeapon();
     }
 
     private void OnDisable()
     {
         _upgradingWeapon.SelectedWeapon -= Change;
+        _playerInput.Player.SelectNextWeapon.performed -= ctx => OnSelectedNextWeapon();
+        _playerInput.Player.SelectPrevWeapon.performed -= ctx => OnSelectedPrevWeapon();
+        _playerInput.Disable();
     }
 
     public Weapon GetWeapon(Weapon.Types type)
@@ -97,6 +105,36 @@ public class PlayerWeaponSelecting : MonoBehaviour
             case 4:
                 Change(Weapon.Types.SniperRifle);
                 break;
+        }
+    }
+
+    public void OnSelectedNextWeapon()
+    {
+        for (int i = 0; i < _standardWeaponsAdding.Length; i++)
+        {
+            if (_standardWeaponsAdding[i] == CurrentWeapon)
+            {
+                if(i == _standardWeaponsAdding.Length - 1)
+                    Change(_standardWeaponsAdding[0].Type);
+                else
+                    Change(_standardWeaponsAdding[++i].Type);
+            }
+        }
+    }
+    
+    public void OnSelectedPrevWeapon()
+    {
+        for (int i = 0; i < _standardWeaponsAdding.Length; i++)
+        {
+            if (_standardWeaponsAdding[i] == CurrentWeapon)
+            {
+                if (i == 0)
+                    Change(_standardWeaponsAdding[_standardWeaponsAdding.Length -1].Type);
+                else
+                    Change(_standardWeaponsAdding[--i].Type);
+
+                return;
+            }
         }
     }
 
