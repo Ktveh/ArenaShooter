@@ -15,6 +15,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _shotText;
     [SerializeField] private TextMeshProUGUI _aimText;
     [SerializeField] private TextMeshProUGUI _viewText;
+    [SerializeField] private TextMeshProUGUI _weaponText;
 
     private string _saveKey = "Levels";
     private int _firstLevel = 2;
@@ -46,5 +47,6 @@ public class Tutorial : MonoBehaviour
         _shotText.text = Lean.Localization.LeanLocalization.GetTranslationText("Shot");
         _aimText.text = Lean.Localization.LeanLocalization.GetTranslationText("Aim");
         _viewText.text = Lean.Localization.LeanLocalization.GetTranslationText("View");
+        _weaponText.text = Lean.Localization.LeanLocalization.GetTranslationText("Change Weapon");
     }
 }
