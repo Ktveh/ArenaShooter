@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46781015, g: 0.62058985, b: 0.7837032, a: 1}
+  m_IndirectSpecularColor: {r: 0.4677847, g: 0.620219, b: 0.78313977, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1962,7 +1962,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0410\u0420\u0415\u041D\u0410 \u0428\u0423\u0422\u0415\u0420"
+  m_text: "\u0410\u0420\u0415\u041D\u0410 \u0417\u041E\u041C\u0411\u0418"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
   m_sharedMaterial: {fileID: -3007258385702032604, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
@@ -4035,6 +4035,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2008496115810960211, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
+      propertyPath: entries.Array.data[0].Text
+      value: Arena Zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008496115810960211, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
+      propertyPath: entries.Array.data[1].Text
+      value: "\u0410\u0440\u0435\u043D\u0430 \u0417\u043E\u043C\u0431\u0438"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008496115810960211, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
+      propertyPath: entries.Array.data[2].Text
+      value: Arena Zombi
+      objectReference: {fileID: 0}
     - target: {fileID: 3511521935736190241, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -5809,7 +5821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1877611335
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6555,7 +6567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -28.100006, y: -28.543274}
+  m_AnchoredPosition: {x: -28.100037, y: -28.543274}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2095588576
