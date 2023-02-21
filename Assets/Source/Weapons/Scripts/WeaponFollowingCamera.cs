@@ -9,11 +9,13 @@ public class WeaponFollowingCamera : MonoBehaviour
     private const string MouseY = "Mouse Y";
 
     private Getting _getting;
+    private Weapon _weapon;
     private Vector3 _initialSwayPosition;
 
     private void Start()
     {
         _getting = GetComponentInParent<Getting>();
+        _weapon = GetComponentInParent<Weapon>();
         _initialSwayPosition = transform.localPosition;
     }
 
@@ -21,12 +23,19 @@ public class WeaponFollowingCamera : MonoBehaviour
     {
         if (_getting.Game.IsMobile == false)
         {
-            float movementX = -Input.GetAxis(MouseX) * SwayAmount;
-            float movementY = -Input.GetAxis(MouseY) * SwayAmount;
-            movementX = Mathf.Clamp(movementX, -MaxSwayAmount, MaxSwayAmount);
-            movementY = Mathf.Clamp(movementY, -MaxSwayAmount, MaxSwayAmount);
-            Vector3 finalSwayPosition = new Vector3(movementX, movementY, 0);
-            transform.localPosition = Vector3.Lerp(transform.localPosition, finalSwayPosition + _initialSwayPosition, Time.deltaTime * SwaySmoothValue);
+            if (_weapon.IsScoping)
+            {
+                transform.localPosition = _initialSwayPosition;
+            }
+            else
+            {
+                float movementX = -Input.GetAxis(MouseX) * SwayAmount;
+                float movementY = -Input.GetAxis(MouseY) * SwayAmount;
+                movementX = Mathf.Clamp(movementX, -MaxSwayAmount, MaxSwayAmount);
+                movementY = Mathf.Clamp(movementY, -MaxSwayAmount, MaxSwayAmount);
+                Vector3 finalSwayPosition = new Vector3(movementX, movementY, 0);
+                transform.localPosition = Vector3.Lerp(transform.localPosition, finalSwayPosition + _initialSwayPosition, Time.deltaTime * SwaySmoothValue);
+            }
         }
     }
 }
