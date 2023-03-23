@@ -58,7 +58,7 @@ MonoBehaviour:
   _damageWithoutArms: 15
   _price: 200
   _delayAfterDead: 30
-  _delayBetweenAttacks: 2
+  _delayBetweenAttacks: 0.5
   _animator: {fileID: 6664062495062514116}
   _targeter: {fileID: 6664062495062514115}
   _mover: {fileID: 6664062495062514112}
@@ -100,7 +100,7 @@ MonoBehaviour:
   _angleDetected: 360
   _forwardDistanceDetected: 60
   _aroundDistanceDetected: 30
-  _amountRaycasts: 18
+  _amountRaycasts: 60
   _template: {fileID: 6084071706416295635, guid: 8efa81264ef77914eb37fe92ee6dff2e, type: 3}
   _durationCurrenTarget: 5
 --- !u!114 &6664062495062514116
@@ -145,7 +145,7 @@ NavMeshAgent:
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 360
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1

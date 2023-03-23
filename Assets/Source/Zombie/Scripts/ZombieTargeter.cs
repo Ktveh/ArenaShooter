@@ -94,7 +94,7 @@ public class ZombieTargeter : MonoBehaviour
         _currentRaycast++;
         if (_currentRaycast > _amountRaycasts)
         {
-            _currentRaycast = -_amountRaycasts;
+            _currentRaycast = 0;
         }
 
         float angle = _currentRaycast * angleDetected * Mathf.Deg2Rad / _amountRaycasts;
@@ -103,6 +103,11 @@ public class ZombieTargeter : MonoBehaviour
         float z = Mathf.Cos(angle);
 
         GetRaycast(transform.TransformDirection(new Vector3(x, 0, z)), distance);
+
+        if (x != 0)
+        {
+            GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
+        }
     }  
 
     private void GetRaycast(Vector3 direction, float distance)
@@ -110,9 +115,9 @@ public class ZombieTargeter : MonoBehaviour
         Vector3 startPosition = transform.position + _offset;
         RaycastHit hit;
 
+        Debug.DrawRay(startPosition, direction * 3, Color.red);
         if (Physics.Raycast(startPosition, direction, out hit, distance))
         {
-            Debug.DrawRay(startPosition, direction, Color.red);
             if (hit.collider.gameObject.GetComponent<MainTarget>())
             {
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
@@ -139,6 +144,7 @@ public class ZombieTargeter : MonoBehaviour
     private void RandomTarget(Vector3 position, bool spread)
     {
         _ellapsedTime = 0;
+        position = new Vector3(position.x, position.y + 2, position.z);
         if (_randomTarget == null)
             _randomTarget = Instantiate(_template, transform.position, transform.rotation);
         _randomTarget.SetPosition(position, spread);
