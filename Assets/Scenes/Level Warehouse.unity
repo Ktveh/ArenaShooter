@@ -28944,14 +28944,54 @@ PrefabInstance:
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 2095360469}
+    - target: {fileID: 1815705824747394730, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815705824747394730, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905698755994856298, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905698755994856298, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_Extents.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905698755994856298, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_Extents.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067447248980780550, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2067447248980780550, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2761691692838768204, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: _zombieCounter
       value: 
       objectReference: {fileID: 2095360469}
+    - target: {fileID: 3345048311530807590, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586907231631746068, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4430846220853615172, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: _zombieCounter
       value: 
       objectReference: {fileID: 2095360469}
+    - target: {fileID: 4598591607157379308, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5629789432314874393, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -28996,16 +29036,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5868862642102443559, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6847505903472256290, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 2095360469}
+    - target: {fileID: 7477119722828069843, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7758733296626208721, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842209683053864779, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627272718671290296, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8871835627184102876, guid: bc4017b36b246554684d2f837a718bef, type: 3}

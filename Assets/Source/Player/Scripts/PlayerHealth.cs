@@ -3,8 +3,7 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
-    //private const float DefaultValue = 100f;
-    private const float DefaultValue = float.MaxValue;
+    private const float DefaultValue = 100f;
 
     private float _value;
 

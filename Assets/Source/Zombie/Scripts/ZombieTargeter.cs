@@ -18,19 +18,19 @@ public class ZombieTargeter : MonoBehaviour
     private RandomTarget _randomTarget;
     private Target _currentTarget;
     private int _currentRaycast;
-    private bool _isAttentive = false;
+    private int _levelAttective = 0;
     private float _ellapsedTime = 0;
 
-    public bool IsAttentive => _isAttentive;
+    public int LevelAttentive => _levelAttective;
     public Target CurrentTarget => _currentTarget;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<SoundTarget>() && !_isAttentive)
+        if (other.GetComponent<SoundTarget>() && _levelAttective <= 1)
         {
             _soundTarget = other.GetComponent<SoundTarget>();
             RandomTarget(_soundTarget.transform.position, false);
-            _isAttentive = true;
+            _levelAttective = 2;
         }
     }
 
@@ -58,14 +58,15 @@ public class ZombieTargeter : MonoBehaviour
             _mainTarget = null;
             _soundTarget = null;
             _zombieTargeter = null;
-            _isAttentive = false;
+            _levelAttective--;
+            _durationCurrenTarget = Random.Range(3, 7);
             RemoveCurrentTarget();
         }
     }
 
     public void RemoveCurrentTarget()
     {
-        if (!_isAttentive)
+        if (_levelAttective < 3)
         {
             RandomTarget(transform.position, true);
         }
@@ -79,14 +80,14 @@ public class ZombieTargeter : MonoBehaviour
         }
         else
         {
-            _isAttentive = false;
+            _levelAttective = 0;
             RandomTarget(transform.position, true);
         }
     }
 
     private void FoundTargets(float angleDetected, float distance)
     {
-        if (_isAttentive)
+        if (_levelAttective >=2)
         {
             angleDetected = 360;
         }
@@ -94,7 +95,7 @@ public class ZombieTargeter : MonoBehaviour
         _currentRaycast++;
         if (_currentRaycast > _amountRaycasts)
         {
-            _currentRaycast = 0;
+            _currentRaycast = -_amountRaycasts;
         }
 
         float angle = _currentRaycast * angleDetected * Mathf.Deg2Rad / _amountRaycasts;
@@ -115,27 +116,32 @@ public class ZombieTargeter : MonoBehaviour
         Vector3 startPosition = transform.position + _offset;
         RaycastHit hit;
 
-        Debug.DrawRay(startPosition, direction * 3, Color.red);
+        Debug.DrawRay(startPosition, direction * distance, Color.red);
         if (Physics.Raycast(startPosition, direction, out hit, distance))
         {
             if (hit.collider.gameObject.GetComponent<MainTarget>())
             {
                 _mainTarget = hit.collider.gameObject.GetComponent<MainTarget>();
                 RandomTarget(_mainTarget.transform.position, false);
-                _isAttentive = true;
+                _levelAttective = 3;
             }
-            else if (hit.collider.gameObject.GetComponent<ZombieTargeter>() && !_isAttentive)
+            else if (hit.collider.gameObject.GetComponent<ZombieTargeter>() && _levelAttective <= 1)
             {
                 _zombieTargeter = hit.collider.gameObject.GetComponent<ZombieTargeter>();
-                if (_zombieTargeter.IsAttentive)
+                if (_zombieTargeter.LevelAttentive == 3)
                 {
                     RandomTarget(_zombieTargeter.CurrentTarget.transform.position, false);
-                    _isAttentive = true;
+                    _levelAttective = 2;
+                }
+                if (_zombieTargeter.LevelAttentive == 2)
+                {
+                    RandomTarget(_zombieTargeter.CurrentTarget.transform.position, true);
+                    _levelAttective = 1;
                 }
                 else
                 {
                     _zombieTargeter = null;
-                    _isAttentive = false;
+                    _levelAttective = 1;
                 }
             }
         }
@@ -144,7 +150,10 @@ public class ZombieTargeter : MonoBehaviour
     private void RandomTarget(Vector3 position, bool spread)
     {
         _ellapsedTime = 0;
-        position = new Vector3(position.x, position.y + 2, position.z);
+        position = new Vector3(
+            position.x + (transform.position.x < position.x ? -0.5f : 0.5f), 
+            position.y,
+            position.z + (transform.position.z < position.z ? -0.5f : 0.5f));
         if (_randomTarget == null)
             _randomTarget = Instantiate(_template, transform.position, transform.rotation);
         _randomTarget.SetPosition(position, spread);

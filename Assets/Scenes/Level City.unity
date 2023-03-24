@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30470958, g: 0.48416197, b: 0.6325453, a: 1}
+  m_IndirectSpecularColor: {r: 0.30507848, g: 0.48467785, b: 0.63313365, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28465,10 +28465,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 181878289748505882, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -327.105
+      objectReference: {fileID: 0}
+    - target: {fileID: 558590858924419770, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -328.48
+      objectReference: {fileID: 0}
     - target: {fileID: 558590858924419771, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 202625866}
+    - target: {fileID: 569482821060570846, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -327.105
+      objectReference: {fileID: 0}
     - target: {fileID: 1815705824747394730, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -28489,10 +28501,18 @@ PrefabInstance:
       propertyPath: _zombieCounter
       value: 
       objectReference: {fileID: 202625866}
+    - target: {fileID: 3345048311530807590, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4430846220853615172, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: _zombieCounter
       value: 
       objectReference: {fileID: 202625866}
+    - target: {fileID: 4598591607157379308, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4883406590827095444, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -28541,16 +28561,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5868862642102443559, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6847505903472256290, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 202625866}
+    - target: {fileID: 7477119722828069843, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7758733296626208721, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7842209683053864779, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627272718671290296, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8871835627184102876, guid: bc4017b36b246554684d2f837a718bef, type: 3}
