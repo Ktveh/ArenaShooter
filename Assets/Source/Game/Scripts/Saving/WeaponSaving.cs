@@ -35,14 +35,6 @@ public class WeaponSaving : MonoBehaviour
         _buttonBuyingAmmo.Buyed -= OnBuyed;
     }
 
-    /// ///////////////////////////////////////////////////////////////
-    public void DeletAllSave()
-    {
-        PlayerPrefs.DeleteAll();
-    }
-    /// //////////////////////////////////////////////////////////////
-    
-
     public bool TryGetAccessory(Weapon.Types weapon, WeaponAccessories.Type accessory)
     {
         return PlayerPrefs.GetString(weapon.ToString() + accessory.ToString()) == True;
@@ -93,6 +85,8 @@ public class WeaponSaving : MonoBehaviour
 
         foreach (Weapon.Types weapon in typesWeapons)
             PlayerPrefs.SetInt(weapon + Ammo, (int)_playerInventory.GetAmountAmmo(weapon) + (int)_playerWeaponSelecting.GetWeapon(weapon).CurrentAmountAmmo);
+
+        PlayerPrefs.SetInt(Weapon.Types.Grenade + Ammo, (int)_playerInventory.GetAmountAmmo(Weapon.Types.Grenade));
     }
 
     private void OnBuyed(Weapon.Types type, uint amount)

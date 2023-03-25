@@ -13,6 +13,8 @@ public class ThrowingGrenade : MonoBehaviour
 
     private WeaponAnimator _weaponAnimator;
 
+    public bool IsThrows { get; private set; }
+
     private void Awake()
     {
         _weaponAnimator = GetComponent<WeaponAnimator>();
@@ -27,10 +29,12 @@ public class ThrowingGrenade : MonoBehaviour
 
     private IEnumerator GrenadeSpawnDelay()
     {
+        IsThrows = true;
         yield return new WaitForSeconds(_grenadeSpawnDelay);
 
         Throw();
         enabled = false;
+        IsThrows = false;
     }
 
     private void Throw()

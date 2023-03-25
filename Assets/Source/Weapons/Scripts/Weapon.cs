@@ -208,29 +208,35 @@ public class Weapon : MonoBehaviour
         {
 			if(_isRunning == false)
             {
-				if (_playerInventory.TryGetAmmo(Weapon.Types.Grenade, 1, out uint ammo))
-					_throwingGrenade.enabled = true;
+				if (_throwingGrenade.IsThrows == false)
+				{
+					if (_playerInventory.TryGetAmmo(Weapon.Types.Grenade, 1, out uint ammo))
+						_throwingGrenade.enabled = true;
+				}
 			}
 		}
 	}
 
 	private void OnShooted()
 	{
-		if ((IsReloading == false) && (_isRunning == false))
+		if (IsReloading == false)
 		{
-			if (_isSingleShootMod && _type != Types.Shotgun)
+			if (_isRunning == false)
 			{
-				Shoot();
-			}
-			else if (_isSingleShootMod && _type == Types.Shotgun)
-			{
-				if (_isMovingMovableHandguard == false)
-					StartCoroutine(ShootShotgun());
-			}
-			else
-			{
-				IsShooting = true;
-				StartCoroutine(ShootAuto());
+				if (_isSingleShootMod && _type != Types.Shotgun)
+				{
+					Shoot();
+				}
+				else if (_isSingleShootMod && _type == Types.Shotgun)
+				{
+					if (_isMovingMovableHandguard == false)
+						StartCoroutine(ShootShotgun());
+				}
+				else
+				{
+					IsShooting = true;
+					StartCoroutine(ShootAuto());
+				}
 			}
 		}
 	}

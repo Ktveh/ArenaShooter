@@ -1141,9 +1141,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 5629789432314874393}
     m_Modifications:
     - target: {fileID: 433171653, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: _damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 433171653, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 1816386838, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: _damage
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1816386838, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
@@ -1195,6 +1203,10 @@ PrefabInstance:
     - target: {fileID: 3035577585084354126, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384980883868187473, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: _damage
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4384980883868187473, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
       propertyPath: _playerWeaponSelecting
@@ -3708,6 +3720,10 @@ PrefabInstance:
       propertyPath: _grenades.Array.data[2]
       value: 
       objectReference: {fileID: 8872036161196663465}
+    - target: {fileID: 2962793663853119854, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: _damage
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2962793663853119854, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: _bullets.Array.data[0]
       value: 
