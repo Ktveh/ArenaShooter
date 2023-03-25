@@ -121,6 +121,9 @@ public class Game : MonoBehaviour
         _controllingAudio.enabled = false;
         _menu.enabled = true;
         _gameControllingPlayer.EnableWeaponSelecting();
+#if !UNITY_WEBGL || UNITY_EDITOR
+        return;
+#endif
         _settingLeaderboardScore.enabled = true;
     }
 }

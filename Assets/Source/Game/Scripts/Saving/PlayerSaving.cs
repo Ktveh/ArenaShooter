@@ -31,6 +31,13 @@ public class PlayerSaving : MonoBehaviour
         _game.LevelCompleted -= OnLevelCompleted;
     }
 
+    //////////////////////////////////////////////////
+    public void DeletAllSave()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+    //////////////////////////////////////////////////
+
     private void OnChangedValue(int value)
     {
         PlayerPrefs.SetInt(Money, value);

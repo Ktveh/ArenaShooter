@@ -7,9 +7,12 @@ public class PlayerInventory : MonoBehaviour
     private const uint MaxGrenade = 3;
 
     [SerializeField] private ButtonBuyingAmmo _buttonBuyingAmmo;
+    [SerializeField] private ButtonBuyingGrenade _buttonBuyingGrenade;
     [SerializeField] private WeaponSaving _weaponSaving;
 
     private Dictionary<Weapon.Types, uint> _ammo;
+
+    public bool IsMaxAmountGrenades => _ammo[Weapon.Types.Grenade] >= MaxGrenade;
 
     public event UnityAction Changed;
     public event UnityAction<Item, uint> Taked;
@@ -34,17 +37,17 @@ public class PlayerInventory : MonoBehaviour
     private void OnEnable()
     {
         _buttonBuyingAmmo.Buyed += OnBuyed;
+        _buttonBuyingGrenade.Buyed += OnBuyed;
     }
 
     private void OnDisable()
     {
-        _buttonBuyingAmmo.Buyed += OnBuyed;
+        _buttonBuyingAmmo.Buyed -= OnBuyed;
+        _buttonBuyingGrenade.Buyed -= OnBuyed;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        bool isMaxAmountGrenades = _ammo[Weapon.Types.Grenade] >= MaxGrenade;
-
         if(other.TryGetComponent(out Item item))
         {
             if(item.Type != Item.Types.Drug) 
@@ -67,7 +70,7 @@ public class PlayerInventory : MonoBehaviour
                         _ammo[Weapon.Types.GrenadeLauncher] += item.Amount;
                         break;
                     case Item.Types.Grenade:
-                        if (isMaxAmountGrenades == false)
+                        if (IsMaxAmountGrenades == false)
                             _ammo[Weapon.Types.Grenade] += item.Amount;
                         break;
                 }
@@ -75,7 +78,7 @@ public class PlayerInventory : MonoBehaviour
 
             if (item.Type == Item.Types.Grenade)
             {
-                if (isMaxAmountGrenades)
+                if (IsMaxAmountGrenades)
                     return;
             }
 

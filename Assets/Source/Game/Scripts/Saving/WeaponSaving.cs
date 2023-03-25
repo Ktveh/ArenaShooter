@@ -11,6 +11,7 @@ public class WeaponSaving : MonoBehaviour
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private PlayerInventory _playerInventory;
     [SerializeField] private ButtonBuyingAmmo _buttonBuyingAmmo;
+    [SerializeField] private ButtonBuyingGrenade _buttonBuyingGrenade;
 
     private Game _game;
 
@@ -25,6 +26,7 @@ public class WeaponSaving : MonoBehaviour
         _playerWeaponSelecting.Selected += OnSelectedWeapon;
         _game.LevelCompleted += OnSelectedWeapon;
         _buttonBuyingAmmo.Buyed += OnBuyed;
+        _buttonBuyingGrenade.Buyed += OnBuyed;
     }
 
     private void OnDisable()
@@ -33,6 +35,7 @@ public class WeaponSaving : MonoBehaviour
         _playerWeaponSelecting.Selected -= OnSelectedWeapon;
         _game.LevelCompleted -= OnSelectedWeapon;
         _buttonBuyingAmmo.Buyed -= OnBuyed;
+        _buttonBuyingGrenade.Buyed -= OnBuyed;
     }
 
     public bool TryGetAccessory(Weapon.Types weapon, WeaponAccessories.Type accessory)
@@ -86,7 +89,7 @@ public class WeaponSaving : MonoBehaviour
         foreach (Weapon.Types weapon in typesWeapons)
             PlayerPrefs.SetInt(weapon + Ammo, (int)_playerInventory.GetAmountAmmo(weapon) + (int)_playerWeaponSelecting.GetWeapon(weapon).CurrentAmountAmmo);
 
-        PlayerPrefs.SetInt(Weapon.Types.Grenade + Ammo, (int)_playerInventory.GetAmountAmmo(Weapon.Types.Grenade));
+        PlayerPrefs.SetInt(Weapon.Types.Grenade.ToString() + Ammo, (int)_playerInventory.GetAmountAmmo(Weapon.Types.Grenade));
     }
 
     private void OnBuyed(Weapon.Types type, uint amount)

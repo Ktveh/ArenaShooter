@@ -27,17 +27,25 @@ public class YandexAds : MonoBehaviour
         foreach (var button in _buttonsUpgradingOnReward)
             button.Down -= OnDown;
 
-        _game.LevelCompleted += OnLevelCompleted;
+        _game.LevelCompleted -= OnLevelCompleted;
     }
 
     private void OnDown(WeaponAccessories.Type type)
     {
         _type = type;
+#if !UNITY_WEBGL || UNITY_EDITOR
+        Close();
+        return;
+#endif
         VideoAd.Show(Opene, Reward, Close, Error);
     }
 
     private void OnLevelCompleted()
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        Close();
+        return;
+#endif
         InterstitialAd.Show(Opene, Close, Error);
     }
 
