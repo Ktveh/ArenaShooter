@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeaponCreatingSoundTarget : MonoBehaviour
+public class CreatingSoundTarget : MonoBehaviour
 {
     [SerializeField] private SoundTarget _template;
     [SerializeField] private float _radius;

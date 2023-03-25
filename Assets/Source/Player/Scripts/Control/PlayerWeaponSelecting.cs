@@ -107,6 +107,9 @@ public class PlayerWeaponSelecting : MonoBehaviour
             case 4:
                 Change(Weapon.Types.SniperRifle);
                 break;
+            case 5:
+                Change(Weapon.Types.GrenadeLauncher);
+                break;
         }
     }
 

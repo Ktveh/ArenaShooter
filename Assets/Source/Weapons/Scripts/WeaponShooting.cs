@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(WeaponAnimator))]
@@ -18,6 +19,10 @@ public class WeaponShooting : MonoBehaviour
     [SerializeField] private int _amountBullets;
     [SerializeField] private float _maxRandomDirection;
     [SerializeField] private float _minRandomDirection;
+    [Header("GrenadeLauncher settings")]
+    [SerializeField] private Transform _bulletLaunchPoint;
+    [SerializeField] private Rigidbody[] _bullets;
+    [SerializeField] private float _speedGrenade;
 
     private WeaponAnimator _weaponAnimator;
     private WeaponSound _weaponSound;
@@ -57,14 +62,7 @@ public class WeaponShooting : MonoBehaviour
         Transform camera = Camera.main.transform;
         RaycastHit hit;
 
-        if (_weapon.Type != Weapon.Types.SniperRifle && _weapon.Type != Weapon.Types.Shotgun)
-        {
-            _isHited = false;
-
-            if (Physics.Raycast(camera.position, camera.forward, out hit, _maxDistance, _layerMask))
-                MakeDamage(hit);
-        }
-        else if (_weapon.Type == Weapon.Types.SniperRifle)
+        if (_weapon.Type == Weapon.Types.SniperRifle)
         {
             _isHited = false;
 
@@ -88,15 +86,46 @@ public class WeaponShooting : MonoBehaviour
                     MakeDamage(hit);
             }
         }
+        else if (_weapon.Type == Weapon.Types.GrenadeLauncher)
+        {
+            Rigidbody bullet = _bullets.FirstOrDefault(bullet => bullet.gameObject.activeSelf == false);
+            Vector3 speed = transform.forward * _speedGrenade * Time.deltaTime;
+
+            if (bullet != null)
+            {
+                bullet.transform.eulerAngles = _bulletLaunchPoint.eulerAngles;
+                bullet.transform.position = _bulletLaunchPoint.position;
+                bullet.gameObject.SetActive(true);
+                bullet.AddForce(speed, ForceMode.VelocityChange);
+            }
+        }
+        else
+        {
+            _isHited = false;
+
+            if (Physics.Raycast(camera.position, camera.forward, out hit, _maxDistance, _layerMask))
+                MakeDamage(hit);
+        }
     }
 
-    private void MakeDamage(RaycastHit hit)
+    public void MakeDamage(RaycastHit hit, float distance = 1)
     {
-        _showingBulletDecals.Show(hit);
+        int damage = _damage;
+
+        if (_weapon.Type == Weapon.Types.GrenadeLauncher)
+        {
+            distance = distance < 1 ? 1 : distance;
+            damage = damage / (int)distance;
+        }
+        else
+        {
+            _showingBulletDecals.Show(hit);
+        }
 
         if (hit.collider.TryGetComponent(out Zombie zombie))
         {
-            zombie.TakeDamage(_damage);
+            zombie.TakeDamage(damage);
+
             if (_isHited == false)
             {
                 Hited?.Invoke();
@@ -105,7 +134,7 @@ public class WeaponShooting : MonoBehaviour
         }
         else if (hit.collider.TryGetComponent(out ZombieLimb zombieLimb))
         {
-            zombieLimb.TakeDamage(_damage);
+            zombieLimb.TakeDamage(damage);
 
             if (_isHited == false)
             {

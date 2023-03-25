@@ -23,6 +23,7 @@ public class PlayerInventory : MonoBehaviour
                 {Weapon.Types.Rifle, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Rifle) },
                 {Weapon.Types.SniperRifle, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.SniperRifle) },
                 {Weapon.Types.Shotgun, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Shotgun) },
+                {Weapon.Types.GrenadeLauncher, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.GrenadeLauncher) },
                 {Weapon.Types.Grenade, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Grenade) },
             };
         }
@@ -55,6 +56,9 @@ public class PlayerInventory : MonoBehaviour
                     break;
                 case Item.Types.Shotgun:
                     _ammo[Weapon.Types.Shotgun] += item.Amount;
+                    break;
+                case Item.Types.GrenadeLauncher:
+                    _ammo[Weapon.Types.GrenadeLauncher] += item.Amount;
                     break;
                 case Item.Types.Grenade:
                     _ammo[Weapon.Types.Grenade] += item.Amount;

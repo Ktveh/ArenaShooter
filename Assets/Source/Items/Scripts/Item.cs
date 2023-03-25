@@ -14,6 +14,7 @@ public class Item : MonoBehaviour
         Rifle,
         SniperRifle,
         Shotgun,
+        GrenadeLauncher,
         Grenade,
         Drug
     }

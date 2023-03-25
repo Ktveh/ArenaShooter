@@ -237,10 +237,10 @@ TextureImporter:
       name: Gun_Icons_Spritesheet_4
       rect:
         serializedVersion: 2
-        x: 2525
-        y: 3541
-        width: 656
-        height: 251
+        x: 2472
+        y: 3518
+        width: 783
+        height: 290
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

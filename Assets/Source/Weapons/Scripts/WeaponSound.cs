@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(WeaponCreatingSoundTarget))]
+[RequireComponent(typeof(CreatingSoundTarget))]
 [RequireComponent(typeof(WeaponAccessories))]
 public class WeaponSound : MonoBehaviour
 {
@@ -13,14 +13,14 @@ public class WeaponSound : MonoBehaviour
     [SerializeField] private AudioSource _reloadingOutOfAmmo;
     [SerializeField] private AudioSource _reloadingAmmoLeft;
 
-    private WeaponCreatingSoundTarget _weaponCreatingSoundTarget;
+    private CreatingSoundTarget _weaponCreatingSoundTarget;
     private WeaponAccessories _weaponAccessories;
     private AudioSource[] _nonSilencedShots;
     private AudioSource[] _silencedShots;
 
     private void Start()
     {
-        _weaponCreatingSoundTarget = GetComponent<WeaponCreatingSoundTarget>();
+        _weaponCreatingSoundTarget = GetComponent<CreatingSoundTarget>();
         _weaponAccessories = GetComponent<WeaponAccessories>();
         _nonSilencedShots = _containerShootingNonSilencer.GetComponentsInChildren<AudioSource>();
         _silencedShots = _containerShootingSilencer.GetComponentsInChildren<AudioSource>();

@@ -12,6 +12,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(WeaponSound))]
 public class Weapon : MonoBehaviour
 {
+	private const float Multiplier = 3f;
+
 	[SerializeField] private Sprite _icon;
 	[SerializeField] private Types _type;
 	[SerializeField] private int _priceAmmo;
@@ -52,7 +54,7 @@ public class Weapon : MonoBehaviour
 	public uint MaxAmountAmmo => _maxAmountAmmo;
 	public uint NeedAmountAmmo => _maxAmountAmmo - CurrentAmountAmmo;
 	public uint AmountAmmoReceived { get; private set; }
-	public float ForceRecoil => _forceRecoil;
+	public float ForceRecoil => _isScoping ? _forceRecoil / Multiplier : _forceRecoil;
 	public float DuartionReloadingOpen => _durationReloadingOpen;
 	public float DuartionInsertShell => _durationInsertShell;
 	public float DuartionReloadingClose => _durationReloadingClose;
@@ -233,18 +235,24 @@ public class Weapon : MonoBehaviour
 
 	private void OnReload()
 	{
-		if ((IsReloading == false) && (_isRunning == false))
+		if (IsReloading == false)
 		{
-			if (_playerInventory.TryGetAmmo(_type, NeedAmountAmmo, out uint ammo))
+			if (_isRunning == false)
 			{
-				AmountAmmoReceived = ammo;
-				IsReloadingStarted = true;
-				_weaponReloading.Reload(_isOutOfAmmo);
-
-				if (_isBreechBlockOpen == false)
+				if (CurrentAmountAmmo != MaxAmountAmmo)
 				{
-					_isBreechBlockOpen = true;
-					_weaponBreechBlock.enabled = true;
+					if (_playerInventory.TryGetAmmo(_type, NeedAmountAmmo, out uint ammo))
+					{
+						AmountAmmoReceived = ammo;
+						IsReloadingStarted = true;
+						_weaponReloading.Reload(_isOutOfAmmo);
+
+						if (_isBreechBlockOpen == false)
+						{
+							_isBreechBlockOpen = true;
+							_weaponBreechBlock.enabled = true;
+						}
+					}
 				}
 			}
 		}
