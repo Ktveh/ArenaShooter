@@ -64,10 +64,14 @@ public class ZombieTargeter : MonoBehaviour
         }
     }
 
-    public void RemoveCurrentTarget()
+    public void RemoveCurrentTarget(bool setAttective = false)
     {
         if (_levelAttective < 3)
         {
+            if (setAttective)
+            {
+                _levelAttective++;
+            }
             RandomTarget(transform.position, true);
         }
     }

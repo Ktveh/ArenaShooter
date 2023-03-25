@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 6664062495062514118}
   - component: {fileID: 6664062495062514114}
   - component: {fileID: 6664062495062514119}
-  - component: {fileID: 6664062495062514117}
   m_Layer: 7
   m_Name: SpiderZombie
   m_TagString: Untagged
@@ -64,7 +63,6 @@ MonoBehaviour:
   _mover: {fileID: 6664062495062514112}
   _deadEffect: {fileID: 5351325646624922108}
   _sound: {fileID: 6664062495766473541}
-  StartHasLegs: 0
 --- !u!114 &6664062495062514112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,10 +79,10 @@ MonoBehaviour:
   _targeter: {fileID: 6664062495062514115}
   _animator: {fileID: 6664062495062514116}
   _agent: {fileID: 6664062495062514114}
-  _crawlSpeed: 15
-  _walkSpeed: 1.2
-  _runSpeed: 5
-  _spreadSpeed: 0.1
+  _crawlSpeed: 10
+  _walkSpeed: 5
+  _runSpeed: 15
+  _spreadSpeed: 0.2
 --- !u!114 &6664062495062514115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +143,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 15
   avoidancePriority: 50
-  m_AngularSpeed: 360
+  m_AngularSpeed: 720
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
@@ -168,22 +166,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: -0.00089263916, y: 1.2972107, z: 0}
---- !u!54 &6664062495062514117
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6664062495062514125}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &6664062495766473540
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1216688472153998210, guid: 06cb2b131fe009c47a523671a8fa9ed8, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1216688472153998210, guid: 06cb2b131fe009c47a523671a8fa9ed8, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1563,7 +1545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 20
+  _health: 70
   _limb: {fileID: 5106805154633150502}
   _isArm: 0
   _isLeg: 1
@@ -1612,7 +1594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 15
+  _health: 30
   _limb: {fileID: 1870034368483512772}
   _isArm: 0
   _isLeg: 0
@@ -1666,10 +1648,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 20
+  _health: 70
   _limb: {fileID: 8470623377775877223}
   _isArm: 1
-  _isLeg: 0
+  _isLeg: 1
   _isHead: 0
   _bloodEffect: {fileID: 6735795569254909760}
   _limbEffect: {fileID: 198090597041805642, guid: ffe80a56934786142a3221e5e509e64c, type: 3}
@@ -1702,6 +1684,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _materials:
   - {fileID: 2100000, guid: d18c85b5d595c2948acdb240ce75514a, type: 2}
+  - {fileID: 2100000, guid: 555291a3bbfd2bd40873690b5a0897b3, type: 2}
+  - {fileID: 2100000, guid: ebe8817ed63cfda4bbf74507a2463322, type: 2}
   _renderer: {fileID: 1136525772467766805}
 --- !u!1 &6737657206541417616 stripped
 GameObject:
@@ -1752,7 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 20
+  _health: 70
   _limb: {fileID: 5632568040114801666}
   _isArm: 0
   _isLeg: 1
@@ -1801,10 +1785,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _zombie: {fileID: 6664062495062514170}
-  _health: 20
+  _health: 70
   _limb: {fileID: 6089103097087218803}
   _isArm: 1
-  _isLeg: 0
+  _isLeg: 1
   _isHead: 0
   _bloodEffect: {fileID: 7176066518236964340}
   _limbEffect: {fileID: 198090597041805642, guid: ffe80a56934786142a3221e5e509e64c, type: 3}
