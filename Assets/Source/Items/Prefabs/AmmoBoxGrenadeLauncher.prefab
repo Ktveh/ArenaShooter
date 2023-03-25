@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 4
-  _amount: 2
+  _amount: 1
 --- !u!1 &4345588541457211946
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,6 +355,10 @@ PrefabInstance:
     - target: {fileID: 2857022983208699730, guid: fd11bd482c288fb499ff32c2c89ce341, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2857022983208699740, guid: fd11bd482c288fb499ff32c2c89ce341, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2857022983208699743, guid: fd11bd482c288fb499ff32c2c89ce341, type: 3}
       propertyPath: m_Name

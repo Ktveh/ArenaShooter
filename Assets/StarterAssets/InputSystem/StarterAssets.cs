@@ -116,6 +116,15 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ThrowGrenade"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a244058-a910-43e6-9164-c99064f7c0ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -360,6 +369,17 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
                     ""action"": ""SelectPrevWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1fea28f-a498-4d2c-be82-db559dffcf01"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""ThrowGrenade"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -426,6 +446,7 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_SelectNextWeapon = m_Player.FindAction("SelectNextWeapon", throwIfNotFound: true);
         m_Player_SelectPrevWeapon = m_Player.FindAction("SelectPrevWeapon", throwIfNotFound: true);
+        m_Player_ThrowGrenade = m_Player.FindAction("ThrowGrenade", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -495,6 +516,7 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shoot;
     private readonly InputAction m_Player_SelectNextWeapon;
     private readonly InputAction m_Player_SelectPrevWeapon;
+    private readonly InputAction m_Player_ThrowGrenade;
     public struct PlayerActions
     {
         private @PlayerControling m_Wrapper;
@@ -509,6 +531,7 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputAction @SelectNextWeapon => m_Wrapper.m_Player_SelectNextWeapon;
         public InputAction @SelectPrevWeapon => m_Wrapper.m_Player_SelectPrevWeapon;
+        public InputAction @ThrowGrenade => m_Wrapper.m_Player_ThrowGrenade;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -548,6 +571,9 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
                 @SelectPrevWeapon.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectPrevWeapon;
                 @SelectPrevWeapon.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectPrevWeapon;
                 @SelectPrevWeapon.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSelectPrevWeapon;
+                @ThrowGrenade.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowGrenade;
+                @ThrowGrenade.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowGrenade;
+                @ThrowGrenade.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnThrowGrenade;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -582,6 +608,9 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
                 @SelectPrevWeapon.started += instance.OnSelectPrevWeapon;
                 @SelectPrevWeapon.performed += instance.OnSelectPrevWeapon;
                 @SelectPrevWeapon.canceled += instance.OnSelectPrevWeapon;
+                @ThrowGrenade.started += instance.OnThrowGrenade;
+                @ThrowGrenade.performed += instance.OnThrowGrenade;
+                @ThrowGrenade.canceled += instance.OnThrowGrenade;
             }
         }
     }
@@ -634,5 +663,6 @@ public partial class @PlayerControling : IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnSelectNextWeapon(InputAction.CallbackContext context);
         void OnSelectPrevWeapon(InputAction.CallbackContext context);
+        void OnThrowGrenade(InputAction.CallbackContext context);
     }
 }

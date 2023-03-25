@@ -88,6 +88,7 @@ public class WeaponShooting : MonoBehaviour
         }
         else if (_weapon.Type == Weapon.Types.GrenadeLauncher)
         {
+            _isHited = false;
             Rigidbody bullet = _bullets.FirstOrDefault(bullet => bullet.gameObject.activeSelf == false);
             Vector3 speed = transform.forward * _speedGrenade * Time.deltaTime;
 
@@ -108,11 +109,11 @@ public class WeaponShooting : MonoBehaviour
         }
     }
 
-    public void MakeDamage(RaycastHit hit, float distance = 1)
+    public void MakeDamage(RaycastHit hit, float distance = 1, int damage = 0, bool isHandeGrenade = false)
     {
-        int damage = _damage;
+        damage = isHandeGrenade ? damage : _damage;
 
-        if (_weapon.Type == Weapon.Types.GrenadeLauncher)
+        if (_weapon.Type == Weapon.Types.GrenadeLauncher || isHandeGrenade)
         {
             distance = distance < 1 ? 1 : distance;
             damage = damage / (int)distance;
@@ -128,8 +129,11 @@ public class WeaponShooting : MonoBehaviour
 
             if (_isHited == false)
             {
-                Hited?.Invoke();
-                _isHited = true;
+                if (isHandeGrenade == false)
+                {
+                    Hited?.Invoke();
+                    _isHited = true;
+                }
             }
         }
         else if (hit.collider.TryGetComponent(out ZombieLimb zombieLimb))
@@ -138,12 +142,15 @@ public class WeaponShooting : MonoBehaviour
 
             if (_isHited == false)
             {
-                if (zombieLimb.IsHead)
-                    HitedInHead?.Invoke();
-                else
-                    Hited?.Invoke();
+                if (isHandeGrenade == false)
+                {
+                    if (zombieLimb.IsHead)
+                        HitedInHead?.Invoke();
+                    else
+                        Hited?.Invoke();
 
-                _isHited = true;
+                    _isHited = true;
+                }
             }
         }
     }

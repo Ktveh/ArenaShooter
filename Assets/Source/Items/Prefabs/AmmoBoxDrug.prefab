@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8850b0d30b5d144428991df625f04631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 5
+  _type: 6
   _amount: 40
 --- !u!1 &6407245295361679036
 GameObject:
@@ -299,6 +299,10 @@ PrefabInstance:
     - target: {fileID: 2857022983208699731, guid: fd11bd482c288fb499ff32c2c89ce341, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2857022983208699740, guid: fd11bd482c288fb499ff32c2c89ce341, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2857022983208699743, guid: fd11bd482c288fb499ff32c2c89ce341, type: 3}
       propertyPath: m_Name

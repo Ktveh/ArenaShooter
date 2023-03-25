@@ -4,6 +4,8 @@ using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
+    private const uint MaxGrenade = 3;
+
     [SerializeField] private ButtonBuyingAmmo _buttonBuyingAmmo;
     [SerializeField] private WeaponSaving _weaponSaving;
 
@@ -41,28 +43,40 @@ public class PlayerInventory : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Item item) && item.Type != Item.Types.Drug)
+        bool isMaxAmountGrenades = _ammo[Weapon.Types.Grenade] >= MaxGrenade;
+
+        if(other.TryGetComponent(out Item item))
         {
-            switch(item.Type)
+            if(item.Type != Item.Types.Drug) 
             {
-                case Item.Types.SMG:
-                    _ammo[Weapon.Types.SMG] += item.Amount;
-                    break;
-                case Item.Types.Rifle:
-                    _ammo[Weapon.Types.Rifle] += item.Amount;
-                    break;
-                case Item.Types.SniperRifle:
-                    _ammo[Weapon.Types.SniperRifle] += item.Amount;
-                    break;
-                case Item.Types.Shotgun:
-                    _ammo[Weapon.Types.Shotgun] += item.Amount;
-                    break;
-                case Item.Types.GrenadeLauncher:
-                    _ammo[Weapon.Types.GrenadeLauncher] += item.Amount;
-                    break;
-                case Item.Types.Grenade:
-                    _ammo[Weapon.Types.Grenade] += item.Amount;
-                    break;
+                switch (item.Type)
+                {
+                    case Item.Types.SMG:
+                        _ammo[Weapon.Types.SMG] += item.Amount;
+                        break;
+                    case Item.Types.Rifle:
+                        _ammo[Weapon.Types.Rifle] += item.Amount;
+                        break;
+                    case Item.Types.SniperRifle:
+                        _ammo[Weapon.Types.SniperRifle] += item.Amount;
+                        break;
+                    case Item.Types.Shotgun:
+                        _ammo[Weapon.Types.Shotgun] += item.Amount;
+                        break;
+                    case Item.Types.GrenadeLauncher:
+                        _ammo[Weapon.Types.GrenadeLauncher] += item.Amount;
+                        break;
+                    case Item.Types.Grenade:
+                        if (isMaxAmountGrenades == false)
+                            _ammo[Weapon.Types.Grenade] += item.Amount;
+                        break;
+                }
+            }
+
+            if (item.Type == Item.Types.Grenade)
+            {
+                if (isMaxAmountGrenades)
+                    return;
             }
 
             item.gameObject.SetActive(false);

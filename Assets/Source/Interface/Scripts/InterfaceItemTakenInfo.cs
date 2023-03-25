@@ -15,6 +15,8 @@ public class InterfaceItemTakenInfo : MonoBehaviour
     [SerializeField] private Image _shotgun;
     [SerializeField] private Image _sniperRifle;
     [SerializeField] private Image _drug;
+    [SerializeField] private Image _grenadeLauncher;
+    [SerializeField] private Image _grenade;
 
     private void OnEnable()
     {
@@ -35,6 +37,8 @@ public class InterfaceItemTakenInfo : MonoBehaviour
         _shotgun.gameObject.SetActive(false);
         _sniperRifle.gameObject.SetActive(false);
         _drug.gameObject.SetActive(false);
+        _grenadeLauncher.gameObject.SetActive(false);
+        _grenade.gameObject.SetActive(false);
 
         _amount.text = "+ " + amount;
 
@@ -54,6 +58,12 @@ public class InterfaceItemTakenInfo : MonoBehaviour
                 break;
             case Item.Types.Drug:
                 _drug.gameObject.SetActive(true);
+                break;
+            case Item.Types.GrenadeLauncher:
+                _grenadeLauncher.gameObject.SetActive(true);
+                break;
+            case Item.Types.Grenade:
+                _grenade.gameObject.SetActive(true);
                 break;
         }
 

@@ -137,7 +137,7 @@ public class Weapon : MonoBehaviour
 		_weaponBreechBlock.Returned += OnReturned;
 		_playerScopeOpening.Scoped += OnOpenedScope;
 		_playerScopeOpening.NonScoped += OnClosedScope;
-		//_playerDroppingGrenade.Actioned += OnDropedGrenade;
+		_playerDroppingGrenade.Threw += OnDropedGrenade;
 		_playerShooting.Shooted += OnShooted;
 		_playerShooting.NonShooted += OnNonShooted;
 		_playerWeaponReloading.Reloaded += OnReload;
@@ -154,7 +154,7 @@ public class Weapon : MonoBehaviour
 		_weaponBreechBlock.Returned -= OnReturned;
 		_playerScopeOpening.Scoped -= OnOpenedScope;
 		_playerScopeOpening.NonScoped -= OnClosedScope;
-		//_playerDroppingGrenade.Actioned -= OnDropedGrenade;
+		_playerDroppingGrenade.Threw -= OnDropedGrenade;
 		_playerShooting.Shooted -= OnShooted;
 		_playerShooting.NonShooted -= OnNonShooted;
 		_playerWeaponReloading.Reloaded -= OnReload;
@@ -204,7 +204,14 @@ public class Weapon : MonoBehaviour
 
 	private void OnDropedGrenade()
 	{
-		_throwingGrenade.enabled = true;
+		if (IsReloading == false)
+        {
+			if(_isRunning == false)
+            {
+				if (_playerInventory.TryGetAmmo(Weapon.Types.Grenade, 1, out uint ammo))
+					_throwingGrenade.enabled = true;
+			}
+		}
 	}
 
 	private void OnShooted()

@@ -6,8 +6,10 @@ public class InterfaceAmountAmmo : MonoBehaviour
 {
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private PlayerInventory _playerInventory;
+    [SerializeField] private PlayerDroppingGrenade _playerDroppingGrenade;
     [SerializeField] private TMP_Text _currentAmountAmmo;
     [SerializeField] private TMP_Text _inventoryAmountAmmo;
+    [SerializeField] private TMP_Text _inventoryAmountGrenade;
     [SerializeField] private Image _icon;
 
     private string _valueInventoryAmountAmmo => "/" + _playerInventory.GetAmountAmmo(_playerWeaponSelecting.CurrentWeapon.Type).ToString();
@@ -17,6 +19,7 @@ public class InterfaceAmountAmmo : MonoBehaviour
     {
         _playerWeaponSelecting.Selected += OnSelected;
         _playerInventory.Changed += OnChanged;
+        _playerDroppingGrenade.Threw += OnThrew;
     }
 
     private void OnDisable()
@@ -26,6 +29,7 @@ public class InterfaceAmountAmmo : MonoBehaviour
 
         _playerWeaponSelecting.Selected -= OnSelected;
         _playerInventory.Changed -= OnChanged;
+        _playerDroppingGrenade.Threw -= OnThrew;
     }
 
     private void OnSelected()
@@ -41,6 +45,7 @@ public class InterfaceAmountAmmo : MonoBehaviour
     private void OnChanged()
     {
         _inventoryAmountAmmo.text = _valueInventoryAmountAmmo;
+        OnThrew();
     }
 
     private void OnShooted()
@@ -52,5 +57,10 @@ public class InterfaceAmountAmmo : MonoBehaviour
     {
         _currentAmountAmmo.text = _valueCurrentAmountAmmo;
         _inventoryAmountAmmo.text = _valueInventoryAmountAmmo;
+    }
+
+    private void OnThrew()
+    {
+        _inventoryAmountGrenade.text = _playerInventory.GetAmountAmmo(Weapon.Types.Grenade).ToString();
     }
 }
