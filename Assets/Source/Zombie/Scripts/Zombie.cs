@@ -46,6 +46,7 @@ public class Zombie : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerHealth>())
         {
+            _mover.StopMove();
             _playerHealth = other.gameObject.GetComponent<PlayerHealth>();
             if (!_isDead && _ellapsedTime > _delayBetweenAttacks)
             {
@@ -99,7 +100,7 @@ public class Zombie : MonoBehaviour
     private void Attack()
     {
         _ellapsedTime = 0;
-        _mover.StopMove();
+        
         if (_hasArms)
         {
             _playerHealth.Take(_damage);

@@ -30,10 +30,13 @@ public class ZombieMover : MonoBehaviour
         {
             _agent.destination = _target.transform.position;
 
-            if (_targeter.IsAttentive && _zombie.HasLegs)
+            _agent.stoppingDistance = 0;
+            _agent.angularSpeed = 180;
+            if (_targeter.LevelAttentive >= 2 && _zombie.HasLegs)
             {
                 _agent.speed = SetSpeed(_runSpeed);
                 _animator.Run();
+                _agent.angularSpeed = 720;
             }
             else if (_zombie.HasLegs)
             {
@@ -58,8 +61,8 @@ public class ZombieMover : MonoBehaviour
         if (!_agent.hasPath)
         {
             StopMove();
-            _targeter.RemoveCurrentTarget();
-            StartMove();
+            //_targeter.RemoveCurrentTarget();
+            //StartMove();
         }
     }
 
