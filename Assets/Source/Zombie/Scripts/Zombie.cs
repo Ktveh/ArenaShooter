@@ -16,7 +16,6 @@ public class Zombie : MonoBehaviour
     [SerializeField] private ZombieMover _mover;
     [SerializeField] private ParticleSystem _deadEffect;
     [SerializeField] private Sound _sound;
-    [SerializeField] private bool StartHasLegs;
 
     private PlayerHealth _playerHealth;
     private bool _hasLegs = true;
@@ -30,11 +29,6 @@ public class Zombie : MonoBehaviour
     public bool IsDead => _isDead;
     public int Health => _health;
     public int Price => _price;
-
-    private void Start()
-    {
-        _hasLegs = StartHasLegs;
-    }
 
     private void Update()
     {
@@ -80,7 +74,7 @@ public class Zombie : MonoBehaviour
             }
             else
             {
-                _targeter.RemoveCurrentTarget();
+                _targeter.RemoveCurrentTarget(true);
             }
         }
     }
