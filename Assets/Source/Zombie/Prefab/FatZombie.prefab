@@ -1486,7 +1486,13 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 542fa8c2c36edb9438ca15d863bbf8fc, type: 2}
   - {fileID: 2100000, guid: 13e782e7f1768d84b853520b191d3fb7, type: 2}
   - {fileID: 2100000, guid: a24b14e4912aac84490017a8c4ec3bf4, type: 2}
+  - {fileID: 2100000, guid: 0e48a2ffe48e91e40b31dfd213f98c03, type: 2}
+  - {fileID: 2100000, guid: 4a770841e054d894a906f82459fe6161, type: 2}
   _renderer: {fileID: 1136525772467766805}
+  _hasBonusMaterials: 0
+  _bronze: {fileID: 0}
+  _silver: {fileID: 0}
+  _gold: {fileID: 0}
 --- !u!1 &6737657206541417616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4803014352389650695, guid: 06cb2b131fe009c47a523671a8fa9ed8, type: 3}
