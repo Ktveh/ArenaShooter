@@ -25,6 +25,7 @@ public class WeaponSaving : MonoBehaviour
         _upgradingWeapon.SelectedAccessory += OnSelectedAccessory;
         _playerWeaponSelecting.Selected += OnSelectedWeapon;
         _game.LevelCompleted += OnSelectedWeapon;
+        _playerInventory.Changed += OnChanged;
         _buttonBuyingAmmo.Buyed += OnBuyed;
         _buttonBuyingGrenade.Buyed += OnBuyed;
     }
@@ -34,6 +35,7 @@ public class WeaponSaving : MonoBehaviour
         _upgradingWeapon.SelectedAccessory -= OnSelectedAccessory;
         _playerWeaponSelecting.Selected -= OnSelectedWeapon;
         _game.LevelCompleted -= OnSelectedWeapon;
+        _playerInventory.Changed -= OnChanged;
         _buttonBuyingAmmo.Buyed -= OnBuyed;
         _buttonBuyingGrenade.Buyed -= OnBuyed;
     }
@@ -82,7 +84,7 @@ public class WeaponSaving : MonoBehaviour
         }
     }
 
-    private void OnSelectedWeapon()
+    private void OnChanged()
     {
         Weapon.Types[] typesWeapons = _playerInventory.GetTypeAmmo();
 
@@ -92,8 +94,13 @@ public class WeaponSaving : MonoBehaviour
         PlayerPrefs.SetInt(Weapon.Types.Grenade.ToString() + Ammo, (int)_playerInventory.GetAmountAmmo(Weapon.Types.Grenade));
     }
 
+    private void OnSelectedWeapon()
+    {
+        OnChanged();
+    }
+
     private void OnBuyed(Weapon.Types type, uint amount)
     {
-        OnSelectedWeapon();
+        OnChanged();
     }
 }

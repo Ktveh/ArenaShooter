@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class YandexAds : MonoBehaviour
 {
     [SerializeField] private Game _game;
+    [SerializeField] private AdRewardButton _adRewardButton;
     [SerializeField] private ButtonUpgradingOnReward[] _buttonsUpgradingOnReward;
 
     private WeaponAccessories.Type _type;
@@ -12,32 +13,46 @@ public class YandexAds : MonoBehaviour
     public event UnityAction Shows;
     public event UnityAction Showed;
     public event UnityAction Errored;
-    public event UnityAction<WeaponAccessories.Type> Rewarded;
+    public event UnityAction GetedGold;
+    public event UnityAction<WeaponAccessories.Type> Upgraded;
 
     private void OnEnable()
     {
         foreach (var button in _buttonsUpgradingOnReward)
-            button.Down += OnDown;
+            button.Down += OnDownUpgrade;
 
+        _adRewardButton.Down += OnDownReward;
         _game.LevelCompleted += OnLevelCompleted;
     }
 
     private void OnDisable()
     {
         foreach (var button in _buttonsUpgradingOnReward)
-            button.Down -= OnDown;
+            button.Down -= OnDownUpgrade;
 
+        _adRewardButton.Down -= OnDownReward;
         _game.LevelCompleted -= OnLevelCompleted;
     }
 
-    private void OnDown(WeaponAccessories.Type type)
+    private void OnDownReward()
     {
-        _type = type;
 #if !UNITY_WEBGL || UNITY_EDITOR
+        GetGold();
         Close();
         return;
 #endif
-        VideoAd.Show(Opene, Reward, Close, Error);
+        VideoAd.Show(Opene, GetGold, Close, Error);
+    }
+
+    private void OnDownUpgrade(WeaponAccessories.Type type)
+    {
+        _type = type;
+#if !UNITY_WEBGL || UNITY_EDITOR
+        Upgrade();
+        Close();
+        return;
+#endif
+        VideoAd.Show(Opene, Upgrade, Close, Error);
     }
 
     private void OnLevelCompleted()
@@ -54,9 +69,14 @@ public class YandexAds : MonoBehaviour
         Shows?.Invoke();
     }
 
-    private void Reward()
+    private void GetGold()
     {
-        Rewarded?.Invoke(_type);
+        GetedGold?.Invoke();
+    }
+
+    private void Upgrade()
+    {
+        Upgraded?.Invoke(_type);
     }
 
     private void Close()

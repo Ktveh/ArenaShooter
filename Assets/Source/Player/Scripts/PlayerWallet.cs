@@ -5,6 +5,7 @@ public class PlayerWallet : MonoBehaviour
 {
     [SerializeField] private Menu _menu;
     [SerializeField] private LevelReward _levelReward;
+    [SerializeField] private YandexAds _andexAds;
 
     private int _value;
 
@@ -15,11 +16,13 @@ public class PlayerWallet : MonoBehaviour
     private void OnEnable()
     {
         _menu.Showed += OnShowed;
+        _andexAds.GetedGold += OnGetedGold;
     }
 
     private void OnDisable()
     {
         _menu.Showed -= OnShowed;
+        _andexAds.GetedGold -= OnGetedGold;
     }
 
     public void SetValue(int value)
@@ -42,6 +45,12 @@ public class PlayerWallet : MonoBehaviour
     }
 
     private void OnShowed()
+    {
+        _value += _levelReward.AllReward;
+        ChangedValue.Invoke(_value);
+    }
+
+    private void OnGetedGold()
     {
         _value += _levelReward.AllReward;
         ChangedValue.Invoke(_value);

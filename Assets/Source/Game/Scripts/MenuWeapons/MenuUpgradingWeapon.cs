@@ -21,7 +21,7 @@ public class MenuUpgradingWeapon : MonoBehaviour
         _buttonsSelectingWeapons = GetComponentsInChildren<ButtonSelectingWeapon>();
         _buttonsSelectingAccessories = GetComponentsInChildren<ButtonSelectingAccessory>();
         _menu.Showed += OnShowed;
-        _andexAds.Rewarded += OnRewarded;
+        _andexAds.Upgraded += OnRewarded;
 
         foreach (var button in _buttonsSelectingWeapons)
             button.Down += OnSelectedWeapon;
@@ -33,7 +33,7 @@ public class MenuUpgradingWeapon : MonoBehaviour
     private void OnDisable()
     {
         _menu.Showed += OnShowed;
-        _andexAds.Rewarded += OnRewarded;
+        _andexAds.Upgraded += OnRewarded;
 
         foreach (var button in _buttonsSelectingWeapons)
             button.Down -= OnSelectedWeapon;

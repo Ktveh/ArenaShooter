@@ -6,6 +6,7 @@ public class MenuShowingScore : MonoBehaviour
     [SerializeField] private Game _game;
     [SerializeField] private LevelScore _levelScore;
     [SerializeField] private LevelReward _levelReward;
+    [SerializeField] private YandexAds _andexAds;
     [SerializeField] private TMP_Text _goodTitle;
     [SerializeField] private TMP_Text _badTitle;
     [SerializeField] private TMP_Text _amountKilledZombie;
@@ -16,6 +17,16 @@ public class MenuShowingScore : MonoBehaviour
     [SerializeField] private TMP_Text _rewardingAmountHitedHead;
     [SerializeField] private TMP_Text _rewardingHitAccuracy;
     [SerializeField] private TMP_Text _allReward;
+
+    private void OnEnable()
+    {
+        _andexAds.GetedGold += OnGetedGold;
+    }
+
+    private void OnDisable()
+    {
+        _andexAds.GetedGold += OnGetedGold;
+    }
 
     public void SetValue()
     {
@@ -32,5 +43,10 @@ public class MenuShowingScore : MonoBehaviour
         _rewardingHitAccuracy.text = "+ " + _levelReward.HitAccuracy.ToString();
         _amountShot.text = _levelScore.AmountShot.ToString();
         _allReward.text = "+ " + _levelReward.AllReward.ToString();
+    }
+
+    private void OnGetedGold()
+    {
+        _allReward.text = "+ " + (_levelReward.AllReward + _levelReward.AllReward).ToString();
     }
 }
