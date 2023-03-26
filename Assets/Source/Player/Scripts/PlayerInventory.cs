@@ -50,7 +50,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if(other.TryGetComponent(out Item item))
         {
-            if(item.Type != Item.Types.Drug) 
+            if (item.Type != Item.Types.Drug)
             {
                 switch (item.Type)
                 {
@@ -74,17 +74,18 @@ public class PlayerInventory : MonoBehaviour
                             _ammo[Weapon.Types.Grenade] += item.Amount;
                         break;
                 }
-            }
 
-            if (item.Type == Item.Types.Grenade)
-            {
-                if (IsMaxAmountGrenades)
-                    return;
-            }
 
-            item.gameObject.SetActive(false);
-            Changed?.Invoke();
-            Taked?.Invoke(item, item.Amount);
+                if (item.Type == Item.Types.Grenade)
+                {
+                    if (IsMaxAmountGrenades)
+                        return;
+                }
+
+                item.gameObject.SetActive(false);
+                Changed?.Invoke();
+                Taked?.Invoke(item, item.Amount);
+            }
         }
     }
 

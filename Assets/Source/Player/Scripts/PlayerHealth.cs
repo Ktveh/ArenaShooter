@@ -35,17 +35,20 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Item item) && (item.Type == Item.Types.Drug))
+        if(other.TryGetComponent(out Item item))
         {
-            if (_value < DefaultValue)
+            if (item.Type == Item.Types.Drug)
             {
-                item.gameObject.SetActive(false);
-                _value += item.Amount;
-                Changed?.Invoke(_value);
-                Taked?.Invoke(item, item.Amount);
+                if (_value < DefaultValue)
+                {
+                    item.gameObject.SetActive(false);
+                    _value += item.Amount;
+                    Changed?.Invoke(_value);
+                    Taked?.Invoke(item, item.Amount);
 
-                if (_value > DefaultValue)
-                    _value = DefaultValue;
+                    if (_value > DefaultValue)
+                        _value = DefaultValue;
+                }
             }
         }
     }
