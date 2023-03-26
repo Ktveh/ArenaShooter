@@ -3362,6 +3362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerScopeOpening: {fileID: 558590858924419748}
+  _firstPersonController: {fileID: 903908241334349831}
   _step: 0.5
 --- !u!4 &181878289748505882 stripped
 Transform:
