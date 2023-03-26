@@ -2911,15 +2911,27 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5629789432314874393}
     m_Modifications:
+    - target: {fileID: 267652115, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -35
+      objectReference: {fileID: 0}
     - target: {fileID: 267652116, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_text
       value: '0
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 267652116, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 377487008, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 377487009, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_text
-      value: / 0
+      value: /0
       objectReference: {fileID: 0}
     - target: {fileID: 395510505, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerWeaponSelecting
