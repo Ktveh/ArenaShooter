@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonAnimation : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private const float Addition = 20f;
+    private const float Addition = 10f;
     private const float Step = 1f;
 
     [SerializeField] private RectTransform _button;
