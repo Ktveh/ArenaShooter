@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Game))]
+[RequireComponent(typeof(WeaponAccessoriesSaving))]
 public class WeaponSaving : MonoBehaviour
 {
     private const string True = "True";
@@ -14,10 +15,12 @@ public class WeaponSaving : MonoBehaviour
     [SerializeField] private ButtonBuyingGrenade _buttonBuyingGrenade;
 
     private Game _game;
+    private WeaponAccessoriesSaving _weaponAccessoriesSaving;
 
     private void Awake()
     {
         _game = GetComponent<Game>();
+        _weaponAccessoriesSaving = GetComponent<WeaponAccessoriesSaving>();
     }
 
     private void OnEnable()
@@ -53,6 +56,7 @@ public class WeaponSaving : MonoBehaviour
     private void OnSelectedAccessory(WeaponAccessories.Type type)
     {
         ChangeAccessory(_playerWeaponSelecting.CurrentWeapon.Type.ToString(), type);
+        _weaponAccessoriesSaving.Save(_playerWeaponSelecting.CurrentWeapon.Type, type);
     }
 
     private void ChangeAccessory(string weapon, WeaponAccessories.Type type)

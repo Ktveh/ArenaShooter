@@ -10,6 +10,7 @@ public class Getting : MonoBehaviour
     [SerializeField] private PlayerInventory _playerInventory;
     [SerializeField] private Camera _weaponCamera;
     [SerializeField] private WeaponSaving _weaponSaving;
+    [SerializeField] private WeaponAccessoriesSaving _weaponAccessoriesSaving;
     [SerializeField] private Game _game;
 
     public StarterAssets.FirstPersonController PersonController => _personController;
@@ -20,6 +21,7 @@ public class Getting : MonoBehaviour
     public PlayerInventory PlayerInventory => _playerInventory;
     public Camera WeaponCamera => _weaponCamera;
     public WeaponSaving WeaponSaving => _weaponSaving;
+    public WeaponAccessoriesSaving WeaponAccessoriesSaving => _weaponAccessoriesSaving;
     public Game Game => _game;
 }
 

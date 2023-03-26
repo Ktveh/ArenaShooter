@@ -25,12 +25,13 @@ public class WeaponAccessories : MonoBehaviour
     private Getting _getting;
     private Weapon _weapon;
     private WeaponSaving _weaponSaving;
+    private WeaponAccessoriesSaving _weaponAccessoriesSaving;
 
     public Sprite IconScope1 => _iconScope1;
     public Sprite IconScope2 => _iconScope2;
     public Sprite IconSilencer => _iconSilencer;
-    public int PriceScope1 => _priceScope1;
-    public int PriceScope2 => _priceScope2;
+    public int PriceScope1 => _weaponAccessoriesSaving.Check(_weapon.Type, Type.Scope1) ? 0 : _priceScope1;
+    public int PriceScope2 => _weaponAccessoriesSaving.Check(_weapon.Type, Type.Scope2) ? 0 : _priceScope2;
     public int PriceSilencer => _priceSilencer;
     public bool IsEnabledScope => _scopeRenderer != null && IsEnabledScope1 == false && IsEnabledScope2 == false;
     public bool IsEnabledScope1 => _scope1Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope1);
@@ -49,6 +50,7 @@ public class WeaponAccessories : MonoBehaviour
     {
         _getting = GetComponentInParent<Getting>();
         _weaponSaving = _getting.WeaponSaving;
+        _weaponAccessoriesSaving = _getting.WeaponAccessoriesSaving;
         _weapon = GetComponent<StandardWeapon>();
     }
 
