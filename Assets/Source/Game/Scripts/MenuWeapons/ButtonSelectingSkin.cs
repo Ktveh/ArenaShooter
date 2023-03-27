@@ -5,12 +5,18 @@ using UnityEngine.UI;
 [RequireComponent(typeof(ButtonBuyingSkin))]
 public class ButtonSelectingSkin : MonoBehaviour
 {
+    private const int NumberKillsForGold = 10000;
+    private const int NumberKillsForSilver = 5000;
+    private const int NumberKillsForBronze = 1000;
+
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
+    [SerializeField] private PlayerSaving _playerSaving;
     [SerializeField] private WeaponSkinSaving _weaponSkinSaving;
     [SerializeField] private Button _next;
     [SerializeField] private Button _prev;
     [SerializeField] private Image _preview;
-    [SerializeField] private TMP_Text _price; 
+    [SerializeField] private TMP_Text _price;
+    [SerializeField] private Image _blocking;
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private int[] _prices;
 
@@ -18,6 +24,9 @@ public class ButtonSelectingSkin : MonoBehaviour
     private int _currentNumber;
 
     private bool _isError => _sprites.Length != _prices.Length;
+    private int _numberGoldSkin => _sprites.Length - 1;
+    private int _numberSilverSkin => _sprites.Length - 2;
+    private int _numberBronzeSkin => _sprites.Length - 3;
 
     private void Awake()
     {
@@ -50,6 +59,7 @@ public class ButtonSelectingSkin : MonoBehaviour
     public void Change()
     {
         int price = _prices[_currentNumber];
+        bool isCanBuy = true;
 
         if (_weaponSkinSaving.Check(_playerWeaponSelecting.CurrentWeapon.Type, (WeaponSkin.Names)_currentNumber))
             price = 0;
@@ -57,7 +67,16 @@ public class ButtonSelectingSkin : MonoBehaviour
         _preview.sprite = _sprites[_currentNumber];
         _price.text = price.ToString();
 
-        _buttonBuyingSkin.Get((WeaponSkin.Names)_currentNumber, price);
+        if (_currentNumber == _numberGoldSkin)
+            isCanBuy = TryGetPrize(NumberKillsForGold);
+        else if(_currentNumber == _numberSilverSkin)
+            isCanBuy = TryGetPrize(NumberKillsForSilver);
+        else if(_currentNumber == _numberBronzeSkin)
+            isCanBuy = TryGetPrize(NumberKillsForBronze);
+
+        _blocking.gameObject.SetActive(isCanBuy ? false : true);
+
+        _buttonBuyingSkin.Get((WeaponSkin.Names)_currentNumber, price, isCanBuy);
     }
 
     private void OnNext()
@@ -91,5 +110,10 @@ public class ButtonSelectingSkin : MonoBehaviour
         _currentNumber = 0;
         _preview.sprite = _sprites[_currentNumber];
         _price.text = _prices[_currentNumber].ToString();
+    }
+
+    private bool TryGetPrize(int number)
+    {
+        return _playerSaving.CurrentScore >= number;
     }
 }
