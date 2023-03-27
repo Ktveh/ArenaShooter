@@ -1,6 +1,5 @@
 using UnityEngine;
 using Cinemachine;
-using System.Collections;
 
 [RequireComponent(typeof(CinemachineVirtualCamera))]
 public class CameraZoom : MonoBehaviour
@@ -8,12 +7,10 @@ public class CameraZoom : MonoBehaviour
     private const float DefaultFieldOfView = 40f;
     private const float ScopingFieldOfView = 30f;
 
-    [SerializeField] private PlayerScopeOpening _playerScopeOpening;
-    [SerializeField] private StarterAssets.FirstPersonController _firstPersonController;
-    [SerializeField] private float _step = 0.5f;
+    [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
+    [SerializeField] private float _speed = 40f;
 
     private CinemachineVirtualCamera _camera;
-    private Coroutine _currentCoroutine;
 
     private void Start()
     {
@@ -22,57 +19,18 @@ public class CameraZoom : MonoBehaviour
 
     private void Update()
     {
-        if (_firstPersonController.IsRunning)
-            _camera.m_Lens.FieldOfView = DefaultFieldOfView;
-    }
-
-    private void OnEnable()
-    {
-        _playerScopeOpening.Scoped += OnScoped;
-        _playerScopeOpening.NonScoped += OnNonScoped;
-    }
-
-    private void OnDisable()
-    {
-        _playerScopeOpening.Scoped -= OnScoped;
-        _playerScopeOpening.NonScoped -= OnNonScoped;
-    }
-
-    private void OnScoped()
-    {
-        if (_firstPersonController.IsRunning == false)
+        if (_playerWeaponSelecting.CurrentWeapon.IsScoping)
         {
-            if (_currentCoroutine != null)
-                StopCoroutine(_currentCoroutine);
-
-            _currentCoroutine = StartCoroutine(Change(ScopingFieldOfView));
-        }
-    }
-    
-    private void OnNonScoped()
-    {
-        if (_currentCoroutine != null)
-            StopCoroutine(_currentCoroutine);
-
-        _currentCoroutine = StartCoroutine(Change(DefaultFieldOfView - _step));
-    }
-
-    private IEnumerator Change(float value)
-    {
-        if (value == DefaultFieldOfView - _step)
-        {
-            while (_camera.m_Lens.FieldOfView <= value)
+            if(_camera.m_Lens.FieldOfView >= ScopingFieldOfView)
             {
-                _camera.m_Lens.FieldOfView += _step;
-                yield return null;
+                _camera.m_Lens.FieldOfView -= _speed * Time.deltaTime;
             }
         }
-        else if(value == ScopingFieldOfView)
+        else
         {
-            while (_camera.m_Lens.FieldOfView >= value)
+            if (_camera.m_Lens.FieldOfView <= DefaultFieldOfView)
             {
-                _camera.m_Lens.FieldOfView -= _step;
-                yield return null;
+                _camera.m_Lens.FieldOfView += _speed * Time.deltaTime;
             }
         }
     }
