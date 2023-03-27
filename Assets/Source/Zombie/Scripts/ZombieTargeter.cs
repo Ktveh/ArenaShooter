@@ -26,7 +26,7 @@ public class ZombieTargeter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<SoundTarget>() && _levelAttective <= 1)
+        if (other.GetComponent<SoundTarget>() && _levelAttective < 2)
         {
             _soundTarget = other.GetComponent<SoundTarget>();
             RandomTarget(_soundTarget.transform.position, false);
@@ -58,7 +58,8 @@ public class ZombieTargeter : MonoBehaviour
             _mainTarget = null;
             _soundTarget = null;
             _zombieTargeter = null;
-            _levelAttective--;
+            if (_levelAttective > 0)
+                _levelAttective--;
             _durationCurrenTarget = Random.Range(3, 7);
             RemoveCurrentTarget();
         }

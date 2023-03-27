@@ -42,7 +42,7 @@ public class Zombie : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.GetComponent<PlayerHealth>())
         {
@@ -51,6 +51,7 @@ public class Zombie : MonoBehaviour
             if (!_isDead && _ellapsedTime > _delayBetweenAttacks)
             {
                 Attack();
+                _targeter.RemoveCurrentTarget();
             }
         }
     }

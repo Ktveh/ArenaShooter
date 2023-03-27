@@ -14343,11 +14343,11 @@ Transform:
   - {fileID: 1712041878}
   - {fileID: 1300323459}
   - {fileID: 2100524933}
-  - {fileID: 1086657277}
   - {fileID: 1077399129}
+  - {fileID: 1086657277}
   - {fileID: 376322890}
-  - {fileID: 133221387}
   - {fileID: 1452103700}
+  - {fileID: 133221387}
   m_Father: {fileID: 136154440}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16204,8 +16204,8 @@ MonoBehaviour:
   _audioSources:
   - {fileID: 1102779071}
   _template: {fileID: 346195968450838808, guid: 81ecba85a0fa4e34ea09cbc11fd0d5c9, type: 3}
-  _radius: 30
-  _duration: 5
+  _radius: 10
+  _duration: 1
 --- !u!4 &1103048037 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011048348644, guid: 84147b87204d0a0478bae9558d656ea2, type: 3}
@@ -19977,6 +19977,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9341236, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 181878289748505882, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: m_LocalPosition.y
       value: -345.095
