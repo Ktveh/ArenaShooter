@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
 	[SerializeField] private float _durationInsertShell;
 	[SerializeField] private float _durationReloadingClose;
 
-	private Getting _getting;
+	private WeaponInput _getting;
 	private WeaponAnimator _weaponAnimator;
 	private ThrowingGrenade _throwingGrenade;
 	private WeaponShooting _weaponShooting;
@@ -84,7 +84,7 @@ public class Weapon : MonoBehaviour
 
 	private void Awake()
 	{
-		_getting = GetComponentInParent<Getting>();
+		_getting = GetComponentInParent<WeaponInput>();
 		_weaponAnimator = GetComponent<WeaponAnimator>();
 		_throwingGrenade = GetComponent<ThrowingGrenade>();
 		_weaponShooting = GetComponent<WeaponShooting>();

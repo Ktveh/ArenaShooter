@@ -22,7 +22,7 @@ public class WeaponAccessories : MonoBehaviour
     [SerializeField] private SpriteRenderer _scope1SpriteRenderer;
     [SerializeField] private SpriteRenderer _scope2SpriteRenderer;
 
-    private Getting _getting;
+    private WeaponInput _getting;
     private Weapon _weapon;
     private WeaponSaving _weaponSaving;
     private WeaponAccessoriesSaving _weaponAccessoriesSaving;
@@ -48,7 +48,7 @@ public class WeaponAccessories : MonoBehaviour
 
     private void Awake()
     {
-        _getting = GetComponentInParent<Getting>();
+        _getting = GetComponentInParent<WeaponInput>();
         _weaponSaving = _getting.WeaponSaving;
         _weaponAccessoriesSaving = _getting.WeaponAccessoriesSaving;
         _weapon = GetComponent<StandardWeapon>();

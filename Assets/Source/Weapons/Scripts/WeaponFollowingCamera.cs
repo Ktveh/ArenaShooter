@@ -8,13 +8,13 @@ public class WeaponFollowingCamera : MonoBehaviour
     private const string MouseX = "Mouse X";
     private const string MouseY = "Mouse Y";
 
-    private Getting _getting;
+    private WeaponInput _getting;
     private Weapon _weapon;
     private Vector3 _initialSwayPosition;
 
     private void Start()
     {
-        _getting = GetComponentInParent<Getting>();
+        _getting = GetComponentInParent<WeaponInput>();
         _weapon = GetComponentInParent<Weapon>();
         _initialSwayPosition = transform.localPosition;
     }
