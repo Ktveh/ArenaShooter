@@ -4348,9 +4348,17 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 1738011161, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _probability
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738011161, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 1738011161, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _weaponAccessoriesSaving
+      value: 
+      objectReference: {fileID: 4757570557574135392}
     - target: {fileID: 1740902051, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -6,6 +6,7 @@ public class ShowingRewardingButton : MonoBehaviour
     private const int maxPercentage = 100;
 
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
+    [SerializeField] private WeaponAccessoriesSaving _weaponAccessoriesSaving;
     [SerializeField] private ButtonSelectingAccessory[] _buttonsBuy;
     [SerializeField] private ButtonUpgradingOnReward[] _buttonsReward;
     [Range(0,100)]
@@ -35,6 +36,10 @@ public class ShowingRewardingButton : MonoBehaviour
         if (Random.Range(minPercentage, maxPercentage) <= _probability)
         {
             int number = Random.Range(0, _buttonsReward.Length);
+
+            if (_weaponAccessoriesSaving.Check(_playerWeaponSelecting.CurrentWeapon.Type, _buttonsReward[number].TypeAccessory))
+                return;
+                
             _buttonsBuy[number].gameObject.SetActive(false);
             _buttonsReward[number].gameObject.SetActive(true);
         }
