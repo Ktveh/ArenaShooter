@@ -2334,6 +2334,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Run
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Aim
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110276692}
   m_Solo: 0
@@ -2577,18 +2580,6 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: Aim
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Aim Scope 1
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Aim Scope 2
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Aim Scope 3
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: Aim Scope 4
-    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110212644}
   m_Solo: 0
@@ -2735,8 +2726,8 @@ AnimatorState:
   m_Transitions:
   - {fileID: 1101206574159825378}
   - {fileID: 1101203366220012696}
-  - {fileID: 1101808686395380368}
   - {fileID: 1101894679653505238}
+  - {fileID: 1101808686395380368}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0

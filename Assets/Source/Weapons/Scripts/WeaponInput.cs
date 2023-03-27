@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Getting : MonoBehaviour
+public class WeaponInput : MonoBehaviour
 {
     [SerializeField] private StarterAssets.FirstPersonController _personController;
     [SerializeField] private PlayerScopeOpening _playerScopeOpening;
@@ -11,6 +11,7 @@ public class Getting : MonoBehaviour
     [SerializeField] private Camera _weaponCamera;
     [SerializeField] private WeaponSaving _weaponSaving;
     [SerializeField] private WeaponAccessoriesSaving _weaponAccessoriesSaving;
+    [SerializeField] private WeaponSkinSaving _weaponSkinSaving;
     [SerializeField] private Game _game;
 
     public StarterAssets.FirstPersonController PersonController => _personController;
@@ -22,6 +23,7 @@ public class Getting : MonoBehaviour
     public Camera WeaponCamera => _weaponCamera;
     public WeaponSaving WeaponSaving => _weaponSaving;
     public WeaponAccessoriesSaving WeaponAccessoriesSaving => _weaponAccessoriesSaving;
+    public WeaponSkinSaving WeaponSkinSaving => _weaponSkinSaving;
     public Game Game => _game;
 }
 
