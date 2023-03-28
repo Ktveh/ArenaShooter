@@ -12,6 +12,7 @@ public class ButtonBuyingSkin : MonoBehaviour
     private WeaponSkin.Names _skin;
     private ButtonSelectingSkin _buttonSelectingSkin;
     private int _price;
+    private bool _isCanBuy;
 
     private void Awake()
     {
@@ -28,10 +29,11 @@ public class ButtonBuyingSkin : MonoBehaviour
         _buying.onClick.RemoveListener(OnBuying);
     }
 
-    public void Get(WeaponSkin.Names name, int price)
+    public void Get(WeaponSkin.Names name, int price, bool isCanBuy = true)
     {
         _skin = name;
         _price = price;
+        _buying.interactable = isCanBuy;
     }
 
     private void OnBuying()
