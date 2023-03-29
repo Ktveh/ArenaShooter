@@ -13473,7 +13473,7 @@ GameObject:
   - component: {fileID: 495126176}
   - component: {fileID: 495126175}
   - component: {fileID: 495126174}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37085,7 +37085,7 @@ GameObject:
   - component: {fileID: 1170717873}
   - component: {fileID: 1170717872}
   - component: {fileID: 1170717871}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46304,7 +46304,7 @@ GameObject:
   - component: {fileID: 1406210822}
   - component: {fileID: 1406210821}
   - component: {fileID: 1406210820}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48775,7 +48775,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1472412648}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61904,7 +61904,7 @@ GameObject:
   - component: {fileID: 2012269233}
   - component: {fileID: 2012269232}
   - component: {fileID: 2012269231}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

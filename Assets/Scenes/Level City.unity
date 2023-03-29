@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.30470958, g: 0.48416197, b: 0.6325453, a: 1}
+  m_IndirectSpecularColor: {r: 0.30507848, g: 0.48467785, b: 0.63313365, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3070,7 +3070,7 @@ GameObject:
   - component: {fileID: 135089031}
   - component: {fileID: 135089030}
   - component: {fileID: 135089029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5746,7 +5746,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 247720466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Borders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18174,7 +18174,7 @@ GameObject:
   - component: {fileID: 616444906}
   - component: {fileID: 616444905}
   - component: {fileID: 616444904}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36133,7 +36133,7 @@ GameObject:
   - component: {fileID: 1395648022}
   - component: {fileID: 1395648021}
   - component: {fileID: 1395648020}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45865,7 +45865,7 @@ GameObject:
   - component: {fileID: 1819280948}
   - component: {fileID: 1819280947}
   - component: {fileID: 1819280946}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48600,7 +48600,7 @@ GameObject:
   - component: {fileID: 1934813560}
   - component: {fileID: 1934813559}
   - component: {fileID: 1934813558}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53903,7 +53903,7 @@ GameObject:
   - component: {fileID: 2113071361}
   - component: {fileID: 2113071360}
   - component: {fileID: 2113071359}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
