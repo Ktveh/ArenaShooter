@@ -38,6 +38,11 @@ public class PlayerSaving : MonoBehaviour
     }
     //////////////////////////////////////////////////
 
+    public void Recover(int score)
+    {
+        PlayerPrefs.SetInt(AmountKilledZombie, score);
+    }
+
     private void OnChangedValue(int value)
     {
         PlayerPrefs.SetInt(Money, value);
