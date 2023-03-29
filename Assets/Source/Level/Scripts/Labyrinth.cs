@@ -80,7 +80,7 @@ public class Labyrinth : MonoBehaviour
                         transform.position.x + _offset.x * x,
                         transform.position.y + _offset.y * y,
                         transform.position.z + _offset.z * z);
-                    Instantiate(_walls[Random.Range(0, _walls.Length)], nextPosition, Quaternion.identity);
+                    Instantiate(_walls[Random.Range(0, _walls.Length)], nextPosition, transform.rotation, transform);
                 }
             }
         }
