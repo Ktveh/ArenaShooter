@@ -108,8 +108,7 @@ public class ButtonSelectingSkin : MonoBehaviour
     private void OnSelected()
     {
         _currentNumber = 0;
-        _preview.sprite = _sprites[_currentNumber];
-        _price.text = _prices[_currentNumber].ToString();
+        Change();
     }
 
     private bool TryGetPrize(int number)

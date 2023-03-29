@@ -12,6 +12,7 @@ public class WeaponSound : MonoBehaviour
     [SerializeField] private AudioSource _takingOutWeapon;
     [SerializeField] private AudioSource _reloadingOutOfAmmo;
     [SerializeField] private AudioSource _reloadingAmmoLeft;
+    [SerializeField] private AudioSource _shutterSound;
 
     private CreatingSoundTarget _weaponCreatingSoundTarget;
     private WeaponAccessories _weaponAccessories;
@@ -56,6 +57,8 @@ public class WeaponSound : MonoBehaviour
             if (sound != null)
                 sound.Play();
         }
+
+        _shutterSound.Play();
     }
 
     public void Hide(bool isHiding)

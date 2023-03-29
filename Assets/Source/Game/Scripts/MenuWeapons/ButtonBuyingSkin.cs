@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(ButtonSelectingSkin))]
+[RequireComponent(typeof(ChangingColorImage))]
 public class ButtonBuyingSkin : MonoBehaviour
 {
     [SerializeField] private PlayerWallet _playerWallet;
@@ -11,12 +12,13 @@ public class ButtonBuyingSkin : MonoBehaviour
 
     private WeaponSkin.Names _skin;
     private ButtonSelectingSkin _buttonSelectingSkin;
+    private ChangingColorImage _changingColorImage;
     private int _price;
-    private bool _isCanBuy;
 
     private void Awake()
     {
         _buttonSelectingSkin = GetComponent<ButtonSelectingSkin>();
+        _changingColorImage = GetComponent<ChangingColorImage>();
     }
 
     private void OnEnable()
@@ -34,6 +36,11 @@ public class ButtonBuyingSkin : MonoBehaviour
         _skin = name;
         _price = price;
         _buying.interactable = isCanBuy;
+
+        if(isCanBuy)
+            _changingColorImage.ChangeToDefault();
+        else
+            _changingColorImage.ChangeToTarget();
     }
 
     private void OnBuying()
