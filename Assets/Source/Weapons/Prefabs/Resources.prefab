@@ -9875,7 +9875,7 @@ MonoBehaviour:
   _delayDisable: 2.5
   _delayExplode: 3
   _isHandGrenade: 1
-  _damage: 15
+  _damage: 20
 --- !u!114 &433171652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10220,7 +10220,7 @@ MonoBehaviour:
   _delayDisable: 2.5
   _delayExplode: 3
   _isHandGrenade: 1
-  _damage: 15
+  _damage: 20
 --- !u!114 &1816386837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10426,7 +10426,7 @@ MonoBehaviour:
   _delayDisable: 2.5
   _delayExplode: 3
   _isHandGrenade: 1
-  _damage: 15
+  _damage: 20
 --- !u!114 &4384980883868187478
 MonoBehaviour:
   m_ObjectHideFlags: 0
