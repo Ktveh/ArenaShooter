@@ -28,6 +28,8 @@ public class MenuUpgradingWeapon : MonoBehaviour
         
         foreach (var button in _buttonsSelectingAccessories)
             button.Down += OnSelectedAccessory;
+
+        _currentWeapon = _playerWeaponSelecting.CurrentWeapon;
     }
 
     private void OnDisable()
