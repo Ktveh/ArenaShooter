@@ -6,7 +6,6 @@ public class WeaponSkinSaving : MonoBehaviour
     private const string Current = "Current";
     private const string True = "True";
 
-
     public bool Check(Weapon.Types weapon, WeaponSkin.Names name)
     {
         return PlayerPrefs.GetString(weapon.ToString() + name.ToString() + Skin) == True;
@@ -20,6 +19,11 @@ public class WeaponSkinSaving : MonoBehaviour
     public void Save(Weapon.Types weapon, WeaponSkin.Names name)
     {
         PlayerPrefs.SetString(weapon.ToString() + name.ToString() + Skin, True);
+    }
+
+    public void Save(string weapon, WeaponSkin.Names name)
+    {
+        PlayerPrefs.SetString(weapon + name.ToString() + Skin, True);
     }
 
     public void SaveCurrent(Weapon.Types weapon, WeaponSkin.Names name)

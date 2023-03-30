@@ -3,8 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Game))]
 public class PlayerSaving : MonoBehaviour
 {
-    private const string Money = "Money";
-    private const string AmountKilledZombie = "AmountKilledZombie";
+    public const string Money = "Money";
+    public const string AmountKilledZombie = "AmountKilledZombie";
 
     [SerializeField] private PlayerWallet _playerWallet;
     [SerializeField] private PlayerZombieKillCounter _playerZombieKillCounter;
@@ -38,9 +38,9 @@ public class PlayerSaving : MonoBehaviour
     }
     //////////////////////////////////////////////////
 
-    public void Recover(int score)
+    public void Recover(string parameter, int value)
     {
-        PlayerPrefs.SetInt(AmountKilledZombie, score);
+        PlayerPrefs.SetInt(parameter, value);
     }
 
     private void OnChangedValue(int value)

@@ -43,6 +43,11 @@ public class WeaponSaving : MonoBehaviour
         _buttonBuyingGrenade.Buyed -= OnBuyed;
     }
 
+    public void Recover(string type, int amount)
+    {
+        PlayerPrefs.SetInt(type + Ammo, amount);
+    }
+    
     public bool TryGetAccessory(Weapon.Types weapon, WeaponAccessories.Type accessory)
     {
         return PlayerPrefs.GetString(weapon.ToString() + accessory.ToString()) == True;
@@ -93,7 +98,7 @@ public class WeaponSaving : MonoBehaviour
         Weapon.Types[] typesWeapons = _playerInventory.GetTypeAmmo();
 
         foreach (Weapon.Types weapon in typesWeapons)
-            PlayerPrefs.SetInt(weapon + Ammo, (int)_playerInventory.GetAmountAmmo(weapon) + (int)_playerWeaponSelecting.GetWeapon(weapon).CurrentAmountAmmo);
+            PlayerPrefs.SetInt(weapon.ToString() + Ammo, (int)_playerInventory.GetAmountAmmo(weapon) + (int)_playerWeaponSelecting.GetWeapon(weapon).CurrentAmountAmmo);
 
         PlayerPrefs.SetInt(Weapon.Types.Grenade.ToString() + Ammo, (int)_playerInventory.GetAmountAmmo(Weapon.Types.Grenade));
     }

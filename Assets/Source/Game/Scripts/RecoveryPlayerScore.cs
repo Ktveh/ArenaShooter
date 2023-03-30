@@ -27,7 +27,7 @@ public class RecoveryPlayerScore : MonoBehaviour
         Leaderboard.GetPlayerEntry(LeaderBoard, (result) =>
         {
             if (_playerSaving.CurrentScore != result.score)
-                _playerSaving.Recover(result.score);
+                _playerSaving.Recover(PlayerSaving.AmountKilledZombie, result.score);
         });
     }
 }

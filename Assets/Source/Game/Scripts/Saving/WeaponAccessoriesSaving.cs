@@ -14,4 +14,9 @@ public class WeaponAccessoriesSaving : MonoBehaviour
     {
         PlayerPrefs.SetString(weapon.ToString() + accessories.ToString() + IsInStock, True);
     }
+
+    public void Save(string weapon, WeaponAccessories.Type accessories)
+    {
+        PlayerPrefs.SetString(weapon + accessories.ToString() + IsInStock, True);
+    }
 }
