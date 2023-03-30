@@ -14,12 +14,10 @@ public class SavingToCloud : MonoBehaviour
     [SerializeField] private WeaponSkinSaving _weaponSkinSaving;
     [SerializeField] private WeaponAccessoriesSaving _weaponAccessoriesSaving;
 
+    public bool IsSuccess { get; private set; }
+
     public void OnEnable()
     {
-#if !UNITY_WEBGL || UNITY_EDITOR
-        return;
-#endif
-
         List<CloudSaving> weapons = new List<CloudSaving>();
 
         foreach (var weapon in _weapons)
@@ -49,7 +47,14 @@ public class SavingToCloud : MonoBehaviour
         }
 
         string jsonWeapons = JsonConvert.SerializeObject(weapons, Formatting.Indented);
+
+#if !UNITY_WEBGL || UNITY_EDITOR
+        IsSuccess = true;
+        return;
+#endif
+
         PlayerAccount.SetPlayerData(JsonConvert.SerializeObject(jsonWeapons), OnSuccess, OnError);
+        IsSuccess = true;
     }
 
     private void OnSuccess()

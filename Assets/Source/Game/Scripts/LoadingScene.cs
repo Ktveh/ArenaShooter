@@ -1,22 +1,41 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadingScene : MonoBehaviour
 {
     [SerializeField] private ZombieCounter _zombieCounter;
+    [SerializeField] private SavingToCloud _savingToCloud;
+
+    private Coroutine _coroutine;
 
     public void LoadCurrentLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (_coroutine == null)
+            _coroutine = StartCoroutine(WaitForSaving(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(_zombieCounter.NextLevel);
+        if (_coroutine == null)
+            _coroutine = StartCoroutine(WaitForSaving(_zombieCounter.NextLevel));
     }
 
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        if (_coroutine == null)
+            _coroutine = StartCoroutine(WaitForSaving(0));
+    }
+
+    private IEnumerator WaitForSaving(int buildIndex)
+    {
+        _savingToCloud.enabled = true;
+
+        while (_savingToCloud.IsSuccess == false)
+        {
+            yield return null;
+        }
+
+        SceneManager.LoadScene(buildIndex);
     }
 }

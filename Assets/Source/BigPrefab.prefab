@@ -418,6 +418,62 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1074191138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1074191139}
+  - component: {fileID: 1074191140}
+  m_Layer: 0
+  m_Name: CloudSaving
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1074191139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074191138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8959711875811874893}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1074191140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074191138}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16fbe022799ace44a4b97c06c964a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerWallet: {fileID: 558590858924419768}
+  _playerZombieKillCounter: {fileID: 558590858924419771}
+  _playerInventory: {fileID: 558590858924419769}
+  _weapons:
+  - {fileID: 7256300809469470569}
+  - {fileID: 4203907991968134755}
+  - {fileID: 2744305430526204089}
+  - {fileID: 8216696407016834610}
+  - {fileID: 6261318378755307614}
+  - {fileID: 5909348068677326934}
+  _weaponSkinSaving: {fileID: 5795320690582252752}
+  _weaponAccessoriesSaving: {fileID: 4757570557574135392}
 --- !u!1 &1597303170
 GameObject:
   m_ObjectHideFlags: 0
@@ -3699,6 +3755,10 @@ PrefabInstance:
       propertyPath: _playerZombieKillCounter
       value: 
       objectReference: {fileID: 558590858924419771}
+    - target: {fileID: 6722944159854677863, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _savingToCloud
+      value: 
+      objectReference: {fileID: 1074191140}
     - target: {fileID: 9005181943940936383, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _andexAds
       value: 
