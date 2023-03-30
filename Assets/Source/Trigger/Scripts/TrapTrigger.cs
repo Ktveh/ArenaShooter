@@ -8,6 +8,7 @@ public class TrapTrigger : MonoBehaviour
     [SerializeField] private Transform[] _objectsForHide;
     [SerializeField] private Sound _sound;
     [SerializeField] private ParticleSystem[] _effects;
+    [SerializeField] private bool _moveObjectHere;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,9 +20,11 @@ public class TrapTrigger : MonoBehaviour
 
     private void Start()
     {
-        foreach (var transform in _objectsForShow)
+        foreach (var obj in _objectsForShow)
         {
-            transform.gameObject.SetActive(false);
+            obj.gameObject.SetActive(false);
+            if (_moveObjectHere)
+                obj.position = transform.position;
         }
     }
 
