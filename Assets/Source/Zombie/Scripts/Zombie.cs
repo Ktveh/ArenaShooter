@@ -83,6 +83,7 @@ public class Zombie : MonoBehaviour
     public void RemoveLeg()
     {
         _hasLegs = false;
+        _animator.Crawl();
     }
 
     public void RemoveArm()
