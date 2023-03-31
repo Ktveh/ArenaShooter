@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour
 
     private float _value;
 
+    public float Value => _value;
+
     public event UnityAction<float> Changed;
     public event UnityAction TookDamage;
     public event UnityAction Deaded;
