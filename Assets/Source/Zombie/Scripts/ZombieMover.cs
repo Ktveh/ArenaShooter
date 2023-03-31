@@ -28,7 +28,8 @@ public class ZombieMover : MonoBehaviour
     {
         if (_target != null)
         {
-            _agent.destination = _target.transform.position;
+            if (_agent.enabled)
+                _agent.destination = _target.transform.position;
 
             _agent.stoppingDistance = 0;
             _agent.angularSpeed = 180;
@@ -54,6 +55,7 @@ public class ZombieMover : MonoBehaviour
 
         if (_zombie.IsDead)
         {
+            //_agent.enabled = false;
             StopMove();
             return;
         }

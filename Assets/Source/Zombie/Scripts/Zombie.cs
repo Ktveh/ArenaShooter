@@ -18,6 +18,7 @@ public class Zombie : MonoBehaviour
     [SerializeField] private Sound _sound;
 
     private PlayerHealth _playerHealth;
+    private bool _playerIsDead;
     private bool _hasLegs = true;
     private bool _hasArms = true;
     private bool _isDead = false;
@@ -48,10 +49,13 @@ public class Zombie : MonoBehaviour
         {
             _mover.StopMove();
             _playerHealth = other.gameObject.GetComponent<PlayerHealth>();
-            if (!_isDead && _ellapsedTime > _delayBetweenAttacks)
+            if (!_isDead)
             {
-                Attack();
-                _targeter.RemoveCurrentTarget();
+                if (_ellapsedTime >= _delayBetweenAttacks)
+                {
+                    Attack();
+                    _targeter.RemoveCurrentTarget();
+                }
             }
         }
     }
@@ -104,7 +108,6 @@ public class Zombie : MonoBehaviour
     private void Attack()
     {
         _ellapsedTime = 0;
-        
         if (_hasArms)
         {
             _playerHealth.Take(_damage);

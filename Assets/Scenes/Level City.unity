@@ -28917,6 +28917,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3586907231631746068, guid: bc4017b36b246554684d2f837a718bef, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4430846220853615172, guid: bc4017b36b246554684d2f837a718bef, type: 3}
       propertyPath: _zombieCounter
       value: 
