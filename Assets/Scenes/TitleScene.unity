@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4677847, g: 0.620219, b: 0.78313977, a: 1}
+  m_IndirectSpecularColor: {r: 0.46781015, g: 0.62058985, b: 0.7837032, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3474,6 +3474,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 289269032327668525, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
+      propertyPath: m_text
+      value: G
+      objectReference: {fileID: 0}
     - target: {fileID: 3574101424939331234, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3558,6 +3562,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3574101424939331294, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
+      propertyPath: _grenadeText
+      value: 
+      objectReference: {fileID: 814335606}
     - target: {fileID: 3574101424939331295, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
       propertyPath: m_Name
       value: Tutorial
@@ -3566,6 +3574,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6158256395244243557, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300002, guid: 04e6792f470c37741aa02ec74be1777b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
 --- !u!114 &807549591 stripped
@@ -3666,6 +3678,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 810331128}
   m_CullTransparentMesh: 1
+--- !u!114 &814335606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7640764103940620214, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
+  m_PrefabInstance: {fileID: 806740866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &821124086
 GameObject:
   m_ObjectHideFlags: 0
@@ -4506,7 +4529,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.3
+  m_fontSize: 59.05
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5675,6 +5698,10 @@ PrefabInstance:
     - target: {fileID: 4040383821486808717, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
       propertyPath: m_RootOrder
       value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4900667232060559761, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
+      propertyPath: m_RootOrder
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 6735370897745195430, guid: 0528e48f7dc85914a98d97a6d56db896, type: 3}
       propertyPath: m_Name

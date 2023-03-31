@@ -57,7 +57,7 @@ MonoBehaviour:
   _damageWithoutArms: 4
   _price: 50
   _delayAfterDead: 30
-  _delayBetweenAttacks: 2
+  _delayBetweenAttacks: 3
   _animator: {fileID: 6664062495062514116}
   _targeter: {fileID: 6664062495062514115}
   _mover: {fileID: 6664062495062514112}

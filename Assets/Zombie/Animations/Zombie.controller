@@ -181,9 +181,9 @@ AnimatorState:
   - {fileID: 5688332704476687917}
   - {fileID: 4461393759086742114}
   - {fileID: -859710274078871890}
+  - {fileID: 2501444616189022613}
   - {fileID: -6862312412636403384}
   - {fileID: 4115361681034392730}
-  - {fileID: 2501444616189022613}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -350,37 +350,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Walk
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Crawl
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Attack
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Dead
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Die
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -459,9 +459,9 @@ AnimatorState:
   - {fileID: 6508089249194929449}
   - {fileID: -4168992260922371750}
   - {fileID: 1651631421885864546}
+  - {fileID: 5456732191813327878}
   - {fileID: 2971639987174201627}
   - {fileID: -718956790089965883}
-  - {fileID: 5456732191813327878}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -664,9 +664,9 @@ AnimatorState:
   - {fileID: -1943741102181780003}
   - {fileID: -1803122865519531235}
   - {fileID: 2358306377171337442}
-  - {fileID: 6303261567703017509}
-  - {fileID: -3276895779859386477}
   - {fileID: 33634503256161090}
+  - {fileID: -3276895779859386477}
+  - {fileID: 6303261567703017509}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0

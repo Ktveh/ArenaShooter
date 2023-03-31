@@ -7,7 +7,7 @@ public class StartPosition : MonoBehaviour
     [SerializeField] private Transform _player;
     [SerializeField] private Transform[] _positions;
 
-    private void Start()
+    private void Awake()
     {
         if (_positions.Length > 0)
         {
