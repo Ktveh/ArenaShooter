@@ -70,8 +70,16 @@ public class WeaponShooting : MonoBehaviour
             hits = Physics.RaycastAll(camera.position, camera.forward, _maxDistance, _layerMask);
             int amount = hits.Length < _maximumNumberTargetsHit ? hits.Length : _maximumNumberTargetsHit;
 
-            for (int i = hits.Length - 1; i > hits.Length - 1 - amount; i--)
+            for (int i = 0; i < amount; i++)
+            {
                 MakeDamage(hits[i]);
+            }
+
+            //for (int i = hits.Length - 1; i > hits.Length - 1 - amount; i--)
+            //{
+            //    MakeDamage(hits[i]);
+            //    Debug.Log("Make damage: " + hits[i].collider.gameObject);
+            //}
         }
         else if (_weapon.Type == Weapon.Types.Shotgun)
         {
@@ -102,6 +110,8 @@ public class WeaponShooting : MonoBehaviour
         }
         else
         {
+            Debug.Log("Hit default");
+
             _isHited = false;
 
             if (Physics.Raycast(camera.position, camera.forward, out hit, _maxDistance, _layerMask))

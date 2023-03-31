@@ -442,13 +442,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1074191138}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -551.73865, y: -366.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5629789432314874393}
-  m_RootOrder: 8
+  m_Father: {fileID: 8959711875811874893}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1074191140
 MonoBehaviour:
@@ -1176,6 +1176,62 @@ Transform:
   m_Father: {fileID: 558590858924419770}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5803139720443647346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4524103479061008264}
+  - component: {fileID: 7760751681508039112}
+  m_Layer: 0
+  m_Name: CloudSaving
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4524103479061008264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803139720443647346}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -551.73865, y: -366.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5629789432314874393}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7760751681508039112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803139720443647346}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a16fbe022799ace44a4b97c06c964a8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerWallet: {fileID: 558590858924419768}
+  _playerZombieKillCounter: {fileID: 558590858924419771}
+  _playerInventory: {fileID: 558590858924419769}
+  _weapons:
+  - {fileID: 7256300809469470569}
+  - {fileID: 4203907991968134755}
+  - {fileID: 2744305430526204089}
+  - {fileID: 8216696407016834610}
+  - {fileID: 6261318378755307614}
+  - {fileID: 5909348068677326934}
+  _weaponSkinSaving: {fileID: 5795320690582252752}
+  _weaponAccessoriesSaving: {fileID: 4757570557574135392}
 --- !u!1 &8871835627184102876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1268,7 @@ Transform:
   - {fileID: 8310791876684180213}
   - {fileID: 8959711875811874893}
   - {fileID: 1111203183676517452}
-  - {fileID: 1074191139}
+  - {fileID: 4524103479061008264}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4214,6 +4270,18 @@ PrefabInstance:
       propertyPath: _shutterSound
       value: 
       objectReference: {fileID: 412648647}
+    - target: {fileID: 655375143592187658, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: _damage
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 655375143592187658, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: _maxRandomDirection
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 655375143592187658, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: _minRandomDirection
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 655375143592187703, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: _grenades.Array.data[0]
       value: 
@@ -4614,6 +4682,10 @@ PrefabInstance:
       propertyPath: _defaultDecals.Array.data[39]
       value: 
       objectReference: {fileID: 4200307560327940100}
+    - target: {fileID: 2946589139840870741, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 7954577337513133825, guid: f112165ee05ec9a4d8de0d1c90540a2b, type: 3}
     - target: {fileID: 2962793663853119762, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: _shutterSound
       value: 
@@ -4982,6 +5054,10 @@ PrefabInstance:
       propertyPath: _shutterSound
       value: 
       objectReference: {fileID: 412648647}
+    - target: {fileID: 3313354125144287598, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: _maxDistance
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 3669399216255030196, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: _bulletsCases.Array.data[0]
       value: 
