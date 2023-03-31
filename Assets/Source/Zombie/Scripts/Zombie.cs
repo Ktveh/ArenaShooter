@@ -108,6 +108,8 @@ public class Zombie : MonoBehaviour
     private void Attack()
     {
         _ellapsedTime = 0;
+        if (_playerHealth == null || _playerHealth.Value <= 0)
+            return;
         if (_hasArms)
         {
             _playerHealth.Take(_damage);
