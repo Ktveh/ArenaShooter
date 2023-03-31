@@ -5,8 +5,8 @@ using UnityEngine;
 public class RecoveryPlayerScore : MonoBehaviour
 {
     private const string LeaderBoard = "LeaderBoard";
-
-    [SerializeField] private YandexInitialization _yandexInitialization;
+    private const string IsFirstLaunch = "IsFirstLaunch";
+    private const string False = "False";
 
     private PlayerSaving _playerSaving;
 
@@ -14,20 +14,13 @@ public class RecoveryPlayerScore : MonoBehaviour
     {
         _playerSaving = GetComponent<PlayerSaving>();
 
-        _yandexInitialization.Completed += OnCompleted;
-    }
-
-    private void OnDisable()
-    {
-        _yandexInitialization.Completed -= OnCompleted;
-    }
-
-    private void OnCompleted()
-    {
-        Leaderboard.GetPlayerEntry(LeaderBoard, (result) =>
+        if (PlayerPrefs.GetString(IsFirstLaunch) != False)
         {
-            if (_playerSaving.CurrentScore != result.score)
-                _playerSaving.Recover(PlayerSaving.AmountKilledZombie, result.score);
-        });
+            Leaderboard.GetPlayerEntry(LeaderBoard, (result) =>
+            {
+                if (_playerSaving.CurrentScore != result.score)
+                    _playerSaving.Recover(PlayerSaving.AmountKilledZombie, result.score);
+            });
+        }
     }
 }

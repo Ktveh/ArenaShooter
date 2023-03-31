@@ -43,9 +43,6 @@ public class CheckingSaving : MonoBehaviour
 
     private void OnPlayerAuthorizated()
     {
-        Leaderboard.GetPlayerEntry(LeaderBoard, (result) => _score = result.score);
-
-        if (_score != _playerSaving.CurrentScore)
-            _gettingCloudSaving.enabled = true;
+        _gettingCloudSaving.enabled = true;
     }
 }

@@ -6,8 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(WeaponSkinSaving))]
 public class RestoringLocalSave : MonoBehaviour
 {
+    private const string Levels = "Levels";
+
     [SerializeField] private GettingCloudSaving _gettingCloudSaving;
-    [SerializeField] private Weapon[] _weapons;
 
     private PlayerSaving _playerSaving;
     private WeaponSaving _weaponSaving;
@@ -37,6 +38,7 @@ public class RestoringLocalSave : MonoBehaviour
         _playerSaving.Recover(PlayerSaving.Money, _cloudSavings[0].Money);
         _playerSaving.Recover(PlayerSaving.AmountKilledZombie, _cloudSavings[0].AmountKilledZombie);
         _weaponSaving.Recover(Weapon.Types.Grenade.ToString(), _cloudSavings[0].AmountGrenade);
+        PlayerPrefs.SetInt(Levels, _cloudSavings[0].CurrentLevel);
     }
 
     private void SetWeapon()

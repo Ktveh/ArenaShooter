@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class GettingCloudSaving : MonoBehaviour
 {
-    private string _jsonDatas;
+    private string _jsonData;
     private List<CloudSaving> _datas;
 
     private void OnEnable()
     {
-        PlayerAccount.GetPlayerData((data) => _jsonDatas = data);
-        _datas = JsonConvert.DeserializeObject<List<CloudSaving>>(_jsonDatas);
+        PlayerAccount.GetPlayerData((data) => _jsonData = data);
+        _datas = JsonConvert.DeserializeObject<List<CloudSaving>>(_jsonData);
     }
 
     public bool Try(out CloudSaving[] cloudSaving)

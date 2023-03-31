@@ -46,14 +46,14 @@ public class SavingToCloud : MonoBehaviour
             weapons.Add(newWeapon);
         }
 
-        string jsonWeapons = JsonConvert.SerializeObject(weapons, Formatting.Indented);
+        string jsonData = JsonConvert.SerializeObject(weapons, Formatting.Indented);
 
 #if !UNITY_WEBGL || UNITY_EDITOR
         IsSuccess = true;
         return;
 #endif
 
-        PlayerAccount.SetPlayerData(JsonConvert.SerializeObject(jsonWeapons), OnSuccess, OnError);
+        PlayerAccount.SetPlayerData(jsonData, OnSuccess, OnError);
         IsSuccess = true;
     }
 
