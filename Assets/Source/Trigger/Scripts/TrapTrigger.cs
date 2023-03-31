@@ -37,14 +37,14 @@ public class TrapTrigger : MonoBehaviour
             effect.Play();
         }
 
-        foreach (var transform in _objectsForShow)
+        foreach (var obj in _objectsForShow)
         {
-            transform.gameObject.SetActive(true);
+            obj.gameObject.SetActive(true);
         }
 
-        foreach (var transform in _objectsForHide)
+        foreach (var obj in _objectsForHide)
         {
-            transform.gameObject.SetActive(false);
+            obj.gameObject.SetActive(false);
         }
 
         gameObject.SetActive(false);
