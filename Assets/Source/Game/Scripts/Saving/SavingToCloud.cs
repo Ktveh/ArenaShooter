@@ -53,17 +53,7 @@ public class SavingToCloud : MonoBehaviour
         return;
 #endif
 
-        PlayerAccount.SetPlayerData(jsonData, OnSuccess, OnError);
+        PlayerAccount.SetPlayerData(jsonData);
         IsSuccess = true;
-    }
-
-    private void OnSuccess()
-    {
-        Debug.Log("Player data saved in the cloud");
-    }
-    
-    private void OnError(string error)
-    {
-        Debug.Log("Error: " + error);
     }
 }

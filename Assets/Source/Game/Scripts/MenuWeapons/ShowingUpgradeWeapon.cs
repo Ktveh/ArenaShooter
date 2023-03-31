@@ -12,6 +12,8 @@ public class ShowingUpgradeWeapon : MonoBehaviour
     private void Awake()
     {
         _menuUpgradingWeapon = GetComponentInChildren<MenuUpgradingWeapon>();
+
+        _menuUpgradingWeapon.gameObject.SetActive(false);
     }
 
     private void OnEnable()

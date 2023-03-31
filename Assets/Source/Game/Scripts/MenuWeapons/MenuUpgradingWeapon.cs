@@ -34,8 +34,8 @@ public class MenuUpgradingWeapon : MonoBehaviour
 
     private void OnDisable()
     {
-        _menu.Showed += OnShowed;
-        _andexAds.Upgraded += OnRewarded;
+        _menu.Showed -= OnShowed;
+        _andexAds.Upgraded -= OnRewarded;
 
         foreach (var button in _buttonsSelectingWeapons)
             button.Down -= OnSelectedWeapon;

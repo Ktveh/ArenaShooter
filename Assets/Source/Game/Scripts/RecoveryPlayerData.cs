@@ -6,11 +6,9 @@ public class RecoveryPlayerData : MonoBehaviour
 {
     private const int Multiplier = 10;
     private const string LeaderBoard = "LeaderBoard";
-    private const string IsFirstLaunch = "IsFirstLaunch";
-    private const string False = "False";
 
-    [SerializeField] private RewritingLocalSave _rewritedLocalSave;
     [SerializeField] private SavingToCloud _savingToCloud;
+    [SerializeField] private CheckingSaving _checkingSaving;
 
     private PlayerSaving _playerSaving;
     private int _score;
@@ -18,29 +16,31 @@ public class RecoveryPlayerData : MonoBehaviour
 
     private void Awake()
     {
-        if(PlayerPrefs.GetString(IsFirstLaunch) == False)
-            enabled = false;
-
         _playerSaving = GetComponent<PlayerSaving>();
     }
 
     private void OnEnable()
     {
-        _rewritedLocalSave.Rewrited += OnRewrited;
+        _checkingSaving.SaveNotFound += OnSaveNotFound;
     }
 
     private void OnDisable()
     {
-        _rewritedLocalSave.Rewrited -= OnRewrited;
+        _checkingSaving.SaveNotFound -= OnSaveNotFound;
     }
 
-    private void OnRewrited()
+    private void OnSaveNotFound()
     {
-        Leaderboard.GetPlayerEntry(LeaderBoard, (result) => _score = result.score);
+        Leaderboard.GetPlayerEntry(LeaderBoard, OnSuccess);
+    }
+
+    private void OnSuccess(LeaderboardEntryResponse result)
+    {
+        _score = result.score;
         _playerSaving.Recover(PlayerSaving.AmountKilledZombie, _score);
         _money = _score * Multiplier;
         _playerSaving.Recover(PlayerSaving.Money, _money);
         _savingToCloud.enabled = true;
-        PlayerPrefs.SetString(IsFirstLaunch, False);
+        enabled = false;
     }
 }

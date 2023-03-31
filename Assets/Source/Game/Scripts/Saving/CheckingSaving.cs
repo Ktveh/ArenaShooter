@@ -1,17 +1,19 @@
 using Agava.YandexGames;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(GettingCloudSaving))]
 public class CheckingSaving : MonoBehaviour
 {
     [SerializeField] private YandexInitialization _yandexInitialization;
-    [SerializeField] private PlayerSaving _playerSaving;
     [SerializeField] private RewritingLocalSave _rewritingLocalSave;
 
     private GettingCloudSaving _gettingCloudSaving;
 
+    public event UnityAction SaveNotFound;
+
     private void Awake()
-    {
+    { 
         _gettingCloudSaving = GetComponent<GettingCloudSaving>();
     }
 
@@ -33,8 +35,11 @@ public class CheckingSaving : MonoBehaviour
             return;
         }
 
-        if (_gettingCloudSaving.Try(out CloudSaving[] cloudSavings))
+        if (_gettingCloudSaving.IsSuccess)
             _rewritingLocalSave.enabled = true;
+
+        if (_gettingCloudSaving.IsError)
+            SaveNotFound?.Invoke();
     }
 
     private void OnPlayerAuthorizated()
