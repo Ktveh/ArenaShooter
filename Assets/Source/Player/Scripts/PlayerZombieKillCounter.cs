@@ -28,6 +28,11 @@ public class PlayerZombieKillCounter : MonoBehaviour
             zombie.Dead -= OnDead;
     }
 
+    public void Recover(int value)
+    {
+        Count = value;
+    }
+
     private void OnDead(Zombie zombie)
     {
         Changed?.Invoke(++Count);

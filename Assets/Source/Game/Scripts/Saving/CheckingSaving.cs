@@ -4,15 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(GettingCloudSaving))]
 public class CheckingSaving : MonoBehaviour
 {
-    private const string LeaderBoard = "LeaderBoard";
-
     [SerializeField] private YandexInitialization _yandexInitialization;
     [SerializeField] private PlayerSaving _playerSaving;
-    [SerializeField] private RestoringLocalSave _restoringLocalSave;
+    [SerializeField] private RewritingLocalSave _rewritingLocalSave;
 
     private GettingCloudSaving _gettingCloudSaving;
-
-    private int _score;
 
     private void Awake()
     {
@@ -31,14 +27,14 @@ public class CheckingSaving : MonoBehaviour
 
     private void Update()
     {
-        if (_restoringLocalSave.enabled)
+        if (_rewritingLocalSave.enabled)
         {
             enabled = false;
             return;
         }
 
         if (_gettingCloudSaving.Try(out CloudSaving[] cloudSavings))
-            _restoringLocalSave.enabled = true;
+            _rewritingLocalSave.enabled = true;
     }
 
     private void OnPlayerAuthorizated()

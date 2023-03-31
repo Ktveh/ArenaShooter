@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerSaving))]
 [RequireComponent(typeof(WeaponSaving))]
 [RequireComponent(typeof(WeaponAccessoriesSaving))]
 [RequireComponent(typeof(WeaponSkinSaving))]
-public class RestoringLocalSave : MonoBehaviour
+public class RewritingLocalSave : MonoBehaviour
 {
     private const string Levels = "Levels";
 
@@ -15,6 +16,8 @@ public class RestoringLocalSave : MonoBehaviour
     private WeaponAccessoriesSaving _weaponAccessoriesSaving;
     private WeaponSkinSaving _weaponSkinSaving;
     private CloudSaving[] _cloudSavings;
+
+    public event UnityAction Rewrited;
 
     private void Awake()
     {
@@ -30,6 +33,7 @@ public class RestoringLocalSave : MonoBehaviour
         {
             SetPlayer();
             SetWeapon();
+            Rewrited?.Invoke();
         }
     }
 

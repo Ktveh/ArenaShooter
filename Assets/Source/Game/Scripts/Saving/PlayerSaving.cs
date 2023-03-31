@@ -41,6 +41,8 @@ public class PlayerSaving : MonoBehaviour
     public void Recover(string parameter, int value)
     {
         PlayerPrefs.SetInt(parameter, value);
+        _playerWallet.SetValue(PlayerPrefs.GetInt(Money));
+        _playerZombieKillCounter.Recover(PlayerPrefs.GetInt(AmountKilledZombie));
     }
 
     private void OnChangedValue(int value)
