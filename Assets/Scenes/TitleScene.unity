@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4677847, g: 0.620219, b: 0.78313977, a: 1}
+  m_IndirectSpecularColor: {r: 0.46781015, g: 0.62058985, b: 0.7837032, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -436,8 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Warehouse
-  _scene: 3
-  _isLock: 1
+  _scene: 2
+  _isLock: 0
 --- !u!1 &145586409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6664062495062514125, guid: d82cc8ed24709384e904387d062b29d1, type: 3}
@@ -3634,7 +3634,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 53.95
+  m_fontSize: 59.05
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
