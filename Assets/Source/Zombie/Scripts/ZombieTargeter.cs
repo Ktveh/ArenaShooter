@@ -47,7 +47,7 @@ public class ZombieTargeter : MonoBehaviour
         RandomTarget(transform.position, true);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         _ellapsedTime += Time.deltaTime;
         FoundTargets(_angleDetected, _forwardDistanceDetected);
@@ -58,8 +58,6 @@ public class ZombieTargeter : MonoBehaviour
             _mainTarget = null;
             _soundTarget = null;
             _zombieTargeter = null;
-            if (_levelAttective > 0)
-                _levelAttective--;
             _durationCurrenTarget = Random.Range(3, 7);
             RemoveCurrentTarget();
         }
@@ -67,14 +65,13 @@ public class ZombieTargeter : MonoBehaviour
 
     public void RemoveCurrentTarget(bool setAttective = false)
     {
-        if (_levelAttective < 3)
+        if (_levelAttective > 0)
+            _levelAttective--;
+        if (setAttective && _levelAttective < 3)
         {
-            if (setAttective)
-            {
-                _levelAttective++;
-            }
-            RandomTarget(transform.position, true);
+            _levelAttective++;
         }
+        RandomTarget(transform.position, true);   
     }
 
     private void SetCurrentTarget()
@@ -110,7 +107,7 @@ public class ZombieTargeter : MonoBehaviour
 
         GetRaycast(transform.TransformDirection(new Vector3(x, 0, z)), distance);
 
-        if (x != 0)
+        if (x != 0 && _levelAttective > 2)
         {
             GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
         }
@@ -130,20 +127,20 @@ public class ZombieTargeter : MonoBehaviour
                 RandomTarget(_mainTarget.transform.position, false);
                 _levelAttective = 3;
             }
-            else if (hit.collider.gameObject.GetComponent<ZombieTargeter>() && _levelAttective <= 1)
+            else if (hit.collider.gameObject.GetComponent<ZombieTargeter>())
             {
                 _zombieTargeter = hit.collider.gameObject.GetComponent<ZombieTargeter>();
-                if (_zombieTargeter.LevelAttentive == 3)
+                if (_zombieTargeter.LevelAttentive == 3 && _levelAttective < 3)
                 {
                     RandomTarget(_zombieTargeter.CurrentTarget.transform.position, false);
                     _levelAttective = 2;
                 }
-                if (_zombieTargeter.LevelAttentive == 2)
+                if (_zombieTargeter.LevelAttentive == 2 && _levelAttective < 2)
                 {
                     RandomTarget(_zombieTargeter.CurrentTarget.transform.position, true);
                     _levelAttective = 1;
                 }
-                else
+                else if (_levelAttective < 2)
                 {
                     _zombieTargeter = null;
                     _levelAttective = 1;
@@ -156,7 +153,7 @@ public class ZombieTargeter : MonoBehaviour
     {
         _ellapsedTime = 0;
         position = new Vector3(
-            position.x + (transform.position.x < position.x ? -0.5f : 0.5f), 
+            position.x + (transform.position.x < position.x ? -0.5f : 0.5f),
             position.y,
             position.z + (transform.position.z < position.z ? -0.5f : 0.5f));
         if (_randomTarget == null)

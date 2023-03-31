@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 1, z: 0}
-  _angleDetected: 45
+  _angleDetected: 75
   _forwardDistanceDetected: 70
   _aroundDistanceDetected: 10
-  _amountRaycasts: 18
+  _amountRaycasts: 36
   _template: {fileID: 6084071706416295635, guid: 8efa81264ef77914eb37fe92ee6dff2e, type: 3}
   _durationCurrenTarget: 5
 --- !u!114 &6664062495062514116

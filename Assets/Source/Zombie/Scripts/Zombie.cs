@@ -66,6 +66,8 @@ public class Zombie : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        if (_targeter.LevelAttentive < 2)
+            damage *= 2;
         if (_health > 0)
         {
             _health -= damage;
@@ -83,6 +85,7 @@ public class Zombie : MonoBehaviour
     public void RemoveLeg()
     {
         _hasLegs = false;
+        _animator.Crawl();
     }
 
     public void RemoveArm()

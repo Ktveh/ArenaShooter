@@ -60,8 +60,10 @@ public class ZombieMover : MonoBehaviour
 
         if (!_agent.hasPath)
         {
-            StopMove();
-            //_targeter.RemoveCurrentTarget();
+            if (_targeter.LevelAttentive < 3)
+                StopMove();
+            else
+                _targeter.RemoveCurrentTarget();
             //StartMove();
         }
     }

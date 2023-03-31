@@ -25,7 +25,6 @@ public class ZombieLimb : MonoBehaviour
         if (_health > 0)
         {
             _health -= damage;
-            _zombie.TakeDamage(damage);
             if (_health <= 0)
             {
                 transform.localScale = Vector3.zero;
@@ -44,6 +43,7 @@ public class ZombieLimb : MonoBehaviour
                     _zombie.TakeDamage(_zombie.Health);
                 }
             }
+            _zombie.TakeDamage(damage);
         }
     }
 }
