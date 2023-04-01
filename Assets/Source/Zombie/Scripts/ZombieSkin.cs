@@ -20,7 +20,6 @@ public class ZombieSkin : MonoBehaviour
         if (_materials.Count <= 0)
             return;
 
-        _bonusMaterials.Add(_materials[0]);
         if (_hasBonusMaterials)
         {
             if (PlayerPrefs.GetInt(AmountKilledZombie) > 1000)
@@ -31,7 +30,7 @@ public class ZombieSkin : MonoBehaviour
                 _bonusMaterials.Add(_gold);
         }
 
-        if (Random.Range(0, 100) == 0)
+        if (Random.Range(0, 100) == 0 && _hasBonusMaterials && _bonusMaterials.Count > 0)
             _renderer.material = _bonusMaterials[Random.Range(0, _bonusMaterials.Count)];
         else
             _renderer.material = _materials[Random.Range(0, _materials.Count)];

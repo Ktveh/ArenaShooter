@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Warehouse
-  _scene: 2
+  _scene: 3
   _isLock: 0
 --- !u!1 &145586409 stripped
 GameObject:
