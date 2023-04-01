@@ -5058,6 +5058,10 @@ PrefabInstance:
       propertyPath: _maxDistance
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 3313354125144287598, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: _layerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3669399216255030196, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: _bulletsCases.Array.data[0]
       value: 

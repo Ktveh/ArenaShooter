@@ -14,17 +14,24 @@ public class SavingToCloud : MonoBehaviour
     [SerializeField] private WeaponSkinSaving _weaponSkinSaving;
     [SerializeField] private WeaponAccessoriesSaving _weaponAccessoriesSaving;
 
+    private int _amountKilledZombie;
+
     public bool IsSuccess { get; private set; }
 
     public void OnEnable()
     {
         List<CloudSaving> weapons = new List<CloudSaving>();
 
+        if (_playerZombieKillCounter.Count == 0)
+            _amountKilledZombie = PlayerPrefs.GetInt(PlayerSaving.AmountKilledZombie);
+        else
+            _amountKilledZombie = _playerZombieKillCounter.Count;
+
         foreach (var weapon in _weapons)
         {
             CloudSaving newWeapon = new CloudSaving();
 
-            newWeapon.AmountKilledZombie = _playerZombieKillCounter.Count;
+            newWeapon.AmountKilledZombie = _amountKilledZombie;
             newWeapon.Money = _playerWallet.Value;
             newWeapon.CurrentLevel = PlayerPrefs.GetInt(Levels);
             newWeapon.AmountGrenade = (int)_playerInventory.GetAmountAmmo(Weapon.Types.Grenade); ;
