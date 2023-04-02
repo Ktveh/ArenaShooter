@@ -44,8 +44,6 @@ public class CheckingSaving : MonoBehaviour
             {
                 _rewritingLocalSave.enabled = true;
             }
-
-            enabled = false;
         }
     }
 
