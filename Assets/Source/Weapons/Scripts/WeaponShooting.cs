@@ -110,8 +110,6 @@ public class WeaponShooting : MonoBehaviour
         }
         else
         {
-            Debug.Log("Hit default");
-
             _isHited = false;
 
             if (Physics.Raycast(camera.position, camera.forward, out hit, _maxDistance, _layerMask))

@@ -3,16 +3,16 @@ using Newtonsoft.Json;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CheckingSaving))]
 public class GettingCloudSaving : MonoBehaviour
 {
-    private string _jsonData;
+    private CheckingSaving _checkingSaving;
     private List<CloudSaving> _datas;
-
-    public bool IsSuccess { get; private set; }
-    public bool IsError { get; private set; }
+    private string _jsonData;
 
     private void OnEnable()
     {
+        _checkingSaving = GetComponent<CheckingSaving>();
         PlayerAccount.GetPlayerData(OnSuccess, OnError);
     }
 
@@ -28,11 +28,11 @@ public class GettingCloudSaving : MonoBehaviour
     private void OnSuccess(string data)
     {
         _jsonData = data;
-        IsSuccess = true;
+        _checkingSaving.SaveScore();
     }
 
     private void OnError(string error)
     {
-        IsError = true;
+        _checkingSaving.RecoverScore();
     }
 }

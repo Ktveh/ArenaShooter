@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,7 +10,6 @@ public class CheckingSaving : MonoBehaviour
 
     private GettingCloudSaving _gettingCloudSaving;
     private SavingToCloud _savingToCloud;
-    private bool _localScoreMore;
 
     public event UnityAction SaveNotFound;
 
@@ -31,41 +29,33 @@ public class CheckingSaving : MonoBehaviour
         _yandexInitialization.PlayerAuthorizated -= OnPlayerAuthorizated;
     }
 
-    private void Update()
+    public void SaveScore()
     {
-        if (_gettingCloudSaving.IsSuccess)
+        if (_gettingCloudSaving.Try(out CloudSaving[] cloudSavings))
         {
-            if (_localScoreMore == false)
+            int scoreInCloud = cloudSavings[0].AmountKilledZombie;
+            int scoreInLocal = PlayerPrefs.GetInt(PlayerSaving.AmountKilledZombie);
+
+            if (scoreInLocal > scoreInCloud)
+            {
+                _savingToCloud.enabled = true;
+            }
+            else if (scoreInCloud > scoreInLocal)
             {
                 _rewritingLocalSave.enabled = true;
-                enabled = false;
             }
-        }
 
-        if (_gettingCloudSaving.IsError)
-        {
-            SaveNotFound?.Invoke();
             enabled = false;
         }
+    }
+
+    public void RecoverScore()
+    {
+        SaveNotFound?.Invoke();
     }
 
     private void OnPlayerAuthorizated()
     {
         _gettingCloudSaving.enabled = true;
-
-        if (_gettingCloudSaving.Try(out CloudSaving[] cloudSavings))
-        {
-            Debug.Log("Geted cloud saving");
-
-            int scoreInCloud = cloudSavings[0].AmountKilledZombie;
-            int scoreInLocal = PlayerPrefs.GetInt(PlayerSaving.AmountKilledZombie);
-            _localScoreMore = scoreInLocal > scoreInCloud;
-
-            if (_localScoreMore)
-            {
-                _savingToCloud.enabled = true;
-                enabled = false;
-            }
-        }
     }
 }

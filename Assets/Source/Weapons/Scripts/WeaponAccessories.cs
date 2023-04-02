@@ -32,7 +32,7 @@ public class WeaponAccessories : MonoBehaviour
     public Sprite IconSilencer => _iconSilencer;
     public int PriceScope1 => _weaponAccessoriesSaving.Check(_weapon.Type, Type.Scope1) ? 0 : _priceScope1;
     public int PriceScope2 => _weaponAccessoriesSaving.Check(_weapon.Type, Type.Scope2) ? 0 : _priceScope2;
-    public int PriceSilencer => _priceSilencer;
+    public int PriceSilencer => _weaponAccessoriesSaving.Check(_weapon.Type, Type.Silencer) ? 0 : _priceSilencer;
     public bool IsEnabledScope => _scopeRenderer != null && IsEnabledScope1 == false && IsEnabledScope2 == false;
     public bool IsEnabledScope1 => _scope1Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope1);
     public bool IsEnabledScope2 => _scope2Renderer != null && _weaponSaving.TryGetAccessory(_weapon.Type, Type.Scope2);
