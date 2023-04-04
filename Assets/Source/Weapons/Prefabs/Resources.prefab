@@ -18379,14 +18379,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrenadeLauncherBullet
       objectReference: {fileID: 0}
-    - target: {fileID: 4384980884642163136, guid: 19d285f04b2f2d24aa86e6276e9ff855, type: 3}
-      propertyPath: _radius
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4384980884642163136, guid: 19d285f04b2f2d24aa86e6276e9ff855, type: 3}
-      propertyPath: _weaponShooting
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19d285f04b2f2d24aa86e6276e9ff855, type: 3}
 --- !u!4 &834874307083701213 stripped

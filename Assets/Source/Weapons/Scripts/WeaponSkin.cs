@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class WeaponSkin : MonoBehaviour
 {
+    private const float SmallSize = 300f;
+    private const float MediumSize = 190f;
+    private const float BigSize = 50f;
     private const string Skin = "Skin";
     private const string Skin1 = "Skin1";
     private const string Skin2 = "Skin2";
@@ -11,6 +14,11 @@ public class WeaponSkin : MonoBehaviour
     private const string Skin6 = "Skin6";
     private const string Skin7 = "Skin7";
     private const string Skin8 = "Skin8";
+    private const string Skin9 = "Skin9";
+    private const string Skin10 = "Skin10";
+    private const string Skin11 = "Skin11";
+    private const string Skin12 = "Skin12";
+    private const string Skin13 = "Skin13";
 
     [SerializeField] private SkinnedMeshRenderer _skinnedMeshRenderer;
     [SerializeField] private Material _defaultSkin;
@@ -23,6 +31,11 @@ public class WeaponSkin : MonoBehaviour
     [SerializeField] private Material _skin6;
     [SerializeField] private Material _skin7;
     [SerializeField] private Material _skin8;
+    [SerializeField] private Material _skin9;
+    [SerializeField] private Material _skin10;
+    [SerializeField] private Material _skin11;
+    [SerializeField] private Material _skin12;
+    [SerializeField] private Material _skin13;
 
     private WeaponInput _getting;
     private Weapon _weapon;
@@ -39,7 +52,12 @@ public class WeaponSkin : MonoBehaviour
         Skin5,
         Skin6,
         Skin7,
-        Skin8
+        Skin8,
+        Skin9,
+        Skin10,
+        Skin11,
+        Skin12,
+        Skin13
     }
 
     private void Awake()
@@ -79,9 +97,43 @@ public class WeaponSkin : MonoBehaviour
             case Skin8:
                 _skinnedMeshRenderer.material = _skin8;
                 break;
+            case Skin9:
+                _skinnedMeshRenderer.material = _skin9;
+                break;
+            case Skin10:
+                _skinnedMeshRenderer.material = _skin10;
+                break;
+            case Skin11:
+                _skinnedMeshRenderer.material = _skin11;
+                break;
+            case Skin12:
+                _skinnedMeshRenderer.material = _skin12;
+                break;
+            case Skin13:
+                _skinnedMeshRenderer.material = _skin13;
+                break;
             default:
                 _skinnedMeshRenderer.material = _defaultSkin;
                 break;
+        }
+
+        if (name != "")
+        {
+            if (name != Names.Default.ToString())
+            {
+                switch (_weapon.Type)
+                {
+                    case Weapon.Types.Rifle:
+                        _skinnedMeshRenderer.material.mainTextureScale = new Vector2(BigSize, BigSize);
+                        break;
+                    case Weapon.Types.SniperRifle:
+                        _skinnedMeshRenderer.material.mainTextureScale = new Vector2(SmallSize, SmallSize);
+                        break;
+                    default:
+                        _skinnedMeshRenderer.material.mainTextureScale = new Vector2(MediumSize, MediumSize);
+                        break;
+                }
+            }
         }
     }
 }

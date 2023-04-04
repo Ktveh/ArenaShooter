@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class WeaponSkinSaving : MonoBehaviour
 {
-    private const string Skin = "Skin";
-    private const string Current = "Current";
+    public const string Skin = "Skin";
+    public const string Current = "Current";
+
     private const string True = "True";
 
     public bool Check(Weapon.Types weapon, WeaponSkin.Names name)

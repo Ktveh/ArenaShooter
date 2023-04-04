@@ -73,34 +73,31 @@ public class MenuUpgradingWeapon : MonoBehaviour
                     break;
 
                 case WeaponAccessories.Type.Scope1:
-                    Upgrade(weaponAccessories.IsEnabledScope1, weaponAccessories.PriceScope1, type);
+                    Upgrade(weaponAccessories.PriceScope1, type);
                     break;
 
                 case WeaponAccessories.Type.Scope2:
-                    Upgrade(weaponAccessories.IsEnabledScope2, weaponAccessories.PriceScope2, type);
+                    Upgrade(weaponAccessories.PriceScope2, type);
                     break;
 
                 case WeaponAccessories.Type.Silencer:
-                    Upgrade(weaponAccessories.IsEnabledSilencer, weaponAccessories.PriceSilencer, type);
+                    Upgrade(weaponAccessories.PriceSilencer, type);
                     break;
             }
 
         }
     }
 
-    private void Upgrade(bool isEnable, int price, WeaponAccessories.Type type)
+    private void Upgrade(int price, WeaponAccessories.Type type)
     {
-        if (isEnable == false)
+        if (_isUpgradingOnReward)
         {
-            if (_isUpgradingOnReward)
-            {
+            SelectedAccessory?.Invoke(type);
+        }
+        else
+        {
+            if (_playerWallet.TryBuy(price))
                 SelectedAccessory?.Invoke(type);
-            }
-            else
-            {
-                if (_playerWallet.TryBuy(price))
-                    SelectedAccessory?.Invoke(type);
-            }
         }
     }
 }
