@@ -24,7 +24,7 @@ public class PlayerDroppingGrenade : MonoBehaviour
         _playerInput.Disable();
     }
 
-    public void ControlShoot(bool isShooted)
+    public void ControlThrow()
     {
         Threw?.Invoke();
     }

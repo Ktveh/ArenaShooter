@@ -11,6 +11,7 @@ namespace StarterAssets
         [SerializeField] private PlayerShooting _playerShooting;
         [SerializeField] private PlayerWeaponReloading _playerWeaponReloading;
         [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
+        [SerializeField] private PlayerDroppingGrenade _playerDroppingGrenade;
 
         public void VirtualMoveInput(Vector2 virtualMoveDirection)
         {
@@ -45,6 +46,11 @@ namespace StarterAssets
         public void Reload(bool virtualReloadState)
         {
             _playerWeaponReloading.ControlReload(virtualReloadState);
+        }
+        
+        public void ThrowGrenade(bool virtualThrowGrenadeState)
+        {
+            _playerDroppingGrenade.ControlThrow();
         }
     }
 
