@@ -99,9 +99,9 @@ MonoBehaviour:
   _angleDetected: 180
   _forwardDistanceDetected: 120
   _aroundDistanceDetected: 30
-  _amountRaycasts: 36
+  _amountRaycasts: 60
   _template: {fileID: 6084071706416295635, guid: 8efa81264ef77914eb37fe92ee6dff2e, type: 3}
-  _durationCurrenTarget: 5
+  _durationCurrenTarget: 0
 --- !u!114 &6664062495062514116
 MonoBehaviour:
   m_ObjectHideFlags: 0
