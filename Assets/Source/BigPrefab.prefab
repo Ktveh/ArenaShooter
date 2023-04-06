@@ -1837,10 +1837,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5629789432314874393}
     m_Modifications:
+    - target: {fileID: 433171651, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 433171651, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 433171651, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 433171651, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 433171651, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 433171651, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 433171653, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 1816386836, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816386836, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816386836, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816386836, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816386836, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816386836, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1816386838, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
@@ -1897,6 +1945,30 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 4384980883868187479, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384980883868187479, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384980883868187479, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384980883868187479, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384980883868187479, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4384980883868187479, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5992761181572172695, guid: 30edc40281103424a84a4be2b6ec8812, type: 3}
       propertyPath: m_Name
       value: Resources
