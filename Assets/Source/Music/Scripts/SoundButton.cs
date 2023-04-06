@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SoundButton : MonoBehaviour
 {
@@ -9,9 +10,14 @@ public class SoundButton : MonoBehaviour
     [SerializeField] private Sprite _soundOff;
     [SerializeField] private Button _soundButton;
     [SerializeField] private AudioListener _soundListener;
+    [SerializeField] private bool _hasText;
+    [SerializeField] private TextMeshProUGUI _buttonText;
 
     private static bool _isOn;
     private static bool _isAdShow;
+
+    private const string SoundOn = "Sound On";
+    private const string SoundOff = "Sound Off";
 
     private void OnEnable()
     {
@@ -90,10 +96,14 @@ public class SoundButton : MonoBehaviour
         if (_isOn)
         {
             _soundButton.image.sprite = _soundOn;
+            if (_hasText)
+                _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(SoundOn);
         }
         else
         {
             _soundButton.image.sprite = _soundOff;
+            if (_hasText)
+                _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(SoundOff);
         }
     }
 

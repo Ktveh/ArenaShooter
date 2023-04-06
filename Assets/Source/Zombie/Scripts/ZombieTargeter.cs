@@ -24,7 +24,7 @@ public class ZombieTargeter : MonoBehaviour
     public int LevelAttentive => _levelAttective;
     public Target CurrentTarget => _currentTarget;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<SoundTarget>() && _levelAttective < 2)
         {
@@ -79,6 +79,8 @@ public class ZombieTargeter : MonoBehaviour
         if (_randomTarget != null)
         {
             _currentTarget = _randomTarget;
+            if (_mainTarget != null)
+                _currentTarget = _mainTarget;
         }
         else
         {
@@ -89,7 +91,11 @@ public class ZombieTargeter : MonoBehaviour
 
     private void FoundTargets(float angleDetected, float distance)
     {
-        if (_levelAttective >=2)
+        if (_levelAttective == 2)
+        {
+            angleDetected = 180;
+        }
+        else if (_levelAttective == 3)
         {
             angleDetected = 360;
         }
@@ -107,7 +113,7 @@ public class ZombieTargeter : MonoBehaviour
 
         GetRaycast(transform.TransformDirection(new Vector3(x, 0, z)), distance);
 
-        if (x != 0 && _levelAttective > 2)
+        if (x != 0 && _levelAttective >= 2)
         {
             GetRaycast(transform.TransformDirection(new Vector3(-x, 0, z)), distance);
         }
@@ -132,12 +138,12 @@ public class ZombieTargeter : MonoBehaviour
                 _zombieTargeter = hit.collider.gameObject.GetComponent<ZombieTargeter>();
                 if (_zombieTargeter.LevelAttentive == 3 && _levelAttective < 3)
                 {
-                    RandomTarget(_zombieTargeter.CurrentTarget.transform.position, false);
+                    RandomTarget(_zombieTargeter.transform.position, false);
                     _levelAttective = 2;
                 }
                 if (_zombieTargeter.LevelAttentive == 2 && _levelAttective < 2)
                 {
-                    RandomTarget(_zombieTargeter.CurrentTarget.transform.position, true);
+                    RandomTarget(_zombieTargeter.transform.position, true);
                     _levelAttective = 1;
                 }
                 else if (_levelAttective < 2)

@@ -7,12 +7,15 @@ public class LeaderBoard : MonoBehaviour
 {
     [SerializeField] private Image _panel;
     [SerializeField] private TextMeshProUGUI _name;
+    [SerializeField] private TextMeshProUGUI _buttonText;
     [SerializeField] private GameObject _content;
     [SerializeField] private LeaderView _template;
 
     private const string LeaderBoardName = "LeaderBoard";
     private const string LeaderBoardTitle = "Zombies are killed";
     private const string Anonymous = "Anonymous";
+    private const string Authorization = "Authorization";
+    private const string TopPlayers = "The Best Players";
     private const int MaxResult = 15;
 
     private void OnEnable()
@@ -29,11 +32,21 @@ public class LeaderBoard : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+        _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(Authorization);
+        if (PlayerAccount.IsAuthorized)
+            _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
+    }
+
     public void ShowLeaders()
     {
         if (!PlayerAccount.IsAuthorized)
         {
             PlayerAccount.Authorize();
+            if (PlayerAccount.IsAuthorized)
+                _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
             gameObject.SetActive(false);
             return;
         }

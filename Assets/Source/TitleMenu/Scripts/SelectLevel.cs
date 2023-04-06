@@ -11,6 +11,7 @@ public class SelectLevel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _titleName;
     [SerializeField] private TextMeshProUGUI _levelName;
     [SerializeField] private Image _lockImage;
+    [SerializeField] private Image _levelImage;
     [SerializeField] private Level[] _levels;
 
     public static string SaveKey = "Levels";
@@ -85,6 +86,7 @@ public class SelectLevel : MonoBehaviour
         _levelName.text = Lean.Localization.LeanLocalization.GetTranslationText(level.Name);
         _isLock = level.IsLock;
         _scene = level.Scene;
+        _levelImage.sprite = level.Icon;
         _lockImage.gameObject.SetActive(_isLock);
     }
 }

@@ -55,7 +55,7 @@ public class ZombieMover : MonoBehaviour
 
         if (_zombie.IsDead)
         {
-            //_agent.enabled = false;
+            _agent.enabled = false;
             StopMove();
             return;
         }
