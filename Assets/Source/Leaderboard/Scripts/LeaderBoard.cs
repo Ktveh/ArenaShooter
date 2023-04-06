@@ -32,14 +32,6 @@ public class LeaderBoard : MonoBehaviour
         }
     }
 
-    private void Awake()
-    {
-        gameObject.SetActive(false);
-        _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(Authorization);
-        if (PlayerAccount.IsAuthorized)
-            _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
-    }
-
     public void ShowLeaders()
     {
         if (!PlayerAccount.IsAuthorized)
@@ -47,6 +39,8 @@ public class LeaderBoard : MonoBehaviour
             PlayerAccount.Authorize();
             if (PlayerAccount.IsAuthorized)
                 _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
+            else
+                _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(Authorization);
             gameObject.SetActive(false);
             return;
         }
