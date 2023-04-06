@@ -12,7 +12,8 @@ public class Grenade : MonoBehaviour
     [SerializeField] private float _delayExplode = 3f;
     [SerializeField] private bool _isHandGrenade;
     [Header("Settings hand grenade")]
-    [SerializeField] private int _damage;
+    [SerializeField] private int _damage = 20;
+    [SerializeField] private float _multiplier = 4f;
 
     private WeaponShooting _weaponShooting;
     private Rigidbody _rigidbody;
@@ -43,7 +44,10 @@ public class Grenade : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (_isHandGrenade)
+        {
+            _rigidbody.velocity = _rigidbody.velocity / _multiplier;
             return;
+        }
 
         if (collision.collider.TryGetComponent(out SoundTarget soundTarget))
             return;

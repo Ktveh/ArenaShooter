@@ -52,6 +52,11 @@ public class WeaponShooting : MonoBehaviour
         _showingBulletDecals = GetComponent<ShowingBulletDecals>();
     }
 
+    private void Update()
+    {
+        //Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 1000, Color.green, 0.1f, false);
+    }
+
     public void LaunchBullet(bool isScoping)
     {
         Shooted?.Invoke();
@@ -62,26 +67,7 @@ public class WeaponShooting : MonoBehaviour
         Transform camera = Camera.main.transform;
         RaycastHit hit;
 
-        if (_weapon.Type == Weapon.Types.SniperRifle)
-        {
-            _isHited = false;
-
-            RaycastHit[] hits;
-            hits = Physics.RaycastAll(camera.position, camera.forward, _maxDistance, _layerMask);
-            int amount = hits.Length < _maximumNumberTargetsHit ? hits.Length : _maximumNumberTargetsHit;
-
-            for (int i = 0; i < amount; i++)
-            {
-                MakeDamage(hits[i]);
-            }
-
-            //for (int i = hits.Length - 1; i > hits.Length - 1 - amount; i--)
-            //{
-            //    MakeDamage(hits[i]);
-            //    Debug.Log("Make damage: " + hits[i].collider.gameObject);
-            //}
-        }
-        else if (_weapon.Type == Weapon.Types.Shotgun)
+        if (_weapon.Type == Weapon.Types.Shotgun)
         {
             _isHited = false;
 

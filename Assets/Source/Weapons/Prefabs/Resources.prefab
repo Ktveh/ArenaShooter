@@ -9777,8 +9777,7 @@ GameObject:
   - component: {fileID: 433171653}
   - component: {fileID: 433171652}
   - component: {fileID: 433171651}
-  - component: {fileID: 433171650}
-  - component: {fileID: 433171649}
+  - component: {fileID: 4368210727518014949}
   m_Layer: 0
   m_Name: Grenade (1)
   m_TagString: Untagged
@@ -9907,32 +9906,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!65 &433171650
-BoxCollider:
+--- !u!136 &4368210727518014949
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433171647}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3928e706ac3e3e54f8fb0abbb2d17f64, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.03, z: 0.03}
-  m_Center: {x: 0.00000014342368, y: 0.037, z: 0.003}
---- !u!135 &433171649
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433171647}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.03
-  m_Center: {x: 0.000093940645, y: 0, z: 0}
+  m_Radius: 0.029957788
+  m_Height: 0.085
+  m_Direction: 1
+  m_Center: {x: 0.000093940645, y: 0.012544222, z: 0.0019112248}
 --- !u!1 &468663029
 GameObject:
   m_ObjectHideFlags: 0
@@ -10122,8 +10109,7 @@ GameObject:
   - component: {fileID: 1816386838}
   - component: {fileID: 1816386837}
   - component: {fileID: 1816386836}
-  - component: {fileID: 1816386835}
-  - component: {fileID: 1816386834}
+  - component: {fileID: 8062542154518339173}
   m_Layer: 0
   m_Name: Grenade (2)
   m_TagString: Untagged
@@ -10252,32 +10238,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!65 &1816386835
-BoxCollider:
+--- !u!136 &8062542154518339173
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816386832}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3928e706ac3e3e54f8fb0abbb2d17f64, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.03, z: 0.03}
-  m_Center: {x: 0.00000014342368, y: 0.037, z: 0.003}
---- !u!135 &1816386834
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1816386832}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.03
-  m_Center: {x: 0.000093940645, y: 0, z: 0}
+  m_Radius: 0.029957788
+  m_Height: 0.085
+  m_Direction: 1
+  m_Center: {x: 0.000093940645, y: 0.012544222, z: 0.0019112248}
 --- !u!1 &3948599065349259889
 GameObject:
   m_ObjectHideFlags: 0
@@ -10328,8 +10302,7 @@ GameObject:
   - component: {fileID: 4384980883868187473}
   - component: {fileID: 4384980883868187478}
   - component: {fileID: 4384980883868187479}
-  - component: {fileID: 4394799637747472323}
-  - component: {fileID: 4394799637747472324}
+  - component: {fileID: 7586728517502050129}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Untagged
@@ -10458,32 +10431,20 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!65 &4394799637747472323
-BoxCollider:
+--- !u!136 &7586728517502050129
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4332326732095719105}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3928e706ac3e3e54f8fb0abbb2d17f64, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.03, z: 0.03}
-  m_Center: {x: 0.00000014342368, y: 0.037, z: 0.003}
---- !u!135 &4394799637747472324
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4332326732095719105}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.03
-  m_Center: {x: 0.000093940645, y: 0, z: 0}
+  m_Radius: 0.029957788
+  m_Height: 0.085
+  m_Direction: 1
+  m_Center: {x: 0.000093940645, y: 0.012544222, z: 0.0019112248}
 --- !u!1 &5850206391743514810
 GameObject:
   m_ObjectHideFlags: 0
