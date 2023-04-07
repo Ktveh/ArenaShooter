@@ -14,8 +14,6 @@ public class LeaderBoard : MonoBehaviour
     private const string LeaderBoardName = "LeaderBoard";
     private const string LeaderBoardTitle = "Zombies are killed";
     private const string Anonymous = "Anonymous";
-    private const string Authorization = "Authorization";
-    private const string TopPlayers = "The Best Players";
     private const int MaxResult = 15;
 
     private void OnEnable()
@@ -34,17 +32,6 @@ public class LeaderBoard : MonoBehaviour
 
     public void ShowLeaders()
     {
-        if (!PlayerAccount.IsAuthorized)
-        {
-            PlayerAccount.Authorize();
-            if (PlayerAccount.IsAuthorized)
-                _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
-            else
-                _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(Authorization);
-            gameObject.SetActive(false);
-            return;
-        }
-
         Leaderboard.GetEntries(LeaderBoardName, (result) =>
         {
             foreach (var entry in result.entries)

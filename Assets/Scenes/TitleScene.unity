@@ -5562,6 +5562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c5172fab2f5f53488e6e16948a11e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leaderboard: {fileID: 676025817}
   _buttonText: {fileID: 1476123586}
 --- !u!1001 &1332452198
 PrefabInstance:
