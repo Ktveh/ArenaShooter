@@ -3,7 +3,7 @@ using UnityEngine;
 public class Interface : MonoBehaviour
 {
     [SerializeField] private Game _game;
-    [SerializeField] private Menu _menu;
+    [SerializeField] private ShowingScore _menu;
     [SerializeField] private TouchControl _touchControl;
 
     private void OnEnable()

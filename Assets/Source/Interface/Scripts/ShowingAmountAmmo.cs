@@ -13,6 +13,7 @@ public class ShowingAmountAmmo : MonoBehaviour
     [SerializeField] private Image _icon;
 
     private string _valueInventoryAmountAmmo => "/" + _playerInventory.GetAmountAmmo(_playerWeaponSelecting.CurrentWeapon.Type).ToString();
+    private string _valueInventoryAmountGrenade => _playerInventory.GetAmountAmmo(Weapon.Types.Grenade).ToString();
     private string _valueCurrentAmountAmmo => _playerWeaponSelecting.CurrentWeapon.CurrentAmountAmmo.ToString();
 
     private void OnEnable()
@@ -40,6 +41,7 @@ public class ShowingAmountAmmo : MonoBehaviour
         _icon.sprite = _playerWeaponSelecting.CurrentWeapon.Icon;
         _currentAmountAmmo.text = _valueCurrentAmountAmmo;
         _inventoryAmountAmmo.text = _valueInventoryAmountAmmo;
+        _inventoryAmountGrenade.text = _valueInventoryAmountGrenade;
     }
 
     private void OnChanged()
@@ -61,6 +63,6 @@ public class ShowingAmountAmmo : MonoBehaviour
 
     private void OnThrew()
     {
-        _inventoryAmountGrenade.text = _playerInventory.GetAmountAmmo(Weapon.Types.Grenade).ToString();
+        _inventoryAmountGrenade.text = _valueInventoryAmountGrenade;
     }
 }

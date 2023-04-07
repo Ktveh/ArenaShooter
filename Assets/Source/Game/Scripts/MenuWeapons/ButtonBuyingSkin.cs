@@ -37,7 +37,7 @@ public class ButtonBuyingSkin : MonoBehaviour
         _price = price;
         _buying.interactable = isCanBuy;
 
-        if(isCanBuy)
+        if (isCanBuy)
             _changingColorImage.ChangeToDefault();
         else
             _changingColorImage.ChangeToTarget();

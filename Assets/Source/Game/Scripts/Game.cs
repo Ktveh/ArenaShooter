@@ -20,7 +20,7 @@ public class Game : MonoBehaviour
     private PausingGame _pausingGame;
     private ControllingAudio _controllingAudio;
     private SettingLeaderboardScore _settingLeaderboardScore;
-    private Menu _menu;
+    private ShowingScore _menu;
 
     public bool IsStarted { get; private set; }
     public bool PlayerIsDead { get; private set; }
@@ -37,7 +37,7 @@ public class Game : MonoBehaviour
         _pausingGame = GetComponent<PausingGame>();
         _controllingAudio = GetComponent<ControllingAudio>();
         _settingLeaderboardScore = GetComponent<SettingLeaderboardScore>();
-        _menu = GetComponentInChildren<Menu>();
+        _menu = GetComponentInChildren<ShowingScore>();
     }
 
     private void Start()
@@ -121,6 +121,7 @@ public class Game : MonoBehaviour
         _controllingAudio.enabled = false;
         _menu.enabled = true;
         _gameControllingPlayer.EnableWeaponSelecting();
+
 #if !UNITY_WEBGL || UNITY_EDITOR
         return;
 #endif

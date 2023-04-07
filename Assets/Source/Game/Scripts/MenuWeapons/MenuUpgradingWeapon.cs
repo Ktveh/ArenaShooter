@@ -5,7 +5,7 @@ public class MenuUpgradingWeapon : MonoBehaviour
 {
     [SerializeField] private PlayerWallet _playerWallet;
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
-    [SerializeField] private Menu _menu;
+    [SerializeField] private ShowingScore _menu;
     [SerializeField] private YandexAds _andexAds;
 
     private ButtonSelectingWeapon[] _buttonsSelectingWeapons;

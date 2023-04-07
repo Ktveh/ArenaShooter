@@ -28,6 +28,8 @@ public class ButtonSelectingSkin : MonoBehaviour
     private int _numberSilverSkin => _sprites.Length - 2;
     private int _numberBronzeSkin => _sprites.Length - 3;
 
+    public int NumberLastSkin => _numberGoldSkin;
+
     private void Awake()
     {
         _buttonBuyingSkin = GetComponent<ButtonBuyingSkin>();
@@ -56,14 +58,20 @@ public class ButtonSelectingSkin : MonoBehaviour
         _playerWeaponSelecting.Selected -= OnSelected;
     }
 
-    public void Change()
+    public void Change(int number = -1)
     {
+        if (number != -1)
+        {
+            _currentNumber = number;
+        }
+
         int price = _prices[_currentNumber];
         bool isCanBuy = true;
 
         if (_weaponSkinSaving.Check(_playerWeaponSelecting.CurrentWeapon.Type, (WeaponSkin.Names)_currentNumber))
             price = 0;
 
+        _preview.gameObject.SetActive(_currentNumber != 0);
         _preview.sprite = _sprites[_currentNumber];
         _price.text = price.ToString();
 

@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class PlayerWallet : MonoBehaviour
 {
-    [SerializeField] private Menu _menu;
+    [SerializeField] private ShowingScore _menu;
     [SerializeField] private LevelReward _levelReward;
     [SerializeField] private YandexAds _andexAds;
 
