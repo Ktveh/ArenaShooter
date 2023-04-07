@@ -14,10 +14,7 @@ public class LeaderboardButton : MonoBehaviour
     private void Awake()
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
-        Debug.Log(_buttonText.text);
         _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
-        Debug.Log(Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers));
-        Debug.Log(_buttonText.text);
         return;
 #endif
 
