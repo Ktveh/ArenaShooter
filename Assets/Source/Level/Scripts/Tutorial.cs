@@ -20,6 +20,7 @@ public class Tutorial : MonoBehaviour
 
     private string _saveKey = "Levels";
     private int _firstLevel = 2;
+    private int _currentLevel = 1;
 
     private void Start()
     {
@@ -35,7 +36,12 @@ public class Tutorial : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(_firstLevel);
+        SceneManager.LoadScene(_currentLevel);
+    }
+
+    public void SetCurrentLevel(int level)
+    {
+        _currentLevel = level;
     }
 
     private void Write()

@@ -7,7 +7,7 @@ using TMPro;
 
 public class SelectLevel : MonoBehaviour
 {
-    [SerializeField] private Canvas _tutorial;
+    [SerializeField] private Tutorial _tutorial;
     [SerializeField] private TextMeshProUGUI _titleName;
     [SerializeField] private TextMeshProUGUI _levelName;
     [SerializeField] private Image _lockImage;
@@ -57,6 +57,7 @@ public class SelectLevel : MonoBehaviour
             else
             {
                 _tutorial.gameObject.SetActive(true);
+                _tutorial.SetCurrentLevel(_scene);
             }
         }
     }

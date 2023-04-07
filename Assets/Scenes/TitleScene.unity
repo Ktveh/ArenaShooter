@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4677847, g: 0.620219, b: 0.78313977, a: 1}
+  m_IndirectSpecularColor: {r: 0.46781015, g: 0.62058985, b: 0.7837032, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -812,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021a4b39eae4ccf4fac8c97317032cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _tutorial: {fileID: 2096474198}
+  _tutorial: {fileID: 2096474199}
   _titleName: {fileID: 627070441}
   _levelName: {fileID: 948540897}
   _lockImage: {fileID: 150740427}
@@ -6502,6 +6502,7 @@ GameObject:
   - component: {fileID: 1476123584}
   - component: {fileID: 1476123587}
   - component: {fileID: 1476123586}
+  - component: {fileID: 1476123588}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6549,7 +6550,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u0431\u0438\u0442\u043E \u0437\u043E\u043C\u0431\u0438"
+  m_text: "\u0410\u0432\u0442\u043E\u0440\u0438\u0437\u0430\u0446\u0438\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
   m_sharedMaterial: {fileID: -3007258385702032604, guid: 9a0b0ba6660ec6f4a9f27cb9076a9341, type: 2}
@@ -6626,6 +6627,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476123583}
   m_CullTransparentMesh: 1
+--- !u!114 &1476123588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476123583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Authorization
+  FallbackText: "\u0423\u0431\u0438\u0442\u043E \u0437\u043E\u043C\u0431\u0438"
 --- !u!4 &1484062244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6855425755365896669, guid: 29838ed313ed6a946bea32a25675bcea, type: 3}
@@ -8391,11 +8406,17 @@ MonoBehaviour:
   _target: {fileID: 2095588575}
   _button: {fileID: 2095588576}
   _addition: 10
---- !u!223 &2096474198 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 3574101424939331235, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
+--- !u!114 &2096474199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3574101424939331294, guid: 9bb549e5575497a49b7d52ff41e4ce6f, type: 3}
   m_PrefabInstance: {fileID: 806740866}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ffb378b2e71fd48890e4561b7146ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2098376386
 GameObject:
   m_ObjectHideFlags: 0
