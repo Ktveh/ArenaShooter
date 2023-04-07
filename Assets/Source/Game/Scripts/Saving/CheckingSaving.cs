@@ -6,6 +6,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SavingToCloud))]
 public class CheckingSaving : MonoBehaviour
 {
+    private const float Delay = 1f;
+
     [SerializeField] private YandexInitialization _yandexInitialization;
     [SerializeField] private RewritingLocalSave _rewritingLocalSave;
 
@@ -67,6 +69,7 @@ public class CheckingSaving : MonoBehaviour
 
     private void Check()
     {
+        Debug.Log("Check");
         if (_gettingCloudSaving.Try(out CloudSaving[] cloudSavings))
         {
             int scoreInCloud = cloudSavings[0].AmountKilledZombie;
@@ -74,24 +77,40 @@ public class CheckingSaving : MonoBehaviour
 
             if (scoreInCloud < _gettingLeaderboardScore.Current)
             {
+                Debug.Log("scoreInCloud < _gettingLeaderboardScore.Current");
                 if (scoreInLocal < _gettingLeaderboardScore.Current)
+                {
+                    Debug.Log("scoreInLocal < _gettingLeaderboardScore.Current");
                     SaveNotFound?.Invoke();
+                    Invoke(nameof(Rewrite), Delay);
+                }
                 else
+                {
+                    Debug.Log("!!!!!! scoreInLocal > _gettingLeaderboardScore.Current");
                     _savingToCloud.enabled = true;
+                }
             }
             else
             {
                 if (scoreInLocal > scoreInCloud)
                 {
+                    Debug.Log("scoreInLocal > scoreInCloud");
                     _savingToCloud.enabled = true;
                 }
                 else if (scoreInCloud > scoreInLocal)
                 {
+                    Debug.Log("scoreInCloud > scoreInLocal");
                     _rewritingLocalSave.enabled = true;
                 }
             }
         }
 
         enabled = false;
+    }
+
+    private void Rewrite()
+    {
+        Debug.Log("Rewrite");
+        _rewritingLocalSave.enabled = true;
     }
 }
