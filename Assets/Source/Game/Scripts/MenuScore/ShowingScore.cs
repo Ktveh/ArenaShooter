@@ -5,7 +5,6 @@ public class ShowingScore : MonoBehaviour
 {
     [SerializeField] private GameObject _background;
     [SerializeField] private float _delay;
-    [SerializeField] private bool _isMainMenu;
 
     private GettingScore _menuShowingScore;
 
