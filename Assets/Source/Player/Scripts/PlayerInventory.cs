@@ -9,6 +9,7 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private ButtonBuyingAmmo _buttonBuyingAmmo;
     [SerializeField] private ButtonBuyingGrenade _buttonBuyingGrenade;
     [SerializeField] private WeaponSaving _weaponSaving;
+    [SerializeField] private RewritingLocalSave _rewritingLocalSave;
 
     private Dictionary<Weapon.Types, uint> _ammo;
 
@@ -20,30 +21,25 @@ public class PlayerInventory : MonoBehaviour
     private void Awake()
     {
         if (_ammo == null)
-        {
-            _ammo = new Dictionary<Weapon.Types, uint>()
-            {
-                {Weapon.Types.Pistol, 1000},
-                {Weapon.Types.SMG, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.SMG) },
-                {Weapon.Types.Rifle, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Rifle) },
-                {Weapon.Types.SniperRifle, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.SniperRifle) },
-                {Weapon.Types.Shotgun, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Shotgun) },
-                {Weapon.Types.GrenadeLauncher, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.GrenadeLauncher) },
-                {Weapon.Types.Grenade, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Grenade) },
-            };
-        }
+            OnRewrited();
     }
 
     private void OnEnable()
     {
         _buttonBuyingAmmo.Buyed += OnBuyed;
         _buttonBuyingGrenade.Buyed += OnBuyed;
+
+        if(_rewritingLocalSave != null)
+            _rewritingLocalSave.Rewrited += OnRewrited;
     }
 
     private void OnDisable()
     {
         _buttonBuyingAmmo.Buyed -= OnBuyed;
         _buttonBuyingGrenade.Buyed -= OnBuyed;
+
+        if (_rewritingLocalSave != null)
+            _rewritingLocalSave.Rewrited -= OnRewrited;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -132,5 +128,19 @@ public class PlayerInventory : MonoBehaviour
     {
         _ammo[type] += amount;
         Changed?.Invoke();
+    }
+
+    private void OnRewrited()
+    {
+        _ammo = new Dictionary<Weapon.Types, uint>()
+            {
+                {Weapon.Types.Pistol, 1000},
+                {Weapon.Types.SMG, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.SMG) },
+                {Weapon.Types.Rifle, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Rifle) },
+                {Weapon.Types.SniperRifle, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.SniperRifle) },
+                {Weapon.Types.Shotgun, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Shotgun) },
+                {Weapon.Types.GrenadeLauncher, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.GrenadeLauncher) },
+                {Weapon.Types.Grenade, (uint)_weaponSaving.GetAmountAmmo(Weapon.Types.Grenade) },
+            };
     }
 }

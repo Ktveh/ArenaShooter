@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46781015, g: 0.62058985, b: 0.7837032, a: 1}
+  m_IndirectSpecularColor: {r: 0.4677847, g: 0.620219, b: 0.78313977, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -839,6 +839,17 @@ MonoBehaviour:
   _target: {fileID: 170414308}
   _button: {fileID: 170414309}
   _addition: 10
+--- !u!114 &177141758 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7498520423952709712, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+  m_PrefabInstance: {fileID: 636028389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66f9994cee8a5d47aff4a7128c78704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &181020676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2060,6 +2071,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1499511846656250830, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: _rewritingLocalSave
+      value: 
+      objectReference: {fileID: 177141758}
     - target: {fileID: 6714535887364404078, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
       propertyPath: m_RootOrder
       value: 12
