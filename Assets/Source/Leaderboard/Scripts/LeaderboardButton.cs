@@ -7,14 +7,12 @@ using TMPro;
 public class LeaderboardButton : MonoBehaviour
 {
     [SerializeField] private LeaderBoard _leaderboard;
-    [SerializeField] private TextMeshProUGUI _buttonText;
-
-    private const string Authorization = "Authorization";
-    private const string TopPlayers = "The Best Players";                                     
+    [SerializeField] private TextMeshProUGUI _buttonAuthText;                                  
+    [SerializeField] private TextMeshProUGUI _buttonTopText;                                  
 
     private void Awake()
     {
-        _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(Authorization);
+        _buttonAuthText.gameObject.SetActive(true);
         if (PlayerAccount.IsAuthorized)
             Rename();
     }
@@ -33,6 +31,7 @@ public class LeaderboardButton : MonoBehaviour
 
     private void Rename()
     {
-        _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
+        _buttonAuthText.gameObject.SetActive(false);
+        _buttonTopText.gameObject.SetActive(true);
     }
 }
