@@ -10,13 +10,13 @@ public class LeaderboardButton : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _buttonText;
 
     private const string Authorization = "Authorization";
-    private const string TopPlayers = "The Best Players";
+    private const string TopPlayers = "The Best Players";                                     
 
-    private void Start()
+    private void Awake()
     {
         _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(Authorization);
         if (PlayerAccount.IsAuthorized)
-            _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
+            Rename();
     }
 
     public void OnClick()
@@ -24,6 +24,9 @@ public class LeaderboardButton : MonoBehaviour
         if (!PlayerAccount.IsAuthorized)
         {
             PlayerAccount.Authorize(Rename);
+        }
+        else
+        {
             _leaderboard.gameObject.SetActive(true);
         }
     }
