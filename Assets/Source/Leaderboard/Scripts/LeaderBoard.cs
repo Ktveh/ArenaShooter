@@ -7,7 +7,6 @@ public class LeaderBoard : MonoBehaviour
 {
     [SerializeField] private Image _panel;
     [SerializeField] private TextMeshProUGUI _name;
-    [SerializeField] private TextMeshProUGUI _buttonText;
     [SerializeField] private GameObject _content;
     [SerializeField] private LeaderView _template;
 
