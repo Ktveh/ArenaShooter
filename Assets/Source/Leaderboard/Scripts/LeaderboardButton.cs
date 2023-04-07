@@ -11,11 +11,10 @@ public class LeaderboardButton : MonoBehaviour
     private const string Authorization = "Authorization";
     private const string TopPlayers = "The Best Players";
 
-    private void Awake()
+    private void Start()
     {
         _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(Authorization);
         if (PlayerAccount.IsAuthorized)
             _buttonText.text = Lean.Localization.LeanLocalization.GetTranslationText(TopPlayers);
-
     }
 }
