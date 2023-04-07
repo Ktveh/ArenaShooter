@@ -2367,7 +2367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panel: {fileID: 676025815}
   _name: {fileID: 1432616123}
-  _buttonText: {fileID: 1476123586}
   _content: {fileID: 1422024272}
   _template: {fileID: 3601476868695098476, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
 --- !u!1 &696568436
@@ -5500,10 +5499,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 676025813}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1320781689}
+        m_TargetAssemblyTypeName: LeaderboardButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6476,7 +6475,6 @@ GameObject:
   - component: {fileID: 1476123584}
   - component: {fileID: 1476123587}
   - component: {fileID: 1476123586}
-  - component: {fileID: 1476123588}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -6601,20 +6599,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476123583}
   m_CullTransparentMesh: 1
---- !u!114 &1476123588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1476123583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  translationName: Authorization
-  FallbackText: "\u0423\u0431\u0438\u0442\u043E \u0437\u043E\u043C\u0431\u0438"
 --- !u!4 &1484062244 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6855425755365896669, guid: 29838ed313ed6a946bea32a25675bcea, type: 3}
