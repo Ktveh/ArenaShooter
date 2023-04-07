@@ -31,13 +31,6 @@ public class PlayerSaving : MonoBehaviour
         _game.LevelCompleted -= OnLevelCompleted;
     }
 
-    //////////////////////////////////////////////////
-    public void DeletAllSave()
-    {
-        PlayerPrefs.DeleteAll();
-    }
-    //////////////////////////////////////////////////
-
     public void Recover(string parameter, int value)
     {
         PlayerPrefs.SetInt(parameter, value);

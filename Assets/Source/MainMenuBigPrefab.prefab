@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 1373551128824497565}
   - component: {fileID: 1373551128824497562}
   - component: {fileID: 1373551128824497564}
+  - component: {fileID: 6764170053670469698}
   m_Layer: 0
   m_Name: CloudSaving
   m_TagString: Untagged
@@ -502,6 +503,18 @@ MonoBehaviour:
   - {fileID: 4687664175436063009}
   _weaponSkinSaving: {fileID: 4855663318317634983}
   _weaponAccessoriesSaving: {fileID: 5839370252605441815}
+--- !u!114 &6764170053670469698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373551128824497560}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ada3fe042b60624aab972aca26e2bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1373551128900419268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2024,6 +2037,10 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 1499511846656250832}
+    - target: {fileID: 545753934, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 672963379, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _target
       value: 
@@ -2040,6 +2057,10 @@ PrefabInstance:
       propertyPath: _firstPersonController
       value: 
       objectReference: {fileID: 2271088241075538288}
+    - target: {fileID: 885473091, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 927953348, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -3147,6 +3168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _savingToCloud: {fileID: 1373551128824497564}
   _checkingSaving: {fileID: 1373551128824497565}
+  _gettingLeaderboardScore: {fileID: 6764170053670469698}
 --- !u!4 &8023337574263841082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 524818458152278374, guid: 166b29056e989774796fbd4015eda0b2, type: 3}

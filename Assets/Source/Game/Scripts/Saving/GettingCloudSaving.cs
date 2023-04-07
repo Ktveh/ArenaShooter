@@ -28,7 +28,7 @@ public class GettingCloudSaving : MonoBehaviour
     private void OnSuccess(string data)
     {
         _jsonData = data;
-        _checkingSaving.SaveScore();
+        _checkingSaving.SetSaving();
     }
 
     private void OnError(string error)

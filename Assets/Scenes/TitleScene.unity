@@ -2104,6 +2104,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6764170053670469698, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7498520423313660223, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -2112,6 +2116,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7498520423952709726, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: _gettingLeaderboardScore
+      value: 
+      objectReference: {fileID: 636028390}
     - target: {fileID: 7498520424480895762, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2166,6 +2174,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+--- !u!114 &636028390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6764170053670469698, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+  m_PrefabInstance: {fileID: 636028389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ada3fe042b60624aab972aca26e2bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &646170328
 GameObject:
   m_ObjectHideFlags: 0
