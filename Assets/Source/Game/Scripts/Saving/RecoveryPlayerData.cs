@@ -8,6 +8,7 @@ public class RecoveryPlayerData : MonoBehaviour
     [SerializeField] private SavingToCloud _savingToCloud;
     [SerializeField] private CheckingSaving _checkingSaving;
     [SerializeField] private GettingLeaderboardScore _gettingLeaderboardScore;
+    [SerializeField] private RewritingLocalSave _writingLocalSave;
 
     private PlayerSaving _playerSaving;
     private int _score;
@@ -20,15 +21,17 @@ public class RecoveryPlayerData : MonoBehaviour
 
     private void OnEnable()
     {
-        _checkingSaving.SaveNotFound += OnSaveNotFound;
+        _checkingSaving.SaveNotFound += Recover;
+        _writingLocalSave.Rewrited += Recover;
     }
 
     private void OnDisable()
     {
-        _checkingSaving.SaveNotFound -= OnSaveNotFound;
+        _checkingSaving.SaveNotFound -= Recover;
+        _writingLocalSave.Rewrited -= Recover;
     }
 
-    private void OnSaveNotFound()
+    private void Recover()
     {
         _score = _gettingLeaderboardScore.Current;
         _playerSaving.Recover(PlayerSaving.AmountKilledZombie, _score);

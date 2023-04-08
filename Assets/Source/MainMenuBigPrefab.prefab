@@ -920,7 +920,7 @@ MonoBehaviour:
   _buttonBuyingAmmo: {fileID: 7498520423194103844}
   _buttonBuyingGrenade: {fileID: 7498520423883342700}
   _weaponSaving: {fileID: 8023337574263841056}
-  _rewritingLocalSave: {fileID: 0}
+  _rewritingLocalSave: {fileID: 7498520423952709712}
 --- !u!114 &1499511846656250831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3174,6 +3174,7 @@ MonoBehaviour:
   _savingToCloud: {fileID: 1373551128824497564}
   _checkingSaving: {fileID: 1373551128824497565}
   _gettingLeaderboardScore: {fileID: 6764170053670469698}
+  _writingLocalSave: {fileID: 7498520423952709712}
 --- !u!4 &8023337574263841082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 524818458152278374, guid: 166b29056e989774796fbd4015eda0b2, type: 3}

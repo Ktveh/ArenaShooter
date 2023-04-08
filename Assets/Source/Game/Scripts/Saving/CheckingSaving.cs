@@ -78,8 +78,7 @@ public class CheckingSaving : MonoBehaviour
             {
                 if (scoreInLocal < _gettingLeaderboardScore.Current)
                 {
-                    SaveNotFound?.Invoke();
-                    Invoke(nameof(Rewrite), Delay);
+                    _rewritingLocalSave.enabled = true;
                 }
                 else
                 {
@@ -96,10 +95,5 @@ public class CheckingSaving : MonoBehaviour
         }
 
         enabled = false;
-    }
-
-    private void Rewrite()
-    {
-        _rewritingLocalSave.enabled = true;
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4677847, g: 0.620219, b: 0.78313977, a: 1}
+  m_IndirectSpecularColor: {r: 0.46921027, g: 0.6212609, b: 0.7826555, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2331,6 +2331,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7498520423952709726, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: _writingLocalSave
+      value: 
+      objectReference: {fileID: 177141758}
     - target: {fileID: 7498706711191053483, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
       propertyPath: m_Name
       value: MainMenuBigPrefab
@@ -2623,7 +2627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -128.1462, y: -47.3127}
+  m_AnchoredPosition: {x: -128.14618, y: -47.312744}
   m_SizeDelta: {x: -289.9821, y: -137.7993}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676025815
