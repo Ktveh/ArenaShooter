@@ -1,8 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Weapon))]
 public class WeaponSkin : MonoBehaviour
 {
-    private const float SmallSize = 300f;
+    private const float SmallSize = 600f;
     private const float MediumSize = 190f;
     private const float BigSize = 50f;
     private const string Skin = "Skin";
@@ -40,6 +41,9 @@ public class WeaponSkin : MonoBehaviour
     private WeaponInput _getting;
     private Weapon _weapon;
     private WeaponSkinSaving _weaponSkinSaving;
+    private PlayerWeaponSelecting _playerWeaponSelecting;
+
+    private string _nameSkin => _weaponSkinSaving.GetCurrent(_weapon.Type);
 
     public enum Names
     {
@@ -65,10 +69,9 @@ public class WeaponSkin : MonoBehaviour
         _getting = GetComponentInParent<WeaponInput>();
         _weapon = GetComponent<Weapon>();
         _weaponSkinSaving = _getting.WeaponSkinSaving;
+        _playerWeaponSelecting = _getting.PlayerWeaponSelecting;
 
-        string name = _weaponSkinSaving.GetCurrent(_weapon.Type);
-
-        switch (name)
+        switch (_nameSkin)
         {
             case Skin:
                 _skinnedMeshRenderer.material = _skin;
@@ -116,12 +119,25 @@ public class WeaponSkin : MonoBehaviour
                 _skinnedMeshRenderer.material = _defaultSkin;
                 break;
         }
+    }
 
-        if (name != "")
+    private void OnEnable()
+    {
+        _playerWeaponSelecting.Selected += OnSelcted;
+    }
+
+    private void OnDisable()
+    {
+        _playerWeaponSelecting.Selected -= OnSelcted;
+    }
+
+    private void OnSelcted()
+    {
+        if (_nameSkin != "")
         {
-            if (name != Names.Default.ToString())
+            if (_nameSkin != Names.Default.ToString())
             {
-                switch (_weapon.Type)
+                switch (_playerWeaponSelecting.CurrentWeapon.Type)
                 {
                     case Weapon.Types.Rifle:
                         _skinnedMeshRenderer.material.mainTextureScale = new Vector2(BigSize, BigSize);

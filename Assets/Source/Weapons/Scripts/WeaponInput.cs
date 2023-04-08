@@ -8,6 +8,7 @@ public class WeaponInput : MonoBehaviour
     [SerializeField] private PlayerDroppingGrenade _playerDroppingGrenade;
     [SerializeField] private PlayerWeaponReloading _playerWeaponReloading;
     [SerializeField] private PlayerInventory _playerInventory;
+    [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private Camera _weaponCamera;
     [SerializeField] private WeaponSaving _weaponSaving;
     [SerializeField] private WeaponAccessoriesSaving _weaponAccessoriesSaving;
@@ -20,6 +21,7 @@ public class WeaponInput : MonoBehaviour
     public PlayerDroppingGrenade PlayerDroppingGrenade => _playerDroppingGrenade;
     public PlayerWeaponReloading PlayerWeaponReloading => _playerWeaponReloading;
     public PlayerInventory PlayerInventory => _playerInventory;
+    public PlayerWeaponSelecting PlayerWeaponSelecting => _playerWeaponSelecting;
     public Camera WeaponCamera => _weaponCamera;
     public WeaponSaving WeaponSaving => _weaponSaving;
     public WeaponAccessoriesSaving WeaponAccessoriesSaving => _weaponAccessoriesSaving;

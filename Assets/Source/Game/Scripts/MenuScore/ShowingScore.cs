@@ -5,6 +5,7 @@ public class ShowingScore : MonoBehaviour
 {
     [SerializeField] private GameObject _background;
     [SerializeField] private float _delay;
+    [SerializeField] private UnityEvent _showed;
 
     private GettingScore _menuShowingScore;
 
@@ -27,6 +28,7 @@ public class ShowingScore : MonoBehaviour
     {
         _menuShowingScore.SetValue();
         _menuShowingScore.gameObject.SetActive(true);
+        _showed?.Invoke();
         Showed?.Invoke();
     }
 }

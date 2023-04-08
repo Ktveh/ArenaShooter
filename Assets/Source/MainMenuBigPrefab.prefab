@@ -920,6 +920,7 @@ MonoBehaviour:
   _buttonBuyingAmmo: {fileID: 7498520423194103844}
   _buttonBuyingGrenade: {fileID: 7498520423883342700}
   _weaponSaving: {fileID: 8023337574263841056}
+  _rewritingLocalSave: {fileID: 0}
 --- !u!114 &1499511846656250831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2668,6 +2669,10 @@ PrefabInstance:
     - target: {fileID: 968782496883862812, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _isMainMenu
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 968782496883862812, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _showed.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1046890781292259496, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_Enabled
@@ -4991,6 +4996,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6714535887364404078}
     m_Modifications:
+    - target: {fileID: 412648646, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 655375143592187656, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: _shutterSound
       value: 
@@ -5075,6 +5084,10 @@ PrefabInstance:
       propertyPath: _playerWeaponReloading
       value: 
       objectReference: {fileID: 1499511846656250836}
+    - target: {fileID: 2311404875400125440, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
+      propertyPath: _playerWeaponSelecting
+      value: 
+      objectReference: {fileID: 1499511846656250832}
     - target: {fileID: 2311404875400125440, guid: 2d3a85ecde41a8246a79669975912b74, type: 3}
       propertyPath: _weaponAccessoriesSaving
       value: 

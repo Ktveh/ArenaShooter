@@ -8,6 +8,7 @@ public class ButtonSelectingSkin : MonoBehaviour
     private const int NumberKillsForGold = 10000;
     private const int NumberKillsForSilver = 5000;
     private const int NumberKillsForBronze = 1000;
+    private const string MultiplierSign = "x";
 
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private PlayerSaving _playerSaving;
@@ -16,6 +17,7 @@ public class ButtonSelectingSkin : MonoBehaviour
     [SerializeField] private Button _prev;
     [SerializeField] private Image _preview;
     [SerializeField] private TMP_Text _price;
+    [SerializeField] private TMP_Text _amountKill;
     [SerializeField] private Image _blocking;
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private int[] _prices;
@@ -76,11 +78,20 @@ public class ButtonSelectingSkin : MonoBehaviour
         _price.text = price.ToString();
 
         if (_currentNumber == _numberGoldSkin)
+        {
             isCanBuy = TryGetPrize(NumberKillsForGold);
-        else if(_currentNumber == _numberSilverSkin)
+            _amountKill.text = MultiplierSign + NumberKillsForGold.ToString();
+        }
+        else if (_currentNumber == _numberSilverSkin)
+        {
             isCanBuy = TryGetPrize(NumberKillsForSilver);
-        else if(_currentNumber == _numberBronzeSkin)
+            _amountKill.text = MultiplierSign + NumberKillsForSilver.ToString();
+        }
+        else if (_currentNumber == _numberBronzeSkin)
+        {
             isCanBuy = TryGetPrize(NumberKillsForBronze);
+            _amountKill.text = MultiplierSign + NumberKillsForBronze.ToString();
+        }
 
         _blocking.gameObject.SetActive(isCanBuy ? false : true);
 
