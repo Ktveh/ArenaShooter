@@ -21,22 +21,30 @@ public class RecoveryPlayerData : MonoBehaviour
 
     private void OnEnable()
     {
-        _checkingSaving.SaveNotFound += Recover;
-        _writingLocalSave.Rewrited += Recover;
+        _checkingSaving.SaveNotFound += OnSaveNotFound;
+        _writingLocalSave.Rewrited += OnRewrited;
     }
 
     private void OnDisable()
     {
-        _checkingSaving.SaveNotFound -= Recover;
-        _writingLocalSave.Rewrited -= Recover;
+        _checkingSaving.SaveNotFound -= OnSaveNotFound;
+        _writingLocalSave.Rewrited -= OnRewrited;
     }
 
-    private void Recover()
+    private void OnSaveNotFound()
     {
         _score = _gettingLeaderboardScore.Current;
         _playerSaving.Recover(PlayerSaving.AmountKilledZombie, _score);
         _money = _score * Multiplier;
         _playerSaving.Recover(PlayerSaving.Money, _money);
+        _savingToCloud.enabled = true;
+        enabled = false;
+    }
+
+    private void OnRewrited()
+    {
+        _score = _gettingLeaderboardScore.Current;
+        _playerSaving.Recover(PlayerSaving.AmountKilledZombie, _score);
         _savingToCloud.enabled = true;
         enabled = false;
     }
