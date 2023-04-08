@@ -20,49 +20,48 @@ public class MenuUpgradingWeapon : MonoBehaviour
     {
         _buttonsSelectingWeapons = GetComponentsInChildren<ButtonSelectingWeapon>();
         _buttonsSelectingAccessories = GetComponentsInChildren<ButtonSelectingAccessory>();
-        _menu.Showed += OnShowed;
+        _playerWeaponSelecting.Selected += OnSelectedWeapon;
         _andexAds.Upgraded += OnRewarded;
 
         foreach (var button in _buttonsSelectingWeapons)
-            button.Down += OnSelectedWeapon;
+            button.Down += OnDownButtonSelecteWeapon;
         
         foreach (var button in _buttonsSelectingAccessories)
-            button.Down += OnSelectedAccessory;
-
-        _currentWeapon = _playerWeaponSelecting.CurrentWeapon;
+            button.Down += OnDownButtonSelectedAccessory;
     }
 
     private void OnDisable()
     {
-        _menu.Showed -= OnShowed;
         _andexAds.Upgraded -= OnRewarded;
+        _playerWeaponSelecting.Selected -= OnSelectedWeapon;
 
         foreach (var button in _buttonsSelectingWeapons)
-            button.Down -= OnSelectedWeapon;
+            button.Down -= OnDownButtonSelecteWeapon;
 
         foreach (var button in _buttonsSelectingAccessories)
-            button.Down -= OnSelectedAccessory;
+            button.Down -= OnDownButtonSelectedAccessory;
     }
 
-    private void OnSelectedWeapon(Weapon weapon)
+    private void OnDownButtonSelecteWeapon(Weapon weapon)
     {
         _currentWeapon = weapon;
         SelectedWeapon?.Invoke(weapon.Type);
     }
 
-    private void OnShowed()
+    private void OnSelectedWeapon()
     {
         _currentWeapon = _playerWeaponSelecting.CurrentWeapon;
+        SelectedWeapon?.Invoke(_playerWeaponSelecting.CurrentWeapon.Type);
     }
 
     private void OnRewarded(WeaponAccessories.Type type)
     {
         _isUpgradingOnReward = true;
-        OnSelectedAccessory(type);
+        OnDownButtonSelectedAccessory(type);
         _isUpgradingOnReward = false;
     }
 
-    private void OnSelectedAccessory(WeaponAccessories.Type type)
+    private void OnDownButtonSelectedAccessory(WeaponAccessories.Type type)
     {
         if (_currentWeapon.TryGetComponent(out WeaponAccessories weaponAccessories))
         {

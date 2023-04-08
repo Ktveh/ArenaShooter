@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localSave: {fileID: 177141758}
+  _localSave: {fileID: 1293894109}
   _name: Warehouse
   _scene: 3
   _isLock: 0
@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localSave: {fileID: 177141758}
+  _localSave: {fileID: 1293894109}
   _name: Forest
   _scene: 5
   _isLock: 1
@@ -2048,7 +2048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localSave: {fileID: 177141758}
+  _localSave: {fileID: 1293894109}
   _name: Port
   _scene: 6
   _isLock: 1
@@ -2239,6 +2239,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7498520423313660223, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498520423858467309, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7498706711191053483, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
       propertyPath: m_Name
       value: MainMenuBigPrefab
@@ -2247,6 +2255,42 @@ PrefabInstance:
       propertyPath: _containerZombie
       value: 
       objectReference: {fileID: 1370692603}
+    - target: {fileID: 8023337573559538462, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023337573593334483, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023337573944661770, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023337574138664735, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023337574276911476, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023337575035541647, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023337575468958928, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135036011545515144, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9212945717995904572, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
 --- !u!1 &646170328
@@ -2799,7 +2843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localSave: {fileID: 177141758}
+  _localSave: {fileID: 1293894109}
   _name: Metro
   _scene: 2
   _isLock: 0
@@ -4671,7 +4715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localSave: {fileID: 177141758}
+  _localSave: {fileID: 1293894109}
   _name: City
   _scene: 4
   _isLock: 1
@@ -5203,6 +5247,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1293894109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7498520423952709712, guid: 5212ce468fa38e242b2f25a43051a54d, type: 3}
+  m_PrefabInstance: {fileID: 636028389}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f66f9994cee8a5d47aff4a7128c78704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1314809347
@@ -7006,7 +7061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _localSave: {fileID: 177141758}
+  _localSave: {fileID: 1293894109}
   _name: Ship
   _scene: 7
   _isLock: 1
