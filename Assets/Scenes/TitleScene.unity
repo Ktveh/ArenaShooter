@@ -1848,6 +1848,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeaderView
       objectReference: {fileID: 0}
+    - target: {fileID: 584215664110957476, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3104835055379745183, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1932,9 +1936,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3719856667132741916, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
+      propertyPath: m_text
+      value: ...
+      objectReference: {fileID: 0}
     - target: {fileID: 5629225854171367034, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6403368941483209898, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
+      propertyPath: m_text
+      value: 000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6403368941483209898, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
+      propertyPath: m_fontSize
+      value: 41.6
       objectReference: {fileID: 0}
     - target: {fileID: 7446960711575141852, guid: 9fbc4e31075da434ebf1bc63d95dda39, type: 3}
       propertyPath: m_Enabled
