@@ -413,6 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localSave: {fileID: 177141758}
   _name: Warehouse
   _scene: 3
   _isLock: 0
@@ -1270,6 +1271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localSave: {fileID: 177141758}
   _name: Forest
   _scene: 5
   _isLock: 1
@@ -2057,6 +2059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localSave: {fileID: 177141758}
   _name: Port
   _scene: 6
   _isLock: 1
@@ -3159,6 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localSave: {fileID: 177141758}
   _name: Metro
   _scene: 2
   _isLock: 0
@@ -5030,6 +5034,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localSave: {fileID: 177141758}
   _name: City
   _scene: 4
   _isLock: 1
@@ -7364,6 +7369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74649258672cc4d4cbd194e099625138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _localSave: {fileID: 177141758}
   _name: Ship
   _scene: 7
   _isLock: 1
