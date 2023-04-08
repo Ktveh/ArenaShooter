@@ -114,8 +114,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 725065c3e256d624785aad798a8d0762, type: 2}
   - {fileID: 2100000, guid: 5735afa0ccbd3dc408fbf0a19e478a4e, type: 2}
   - {fileID: 2100000, guid: bb0d1d0eb18293f4a8d2ded5e4ee4e46, type: 2}
+  - {fileID: 2100000, guid: 13dbe50a9439e80499a8c4b778a007ec, type: 2}
   _renderer: {fileID: 23000010881668410}
-  _hasBonusMaterials: 0
-  _bronze: {fileID: 0}
-  _silver: {fileID: 0}
-  _gold: {fileID: 0}
+  _hasBonusMaterials: 1
+  _bronze: {fileID: 2100000, guid: 372af3675c18bdd469fc9dc561a78a85, type: 2}
+  _silver: {fileID: 2100000, guid: 531d39a2c93f76f48be28780276fcb25, type: 2}
+  _gold: {fileID: 2100000, guid: a44e19107ae1bc643b7f4bc48f406e63, type: 2}
