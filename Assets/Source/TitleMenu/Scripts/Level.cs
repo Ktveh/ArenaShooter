@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] private RewritingLocalSave _localSave;
     [SerializeField] private string _name;
     [SerializeField] private int _scene;
     [SerializeField] private bool _isLock;
@@ -18,14 +19,24 @@ public class Level : MonoBehaviour
 
     private void Awake()
     {
-        if (_scene <= PlayerPrefs.GetInt(SaveKey))
-        {
-            Unlock();
-        }
+        Unlock();
+    }
+
+    private void OnEnable()
+    {
+        _localSave.Rewrited += Unlock;
+    }
+
+    private void OnDisable()
+    {
+        _localSave.Rewrited -= Unlock;
     }
 
     public void Unlock()
     {
-        _isLock = false;
+        if (_scene <= PlayerPrefs.GetInt(SaveKey))
+        {
+            _isLock = false;
+        }
     }
 }
