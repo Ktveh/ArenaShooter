@@ -102,6 +102,61 @@ MonoBehaviour:
   - Language: Turkish
     Text: "Zombi \xF6ld\xFCrmek i\xE7in \xF6d\xFCll\xFC cilt"
     Object: {fileID: 0}
+--- !u!1 &420654560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 420654561}
+  - component: {fileID: 420654562}
+  m_Layer: 0
+  m_Name: Skin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &420654561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420654560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3511521935736190241}
+  m_RootOrder: 55
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &420654562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 420654560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Skin
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0421\u043A\u0438\u043D"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Deri
+    Object: {fileID: 0}
 --- !u!1 &536301651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,7 +2007,7 @@ MonoBehaviour:
     Text: "\u041F\u043E\u043F\u0430\u0434\u0430\u043D\u0438\u0439 \u0432 \u0433\u043E\u043B\u043E\u0432\u0443"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Kafadan at\u0131\u015Flar"
+    Text: Kafadan atislar
     Object: {fileID: 0}
 --- !u!1 &5155146045188705752
 GameObject:
@@ -2337,7 +2392,7 @@ MonoBehaviour:
     Text: "\u0412\u044B\u0441\u0442\u0440\u0435\u043B\u043E\u0432"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\xC7ekim say\u0131s\u0131"
+    Text: "\xC7ekim sayisi"
     Object: {fileID: 0}
 --- !u!1 &6694822051336371737
 GameObject:
@@ -2478,6 +2533,7 @@ Transform:
   - {fileID: 703109296902491905}
   - {fileID: 2371847820924541173}
   - {fileID: 8757986988035765995}
+  - {fileID: 420654561}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2937,7 +2993,7 @@ MonoBehaviour:
     Text: "\u0422\u043E\u0447\u043D\u043E\u0441\u0442\u044C"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "Do\u011Fruluk"
+    Text: Dogruluk
     Object: {fileID: 0}
 --- !u!1 &8575623740026595502
 GameObject:

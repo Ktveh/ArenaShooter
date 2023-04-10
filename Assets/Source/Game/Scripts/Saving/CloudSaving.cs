@@ -21,4 +21,9 @@ public class CloudSaving
     public bool IsSkin6InStok { get; set; }
     public bool IsSkin7InStok { get; set; }
     public bool IsSkin8InStok { get; set; }
+    public bool IsSkin9InStok { get; set; }
+    public bool IsSkin10InStok { get; set; }
+    public bool IsSkin11InStok { get; set; }
+    public bool IsSkin12InStok { get; set; }
+    public bool IsSkin13InStok { get; set; }
 }

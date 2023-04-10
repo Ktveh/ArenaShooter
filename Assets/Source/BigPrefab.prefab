@@ -3210,6 +3210,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5629789432314874393}
     m_Modifications:
+    - target: {fileID: 46337044, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: Bir sonraki seviye
+      objectReference: {fileID: 0}
+    - target: {fileID: 46337044, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 55052920, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: "Ana men\xFC"
+      objectReference: {fileID: 0}
     - target: {fileID: 395510505, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
@@ -3354,6 +3366,14 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 1261615905, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: Sonraki
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261615905, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_fontSize
+      value: 56.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1472817272, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerWallet
       value: 
@@ -3362,6 +3382,10 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 1485642737, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: Deri
+      objectReference: {fileID: 0}
     - target: {fileID: 1579753827, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -3374,6 +3398,14 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 1940274519, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: Tekrar dene
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940274519, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_fontSize
+      value: 45.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1963349896, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _soundListener
       value: 
@@ -3610,6 +3642,10 @@ PrefabInstance:
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590858924419751}
+    - target: {fileID: 4803400438684264048, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: Kafadan atislar
+      objectReference: {fileID: 0}
     - target: {fileID: 5082434002745349056, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
@@ -3622,6 +3658,18 @@ PrefabInstance:
       propertyPath: _playerZombieKillCounter
       value: 
       objectReference: {fileID: 558590858924419771}
+    - target: {fileID: 6678174482898484540, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: "Zombiler \xF6ld\xFCr\xFCld\xFC"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7590698292386691417, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: "\xC7ekim sayisi"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039847895463573996, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: m_text
+      value: Dogruluk
+      objectReference: {fileID: 0}
     - target: {fileID: 9005181943940936383, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _andexAds
       value: 
@@ -3732,6 +3780,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186b5ff9d51022241af58d97788c431f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8872036160661920452 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1485642735, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+  m_PrefabInstance: {fileID: 8872036159713280299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140025140115816934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872036160661920452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Skin
+  FallbackText: "\u0421\u043A\u0438\u043D"
 --- !u!114 &8872036161120631323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2082634544, guid: 166b29056e989774796fbd4015eda0b2, type: 3}

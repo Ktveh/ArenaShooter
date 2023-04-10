@@ -49,6 +49,11 @@ public class SavingToCloud : MonoBehaviour
             newWeapon.IsSkin6InStok = _weaponSkinSaving.Check(weapon.Type, WeaponSkin.Names.Skin6);
             newWeapon.IsSkin7InStok = _weaponSkinSaving.Check(weapon.Type, WeaponSkin.Names.Skin7);
             newWeapon.IsSkin8InStok = _weaponSkinSaving.Check(weapon.Type, WeaponSkin.Names.Skin8);
+            newWeapon.IsSkin9InStok = _weaponSkinSaving.Check(weapon.Type, WeaponSkin.Names.Skin9);
+            newWeapon.IsSkin10InStok = _weaponSkinSaving.Check(weapon.Type, WeaponSkin.Names.Skin10);
+            newWeapon.IsSkin11InStok = _weaponSkinSaving.Check(weapon.Type, WeaponSkin.Names.Skin11);
+            newWeapon.IsSkin12InStok = _weaponSkinSaving.Check(weapon.Type, WeaponSkin.Names.Skin12);
+            newWeapon.IsSkin13InStok = _weaponSkinSaving.Check(weapon.Type, WeaponSkin.Names.Skin13);
 
             weapons.Add(newWeapon);
         }

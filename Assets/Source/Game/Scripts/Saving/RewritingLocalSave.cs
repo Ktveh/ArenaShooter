@@ -87,6 +87,20 @@ public class RewritingLocalSave : MonoBehaviour
             if (saving.IsSkin8InStok)
                 _weaponSkinSaving.Save(saving.TypeWeapon, WeaponSkin.Names.Skin8);
 
+            if (saving.IsSkin9InStok)
+                _weaponSkinSaving.Save(saving.TypeWeapon, WeaponSkin.Names.Skin9);
+
+            if (saving.IsSkin10InStok)
+                _weaponSkinSaving.Save(saving.TypeWeapon, WeaponSkin.Names.Skin10);
+
+            if (saving.IsSkin11InStok)
+                _weaponSkinSaving.Save(saving.TypeWeapon, WeaponSkin.Names.Skin11);
+
+            if (saving.IsSkin12InStok)
+                _weaponSkinSaving.Save(saving.TypeWeapon, WeaponSkin.Names.Skin12);
+
+            if (saving.IsSkin13InStok)
+                _weaponSkinSaving.Save(saving.TypeWeapon, WeaponSkin.Names.Skin13);
         }
     }
 }
