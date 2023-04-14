@@ -21,6 +21,13 @@
       "dependencies": {},
       "hash": "b870d64b5704a764fd03aaccb11f2dbe652b1756"
     },
+    "com.dungeongames.vkgames": {
+      "version": "https://github.com/DungeonGames/com.dungeongames.vkgames.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "156ca8000c4428ab6e52976418da3489bf91c973"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.8",
       "depth": 0,
