@@ -22,12 +22,20 @@ public class Language : MonoBehaviour
 
     private IEnumerator Start()
     {
-#if !UNITY_WEBGL || UNITY_EDITOR
+#if !UNITY_WEBGL || UNITY_EDITOR || VK_GAMES
         Lean.Localization.LeanLocalization.SetCurrentLanguageAll(RussianLanguage);
         SceneManager.LoadScene(_indexOfFirstScene);
         yield break;
 #endif
 
+#if VK_GAMES
+        Lean.Localization.LeanLocalization.SetCurrentLanguageAll(RussianLanguage);
+        SceneManager.LoadScene(_indexOfFirstScene);
+        yield return VKGamesSdk.Initialize();
+        yield break;
+#endif
+
+#if YANDEX_GAMES
         yield return YandexGamesSdk.Initialize();
 
         if (YandexGamesSdk.IsInitialized)
@@ -44,6 +52,7 @@ public class Language : MonoBehaviour
                 ChangeLanguage();
             }
         }
+#endif
     }
 
     private void ChangeLanguage()
