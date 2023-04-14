@@ -12,6 +12,10 @@ public class LeaderboardButton : MonoBehaviour
 
     private void Awake()
     {
+#if VK_GAMES
+        gameObject.SetActive(false);
+        return;
+#endif
         _buttonAuthText.gameObject.SetActive(true);
         if (PlayerAccount.IsAuthorized)
             Rename();
