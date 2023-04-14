@@ -49542,7 +49542,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _menu: {fileID: 8872036160426186274}
   _levelReward: {fileID: 8872036160426186275}
-  _andexAds: {fileID: 2140025140285934235}
+  _yandexAds: {fileID: 2140025140285934235}
+  _vkAds: {fileID: 2140025140285934238}
+  _vkInviting: {fileID: 0}
 --- !u!114 &558590859818728837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52494,6 +52496,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5629789433765977381}
     m_Modifications:
+    - target: {fileID: 1083857991, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 8872036160426186277}
+    - target: {fileID: 1083857991, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _adRewardButton
+      value: 
+      objectReference: {fileID: 8872036160426186273}
+    - target: {fileID: 1083857991, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _buttonsUpgradingOnReward.Array.data[0]
+      value: 
+      objectReference: {fileID: 8872036160426186272}
+    - target: {fileID: 1083857991, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _buttonsUpgradingOnReward.Array.data[1]
+      value: 
+      objectReference: {fileID: 8872036160426186271}
+    - target: {fileID: 1083857991, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _buttonsUpgradingOnReward.Array.data[2]
+      value: 
+      objectReference: {fileID: 8872036160426186266}
     - target: {fileID: 1358166167432884712, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
       propertyPath: _game
       value: 
@@ -52560,7 +52582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1358166167432884724, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
       propertyPath: m_Name
-      value: YandexSDK
+      value: SDK
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
@@ -52570,7 +52592,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2140025140285934234}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13374b811a80dc24a80c262fef889ef7, type: 3}
   m_Name: 
@@ -52581,7 +52603,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 2140025140285934234}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed72841951394f8459fd612d17315f7b, type: 3}
   m_Name: 
@@ -52591,6 +52613,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1358166167432884714, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
   m_PrefabInstance: {fileID: 2140025140285934234}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2140025140285934238 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1083857991, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+  m_PrefabInstance: {fileID: 2140025140285934234}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e68e2857d2e1b454987fbe9f5df7012c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3469193301056355136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55954,6 +55987,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 524818456476234468, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _vkAds
+      value: 
+      objectReference: {fileID: 2140025140285934238}
+    - target: {fileID: 524818456476234468, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _andexAds
       value: 
       objectReference: {fileID: 2140025140285934235}
@@ -56078,6 +56115,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 558590859818728857}
     - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _vkAds
+      value: 
+      objectReference: {fileID: 2140025140285934238}
+    - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _yandexAds
       value: 
       objectReference: {fileID: 2140025140285934235}
@@ -56173,6 +56214,10 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u0422\u043E\u0447\u043D\u043E\u0441\u0442\u044C"
       objectReference: {fileID: 0}
+    - target: {fileID: 9005181943940936383, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _vkAds
+      value: 
+      objectReference: {fileID: 2140025140285934238}
     - target: {fileID: 9005181943940936383, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _andexAds
       value: 

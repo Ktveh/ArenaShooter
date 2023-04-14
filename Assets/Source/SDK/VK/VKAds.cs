@@ -40,7 +40,6 @@ public class VKAds : MonoBehaviour
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
         GetGold();
-        Close();
         return;
 #endif
         VideoAd.Show(GetGold, Error);
@@ -51,7 +50,6 @@ public class VKAds : MonoBehaviour
         _type = type;
 #if !UNITY_WEBGL || UNITY_EDITOR
         Upgrade();
-        Close();
         return;
 #endif
         VideoAd.Show(Upgrade, Error);

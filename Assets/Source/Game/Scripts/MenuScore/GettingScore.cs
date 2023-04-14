@@ -7,6 +7,7 @@ public class GettingScore : MonoBehaviour
     [SerializeField] private LevelScore _levelScore;
     [SerializeField] private LevelReward _levelReward;
     [SerializeField] private YandexAds _andexAds;
+    [SerializeField] private VKAds _vkAds;
     [SerializeField] private TMP_Text _goodTitle;
     [SerializeField] private TMP_Text _badTitle;
     [SerializeField] private TMP_Text _amountKilledZombie;
@@ -21,11 +22,13 @@ public class GettingScore : MonoBehaviour
     private void OnEnable()
     {
         _andexAds.GetedGold += OnGetedGold;
+        _vkAds.GetedGold += OnGetedGold;
     }
 
     private void OnDisable()
     {
         _andexAds.GetedGold -= OnGetedGold;
+        _vkAds.GetedGold -= OnGetedGold;
     }
 
     public void SetValue()

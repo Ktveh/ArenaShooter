@@ -7,6 +7,7 @@ public class MenuUpgradingWeapon : MonoBehaviour
     [SerializeField] private PlayerWeaponSelecting _playerWeaponSelecting;
     [SerializeField] private ShowingScore _menu;
     [SerializeField] private YandexAds _andexAds;
+    [SerializeField] private VKAds _vkAds;
 
     private ButtonSelectingWeapon[] _buttonsSelectingWeapons;
     private ButtonSelectingAccessory[] _buttonsSelectingAccessories;
@@ -22,6 +23,7 @@ public class MenuUpgradingWeapon : MonoBehaviour
         _buttonsSelectingAccessories = GetComponentsInChildren<ButtonSelectingAccessory>();
         _playerWeaponSelecting.Selected += OnSelectedWeapon;
         _andexAds.Upgraded += OnRewarded;
+        _vkAds.Upgraded += OnRewarded;
 
         foreach (var button in _buttonsSelectingWeapons)
             button.Down += OnDownButtonSelecteWeapon;
@@ -33,6 +35,7 @@ public class MenuUpgradingWeapon : MonoBehaviour
     private void OnDisable()
     {
         _andexAds.Upgraded -= OnRewarded;
+        _vkAds.Upgraded -= OnRewarded;
         _playerWeaponSelecting.Selected -= OnSelectedWeapon;
 
         foreach (var button in _buttonsSelectingWeapons)

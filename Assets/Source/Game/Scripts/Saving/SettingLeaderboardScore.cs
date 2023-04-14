@@ -12,6 +12,7 @@ public class SettingLeaderboardScore : MonoBehaviour
     {
         _playerSaving = GetComponent<PlayerSaving>();
 
+#if YANDEX_GAMES
         Leaderboard.GetPlayerEntry(LeaderBoard, (result) =>
         {
             if (result == null || result.score < _playerSaving.CurrentScore)
@@ -19,5 +20,10 @@ public class SettingLeaderboardScore : MonoBehaviour
                 Leaderboard.SetScore(LeaderBoard, _playerSaving.CurrentScore);
             }
         });
+#endif
+
+#if VK_GAMES
+        DungeonGames.VKGames.Leaderboard.ShowLeaderboard(_playerSaving.CurrentScore);
+#endif
     }
 }

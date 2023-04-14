@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private YandexInitialization _yandexInitialization;
     [SerializeField] private YandexAds _yandexAds;
+    [SerializeField] private VKAds _vkAds;
     [SerializeField] private InterfaceZombieBar _zombieBar;
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Button _buttonPlayingGame;
@@ -64,6 +65,8 @@ public class Game : MonoBehaviour
         _playerHealth.Deaded += OnDeaded;
         _yandexAds.Showed += OnShowed;
         _yandexAds.Errored += OnShowed;
+        _vkAds.Showed += OnShowed;
+        _vkAds.Errored += OnShowed;
     }
 
     private void OnDisable()
@@ -73,7 +76,9 @@ public class Game : MonoBehaviour
         _buttonPlayingGame.onClick.RemoveListener(Play);
         _playerHealth.Deaded -= OnDeaded;
         _yandexAds.Showed -= OnShowed;
-        _yandexAds.Errored -= OnShowed;
+        _yandexAds.Errored -= OnShowed; 
+        _vkAds.Showed -= OnShowed;
+        _vkAds.Errored -= OnShowed;
     }
 
     private void OnCompleted()
