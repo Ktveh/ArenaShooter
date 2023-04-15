@@ -60,12 +60,14 @@ public class SavingToCloud : MonoBehaviour
 
         string jsonData = JsonConvert.SerializeObject(weapons, Formatting.Indented);
 
-#if !UNITY_WEBGL || UNITY_EDITOR
+#if !UNITY_WEBGL || UNITY_EDITOR || !YANDEX_GAMES
         IsSuccess = true;
         return;
 #endif
 
+#if YANDEX_GAMES
         PlayerAccount.SetPlayerData(jsonData);
         IsSuccess = true;
+#endif
     }
 }

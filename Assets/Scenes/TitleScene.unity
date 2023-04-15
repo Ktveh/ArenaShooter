@@ -11723,6 +11723,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 893487322579093563}
     - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _vkAds
+      value: 
+      objectReference: {fileID: 1590943949890273086}
+    - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}

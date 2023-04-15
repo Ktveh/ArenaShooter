@@ -88,8 +88,18 @@ public class Game : MonoBehaviour
 
     private void DefineControl()
     {
+#if YANDEX_GAMES
         IsMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop ? true : false;
         DeviceGeted?.Invoke(IsMobile);
+#endif
+
+#if VK_GAMES
+    #if MOBILE
+        IsMobile = true;
+    #else
+        IsMobile = false;
+    #endif
+#endif
 
         if (IsMobile)
             _gameCursorControl.Enable();
