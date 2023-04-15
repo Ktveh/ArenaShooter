@@ -61,8 +61,12 @@ public class PausingGame : MonoBehaviour
         {
             Play();
             _pauseMenu.gameObject.SetActive(false);
-            _gameCursorControl.Disable();
             _gameControllingPlayer.enabled = true;
+
+            if (_game.IsMobile)
+                _gameCursorControl.Enable();
+            else
+                _gameCursorControl.Disable();
         }
         else
         {
