@@ -44,6 +44,10 @@ public class Game : MonoBehaviour
     private void Start()
     {
         IsStarted = true;
+
+#if VK_GAMES
+        DefineControl();
+#endif
     }
 
     private void Update()
@@ -91,14 +95,6 @@ public class Game : MonoBehaviour
 #if YANDEX_GAMES
         IsMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop ? true : false;
         DeviceGeted?.Invoke(IsMobile);
-#endif
-
-#if VK_GAMES
-    #if MOBILE
-        IsMobile = true;
-    #else
-        IsMobile = false;
-    #endif
 #endif
 
         if (IsMobile)
