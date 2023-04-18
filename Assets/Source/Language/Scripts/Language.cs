@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Agava.YandexGames;
 using DungeonGames.VKGames;
+using CrazyGames;
 
 public class Language : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Language : MonoBehaviour
 
     private IEnumerator Start()
     {
-#if !UNITY_WEBGL || UNITY_EDITOR || VK_GAMES
+#if !UNITY_WEBGL || UNITY_EDITOR
         Lean.Localization.LeanLocalization.SetCurrentLanguageAll(RussianLanguage);
         SceneManager.LoadScene(_indexOfFirstScene);
         yield break;
@@ -33,6 +34,12 @@ public class Language : MonoBehaviour
         Lean.Localization.LeanLocalization.SetCurrentLanguageAll(RussianLanguage);
         SceneManager.LoadScene(_indexOfFirstScene);
         yield return VKGamesSdk.Initialize();
+        yield break;
+#endif
+
+#if CRAZY_GAMES
+        Lean.Localization.LeanLocalization.SetCurrentLanguageAll(EnglishLanguage);
+        SceneManager.LoadScene(_indexOfFirstScene);
         yield break;
 #endif
 
