@@ -14,6 +14,9 @@ GameObject:
   - component: {fileID: 1358166167432884712}
   - component: {fileID: 1083857993}
   - component: {fileID: 1083857991}
+  - component: {fileID: 7993992990106921929}
+  - component: {fileID: 5920884017860088153}
+  - component: {fileID: 1186038425165720737}
   m_Layer: 0
   m_Name: SDK
   m_TagString: Untagged
@@ -108,3 +111,47 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &7993992990106921929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358166167432884724}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ded744bd50b8f549b4ae44fc4780359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5920884017860088153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358166167432884724}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3183aab860739be45991ac7ad4295e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _game: {fileID: 0}
+  _adRewardButton: {fileID: 0}
+  _buttonsUpgradingOnReward:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &1186038425165720737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358166167432884724}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3544376409bbc47835f857c4e8a5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pausingGame: {fileID: 0}
+  _game: {fileID: 0}

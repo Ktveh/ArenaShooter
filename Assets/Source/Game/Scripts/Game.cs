@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
     [SerializeField] private CrazyInitialization _crazyInitialization;
     [SerializeField] private YandexAds _yandexAds;
     [SerializeField] private VKAds _vkAds;
+    [SerializeField] private CrazyAdvertising _crazyAdvertising;
     [SerializeField] private InterfaceZombieBar _zombieBar;
     [SerializeField] private PlayerHealth _playerHealth;
     [SerializeField] private Button _buttonPlayingGame;
@@ -75,6 +76,8 @@ public class Game : MonoBehaviour
         _yandexAds.Errored += OnShowed;
         _vkAds.Showed += OnShowed;
         _vkAds.Errored += OnShowed;
+        _crazyAdvertising.Showed += OnShowed;
+        _crazyAdvertising.Errored += OnShowed;
     }
 
     private void OnDisable()
@@ -88,6 +91,8 @@ public class Game : MonoBehaviour
         _yandexAds.Errored -= OnShowed; 
         _vkAds.Showed -= OnShowed;
         _vkAds.Errored -= OnShowed;
+        _crazyAdvertising.Showed -= OnShowed;
+        _crazyAdvertising.Errored -= OnShowed;
     }
 
     private void OnCompleted()
@@ -152,6 +157,9 @@ public class Game : MonoBehaviour
 #if !UNITY_WEBGL || UNITY_EDITOR
         return;
 #endif
+
+#if YANDEX_GAMES
         _settingLeaderboardScore.enabled = true;
+#endif
     }
 }

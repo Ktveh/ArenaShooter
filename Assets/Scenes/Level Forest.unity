@@ -10234,6 +10234,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 351088680}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &357211809 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5920884017860088153, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+  m_PrefabInstance: {fileID: 2140025140324286623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3183aab860739be45991ac7ad4295e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &357216188
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13589,6 +13600,17 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &494948190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 524818458152278392, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+  m_PrefabInstance: {fileID: 8872036160463363090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9039bc1ac030b74bad8a05f374234bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &495126172
 GameObject:
   m_ObjectHideFlags: 0
@@ -66002,6 +66024,7 @@ MonoBehaviour:
   _levelReward: {fileID: 8872036160463363102}
   _yandexAds: {fileID: 2140025140324286624}
   _vkAds: {fileID: 2140025140324286627}
+  _crazyAdvertising: {fileID: 357211809}
   _vkInviting: {fileID: 0}
 --- !u!114 &558590859781552002
 MonoBehaviour:
@@ -68958,6 +68981,14 @@ PrefabInstance:
       propertyPath: _buttonsUpgradingOnReward.Array.data[2]
       value: 
       objectReference: {fileID: 8872036160463363097}
+    - target: {fileID: 1186038425165720737, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 8872036160463363104}
+    - target: {fileID: 1186038425165720737, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _pausingGame
+      value: 
+      objectReference: {fileID: 494948190}
     - target: {fileID: 1358166167432884712, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
       propertyPath: _game
       value: 
@@ -69026,6 +69057,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SDK
       objectReference: {fileID: 0}
+    - target: {fileID: 5920884017860088153, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _game
+      value: 
+      objectReference: {fileID: 8872036160463363104}
+    - target: {fileID: 5920884017860088153, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _adRewardButton
+      value: 
+      objectReference: {fileID: 8872036160463363100}
+    - target: {fileID: 5920884017860088153, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _buttonsUpgradingOnReward.Array.data[0]
+      value: 
+      objectReference: {fileID: 8872036160463363099}
+    - target: {fileID: 5920884017860088153, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _buttonsUpgradingOnReward.Array.data[1]
+      value: 
+      objectReference: {fileID: 8872036160463363098}
+    - target: {fileID: 5920884017860088153, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+      propertyPath: _buttonsUpgradingOnReward.Array.data[2]
+      value: 
+      objectReference: {fileID: 8872036160463363097}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
 --- !u!114 &2140025140324286624 stripped
@@ -69064,6 +69115,17 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e68e2857d2e1b454987fbe9f5df7012c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2140025140324286628 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7993992990106921929, guid: 4578ed21975a2d54b99ff2f7a15d26bd, type: 3}
+  m_PrefabInstance: {fileID: 2140025140324286623}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ded744bd50b8f549b4ae44fc4780359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3469193301027565893
@@ -72445,6 +72507,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 558590859781552001}
     - target: {fileID: 524818456476234468, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _crazyAdvertising
+      value: 
+      objectReference: {fileID: 357211809}
+    - target: {fileID: 524818456476234468, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _playerWeaponSelecting
       value: 
       objectReference: {fileID: 558590859781552030}
@@ -72577,6 +72643,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 558590859781552031}
     - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _crazyAdvertising
+      value: 
+      objectReference: {fileID: 357211809}
+    - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _crazyInitialization
+      value: 
+      objectReference: {fileID: 2140025140324286628}
+    - target: {fileID: 524818458152278394, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
       propertyPath: _yandexInitialization
       value: 
       objectReference: {fileID: 2140025140324286625}
@@ -72668,6 +72742,10 @@ PrefabInstance:
       propertyPath: _andexAds
       value: 
       objectReference: {fileID: 2140025140324286624}
+    - target: {fileID: 9005181943940936383, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
+      propertyPath: _crazyAdvertising
+      value: 
+      objectReference: {fileID: 357211809}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 166b29056e989774796fbd4015eda0b2, type: 3}
 --- !u!114 &8872036160463363091 stripped

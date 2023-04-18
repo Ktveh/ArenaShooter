@@ -11,11 +11,9 @@ public class LoadingScene : MonoBehaviour
 
     public void LoadCurrentLevel()
     {
-#if VK_GAMES
+#if !YANDEX_GAMES
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-#endif
-
-#if YANDEX_GAMES
+#else
         if (_coroutine == null)
             _coroutine = StartCoroutine(WaitForSaving(SceneManager.GetActiveScene().buildIndex));
 #endif
@@ -23,11 +21,9 @@ public class LoadingScene : MonoBehaviour
 
     public void LoadNextLevel()
     {
-#if VK_GAMES
+#if !YANDEX_GAMES
         SceneManager.LoadScene(_zombieCounter.NextLevel);
-#endif
-
-#if YANDEX_GAMES
+#else
         if (_coroutine == null)
             _coroutine = StartCoroutine(WaitForSaving(_zombieCounter.NextLevel));
 #endif
@@ -35,11 +31,9 @@ public class LoadingScene : MonoBehaviour
 
     public void LoadMainMenu()
     {
-#if VK_GAMES
+#if !YANDEX_GAMES
         SceneManager.LoadScene(0);
-#endif
-
-#if YANDEX_GAMES
+#else
         if (_coroutine == null)
             _coroutine = StartCoroutine(WaitForSaving(0));
 #endif

@@ -7,6 +7,7 @@ public class PlayerWallet : MonoBehaviour
     [SerializeField] private LevelReward _levelReward;
     [SerializeField] private YandexAds _yandexAds;
     [SerializeField] private VKAds _vkAds;
+    [SerializeField] private CrazyAdvertising _crazyAdvertising;
     [SerializeField] private VKInviting _vkInviting;
 
     private int _value;
@@ -20,6 +21,7 @@ public class PlayerWallet : MonoBehaviour
         _menu.Showed += OnShowed;
         _yandexAds.GetedGold += OnGetedGold;
         _vkAds.GetedGold += OnGetedGold;
+        _crazyAdvertising.GetedGold += OnGetedGold;
 
         if(_vkInviting != null)
             _vkInviting.Rewarded += OnRewarded;
@@ -30,6 +32,7 @@ public class PlayerWallet : MonoBehaviour
         _menu.Showed -= OnShowed;
         _yandexAds.GetedGold -= OnGetedGold;
         _vkAds.GetedGold -= OnGetedGold;
+        _crazyAdvertising.GetedGold -= OnGetedGold;
 
         if (_vkInviting != null)
             _vkInviting.Rewarded -= OnRewarded;

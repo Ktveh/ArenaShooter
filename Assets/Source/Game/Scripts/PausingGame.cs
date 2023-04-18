@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Game))]
 [RequireComponent(typeof(GameControllingPlayer))]
@@ -12,6 +13,9 @@ public class PausingGame : MonoBehaviour
     private Game _game;
     private GameControllingPlayer _gameControllingPlayer;
     private GameCursorControl _gameCursorControl;
+
+    public event UnityAction Played;
+    public event UnityAction Paused;
 
     private void Start()
     {
@@ -50,6 +54,7 @@ public class PausingGame : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1;
+        Played?.Invoke();
     }
     
     private void OnPaused()
@@ -62,6 +67,7 @@ public class PausingGame : MonoBehaviour
             Play();
             _pauseMenu.gameObject.SetActive(false);
             _gameControllingPlayer.enabled = true;
+            Played?.Invoke();
 
             if (_game.IsMobile)
                 _gameCursorControl.Enable();
@@ -74,6 +80,7 @@ public class PausingGame : MonoBehaviour
             _pauseMenu.gameObject.SetActive(true);
             _gameCursorControl.Enable();
             _gameControllingPlayer.enabled = false;
+            Paused?.Invoke();
         }
 
     }
