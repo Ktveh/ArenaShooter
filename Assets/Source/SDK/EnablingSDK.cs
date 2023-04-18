@@ -1,15 +1,19 @@
 using UnityEngine;
 
 [RequireComponent(typeof(YandexInitialization))]
-[RequireComponent(typeof(VKInitialization))]
 [RequireComponent(typeof(YandexAds))]
+[RequireComponent(typeof(VKInitialization))]
 [RequireComponent(typeof(VKAds))]
+[RequireComponent(typeof(CrazyInitialization))]
+[RequireComponent(typeof(CrazyAdvertising))]
 public class EnablingSDK : MonoBehaviour
 {
     private YandexInitialization _yandexInitialization;
-    private VKInitialization _vkInitialization;
     private YandexAds _yandexAds;
+    private VKInitialization _vkInitialization;
     private VKAds _vkAds;
+    private CrazyInitialization _crazyInitialization;
+    private CrazyAdvertising _crazyAdvertising;
 
 #if YANDEX_GAMES
     private void Start()
@@ -30,6 +34,17 @@ public class EnablingSDK : MonoBehaviour
 
         _vkInitialization.enabled = true;
         _vkAds.enabled = true;
+    }
+#endif
+
+#if CRAZY_GAMES
+    private void Start()
+    {
+        _crazyInitialization = GetComponent<CrazyInitialization>();
+        _crazyAdvertising = GetComponent<CrazyAdvertising>();
+
+        _crazyInitialization.enabled = true;
+        _crazyAdvertising.enabled = true;
     }
 #endif
 }

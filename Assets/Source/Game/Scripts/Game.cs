@@ -9,7 +9,10 @@ using UnityEngine.UI;
 [RequireComponent (typeof(SettingLeaderboardScore))]
 public class Game : MonoBehaviour
 {
+    private const string Desktop = "desktop";
+
     [SerializeField] private YandexInitialization _yandexInitialization;
+    [SerializeField] private CrazyInitialization _crazyInitialization;
     [SerializeField] private YandexAds _yandexAds;
     [SerializeField] private VKAds _vkAds;
     [SerializeField] private InterfaceZombieBar _zombieBar;
@@ -64,6 +67,7 @@ public class Game : MonoBehaviour
     private void OnEnable()
     {
         _yandexInitialization.Completed += OnCompleted;
+        _crazyInitialization.GetedDevice += OnGetedDevice;
         _zombieBar.AllZombiesDead += OnAllZombiesDead;
         _buttonPlayingGame.onClick.AddListener(Play);
         _playerHealth.Deaded += OnDeaded;
@@ -76,6 +80,7 @@ public class Game : MonoBehaviour
     private void OnDisable()
     {
         _yandexInitialization.Completed -= OnCompleted;
+        _crazyInitialization.GetedDevice -= OnGetedDevice;
         _zombieBar.AllZombiesDead -= OnAllZombiesDead;
         _buttonPlayingGame.onClick.RemoveListener(Play);
         _playerHealth.Deaded -= OnDeaded;
@@ -87,16 +92,27 @@ public class Game : MonoBehaviour
 
     private void OnCompleted()
     {
+
+#if YANDEX_GAMES
+        IsMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop ? true : false;
+        DeviceGeted?.Invoke(IsMobile);
+
         DefineControl();
+#endif
+    }
+
+    private void OnGetedDevice(string type)
+    {
+#if CRAZY_GAMES
+        IsMobile = type != Desktop ? true : false;
+        DeviceGeted?.Invoke(IsMobile);
+
+        DefineControl();
+#endif
     }
 
     private void DefineControl()
     {
-#if YANDEX_GAMES
-        IsMobile = Agava.YandexGames.Device.Type != Agava.YandexGames.DeviceType.Desktop ? true : false;
-        DeviceGeted?.Invoke(IsMobile);
-#endif
-
         if (IsMobile)
             _gameCursorControl.Enable();
         else
